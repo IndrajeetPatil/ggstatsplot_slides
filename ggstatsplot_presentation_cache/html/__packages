@@ -1,3 +1,5 @@
 base
 leaflet
 DT
+ggstatsplot
+ggplot2

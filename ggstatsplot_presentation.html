@@ -38,6 +38,12 @@ class: center, middle, inverse, title-slide
 ---
 
 
+&lt;style type="text/css"&gt;
+code.r{
+  font-size: 16px;
+}
+&lt;/style&gt;
+
 
 
 layout: false
@@ -74,6 +80,7 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 layout: true
 
 # 1. Simpler data analysis workflow
+
 ---
 
 --
@@ -109,6 +116,7 @@ simpler and faster.
 layout: true
 
 # 2. Visualization is worth a thousand words
+
 ---
 
 --
@@ -134,6 +142,36 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 .font150[“I plotted my data and what I found will surprise me!”]
+
+---
+
+layout: false
+
+# 3. Cleaner API
+
+--
+
+
+```r
+stats::lm(formula = wt ~ mpg, data = mtcars)
+```
+--
+
+
+```r
+stats::cor(x = mtcars$wt, y = mtcars$mpg)
+```
+--
+
+
+```r
+stats::cor.test(formula = ~ wt + mpg, data = mtcars)
+```
+--
+
+.img-center-small[
+![](images/sideeye.gif)
+]
 
 ---
 
@@ -170,29 +208,46 @@ devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 
 --
 
-You are recommended to use the [RStudio
-IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+Load the needed packages-
+
+
+```r
+library(ggstatsplot)
+library(ggplot2)
+```
+
+--
+
+You are recommended to use the [RStudioIDE](https://www.rstudio.com/products/rstudio/), 
+but you do not have to.
 
 ---
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
-background-position: 50% 50%
-class: center, bottom, inverse
 
-# You only live once!
+layout: true
+
+# ggbetweenstats
+
+---
+
+.left-code[
+
+```r
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  messages = FALSE
+)
+```
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
-# Hello Ninja
-
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
-
-1. The [remark.js](https://remarkjs.com) library;
-
-1. The **xaringan** package;
-
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
----
+layout: false
 
 # remark.js
 
@@ -334,7 +389,7 @@ plot(cars, pch = 19, col = 'darkgray', las = 1)
 abline(fit, lwd = 2)
 ```
 
-&lt;img src="ggstatsplot_presentation_files/figure-html/cars-1.svg" width="100%" /&gt;
+&lt;img src="ggstatsplot_presentation_files/figure-html/cars-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -421,8 +476,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-fbe366fe1fe868afd0ed" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fbe366fe1fe868afd0ed">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f00b87e48d74f474ad92" style="width:100%;height:1800px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f00b87e48d74f474ad92">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -434,8 +489,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-4756962e88dda85629d0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4756962e88dda85629d0">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1ae63e0a53f4e3b1a3fe" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1ae63e0a53f4e3b1a3fe">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -878,7 +933,7 @@ class: inverse, center, middle
 .font150.text-white[
 @patilindrajeets &lt;br&gt;
 github.com/IndrajeetPatil &lt;br&gt;
-Indrajeet Patil
+patilindrajeet.science@gmail.com
 ]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

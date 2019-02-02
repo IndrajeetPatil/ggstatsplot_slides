@@ -1,8 +1,8 @@
 unnamed-chunk-1	dojutsu	fit
 unnamed-chunk-2	
 cars	
-unnamed-chunk-3	.ggstatsplot_presentation_cache/html/unnamed-chunk-3_939d67324ea4de9cbd3e53459447845c_meta
-unnamed-chunk-4	.ggstatsplot_presentation_cache/html/unnamed-chunk-4_d07820add3534966d1fe7690b5b9a930_meta
+unnamed-chunk-3	.ggstatsplot_presentation_cache/html/unnamed-chunk-3_783644d47449b712afdbf6488bd24eb1_meta
+unnamed-chunk-4	.ggstatsplot_presentation_cache/html/unnamed-chunk-4_36012030bc6b786c4c71caa64c90f79b_meta
 unnamed-chunk-5	
 unnamed-chunk-6	
 unnamed-chunk-7	
@@ -11,3 +11,9 @@ unnamed-chunk-9
 unnamed-chunk-10	
 utils	
 github	
+other_API	
+lm	
+cor	
+cor.test	
+ggbetweenstats_1	
+load	

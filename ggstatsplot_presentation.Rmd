@@ -18,10 +18,16 @@ editor_options:
   chunk_output_type: console
 ---
 
+<style type="text/css">
+code.r{
+  font-size: 16px;
+}
+</style>
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  fig.width = 4.25, fig.height = 3.5, fig.retina = 3,
-  out.width = "100%",
+  fig.width = 5, fig.height = 3.5, fig.retina = 2, fig.align = 'center',
+  out.width = "100%", dpi = 300,
   message = FALSE, warning = FALSE, cache = TRUE,
   autodep = TRUE, hiline = TRUE
 )
@@ -80,6 +86,7 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 layout: true
 
 # 1. Simpler data analysis workflow
+
 ---
 
 --
@@ -115,6 +122,7 @@ simpler and faster.
 layout: true
 
 # 2. Visualization is worth a thousand words
+
 ---
 
 --
@@ -140,6 +148,33 @@ layout: true
 <br>
 <br>
 .font150[“I plotted my data and what I found will surprise me!”]
+
+---
+
+layout: false
+
+# 3. Cleaner API
+
+--
+
+```{r lm, eval=FALSE}
+stats::lm(formula = wt ~ mpg, data = mtcars)
+```
+--
+
+```{r cor, eval=FALSE}
+stats::cor(x = mtcars$wt, y = mtcars$mpg)
+```
+--
+
+```{r cor.test, eval=FALSE}
+stats::cor.test(formula = ~ wt + mpg, data = mtcars)
+```
+--
+
+.img-center-small[
+![](images/sideeye.gif)
+]
 
 ---
 
@@ -174,29 +209,45 @@ devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 
 --
 
-You are recommended to use the [RStudio
-IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+Load the needed packages-
+
+```{r load, eval = TRUE, warning=FALSE}
+library(ggstatsplot)
+library(ggplot2)
+```
+
+--
+
+You are recommended to use the [RStudioIDE](https://www.rstudio.com/products/rstudio/), 
+but you do not have to.
 
 ---
-background-image: url(`r xaringan:::karl`)
-background-position: 50% 50%
-class: center, bottom, inverse
 
-# You only live once!
+layout: true
+
+# ggbetweenstats
+
+---
+
+.left-code[
+```{r ggbetweenstats_1, eval = FALSE}
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  messages = FALSE
+)
+```
+]
+
+.right-plot[
+```{r ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE}
+```
+]
 
 ---
 
-# Hello Ninja
-
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
-
-1. The [remark.js](https://remarkjs.com) library;
-
-1. The **xaringan** package;
-
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
----
+layout: false
 
 # remark.js
 
@@ -730,5 +781,5 @@ class: inverse, center, middle
 .font150.text-white[
 @patilindrajeets <br>
 github.com/IndrajeetPatil <br>
-Indrajeet Patil
+patilindrajeet.science@gmail.com
 ]

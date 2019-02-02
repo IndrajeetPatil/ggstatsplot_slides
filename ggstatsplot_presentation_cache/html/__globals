@@ -11,3 +11,9 @@ unnamed-chunk-9	head	iris
 unnamed-chunk-10	names	list_css
 utils	install.packages
 github	install_github
+other_API	lm	wt	mpg	mtcars	cor	cor.test
+lm	lm	wt	mpg	mtcars
+cor	cor	mtcars	wt	mpg
+cor.test	cor.test	wt	mpg	mtcars
+ggbetweenstats_1	ggbetweenstats	mtcars	am	wt
+load	library	ggstatsplot	ggplot2
