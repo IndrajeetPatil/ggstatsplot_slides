@@ -1,34 +1,69 @@
 ---
 title: "`ggstatsplot`: <br>R Package for `ggplot2` Based Plots with Statistical Details"
 subtitle: "Harvard Psych Methods Dinners"
-author: "Indrajeet Patil<br>@patilindrajeets"
-date: "2019-02-05<br><br>Follow along: **bit.ly/trug-ggplot2**"
+author: "Indrajeet Patil (Harvard University)<br>@patilindrajeets"
+date: "2019-02-05"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "metropolis", "metropolis-fonts", "trug-ggplot2.css"]
+    css: ["default", "metropolis", "metropolis-fonts", "ggstatsplot_presentation.css"]
+    df_print: kable
     nature:
       ratio: 16:9
-      highlightStyle: github
+      highlightStyle: "foundation"
       highlightLines: true
-      countIncrementalSlides: false
+      countIncrementalSlides: true
       slideNumberFormat: "%current%"
 editor_options: 
   chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width = 4.25, fig.height = 3.5, fig.retina = 3,
+  out.width = "100%",
+  message = FALSE, warning = FALSE, cache = TRUE,
+  autodep = TRUE, hiline = TRUE
+)
+
+knitr::opts_hooks$set(fig.callout = function(options) {
+  if (options$fig.callout) {
+    options$echo <- FALSE
+    options$out.height <- "99%"
+    options$fig.width <- 16
+    options$fig.height <- 8
+  }
+  options
+})
+
+options(
+  htmltools.dir.version = FALSE,
+  width = 90,
+  max.print = 9999,
+  knitr.table.format = "html"
+)
+
+as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+---
+layout: true
+# Why *ggstatsplot*?
+---
 
-???
+.left-column[
+![](images/y_tho.jpg)
+]
 
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+.right-column[.font150[
+Current count of number of packages on the Comprehensive R Archive Network (**CRAN**)<br>
+**> 13,000**
+]
+.footnote[<https://cran.r-project.org/web/packages/>]
+]
 
 ---
-class: center, middle
+layout: false
 
 # xaringan
 
@@ -612,4 +647,15 @@ class: center, middle
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2).
+
+---
+class: inverse, center, middle
+
+# Thanks!
+
+.font150.text-white[
+@patilindrajeets <br>
+github.com/IndrajeetPatil <br>
+Indrajeet Patil
+]

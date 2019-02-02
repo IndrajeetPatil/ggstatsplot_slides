@@ -1,0 +1,10 @@
+unnamed-chunk-1	install_github
+unnamed-chunk-2	fit	lm	dist	speed	cars	coef	summary	dojutsu	c	grep
+cars	par	c	plot	cars	abline	fit
+unnamed-chunk-3	kable	head	iris
+unnamed-chunk-4	library	leaflet	%>%	addTiles	setView
+unnamed-chunk-5	datatable	head	iris	list
+unnamed-chunk-6	message
+unnamed-chunk-7	library	ggplot2	ggplot	mtcars	aes	mpg	disp	geom_point	geom_smooth
+unnamed-chunk-8	head	iris
+unnamed-chunk-9	names	list_css
