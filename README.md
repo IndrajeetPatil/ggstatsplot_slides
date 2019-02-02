@@ -18,4 +18,4 @@ install.packages(c("ggstatsplot", "tidyverse", "gapminder"))
 ## Versions
 
 These slides are from a presentation given at the **Harvard Psych Method Dinners** 
-on February 2, 2019.
+on February 5, 2019.

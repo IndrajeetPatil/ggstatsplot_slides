@@ -40,14 +40,21 @@ class: center, middle, inverse, title-slide
 
 
 
----
-layout: true
+layout: false
+
+class: inverse, center, middle
+
 # Why *ggstatsplot*?
+
 ---
 
-.left-column[
-![](images/y_tho.jpg)
-]
+layout: true
+
+# Raison d'être
+
+---
+
+--
 
 .right-column[.font150[
 Current count of number of packages on the Comprehensive R Archive Network (**CRAN**)&lt;br&gt;
@@ -56,48 +63,115 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 .footnote[&lt;https://cran.r-project.org/web/packages/&gt;]
 ]
 
+--
+
+.left-column[
+![](images/y_tho.jpg)
+]
+
 ---
-layout: false
 
-# xaringan
+layout: true
 
-### /ʃæ.'riŋ.ɡæn/
+# 1. Simpler data analysis workflow
+---
+
+--
+
+.img-center[
+![](images/ds_workflow.png)
+]
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;*data visualization*&lt;/font&gt; and &lt;font color="blue"&gt;*statistical modelling*&lt;/font&gt; are two different phases: visualization informs modelling,
+and modelling in its turn can suggest a different visualization method, and so
+on and so forth. 
+
+.footnote[(Grolemund &amp; Wickham, *R for Data Science*, 2017)]
+
+--
+
+The central idea of **ggstatsplot** is simple: combine these two phases into one
+in the form of graphics with statistical details, which makes data exploration
+simpler and faster.
 
 ---
+
+layout: true
+
+# 2. Visualization is worth a thousand words
+---
+
+--
+
+.img-center[
+![](images/datasaurus.gif)
+]
+
+
+.footnote[(Matejka &amp; Fitzmaurice, *Autodesk Research*, 2017)]
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.font150[“I plotted my data and what I found will surprise me!”]
+
+---
+
+layout: true
+
 class: inverse, center, middle
 
 # Get Started
 
 ---
 
-# Hello World
+layout: false
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+# Installation
+
+--
+
+Install the **ggstatsplot** package from 
+[CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
 ```r
-devtools::install_github("yihui/xaringan")
+utils::install.packages("ggstatsplot")
+```
+--
+
+Then you can get the development version of the package from
+[Github](https://github.com/IndrajeetPatil/ggstatsplot):
+
+
+```r
+devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 ```
 
 --
 
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation`;&lt;sup&gt;1&lt;/sup&gt;
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;2&lt;/sup&gt; "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
-
-.footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
+You are recommended to use the [RStudio
+IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
 ---
 background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
@@ -347,8 +421,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-61cecc97ceecee6de11f" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-61cecc97ceecee6de11f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fbe366fe1fe868afd0ed" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fbe366fe1fe868afd0ed">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -360,8 +434,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-af56c558b1ca4a9b8b29" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-af56c558b1ca4a9b8b29">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4756962e88dda85629d0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4756962e88dda85629d0">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -703,12 +777,13 @@ names(xaringan:::list_css())
 
 ```
 ##  [1] "chocolate-fonts"  "chocolate"        "default-fonts"    "default"         
-##  [5] "duke-blue"        "hygge-duke"       "hygge"            "kunoichi"        
-##  [9] "lucy-fonts"       "lucy"             "metropolis-fonts" "metropolis"      
-## [13] "middlebury-fonts" "middlebury"       "ninjutsu"         "rladies-fonts"   
-## [17] "rladies"          "robot-fonts"      "robot"            "rutgers-fonts"   
-## [21] "rutgers"          "shinobi"          "tamu-fonts"       "tamu"            
-## [25] "uo-fonts"         "uo"
+##  [5] "duke-blue"        "fc-fonts"         "fc"               "hygge-duke"      
+##  [9] "hygge"            "kunoichi"         "lucy-fonts"       "lucy"            
+## [13] "metropolis-fonts" "metropolis"       "middlebury-fonts" "middlebury"      
+## [17] "ninjutsu"         "rladies-fonts"    "rladies"          "robot-fonts"     
+## [21] "robot"            "rutgers-fonts"    "rutgers"          "shinobi"         
+## [25] "tamu-fonts"       "tamu"             "uo-fonts"         "uo"              
+## [29] "uol-fonts"        "uol"
 ```
 
 ---
@@ -823,6 +898,17 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
 })();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
 
 <script>
 (function() {

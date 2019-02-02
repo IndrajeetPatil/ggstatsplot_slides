@@ -44,6 +44,10 @@ strong {
   padding-top: 0;
 }
 
+.bottom-column {
+  padding-top: 20;
+}
+
 .hl {
   /* color: #d16666;
   color: #ff3e41; */
@@ -107,6 +111,19 @@ strong {
 
 .img-right img {
   width: 100%;
+}
+
+.img-center{
+  height: 800px;
+  width: 800px;
+  top: 15%;
+  left: 15%;
+  position: absolute;
+}
+
+.img-center img {
+  width: 100%;
+  height: 100%;
 }
 
 .plot-callout {

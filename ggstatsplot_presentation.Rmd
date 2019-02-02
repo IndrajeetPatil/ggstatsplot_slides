@@ -18,7 +18,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   fig.width = 4.25, fig.height = 3.5, fig.retina = 3,
   out.width = "100%",
@@ -46,14 +46,21 @@ options(
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
----
-layout: true
+layout: false
+
+class: inverse, center, middle
+
 # Why *ggstatsplot*?
+
 ---
 
-.left-column[
-![](images/y_tho.jpg)
-]
+layout: true
+
+# Raison d'être
+
+---
+
+--
 
 .right-column[.font150[
 Current count of number of packages on the Comprehensive R Archive Network (**CRAN**)<br>
@@ -62,47 +69,113 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 .footnote[<https://cran.r-project.org/web/packages/>]
 ]
 
+--
+
+.left-column[
+![](images/y_tho.jpg)
+]
+
 ---
-layout: false
 
-# xaringan
+layout: true
 
-### /ʃæ.'riŋ.ɡæn/
+# 1. Simpler data analysis workflow
+---
+
+--
+
+.img-center[
+![](images/ds_workflow.png)
+]
+
+--
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+In a typical *exploratory* data analysis workflow, <font color="blue">*data visualization*</font> and <font color="blue">*statistical modelling*</font> are two different phases: visualization informs modelling,
+and modelling in its turn can suggest a different visualization method, and so
+on and so forth. 
+
+.footnote[(Grolemund & Wickham, *R for Data Science*, 2017)]
+
+--
+
+The central idea of **ggstatsplot** is simple: combine these two phases into one
+in the form of graphics with statistical details, which makes data exploration
+simpler and faster.
 
 ---
+
+layout: true
+
+# 2. Visualization is worth a thousand words
+---
+
+--
+
+.img-center[
+![](images/datasaurus.gif)
+]
+
+
+.footnote[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)]
+
+--
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+.font150[“I plotted my data and what I found will surprise me!”]
+
+---
+
+layout: true
+
 class: inverse, center, middle
 
 # Get Started
 
 ---
 
-# Hello World
+layout: false
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+# Installation
 
-```{r eval=FALSE, tidy=FALSE}
-devtools::install_github("yihui/xaringan")
+--
+
+Install the **ggstatsplot** package from 
+[CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
+
+```{r utils, eval = FALSE, tidy = FALSE}
+utils::install.packages("ggstatsplot")
+```
+--
+
+Then you can get the development version of the package from
+[Github](https://github.com/IndrajeetPatil/ggstatsplot):
+
+```{r github, eval = FALSE, tidy = FALSE}
+devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 ```
 
 --
 
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
-
-.footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
+You are recommended to use the [RStudio
+IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
 ---
 background-image: url(`r xaringan:::karl`)
