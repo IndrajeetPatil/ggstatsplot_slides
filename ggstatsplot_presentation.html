@@ -410,12 +410,10 @@ ggbetweenstats(
 ```
 
 .font80[
-```r
-Note: You can modify the
-`ggstatsplot` plots further 
+**Note**: You can modify the
+all `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
-```
 ]
 
 .img-left-small[
@@ -522,6 +520,80 @@ layout: false
 
 class: inverse, center, middle
 
+# ggcorrmat
+Association between multiple numeric variables
+
+---
+
+layout: true
+
+# ggcorrmat
+
+---
+
+.left-code[
+
+```r
+ggcorrmat(movies_long)
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → not yet implemented
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggcorrmat_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# ggcorrmat
+
+---
+
+.left-code[
+
+```r
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+  type = "r",
+* matrix.type = "upper",
+* p.adjust.method = "holm",
+  colors = NULL,
+* package = "yarrr",
+* palette = "southpark"
+)
+```
+
+.font80[
+**Note**: Informative label
+about sample sizes in case
+`NA`s are present.
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggcorrmat_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # gghistostats
 Distribution of a numeric variable
 
@@ -535,7 +607,6 @@ class: inverse, center, middle
 Distribution of a numeric variable with labels
 
 ---
-
 
 layout: false
 
@@ -560,9 +631,33 @@ layout: false
 
 class: inverse, center, middle
 
+# ggcoefstats
+Displaying results from regression analyses
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # Glossary
 Summary of statistical tests included
 (as of 0.0.8.9000)
+
+---
+
+layout: false
+
+# Types of statistical analyses supported
+
+Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
+------- | ------------------ | ---- | ----- | ----| ----- 
+`ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
+`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+`ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
+`ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
+`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;| &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 
 ---
 
@@ -582,21 +677,6 @@ Robust | within |`NA` | Yuen's trimmed means test | &lt;font color="green"&gt;Ye
 Bayes Factor | between | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 Bayes Factor | between | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 Bayes Factor | within | `NA` | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-
----
-
-layout: false
-
-# Types of statistical analyses supported
-
-Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
-------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-`ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;| &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 
 ---
 
