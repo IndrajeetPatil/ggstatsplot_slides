@@ -15,5 +15,8 @@ other_API	lm	wt	mpg	mtcars	cor	cor.test
 lm	lm	wt	mpg	mtcars
 cor	cor	mtcars	wt	mpg
 cor.test	cor.test	wt	mpg	mtcars
-ggbetweenstats_1	ggbetweenstats	mtcars	am	wt
+ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
 load	library	ggstatsplot	ggplot2
+ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
+ggbetweenstats_3	ggbetweenstats	movies_long	mpaa	rating	title	theme_ipsum_tw
+ggbetweenstats_4	ggbetweenstats	movies_long	mpaa	rating	scale_y_continuous	dup_axis

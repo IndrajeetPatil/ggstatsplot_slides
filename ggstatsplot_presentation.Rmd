@@ -19,14 +19,17 @@ editor_options:
 ---
 
 <style type="text/css">
-code.r{
+body, td {
   font-size: 16px;
+}
+code.r{
+  font-size: 14px;
 }
 </style>
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  fig.width = 5, fig.height = 3.5, fig.retina = 2, fig.align = 'center',
+  fig.width = 6, fig.height = 5, fig.retina = 2, fig.align = 'center',
   out.width = "100%", dpi = 300,
   message = FALSE, warning = FALSE, cache = TRUE,
   autodep = TRUE, hiline = TRUE
@@ -52,11 +55,11 @@ options(
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
-layout: false
+layout: true
 
 class: inverse, center, middle
 
-# Why *ggstatsplot*?
+# Get Started
 
 ---
 
@@ -147,34 +150,72 @@ layout: true
 <br>
 <br>
 <br>
-.font150[“I plotted my data and what I found will surprise me!”]
+.font150[“I plotted my data and what I found will surprise me! - BuzzFeed”]
 
 ---
 
 layout: false
 
-# 3. Cleaner API
+# 3. Easier syntax 
 
 --
 
-```{r lm, eval=FALSE}
-stats::lm(formula = wt ~ mpg, data = mtcars)
-```
+The **grammar of graphics** (implemented in `ggplot2`) tells us that a statistical graphic is a <font color="blue">*mapping*</font> from data to <font color="blue">*aesthetic attributes*</font> (colour, shape, size) of <font color="blue">*geometric objects*</font> (points, lines, bars).
+
 --
 
-```{r cor, eval=FALSE}
-stats::cor(x = mtcars$wt, y = mtcars$mpg)
-```
---
+This means you can create any new graphics tailored for your problem. But...
 
-```{r cor.test, eval=FALSE}
-stats::cor.test(formula = ~ wt + mpg, data = mtcars)
-```
 --
 
 .img-center-small[
+![](images/power.jpg)
+]
+
+--
+
+The `ggstatsplot` package instead provides an **opinionated** collection of plots
+for the most common statistical problems and, therefore, by design, is less
+powerful.
+
+---
+
+layout: false
+
+# 4. Consistent API
+
+--
+
+```{r lm, eval = FALSE}
+stats::lm(formula = wt ~ mpg, data = mtcars)
+```
+
+--
+
+```{r cor, eval = FALSE}
+stats::cor(x = mtcars$wt, y = mtcars$mpg)
+```
+
+--
+
+```{r cor.test, eval = FALSE}
+stats::cor.test(formula = ~ wt + mpg, data = mtcars)
+```
+
+--
+
+.img-right-small[
 ![](images/sideeye.gif)
 ]
+
+--
+
+<br>
+<br>
+All functions in `ggstatsplot`-
+
+1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
+2.  accept both `"quoted"` and `unquoted` arguments
 
 ---
 
@@ -232,9 +273,9 @@ layout: true
 .left-code[
 ```{r ggbetweenstats_1, eval = FALSE}
 ggbetweenstats(
-  data = mtcars,
-  x = am,
-  y = wt,
+  data = movies_long,
+  x = mpaa,
+  y = rating,
   messages = FALSE
 )
 ```
@@ -244,6 +285,136 @@ ggbetweenstats(
 ```{r ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE}
 ```
 ]
+
+---
+
+layout: true
+
+# ggbetweenstats
+
+---
+
+.left-code[
+```{r ggbetweenstats_2, eval = FALSE}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  type = "np", #<<
+  mean.ci = TRUE, #<<
+  pairwise.comparisons = TRUE, #<<
+  pairwise.display = "ns", #<<
+  messages = FALSE
+)
+```
+]
+
+.right-plot[
+```{r ggbetweenstats_2, ref.label = 'ggbetweenstats_2', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# ggbetweenstats
+
+---
+
+.left-code[
+```{r ggbetweenstats_3, eval = FALSE}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  type = "r", #<<
+  pairwise.comparisons = TRUE,
+  pairwise.annotation = "p", 
+  outlier.tagging = TRUE, #<<
+  outlier.label = title, #<<
+  outlier.coef = 2, #<<
+  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+  palette = "Darjeeling2", #<<
+  package = "wesanderson", #<<
+  messages = FALSE
+)
+```
+]
+
+.right-plot[
+```{r ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# ggbetweenstats
+
+---
+
+.left-code[
+```{r ggbetweenstats_4, eval = FALSE}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  type = "bf", #<<
+  messages = FALSE
+) + 
+  scale_y_continuous(sec.axis = dup_axis()) #<<
+```
+
+.font80[
+```r
+Note: You can modify the
+`ggstatsplot` plots further 
+using `ggplot2` functions.
+Yaay!
+```
+]
+]
+
+.right-plot[
+```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
+```
+]
+
+---
+
+layout: false
+
+# Pairwise comparison tests in ggbetweenstats
+
+Type | Design | Equal variance? |  Test | *p*-value adjustment? 
+----------- | --------- | --- | ------------------------- | --
+Parametric | between | No | Games-Howell test | <font color="green">Yes</font>  
+Parametric | between | Yes | Student's *t*-test | <font color="green">Yes</font>  
+Parametric | within | `NA` | Student's *t*-test | <font color="green">Yes</font>  
+Non-parametric | between | No | Dwass-Steel-Crichtlow-Fligner test | <font color="green">Yes</font>  
+Non-parametric | within | No | Durbin-Conover test | <font color="green">Yes</font>  
+Robust | between | No | Yuen's trimmed means test | <font color="green">Yes</font>  
+Robust | within |`NA` | Yuen's trimmed means test | <font color="green">Yes</font>  
+Bayes Factor | between | No | <font color="red">No</font> | <font color="red">No</font>
+Bayes Factor | between | Yes | <font color="red">No</font> | <font color="red">No</font>
+Bayes Factor | within | `NA` | <font color="red">No</font> | <font color="red">No</font>
+
+---
+
+layout: false
+
+# Types of statistical analyses supported
+
+Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
+------- | ------------------ | ---- | ----- | ----| ----- 
+`ggbetweenstats` | Between group/condition comparisons | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
+`ggcorrmat` | Correlation matrix | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+`ggscatterstats` | Correlation between two variables | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
+`ggpiestats`, `ggbarstats` | Association between categorical variables | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font>
+`ggcoefstats` | Regression model coefficients | <font color="green">Yes</font> | <font color="red">No</font>| <font color="green">Yes</font> | <font color="red">No</font>
 
 ---
 
