@@ -1,5 +1,5 @@
 ---
-title: "`ggstatsplot`: <br>R Package for `ggplot2` Based Plots with Statistical Details"
+title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "Harvard Psych Methods Dinners"
 author: "Indrajeet Patil"
 date: "2019-02-05"
@@ -54,6 +54,18 @@ options(
 
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
+
+Plan
+
+- Why *ggstatsplot*?
+
+- Current functions
+
+- Benefits and scalability
+
+- Limitations
+
+- Future
 
 ---
 layout: false
@@ -362,6 +374,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "r", #<<
+  conf.level = 0.99, #<<
   pairwise.comparisons = TRUE,
   pairwise.annotation = "p", 
   outlier.tagging = TRUE, #<<
@@ -375,11 +388,9 @@ ggbetweenstats(
 ```
 
 .font80[
-```r
 Aesthetic preferences
 are not an excuse to not
-use `ggstatsplot` ;-)
-```
+use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
 ]
 ]
 
@@ -451,9 +462,11 @@ ggscatterstats(
   y = rating,
   type = "p", # default #<<
   bf.message = TRUE, #<<
+  conf.level = 0.99, #<<
   messages = FALSE
 )
 ```
+
 .font80[
 Changing the type of test
 
@@ -546,6 +559,11 @@ Changing the type of test
 - `"r"` → **robust**
 
 - `"bf"` → not yet implemented
+
+**Note**: Informative label
+about sample sizes in case
+`NA`s are present.
+
 ]
 ]
 
@@ -577,9 +595,18 @@ ggcorrmat(
 ```
 
 .font80[
-**Note**: Informative label
-about sample sizes in case
-`NA`s are present.
+In addition to `"plot"` as `output`, 
+this function can also be used to
+get a dataframe of results:
+
+- `"r"` → **correlation**
+
+- `"p"` → **p-values**
+
+- `"n"` → **sample sizes**
+
+- `"ci"` → **confidence intervals**
+
 ]
 ]
 
@@ -599,12 +626,131 @@ Distribution of a numeric variable
 
 ---
 
+layout: true
+
+# gghistostats
+
+---
+
+.left-code[
+```{r gghistostats_1, eval = FALSE}
+ggstatsplot::gghistostats(
+  data = movies_long,    
+  x = budget,
+  test.value = 50, #<<
+  bar.measure = "count", # default #<<
+  bf.message = TRUE, #<<
+  messages = FALSE
+) 
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
+```
+]
+
+---
+
+.left-code[
+```{r gghistostats_2, eval = FALSE}
+ggstatsplot::gghistostats(
+  data = movies_long,    
+  x = budget,
+  type = "np",
+  test.value = 50,
+  test.value.size = TRUE, #<<
+  bar.measure = "mix", #<<
+  conf.level = 0.99,
+  centrality.para = "median", 
+  test.value.line = TRUE, #<<
+  binwidth = 10,  #<<
+  normal.curve = TRUE, #<<
+  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+  ggstatsplot.layer = FALSE, #<<
+  messages = FALSE
+) 
+```
+
+.font80[
+Available bar measures 
+
+- **count**
+
+- **proportion**
+
+- **both** (of the above)
+
+- **density**
+
+]
+]
+
+.right-plot[
+```{r gghistostats_2, ref.label = 'gghistostats_2', echo = FALSE}
+```
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
 
 # ggdotplotstats
 Distribution of a numeric variable with labels
+
+---
+
+layout: true
+
+# ggdotplotstats
+
+---
+
+.left-code[
+```{r ggdotplotstats_1, eval = FALSE}
+ggstatsplot::ggdotplotstats(
+  data = movies_long, 
+  x = genre,
+  y = budget,
+  type = "r", #<<
+  test.value = 50, #<<                 
+  test.value.line = TRUE,
+  ggtheme = ggthemes::theme_par(),
+  messages = FALSE
+) 
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
+```
+]
 
 ---
 
@@ -629,7 +775,9 @@ ggpiestats(
   data = mtcars, 
   main = am,
   condition = cyl,
-  paired = FALSE, # default #>> 
+  paired = FALSE, # default #<< 
+  conf.level = 0.99, #<<
+  bf.message = TRUE, #<<
   messages = FALSE
 )
 ```
@@ -651,6 +799,34 @@ Test by design
 
 ---
 
+.left-code[
+```{r ggpiestats_2, eval = FALSE}
+ggpiestats(
+  data = as.data.frame(Titanic), 
+  main = Survived, #<<
+  counts = Freq, #<<
+  slice.label = "both", #<<
+  messages = FALSE
+)
+```
+
+.font80[
+Test by analysis
+
+- `condition != NULL` → contingency table
+
+- `condition == NULL` → goodness of fit
+
+]
+]
+
+.right-plot[
+```{r ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE}
+```
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -660,12 +836,68 @@ For composition of categorical variables
 
 ---
 
+.left-code[
+```{r ggbarstats_1, eval = FALSE}
+ggbarstats(
+  data = movies_long, 
+  main = mpaa,
+  condition = genre,
+  conf.level = 0.99, #<<
+  paired = FALSE, # default #<<
+  bf.message = TRUE,
+  caption = substitute(                       #<< 
+    paste(italic("Source"), ": www.imdb.com") #<<
+  ),                                          #<<
+  messages = FALSE
+)
+```
+
+.font80[
+Note that even if you display 
+Bayes Factor message in a caption, 
+you can still use the `caption`
+argument in all functions.
+]
+]
+
+.right-plot[
+```{r ggbarstats_1, ref.label = 'ggbarstats_1', echo = FALSE}
+```
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
 
 # ggcoefstats
 Displaying results from regression analyses
+
+---
+
+layout: true
+
+# ggdotplotstats
+
+---
+
+.left-code[
+```{r ggcoefstats_1, eval = FALSE}
+ggstatsplot::ggcoefstats(
+  stats::lm(
+    formula = mpg ~ am * cyl,
+    data = mtcars
+  )
+) 
+```
+
+]
+
+.right-plot[
+```{r ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE}
+```
+]
 
 ---
 
@@ -710,6 +942,50 @@ Robust | within |`NA` | Yuen's trimmed means test | <font color="green">Yes</fon
 Bayes Factor | between | No | <font color="red">No</font> | <font color="red">No</font>
 Bayes Factor | between | Yes | <font color="red">No</font> | <font color="red">No</font>
 Bayes Factor | within | `NA` | <font color="red">No</font> | <font color="red">No</font>
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Why use *ggstatsplot*? 
+Summary of benefits
+
+---
+
+layout: true
+
+# Benefits of using *ggstatsplot*
+
+---
+
+- Truly makes your figures worth a thousand words. 
+
+--
+
+- No need to copy-paste results to the text editor (MS-Word, e.g.).
+
+--
+
+- Disembodied figures stand on their own and are easy to evaluate for the reader.
+
+--
+
+- More breathing room for theory and other text.
+
+--
+
+- No more mixing of stats and textual results.
+
+--
+
+- No need to worry about updating figures and statistical details separately
+  if something about the data changes.
+
+--
+
+- Minimal amount of code needed (minimizes chances of error).
 
 ---
 

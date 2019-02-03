@@ -363,6 +363,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
 * type = "r",
+* conf.level = 0.99,
   pairwise.comparisons = TRUE,
   pairwise.annotation = "p", 
 * outlier.tagging = TRUE,
@@ -376,11 +377,9 @@ ggbetweenstats(
 ```
 
 .font80[
-```r
 Aesthetic preferences
 are not an excuse to not
-use `ggstatsplot` ;-)
-```
+use `ggstatsplot` 😻
 ]
 ]
 
@@ -452,9 +451,11 @@ ggscatterstats(
   y = rating,
 * type = "p", # default
 * bf.message = TRUE,
+* conf.level = 0.99,
   messages = FALSE
 )
 ```
+
 .font80[
 Changing the type of test
 
@@ -547,6 +548,11 @@ Changing the type of test
 - `"r"` → **robust**
 
 - `"bf"` → not yet implemented
+
+**Note**: Informative label
+about sample sizes in case
+`NA`s are present.
+
 ]
 ]
 
@@ -578,9 +584,18 @@ ggcorrmat(
 ```
 
 .font80[
-**Note**: Informative label
-about sample sizes in case
-`NA`s are present.
+In addition to `"plot"` as `output`, 
+this function can also be used to
+get a dataframe of results:
+
+- `"r"` → **correlation**
+
+- `"p"` → **p-values**
+
+- `"n"` → **sample sizes**
+
+- `"ci"` → **confidence intervals**
+
 ]
 ]
 
@@ -596,6 +611,43 @@ class: inverse, center, middle
 
 # gghistostats
 Distribution of a numeric variable
+
+---
+
+layout: true
+
+# gghistostats
+
+---
+
+.left-code[
+
+```r
+ggstatsplot::gghistostats(
+  data = iris,    
+  x = Sepal.Length,
+* test.value = 5,
+  title = "Distribution of Iris sepal length",
+  messages = FALSE
+) 
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/gghistostats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
@@ -630,7 +682,9 @@ ggpiestats(
   data = mtcars, 
   main = am,
   condition = cyl,
-  paired = FALSE, #&gt;&gt; # default
+* paired = FALSE, # default
+* conf.level = 0.99,
+* bf.message = TRUE,
   messages = FALSE
 )
 ```
@@ -651,12 +705,71 @@ Test by design
 
 ---
 
+.left-code[
+
+```r
+ggpiestats(
+  data = as.data.frame(Titanic), 
+* main = Survived,
+* counts = Freq,
+* slice.label = "both",
+  messages = FALSE
+)
+```
+
+.font80[
+Test by analysis
+
+- `condition != NULL` → contingency table
+
+- `condition == NULL` → goodness of fit
+
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
 
 # ggbarstats
 For composition of categorical variables
+
+---
+
+.left-code[
+
+```r
+ggbarstats(
+  data = movies_long, 
+  main = mpaa,
+  condition = genre,
+* conf.level = 0.99,
+* paired = FALSE, # default
+  bf.message = TRUE,
+* caption = substitute(
+*   paste(italic("Source"), ": www.imdb.com")
+* ),
+  messages = FALSE
+)
+```
+
+.font80[
+Note that even if you display 
+Bayes Factor message in a caption, 
+you can still use the `caption`
+argument in all functions.
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggbarstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
@@ -710,6 +823,50 @@ Robust | within |`NA` | Yuen's trimmed means test | &lt;font color="green"&gt;Ye
 Bayes Factor | between | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 Bayes Factor | between | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 Bayes Factor | within | `NA` | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Why use *ggstatsplot*? 
+Summary of benefits
+
+---
+
+layout: true
+
+# Benefits of using *ggstatsplot*
+
+---
+
+- Truly makes your figures worth a thousand words. 
+
+--
+
+- No need to copy-paste results to the text editor (MS-Word, e.g.).
+
+--
+
+- Disembodied figures stand on their own and are easy to evaluate for the reader.
+
+--
+
+- More breathing room for theory and other text.
+
+--
+
+- No more mixing of stats and textual results.
+
+--
+
+- No need to worry about updating figures and statistical details separately
+  if something about the data changes.
+
+--
+
+- Minimal amount of code needed (minimizes chances of error).
 
 ---
 
@@ -942,9 +1099,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-87e48d74f474ad921ae6" style="width:100%;height:1800px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-87e48d74f474ad921ae6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
-
+&lt;div id="htmlwidget-87e48d74f474ad921ae6" style="width:100%;height:1800px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-87e48d74f474ad921ae6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script><
 ---
 
 
@@ -955,9 +1111,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-3e0a53f4e3b1a3fea7b5" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3e0a53f4e3b1a3fea7b5">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
+&lt;div id="htmlwidget-3e0a53f4e3b1a3fea7b5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3e0a53f4e3b1a3fea7b5">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><
 ---
 
 # Some Tips
