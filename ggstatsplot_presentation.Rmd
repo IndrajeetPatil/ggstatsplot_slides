@@ -1,7 +1,7 @@
 ---
 title: "`ggstatsplot`: <br>R Package for `ggplot2` Based Plots with Statistical Details"
 subtitle: "Harvard Psych Methods Dinners"
-author: "Indrajeet Patil (Harvard University)<br>@patilindrajeets"
+author: "Indrajeet Patil"
 date: "2019-02-05"
 output:
   xaringan::moon_reader:
@@ -29,7 +29,7 @@ code.r{
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, fig.retina = 2, fig.align = 'center',
+  fig.width = 6, fig.height = 5, fig.retina = 2, fig.align = "center",
   out.width = "100%", dpi = 300,
   message = FALSE, warning = FALSE, cache = TRUE,
   autodep = TRUE, hiline = TRUE
@@ -55,12 +55,12 @@ options(
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
-layout: true
+---
+layout: false
 
 class: inverse, center, middle
 
-# Get Started
-
+# Why *ggstatsplot*?
 ---
 
 layout: true
@@ -219,7 +219,7 @@ All functions in `ggstatsplot`-
 
 ---
 
-layout: true
+layout: false
 
 class: inverse, center, middle
 
@@ -264,6 +264,15 @@ but you do not have to.
 
 ---
 
+layout: false
+
+class: inverse, center, middle
+
+# ggbetweenstats
+For between group/condition comparisons
+
+---
+
 layout: true
 
 # ggbetweenstats
@@ -276,9 +285,23 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
+  type = "p", # default #<<  
+  bf.message = TRUE,
   messages = FALSE
 )
 ```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
 ]
 
 .right-plot[
@@ -304,9 +327,19 @@ ggbetweenstats(
   mean.ci = TRUE, #<<
   pairwise.comparisons = TRUE, #<<
   pairwise.display = "ns", #<<
+  p.adjust.method = "fdr", #<<
   messages = FALSE
 )
 ```
+.font80[
+Changing pairwise comparisons displayed
+
+- `"ns"` → only **non-significant**
+
+- `"s"` → only **significant**
+
+- `"all"` → **everything**
+]
 ]
 
 .right-plot[
@@ -340,6 +373,14 @@ ggbetweenstats(
   messages = FALSE
 )
 ```
+
+.font80[
+```r
+Aesthetic preferences
+are not an excuse to not
+use `ggstatsplot` ;-)
+```
+]
 ]
 
 .right-plot[
@@ -375,12 +416,153 @@ using `ggplot2` functions.
 Yaay!
 ```
 ]
+
+.img-left-small[
+![](images/happy_cat.gif)
+]
+
 ]
 
 .right-plot[
 ```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
 ```
 ]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# ggscatterstats
+Association between two numeric variables
+
+---
+
+layout: true
+
+# ggscatterstats
+
+---
+
+.left-code[
+```{r ggscatterstats_1, eval = FALSE}
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+  type = "p", # default #<<
+  bf.message = TRUE, #<<
+  messages = FALSE
+)
+```
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+```{r ggscatterstats_1, ref.label = 'ggscatterstats_1', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# ggscatterstats
+
+---
+
+.left-code[
+```{r ggscatterstats_2, eval = FALSE}
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+  marginal = FALSE, #<<
+  method = "loess", #<<
+  results.subtitle = FALSE, #<<
+  centrality.para = "mean", #<<
+  label.var = title, #<<
+  label.expression = budget > 150 #<<
+                     & rating > 7.5, #<<
+  ggtheme = ggthemes::theme_stata(), #<<
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+.font80[
+Available centrality parameters
+
+- **mean**
+
+- **median**
+
+]
+]
+
+.right-plot[
+```{r ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE}
+```
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# gghistostats
+Distribution of a numeric variable
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# ggdotplotstats
+Distribution of a numeric variable with labels
+
+---
+
+
+layout: false
+
+class: inverse, center, middle
+
+# ggbarstats
+For composition of categorical variables
+
+---
+
+
+layout: false
+
+class: inverse, center, middle
+
+# ggpiestats
+For composition of categorical variables
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Glossary
+Summary of statistical tests included
+(as of 0.0.8.9000)
 
 ---
 

@@ -152,6 +152,19 @@ strong {
   position: absolute;
 }
 
+.img-left-small img {
+  width: 100%;
+  height: 100%;
+}
+
+.img-left-small{
+  height: 300px;
+  width: 300px;
+  top: 65%;
+  left: 10%;
+  position: absolute;
+}
+
 .plot-callout {
   height: 300px;
   width: 600px;

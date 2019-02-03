@@ -20,3 +20,5 @@ load	library	ggstatsplot	ggplot2
 ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_3	ggbetweenstats	movies_long	mpaa	rating	title	theme_ipsum_tw
 ggbetweenstats_4	ggbetweenstats	movies_long	mpaa	rating	scale_y_continuous	dup_axis
+ggscatterstats_1	ggscatterstats	movies_long	budget	rating
+ggscatterstats_2	ggscatterstats	movies_long	budget	rating	title	theme_stata

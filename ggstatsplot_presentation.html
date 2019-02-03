@@ -3,7 +3,7 @@
   <head>
     <title>ggstatsplot:  R Package for ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8">
-    <meta name="author" content="Indrajeet Patil (Harvard University) @patilindrajeets" />
+    <meta name="author" content="Indrajeet Patil" />
     <meta name="date" content="2019-02-05" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -32,7 +32,7 @@ class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <br>R Package for <code>ggplot2</code> Based Plots with Statistical Details
 ## Harvard Psych Methods Dinners
-### Indrajeet Patil (Harvard University)<br><span class="citation">@patilindrajeets</span>
+### Indrajeet Patil
 ### 2019-02-05
 
 ---
@@ -49,12 +49,12 @@ code.r{
 
 
 
-layout: true
+---
+layout: false
 
 class: inverse, center, middle
 
-# Get Started
-
+# Why *ggstatsplot*?
 ---
 
 layout: true
@@ -216,7 +216,7 @@ All functions in `ggstatsplot`-
 
 ---
 
-layout: true
+layout: false
 
 class: inverse, center, middle
 
@@ -264,6 +264,15 @@ but you do not have to.
 
 ---
 
+layout: false
+
+class: inverse, center, middle
+
+# ggbetweenstats
+For between group/condition comparisons
+
+---
+
 layout: true
 
 # ggbetweenstats
@@ -277,9 +286,23 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
+* type = "p", # default
+  bf.message = TRUE,
   messages = FALSE
 )
 ```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
 ]
 
 .right-plot[
@@ -305,9 +328,19 @@ ggbetweenstats(
 * mean.ci = TRUE,
 * pairwise.comparisons = TRUE,
 * pairwise.display = "ns",
+* p.adjust.method = "fdr",
   messages = FALSE
 )
 ```
+.font80[
+Changing pairwise comparisons displayed
+
+- `"ns"` → only **non-significant**
+
+- `"s"` → only **significant**
+
+- `"all"` → **everything**
+]
 ]
 
 .right-plot[
@@ -341,6 +374,14 @@ ggbetweenstats(
   messages = FALSE
 )
 ```
+
+.font80[
+```r
+Aesthetic preferences
+are not an excuse to not
+use `ggstatsplot` ;-)
+```
+]
 ]
 
 .right-plot[
@@ -376,11 +417,152 @@ using `ggplot2` functions.
 Yaay!
 ```
 ]
+
+.img-left-small[
+![](images/happy_cat.gif)
+]
+
 ]
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# ggscatterstats
+Association between two numeric variables
+
+---
+
+layout: true
+
+# ggscatterstats
+
+---
+
+.left-code[
+
+```r
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+* type = "p", # default
+* bf.message = TRUE,
+  messages = FALSE
+)
+```
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# ggscatterstats
+
+---
+
+.left-code[
+
+```r
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+* marginal = FALSE,
+* method = "loess",
+* results.subtitle = FALSE,
+* centrality.para = "mean",
+* label.var = title,
+* label.expression = budget &gt; 150
+*                    &amp; rating &gt; 7.5,
+* ggtheme = ggthemes::theme_stata(),
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+.font80[
+Available centrality parameters
+
+- **mean**
+
+- **median**
+
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# gghistostats
+Distribution of a numeric variable
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# ggdotplotstats
+Distribution of a numeric variable with labels
+
+---
+
+
+layout: false
+
+class: inverse, center, middle
+
+# ggbarstats
+For composition of categorical variables
+
+---
+
+
+layout: false
+
+class: inverse, center, middle
+
+# ggpiestats
+For composition of categorical variables
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Glossary
+Summary of statistical tests included
+(as of 0.0.8.9000)
 
 ---
 

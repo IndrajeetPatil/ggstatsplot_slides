@@ -24,10 +24,12 @@ background-image: url("images/letter-g.jpg")
 .font150[**Brought to you by the letter...**]
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width=4.25, fig.height=3.5, fig.retina=3,
-                      out.width = "100%",
-                      message=FALSE, warning=FALSE, cache = TRUE, 
-                      autodep = TRUE, hiline=TRUE)
+knitr::opts_chunk$set(
+  fig.width = 4.25, fig.height = 3.5, fig.retina = 3,
+  out.width = "100%",
+  message = FALSE, warning = FALSE, cache = TRUE,
+  autodep = TRUE, hiline = TRUE
+)
 
 knitr::opts_hooks$set(fig.callout = function(options) {
   if (options$fig.callout) {
@@ -40,13 +42,13 @@ knitr::opts_hooks$set(fig.callout = function(options) {
 })
 
 options(
-  htmltools.dir.version = FALSE, 
+  htmltools.dir.version = FALSE,
   width = 90,
   max.print = 9999,
   knitr.table.format = "html"
 )
 
-as_table <- function(...) knitr::kable(..., format='html', digits = 3)
+as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
 ---
