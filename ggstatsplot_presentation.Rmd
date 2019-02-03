@@ -612,17 +612,50 @@ layout: false
 
 class: inverse, center, middle
 
-# ggbarstats
+# ggpiestats
 For composition of categorical variables
 
 ---
 
+layout: true
+
+# ggpiestats
+
+---
+
+.left-code[
+```{r ggpiestats_1, eval = FALSE}
+ggpiestats(
+  data = mtcars, 
+  main = am,
+  condition = cyl,
+  paired = FALSE, # default #>> 
+  messages = FALSE
+)
+```
+
+.font80[
+Test by design
+
+- `paired = FALSE` → Pearson's $\chi^2$
+
+- `paired = TRUE` → McNemar
+
+]
+]
+
+.right-plot[
+```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE}
+```
+]
+
+---
 
 layout: false
 
 class: inverse, center, middle
 
-# ggpiestats
+# ggbarstats
 For composition of categorical variables
 
 ---

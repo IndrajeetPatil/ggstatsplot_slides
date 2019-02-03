@@ -534,7 +534,7 @@ layout: true
 .left-code[
 
 ```r
-ggcorrmat(movies_long)
+ggcorrmat(dplyr::starwars)
 ```
 
 .font80[
@@ -612,17 +612,50 @@ layout: false
 
 class: inverse, center, middle
 
-# ggbarstats
+# ggpiestats
 For composition of categorical variables
 
 ---
 
+layout: true
+
+# ggpiestats
+
+---
+
+.left-code[
+
+```r
+ggpiestats(
+  data = mtcars, 
+  main = am,
+  condition = cyl,
+  paired = FALSE, #&gt;&gt; # default
+  messages = FALSE
+)
+```
+
+.font80[
+Test by design
+
+- `paired = FALSE` → Pearson's `\(\chi^2\)`
+
+- `paired = TRUE` → McNemar
+
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
 
 layout: false
 
 class: inverse, center, middle
 
-# ggpiestats
+# ggbarstats
 For composition of categorical variables
 
 ---
