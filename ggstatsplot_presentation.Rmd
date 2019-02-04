@@ -55,7 +55,13 @@ options(
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
+---
+
+layout: true
+
 Plan
+
+---
 
 - Why *ggstatsplot*?
 
@@ -723,9 +729,9 @@ layout: true
 .left-code[
 ```{r ggdotplotstats_1, eval = FALSE}
 ggstatsplot::ggdotplotstats(
-  data = movies_long, 
-  x = genre,
-  y = budget,
+  data = movies_long,
+  x = budget,
+  y = genre,
   type = "r", #<<
   test.value = 50, #<<                 
   test.value.line = TRUE,
@@ -772,12 +778,14 @@ layout: true
 .left-code[
 ```{r ggpiestats_1, eval = FALSE}
 ggpiestats(
-  data = mtcars, 
-  main = am,
-  condition = cyl,
+  data = movies_long, 
+  main = genre,
+  condition = mpaa,
   paired = FALSE, # default #<< 
   conf.level = 0.99, #<<
   bf.message = TRUE, #<<
+  package = "ggsci",
+  palette = "default_ucscgb",
   messages = FALSE
 )
 ```
@@ -840,11 +848,13 @@ For composition of categorical variables
 ```{r ggbarstats_1, eval = FALSE}
 ggbarstats(
   data = movies_long, 
-  main = mpaa,
-  condition = genre,
+  main = genre,
+  condition = mpaa,
   conf.level = 0.99, #<<
   paired = FALSE, # default #<<
   bf.message = TRUE,
+  package = "ggsci",
+  palette = "default_igv",
   caption = substitute(                       #<< 
     paste(italic("Source"), ": www.imdb.com") #<<
   ),                                          #<<

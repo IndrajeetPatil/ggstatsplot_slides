@@ -24,9 +24,10 @@ ggscatterstats_1	ggscatterstats	movies_long	budget	rating
 ggscatterstats_2	ggscatterstats	movies_long	budget	rating	title	theme_stata
 ggcorrmat_1	ggcorrmat	starwars
 ggcorrmat_2	ggcorrmat	msleep	sleep_cycle	bodywt
-ggpiestats_1	ggpiestats	mtcars	am	cyl
-ggbarstats_1	ggbarstats	movies_long	mpaa	genre	substitute	paste	italic
+ggpiestats_1	ggpiestats	movies_long	genre	mpaa
+ggbarstats_1	ggbarstats	movies_long	genre	mpaa	substitute	paste	italic
 gghistostats_1	gghistostats	movies_long	budget
 ggpiestats_2	ggpiestats	as.data.frame	Titanic	Survived	Freq
 gghistostats_2	gghistostats	movies_long	budget	theme_ipsum_tw
-ggdotplotstats_1	ggdotplotstats	movies_long	genre	budget	theme_par
+ggdotplotstats_1	ggdotplotstats	movies_long	budget	genre	theme_par
+ggcoefstats_1	ggcoefstats	lm	mpg	am	cyl	mtcars

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ggstatsplot:  R Package for ggplot2 Based Plots with Statistical Details</title>
+    <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8">
     <meta name="author" content="Indrajeet Patil" />
     <meta name="date" content="2019-02-05" />
@@ -30,7 +30,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# <code>ggstatsplot</code>: <br>R Package for <code>ggplot2</code> Based Plots with Statistical Details
+# <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## Harvard Psych Methods Dinners
 ### Indrajeet Patil
 ### 2019-02-05
@@ -48,6 +48,24 @@ code.r{
 &lt;/style&gt;
 
 
+
+---
+
+layout: true
+
+Plan
+
+---
+
+- Why *ggstatsplot*?
+
+- Current functions
+
+- Benefits and scalability
+
+- Limitations
+
+- Future
 
 ---
 layout: false
@@ -624,10 +642,11 @@ layout: true
 
 ```r
 ggstatsplot::gghistostats(
-  data = iris,    
-  x = Sepal.Length,
-* test.value = 5,
-  title = "Distribution of Iris sepal length",
+  data = movies_long,    
+  x = budget,
+* test.value = 50,
+* bar.measure = "count", # default
+* bf.message = TRUE,
   messages = FALSE
 ) 
 ```
@@ -651,12 +670,93 @@ Changing the type of test
 
 ---
 
+.left-code[
+
+```r
+ggstatsplot::gghistostats(
+  data = movies_long,    
+  x = budget,
+  type = "np",
+  test.value = 50,
+* test.value.size = TRUE,
+* bar.measure = "mix",
+  conf.level = 0.99,
+  centrality.para = "median", 
+* test.value.line = TRUE,
+* binwidth = 10,
+* normal.curve = TRUE,
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
+* ggstatsplot.layer = FALSE,
+  messages = FALSE
+) 
+```
+
+.font80[
+Available bar measures 
+
+- **count**
+
+- **proportion**
+
+- **both** (of the above)
+
+- **density**
+
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/gghistostats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
 
 # ggdotplotstats
 Distribution of a numeric variable with labels
+
+---
+
+layout: true
+
+# ggdotplotstats
+
+---
+
+.left-code[
+
+```r
+ggstatsplot::ggdotplotstats(
+  data = movies_long,
+  x = budget,
+  y = genre,
+* type = "r",
+* test.value = 50,
+  test.value.line = TRUE,
+  ggtheme = ggthemes::theme_par(),
+  messages = FALSE
+) 
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggdotplotstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
@@ -679,12 +779,14 @@ layout: true
 
 ```r
 ggpiestats(
-  data = mtcars, 
-  main = am,
-  condition = cyl,
+  data = movies_long, 
+  main = genre,
+  condition = mpaa,
 * paired = FALSE, # default
 * conf.level = 0.99,
 * bf.message = TRUE,
+  package = "ggsci",
+  palette = "default_ucscgb",
   messages = FALSE
 )
 ```
@@ -747,11 +849,13 @@ For composition of categorical variables
 ```r
 ggbarstats(
   data = movies_long, 
-  main = mpaa,
-  condition = genre,
+  main = genre,
+  condition = mpaa,
 * conf.level = 0.99,
 * paired = FALSE, # default
   bf.message = TRUE,
+  package = "ggsci",
+  palette = "default_igv",
 * caption = substitute(
 *   paste(italic("Source"), ": www.imdb.com")
 * ),
@@ -779,6 +883,31 @@ class: inverse, center, middle
 
 # ggcoefstats
 Displaying results from regression analyses
+
+---
+
+layout: true
+
+# ggdotplotstats
+
+---
+
+.left-code[
+
+```r
+ggstatsplot::ggcoefstats(
+  stats::lm(
+    formula = mpg ~ am * cyl,
+    data = mtcars
+  )
+) 
+```
+
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggcoefstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
