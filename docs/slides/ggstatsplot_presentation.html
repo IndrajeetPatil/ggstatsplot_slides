@@ -49,8 +49,6 @@ layout: true
 
 - Limitations
 
-- Future
-
 ---
 
 layout: false
@@ -448,6 +446,27 @@ layout: false
 
 class: inverse, center, middle
 
+# ggwithinstats
+For within group/condition comparisons
+
+---
+
+layout: true
+
+# ggwithinstats
+
+---
+
+This function is still under construction. Here is a current draft.
+
+![](images/ggwithin_draft.png)
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # ggscatterstats
 Association between two numeric variables
 
@@ -694,11 +713,8 @@ ggstatsplot::gghistostats(
 Available bar measures 
 
 - **count**
-
 - **proportion**
-
 - **both** (of the above)
-
 - **density**
 
 ]
@@ -908,14 +924,26 @@ layout: true
 .left-code[
 
 ```r
-ggcoefstats(
-  stats::aov(
-    formula = rating ~ mpaa * genre,
-    data = movies_long
-  )
-) 
-```
+# model
+mod &lt;- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
 
+# plot
+ggcoefstats(x = mod)
+```
+.font80[
+In addition to `"plot"` as `output`, 
+this function can also be used to
+get a dataframe of results:
+
+- `"tidy"` → **estimates**
+
+- `"glance"` → **model summary**
+
+- `"augment"` → **predictions**
+]
 ]
 
 .right-plot[
@@ -1269,6 +1297,28 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
+# Effect sizes + CI available?
+
+&lt;br&gt;
+
+--
+
+Test | Parametric | Non-parametric | Robust | Bayes
+---------------------------- | ------ | ------ | ------ | ------
+one-sample *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+two-sample *t*-test (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+two-sample *t*-test (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+One-way ANOVA (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+correlations | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+contingency table | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
+goodness of fit | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
+regression | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+
+---
+
+layout: false
+
 # Pairwise comparison tests in *ggbetweenstats*
 
 &lt;br&gt;
@@ -1341,7 +1391,7 @@ layout: true
 --
 
 `ggstatsplot` includes over &lt;font color="blue"&gt;**1200**&lt;/font&gt; tests to make
-sure that all the code is working properly. 
+sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
 that traces back to code in this package, I will personally write an apology
@@ -1396,10 +1446,33 @@ layout: true
 
 ---
 
-Contributions more than welcome!
-(No matter of how small or big.)
+--
+
+.pull-left[
+
+.font80[
+Contributions (big or small) welcome! ❤️
+]
 
 ![](images/needs_you.jpg)
+
+]
+
+--
+
+.pull-right[
+.font80[
+Ways in which you can contribute
+
+- Read and correct any inconsistencies in the [documentation](https://indrajeetpatil.github.io/ggstatsplot/)
+
+- Raise issues about bugs or wanted features
+
+- Review code
+
+- Add new functionality (in the form of new plotting functions or helpers for preparing subtitles)
+]
+]
 
 ---
 
@@ -1424,8 +1497,8 @@ class: inverse, center, middle
 # Thanks!
 
 .font150.text-white[
-@patilindrajeets &lt;br&gt;
-github.com/IndrajeetPatil &lt;br&gt;
+[@patilindrajeets](https://twitter.com/patilindrajeets) &lt;br&gt;
+[github.com/IndrajeetPatil](https://github.com/IndrajeetPatil) &lt;br&gt;
 patilindrajeet.science@gmail.com
 ]
     </textarea>

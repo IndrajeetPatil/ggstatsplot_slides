@@ -393,20 +393,24 @@ ggbarstats(
 )
 
 ## ----ggcoefstats_1, eval = FALSE-----------------------------------------
-## ggcoefstats(
-##   stats::aov(
-##     formula = rating ~ mpaa * genre,
-##     data = movies_long
-##   )
+## # model
+## mod <- stats::aov(
+##   formula = rating ~ mpaa * genre,
+##   data = movies_long
 ## )
+## 
+## # plot
+## ggcoefstats(x = mod)
 
 ## ----ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE------------
-ggcoefstats(
-  stats::aov(
-    formula = rating ~ mpaa * genre,
-    data = movies_long
-  )
-) 
+# model
+mod <- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
+
+# plot
+ggcoefstats(x = mod)
 
 ## ----ggcoefstats_2, results = "hide", fig.show = "hide"------------------
 # dataframe with results

@@ -72,8 +72,6 @@ layout: true
 
 - Limitations
 
-- Future
-
 ---
 
 layout: false
@@ -465,6 +463,27 @@ layout: false
 
 class: inverse, center, middle
 
+# ggwithinstats
+For within group/condition comparisons
+
+---
+
+layout: true
+
+# ggwithinstats
+
+---
+
+This function is still under construction. Here is a current draft.
+
+![](images/ggwithin_draft.png)
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # ggscatterstats
 Association between two numeric variables
 
@@ -710,11 +729,8 @@ ggstatsplot::gghistostats(
 Available bar measures 
 
 - **count**
-
 - **proportion**
-
 - **both** (of the above)
-
 - **density**
 
 ]
@@ -924,14 +940,26 @@ layout: true
 
 .left-code[
 ```{r ggcoefstats_1, eval = FALSE}
-ggcoefstats(
-  stats::aov(
-    formula = rating ~ mpaa * genre,
-    data = movies_long
-  )
-) 
-```
+# model
+mod <- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
 
+# plot
+ggcoefstats(x = mod)
+```
+.font80[
+In addition to `"plot"` as `output`, 
+this function can also be used to
+get a dataframe of results:
+
+- `"tidy"` → **estimates**
+
+- `"glance"` → **model summary**
+
+- `"augment"` → **predictions**
+]
 ]
 
 .right-plot[
@@ -1284,6 +1312,28 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
+# Effect sizes + CI available?
+
+<br>
+
+--
+
+Test | Parametric | Non-parametric | Robust | Bayes
+---------------------------- | ------ | ------ | ------ | ------
+one-sample *t*-test | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+two-sample *t*-test (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+two-sample *t*-test (within) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+One-way ANOVA (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+One-way ANOVA (within) | <font color="green">Yes</font> | <font color="red">No</font> | <font color="green">Yes</font> | <font color="red">No</font>
+correlations | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+contingency table | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
+goodness of fit | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
+regression | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+
+---
+
+layout: false
+
 # Pairwise comparison tests in *ggbetweenstats*
 
 <br>
@@ -1356,7 +1406,7 @@ layout: true
 --
 
 `ggstatsplot` includes over <font color="blue">**1200**</font> tests to make
-sure that all the code is working properly. 
+sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
 that traces back to code in this package, I will personally write an apology
@@ -1411,10 +1461,33 @@ layout: true
 
 ---
 
-Contributions more than welcome!
-(No matter of how small or big.)
+--
+
+.pull-left[
+
+.font80[
+Contributions (big or small) welcome! `r emo::ji("heart")`
+]
 
 ![](images/needs_you.jpg)
+
+]
+
+--
+
+.pull-right[
+.font80[
+Ways in which you can contribute
+
+- Read and correct any inconsistencies in the [documentation](https://indrajeetpatil.github.io/ggstatsplot/)
+
+- Raise issues about bugs or wanted features
+
+- Review code
+
+- Add new functionality (in the form of new plotting functions or helpers for preparing subtitles)
+]
+]
 
 ---
 
@@ -1439,7 +1512,7 @@ class: inverse, center, middle
 # Thanks!
 
 .font150.text-white[
-@patilindrajeets <br>
-github.com/IndrajeetPatil <br>
+[@patilindrajeets](https://twitter.com/patilindrajeets) <br>
+[github.com/IndrajeetPatil](https://github.com/IndrajeetPatil) <br>
 patilindrajeet.science@gmail.com
 ]

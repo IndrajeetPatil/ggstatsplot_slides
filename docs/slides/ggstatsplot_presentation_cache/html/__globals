@@ -30,7 +30,7 @@ gghistostats_1	gghistostats	movies_long	budget
 ggpiestats_2	ggpiestats	as.data.frame	Titanic	Survived	Freq
 gghistostats_2	gghistostats	movies_long	budget	theme_ipsum_tw
 ggdotplotstats_1	ggdotplotstats	movies_long	budget	genre	theme_par
-ggcoefstats_1	ggcoefstats	aov	rating	mpaa	genre	movies_long
+ggcoefstats_1	mod	aov	rating	mpaa	genre	movies_long	ggcoefstats
 grouped_1	grouped_ggpiestats	mtcars	cyl	am
 ggcoefstats_2	df	tribble	term	estimate	std.error	statistic	p.value	ggcoefstats
 ggcoefstats_3	meta_df	tribble	term	estimate	std.error	ggcoefstats
