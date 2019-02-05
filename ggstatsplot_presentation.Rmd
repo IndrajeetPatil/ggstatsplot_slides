@@ -59,7 +59,7 @@ as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 
 layout: true
 
-Plan
+**Plan**
 
 ---
 
@@ -74,11 +74,13 @@ Plan
 - Future
 
 ---
+
 layout: false
 
 class: inverse, center, middle
 
 # Why *ggstatsplot*?
+
 ---
 
 layout: true
@@ -100,6 +102,13 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 
 .left-column[
 ![](images/y_tho.jpg)
+]
+
+--
+
+.right-column[.font150[
+In short, `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> suitable either for scholarly publications or for quick (exploratory) statistical analysis.
+]
 ]
 
 ---
@@ -142,7 +151,7 @@ simpler and faster.
 
 layout: true
 
-# 2. Visualization is worth a thousand words
+# 2. Information-rich graphic is worth a thousand words
 
 ---
 
@@ -178,13 +187,11 @@ layout: false
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) tells us that a statistical graphic is a <font color="blue">*mapping*</font> from data to <font color="blue">*aesthetic attributes*</font> (colour, shape, size) of <font color="blue">*geometric objects*</font> (points, lines, bars).
+The **grammar of graphics** (implemented in `ggplot2`) tells us that a statistical graphic is a <font color="blue">*mapping*</font> from data to <font color="blue">*aesthetic attributes*</font> (colour, shape, size) of <font color="blue">*geometric objects*</font> (points, lines, bars). This means you can create countably infinite number of graphics, each tailored for your specific data visualization problem! As such, this is an incredibly powerful framework to prepare graphics.
 
 --
 
-This means you can create any new graphics tailored for your problem. But...
-
---
+But...
 
 .img-center-small[
 ![](images/power.jpg)
@@ -192,6 +199,13 @@ This means you can create any new graphics tailored for your problem. But...
 
 --
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 The `ggstatsplot` package instead provides an **opinionated** collection of plots
 for the most common statistical problems and, therefore, by design, is less
 powerful.
@@ -304,7 +318,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "p", # default #<<  
-  bf.message = TRUE,
+  bf.message = TRUE, #<<
   messages = FALSE
 )
 ```
@@ -565,7 +579,8 @@ Changing the type of test
 - `"r"` → **robust**
 
 - `"bf"` → not yet implemented
-
+<br>
+<br>
 **Note**: Informative label
 about sample sizes in case
 `NA`s are present.
@@ -645,6 +660,7 @@ ggstatsplot::gghistostats(
   x = budget,
   test.value = 50, #<<
   bar.measure = "count", # default #<<
+  binwidth = 10,  #<<
   bf.message = TRUE, #<<
   messages = FALSE
 ) 
@@ -675,14 +691,12 @@ Changing the type of test
 ggstatsplot::gghistostats(
   data = movies_long,    
   x = budget,
-  type = "np",
+  type = "r",
   test.value = 50,
   test.value.size = TRUE, #<<
   bar.measure = "mix", #<<
-  conf.level = 0.99,
   centrality.para = "median", 
   test.value.line = TRUE, #<<
-  binwidth = 10,  #<<
   normal.curve = TRUE, #<<
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
   ggstatsplot.layer = FALSE, #<<
@@ -778,7 +792,8 @@ layout: true
 .left-code[
 ```{r ggpiestats_1, eval = FALSE}
 ggpiestats(
-  data = movies_long, 
+  data = dplyr::filter(movies_long, 
+                mpaa %in% c("R", "PG-13")), 
   main = genre,
   condition = mpaa,
   paired = FALSE, # default #<< 
@@ -818,7 +833,7 @@ ggpiestats(
 )
 ```
 
-.font80[
+.font70[
 Test by analysis
 
 - `condition != NULL` → contingency table
@@ -844,15 +859,20 @@ For composition of categorical variables
 
 ---
 
+layout: true
+
+# ggbarstats
+
+---
+
 .left-code[
 ```{r ggbarstats_1, eval = FALSE}
 ggbarstats(
   data = movies_long, 
   main = genre,
   condition = mpaa,
-  conf.level = 0.99, #<<
   paired = FALSE, # default #<<
-  bf.message = TRUE,
+  bf.message = TRUE, #<<
   package = "ggsci",
   palette = "default_igv",
   caption = substitute(                       #<< 
@@ -863,10 +883,11 @@ ggbarstats(
 ```
 
 .font80[
-Note that even if you display 
+<br>
+**Note**: Even if you display 
 Bayes Factor message in a caption, 
 you can still use the `caption`
-argument in all functions.
+argument in all plotting functions.
 ]
 ]
 
@@ -888,16 +909,16 @@ Displaying results from regression analyses
 
 layout: true
 
-# ggdotplotstats
+# ggcoefstats
 
 ---
 
 .left-code[
 ```{r ggcoefstats_1, eval = FALSE}
-ggstatsplot::ggcoefstats(
-  stats::lm(
-    formula = mpg ~ am * cyl,
-    data = mtcars
+ggcoefstats(
+  stats::aov(
+    formula = rating ~ mpaa * genre,
+    data = movies_long
   )
 ) 
 ```
@@ -906,6 +927,203 @@ ggstatsplot::ggcoefstats(
 
 .right-plot[
 ```{r ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# Implemented regression models
+
+---
+
+Most of the regression models covered by `broom` and `broom.mixed` packages will
+be covered here-
+
+--
+
+`aareg`, `anova`, `aov`, `aovlist`, `Arima`, `biglm`, `btergm`, `cch`, `clm`,
+`clmm`, `confusionMatrix`, `coxph`, `ergm`, `felm`, `fitdistr`, `glmerMod`,
+`glmmTMB`, `gls`, `Gam`, `gamlss`, `garch`, `glm`, `glmmadmb`, `glmmTMB`,
+`glmrob`, `gmm`, `ivreg`, `lm`, `lm.beta`, `lmerMod`, `lmodel2`, `lmrob`,
+`MCMCglmm`, `mediate`, `mjoint`, `mle2`, `multinom`, `nlmerMod`, `nlrq`, `nls`,
+`orcutt`, `plm`, `polr`, `ridgelm`, `rlm`, `rlmerMod`, `rq`, `speedlm`,
+`stanreg`, `survreg`, `svyglm`, `svyolr`, `svyglm`, etc.
+
+---
+
+layout: true
+
+# *ggcoefstats*: If not implemented, use a dataframe
+
+---
+
+.left-code[
+```{r ggcoefstats_2, eval = FALSE, message = FALSE, warning = FALSE}
+# dataframe with results
+df <- tibble::tribble(
+  ~term, ~estimate, ~std.error, ~statistic, ~p.value,
+  "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
+  "x", -1.36, 0.258, -5.26, 1.13e-5
+)
+
+# plot
+ggcoefstats(
+  x = df,
+  statistic = "z",
+  exclude.intercept = FALSE
+)
+```
+
+]
+
+.right-plot[
+```{r ggcoefstats_2, ref.label = 'ggcoefstats_2', echo = FALSE, message = FALSE, warning = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# *ggcoefstats*: You can also do meta-analysis!
+
+---
+
+.left-code[
+```{r ggcoefstats_3, eval = FALSE}
+# made up data
+meta_df <- tibble::tribble(
+  ~term, ~estimate, ~std.error,
+  "study_1", 0.111, 0.065,
+  "study_2", -0.003, 0.258,
+  "study_3", 0.001, 0.120,
+  "study_4", 0.032, 0.022,
+  "study_5", -0.765, 0.650,
+  "study_6", -0.032, 0.058
+)
+
+# plot
+ggcoefstats(
+  x = meta_df,
+  meta.analytic.effect = TRUE, #<<
+  xlab = "estimate"
+)
+```
+.font80[
+`r emo::ji("warning")` Work in progrss `r emo::ji("warning")`
+]
+]
+
+.right-plot[
+```{r ggcoefstats_3, ref.label = 'ggcoefstats_3', echo = FALSE}
+```
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# *grouped_* variants of all functions
+Running the same function for 
+all levels of a single grouping variable
+
+---
+
+layout: true
+
+# grouped_ functions
+
+You can repeat the same analysis for all levels of a single grouping variable by
+adding `grouping.var` argument to the function call.
+
+---
+
+.left-code[
+```{r grouped_1, eval = FALSE}
+# for example
+grouped_ggpiestats(
+  data = mtcars, 
+  main = cyl,
+  grouping.var = am, #<< 
+  messages = FALSE
+)
+```
+
+.font80[
+Available `grouped_` variants
+
+- `grouped_ggdotplotstats`
+- `grouped_ggbarstats`    
+- `grouped_ggscatterstats`
+- `grouped_gghistostats`  
+- `grouped_ggpiestats`    
+- `grouped_ggbetweenstats`
+- `grouped_ggcorrmat`  
+]
+]
+
+.right-plot[
+```{r grouped_1, ref.label = 'grouped_1', echo = FALSE}
+```
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Utility beyond *ggstatsplot*
+What if I don't like the default plots 
+but still want to display statistical results?
+
+---
+
+layout: true
+
+# Using subtitle helper functions
+
+---
+
+You can also use ggstatsplot just to extract the statistical details for your
+custom plot. For example-
+
+--
+
+.left-code[
+```{r subtitle_1, eval = FALSE}
+# using `ggstatsplot` for stats
+stats_results <-
+  ggstatsplot::subtitle_anova_parametric(
+    data = ChickWeight,
+    x = Time,
+    y = weight,
+    messages = FALSE
+  )
+
+# using `yarrr` for plot
+yarrr::pirateplot(
+  formula = weight ~ Time,
+  data = ChickWeight,
+  theme = 1,
+  main = stats_results
+)
+```
+
+.font80[
+<br>
+**All** included analyses have their
+corresponding subtitle making
+[helper functions](https://indrajeetpatil.github.io/ggstatsplot/reference/index.html#section-helper-functions-for-preparing-statistics-subtitles).
+]
+]
+
+.right-plot[
+```{r subtitle_1, ref.label = 'subtitle_1', echo = FALSE}
 ```
 ]
 
@@ -969,6 +1187,8 @@ layout: true
 # Benefits of using *ggstatsplot*
 
 ---
+
+--
 
 - Truly makes your figures worth a thousand words. 
 
@@ -1050,9 +1270,7 @@ See the help page `?xaringan::moon_reader` for all possible options that you can
 
 ---
 
-# remark.js vs xaringan
 
-Some differences between using remark.js (left) and using **xaringan** (right):
 
 .pull-left[
 1. Start with a boilerplate HTML file;

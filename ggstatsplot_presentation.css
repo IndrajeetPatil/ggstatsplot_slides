@@ -38,6 +38,8 @@ strong {
 
 .left-column h3:last-of-type{
   color: #000;
+  width: 50%;
+  height: 80%;
 }
 
 .right-column {
@@ -127,9 +129,9 @@ strong {
 }
 
 .img-center-small{
-  height: 400px;
+  height: 450px;
   width: 400px;
-  top: 55%;
+  top: 40%;
   left: 35%;
   position: absolute;
 }
