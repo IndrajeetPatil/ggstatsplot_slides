@@ -24,7 +24,7 @@ ggscatterstats_1	ggscatterstats	movies_long	budget	rating
 ggscatterstats_2	ggscatterstats	movies_long	budget	rating	title	theme_stata
 ggcorrmat_1	ggcorrmat	starwars
 ggcorrmat_2	ggcorrmat	msleep	sleep_cycle	bodywt
-ggpiestats_1	ggpiestats	filter	movies_long	mpaa	%in%	c	genre
+ggpiestats_1	ggpiestats	filter	movies_long	genre	%in%	c	mpaa
 ggbarstats_1	ggbarstats	movies_long	genre	mpaa	substitute	paste	italic
 gghistostats_1	gghistostats	movies_long	budget
 ggpiestats_2	ggpiestats	as.data.frame	Titanic	Survived	Freq
@@ -34,4 +34,4 @@ ggcoefstats_1	ggcoefstats	aov	rating	mpaa	genre	movies_long
 grouped_1	grouped_ggpiestats	mtcars	cyl	am
 ggcoefstats_2	df	tribble	term	estimate	std.error	statistic	p.value	ggcoefstats
 ggcoefstats_3	meta_df	tribble	term	estimate	std.error	ggcoefstats
-subtitle_1	stats_results	subtitle_anova_parametric	ChickWeight	Time	weight	pirateplot
+subtitle_1	results	subtitle_contingency_tab	Titanic_full	Survived	Sex	ggSpine	aes	labs

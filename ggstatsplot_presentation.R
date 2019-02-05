@@ -291,9 +291,10 @@ ggstatsplot::gghistostats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = genre,
-##   type = "r", #<<
-##   test.value = 50, #<<
-##   test.value.line = TRUE,
+##   test.value = 52, #<<
+##   centrality.para = "median",
+##   test.value.line = TRUE, #<<
+##   test.value.color = "red", #<<
 ##   ggtheme = ggthemes::theme_par(),
 ##   messages = FALSE
 ## )
@@ -303,17 +304,19 @@ ggstatsplot::ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  type = "r", #<<
-  test.value = 50, #<<                 
-  test.value.line = TRUE,
+  test.value = 52, #<<     
+  centrality.para = "median", 
+  test.value.line = TRUE, #<<
+  test.value.color = "red", #<<
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
 
 ## ----ggpiestats_1, eval = FALSE------------------------------------------
+## # let's use subset of data
 ## ggpiestats(
 ##   data = dplyr::filter(movies_long,
-##                 mpaa %in% c("R", "PG-13")),
+##   genre %in% c("Drama", "Comedy", "Animated")),
 ##   main = genre,
 ##   condition = mpaa,
 ##   paired = FALSE, # default #<<
@@ -325,9 +328,10 @@ ggstatsplot::ggdotplotstats(
 ## )
 
 ## ----ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE--------------
+# let's use subset of data
 ggpiestats(
   data = dplyr::filter(movies_long, 
-                mpaa %in% c("R", "PG-13")), 
+  genre %in% c("Drama", "Comedy", "Animated")), 
   main = genre,
   condition = mpaa,
   paired = FALSE, # default #<< 
@@ -432,26 +436,7 @@ ggcoefstats(
   exclude.intercept = FALSE
 )
 
-## ----ggcoefstats_3, eval = FALSE-----------------------------------------
-## # made up data
-## meta_df <- tibble::tribble(
-##   ~term, ~estimate, ~std.error,
-##   "study_1", 0.111, 0.065,
-##   "study_2", -0.003, 0.258,
-##   "study_3", 0.001, 0.120,
-##   "study_4", 0.032, 0.022,
-##   "study_5", -0.765, 0.650,
-##   "study_6", -0.032, 0.058
-## )
-## 
-## # plot
-## ggcoefstats(
-##   x = meta_df,
-##   meta.analytic.effect = TRUE, #<<
-##   xlab = "estimate"
-## )
-
-## ----ggcoefstats_3, ref.label = 'ggcoefstats_3', echo = FALSE------------
+## ----ggcoefstats_3, results = "hide", fig.show = "hide"------------------
 # made up data
 meta_df <- tibble::tribble(
   ~term, ~estimate, ~std.error,
@@ -490,80 +475,39 @@ grouped_ggpiestats(
 
 ## ----subtitle_1, eval = FALSE--------------------------------------------
 ## # using `ggstatsplot` for stats
-## stats_results <-
-##   ggstatsplot::subtitle_anova_parametric(
-##     data = ChickWeight,
-##     x = Time,
-##     y = weight,
+## results <-
+##   subtitle_contingency_tab(
+##     data = Titanic_full,
+##     main = Survived,
+##     condition = Sex,
 ##     messages = FALSE
 ##   )
 ## 
-## # using `yarrr` for plot
-## yarrr::pirateplot(
-##   formula = weight ~ Time,
-##   data = ChickWeight,
-##   theme = 1,
-##   main = stats_results
-## )
+## # using `ggiraphExtra` for plot
+## ggiraphExtra::ggSpine(
+##   data = Titanic_full,
+##   aes(x = Sex, fill = Survived),
+##   addlabel = TRUE,
+##   interactive = FALSE
+## ) + #<<
+##   labs(subtitle = results) #<<
 
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE------------------
 # using `ggstatsplot` for stats
-stats_results <-
-  ggstatsplot::subtitle_anova_parametric(
-    data = ChickWeight,
-    x = Time,
-    y = weight,
+results <-
+  subtitle_contingency_tab(
+    data = Titanic_full,
+    main = Survived,
+    condition = Sex,
     messages = FALSE
   )
 
-# using `yarrr` for plot
-yarrr::pirateplot(
-  formula = weight ~ Time,
-  data = ChickWeight,
-  theme = 1,
-  main = stats_results
-)
-
-## ----comment='#'---------------------------------------------------------
-# a boring regression
-fit = lm(dist ~ 1 + speed, data = cars)
-coef(summary(fit))
-dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-grep('天', dojutsu, value = TRUE)
-
-## ----cars, fig.height=4, dev='svg'---------------------------------------
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
-
-## ------------------------------------------------------------------------
-knitr::kable(head(iris), format = 'html')
-
-## ----out.width='100%', fig.height=6, eval=require('leaflet')-------------
-library(leaflet)
-leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
-
-## ----eval=require('DT'), tidy=FALSE--------------------------------------
-DT::datatable(
-  head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 8)
-)
-
-## ----tidy=FALSE----------------------------------------------------------
-if (TRUE) {
-{{ message("Very important!") }}
-}
-
-## ----tidy=FALSE, eval=FALSE----------------------------------------------
-## library(ggplot2)
-## ggplot(mtcars) +
-##   aes(mpg, disp) +
-##   geom_point() +   #<<
-##   geom_smooth()    #<<
-
-## ---- highlight.output=c(1, 3), echo=FALSE-------------------------------
-head(iris)
-
-## ------------------------------------------------------------------------
-names(xaringan:::list_css())
+# using `ggiraphExtra` for plot
+ggiraphExtra::ggSpine(
+  data = Titanic_full,
+  aes(x = Sex, fill = Survived),
+  addlabel = TRUE,
+  interactive = FALSE
+) + #<<
+  labs(subtitle = results) #<<
 

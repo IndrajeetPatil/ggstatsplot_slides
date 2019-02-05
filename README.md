@@ -4,14 +4,14 @@ The slides are available here: (to be finalized)
 
 ## Follow Along
 
-You can use the script [`0-companion-script.R`](0-companion-script.R) to follow
+You can use the script [`ggstatsplot_presentation.R`](ggstatsplot_presentation.R) to follow
 along during the talk or to review the plots later.
 
 ## Setup
 
 You will need to install the following packages-
 
-``` r
+```r
 install.packages(c("ggstatsplot", "tidyverse", "gapminder"))
 ```
 
