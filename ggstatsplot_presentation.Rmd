@@ -49,7 +49,8 @@ options(
   htmltools.dir.version = FALSE,
   width = 90,
   max.print = 9999,
-  knitr.table.format = "html"
+  knitr.table.format = "html",
+  crayon.enabled = TRUE
 )
 
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
@@ -277,6 +278,7 @@ Then you can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
 ```{r github, eval = FALSE, tidy = FALSE}
+library(devtools)
 devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 ```
 
@@ -292,7 +294,7 @@ library(ggplot2)
 --
 
 You are recommended to use the [RStudioIDE](https://www.rstudio.com/products/rstudio/), 
-but you do not have to.
+but you don't have to.
 
 ---
 
@@ -1198,23 +1200,52 @@ Principles of statistical reporting in *ggstatsplot*
 
 layout: false
 
-# Follows the APA gold standard for statistical reporting
+# Statistical reporting template
 
 --
 
+- For all statistical tests reported in the plots, the default template abides
+by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
+statistical reporting. For example, here are results from Yuen's test for
+trimmed means (robust *t*-test):
+
 ![](images/stats_reporting_format.png)
+--
+
+- The default tests follow the best practices. For example, `ggbetweenstats`
+function by default runs Welch's *t*-test and Welch's ANOVA - and not Student's
+*t*-test and Fisher's ANOVA - based on recent work (Delacre et al.,
+[2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
+[2018](https://psyarxiv.com/wnezg)).
 
 ---
 
 layout: false
 
-# Making sense of null effects
+# Avoiding errors
+
+--
+
+Since the plot and the statistical analysis are yoked together, the chances of
+making an error in reporting the results are minimized. You never have to write
+the results manually or copy-paste them from someplace else.
+
+![](images\statcheck.png)
+
+.footnote[(Nuijten et al., *Behavior Research Methods*, 2016)]
+
+---
+
+layout: false
+
+# Making sense of null results
 
 --
 
 Combination of frequentist and Bayesian statistics for each analysis to properly
-interpret null effects.
+interpret the null results.
 
+--
 
 ![](images/null_results.png)
 
@@ -1253,7 +1284,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
-# Pairwise comparison tests in ggbetweenstats
+# Pairwise comparison tests in *ggbetweenstats*
 
 <br>
 
@@ -1303,11 +1334,7 @@ layout: true
 
 --
 
-- More breathing room for theory and other text.
-
---
-
-- No more mixing of stats and textual results.
+- More breathing room for theoretical discussion and other text.
 
 --
 
@@ -1317,6 +1344,27 @@ layout: true
 --
 
 - Minimal amount of code needed (minimizes chances of error).
+
+---
+
+layout: true
+
+# Quality assurance
+
+---
+
+--
+
+`ggstatsplot` includes over <font color="blue">**1200**</font> tests to make
+sure that all the code is working properly. 
+
+If you use `ggstatsplot` to report results in your publication and find an error
+that traces back to code in this package, I will personally write an apology
+letter to you and to the editor of the journal in question.
+
+![](images/codecov_2.png)
+
+.footnote[*Reference*: <https://codecov.io/gh/IndrajeetPatil/ggstatsplot>]
 
 ---
 
@@ -1336,15 +1384,15 @@ layout: true
 
 --
 
-- Limited kinds of plots available.
+- Limited kinds of <font color="blue">plots</font> available.
 
 --
 
-- Limited number of statistical tests (or effect sizes) available.
+- Limited number of statistical <font color="blue">tests</font> (and effect sizes) available.
 
 --
 
-- Faceting (or small multiples) not implemented.
+- <font color="blue">Faceting</font> (or small multiples) not implemented.
 
 --
 
@@ -1357,11 +1405,26 @@ time-constrained presentation settings (e.g., conference talks).
 
 ---
 
+layout: true
+
+# Overcoming these limitations
+
+---
+
+Contributions more than welcome!
+(No matter of how small or big.)
+
+![](images/needs_you.jpg)
+
+---
+
 layout: false
 
 class: center, middle
 
 # Thanks!
+
+Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 

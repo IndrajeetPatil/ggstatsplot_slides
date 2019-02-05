@@ -20,7 +20,8 @@ options(
   htmltools.dir.version = FALSE,
   width = 90,
   max.print = 9999,
-  knitr.table.format = "html"
+  knitr.table.format = "html",
+  crayon.enabled = TRUE
 )
 
 as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
@@ -38,6 +39,7 @@ as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ## utils::install.packages("ggstatsplot")
 
 ## ----github, eval = FALSE, tidy = FALSE----------------------------------
+## library(devtools)
 ## devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 
 ## ----load, eval = TRUE, warning=FALSE------------------------------------
@@ -406,22 +408,7 @@ ggcoefstats(
   )
 ) 
 
-## ----ggcoefstats_2, eval = FALSE, message = FALSE, warning = FALSE-------
-## # dataframe with results
-## df <- tibble::tribble(
-##   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
-##   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
-##   "x", -1.36, 0.258, -5.26, 1.13e-5
-## )
-## 
-## # plot
-## ggcoefstats(
-##   x = df,
-##   statistic = "z",
-##   exclude.intercept = FALSE
-## )
-
-## ----ggcoefstats_2, ref.label = 'ggcoefstats_2', echo = FALSE, message = FALSE, warning = FALSE----
+## ----ggcoefstats_2, results = "hide", fig.show = "hide"------------------
 # dataframe with results
 df <- tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
@@ -475,13 +462,12 @@ grouped_ggpiestats(
 
 ## ----subtitle_1, eval = FALSE--------------------------------------------
 ## # using `ggstatsplot` for stats
-## results <-
-##   subtitle_contingency_tab(
-##     data = Titanic_full,
-##     main = Survived,
-##     condition = Sex,
-##     messages = FALSE
-##   )
+## results <- subtitle_contingency_tab(
+##   data = Titanic_full,
+##   main = Survived,
+##   condition = Sex,
+##   messages = FALSE
+## )
 ## 
 ## # using `ggiraphExtra` for plot
 ## ggiraphExtra::ggSpine(
@@ -489,18 +475,16 @@ grouped_ggpiestats(
 ##   aes(x = Sex, fill = Survived),
 ##   addlabel = TRUE,
 ##   interactive = FALSE
-## ) + #<<
-##   labs(subtitle = results) #<<
+## ) + labs(subtitle = results) # <<
 
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE------------------
 # using `ggstatsplot` for stats
-results <-
-  subtitle_contingency_tab(
-    data = Titanic_full,
-    main = Survived,
-    condition = Sex,
-    messages = FALSE
-  )
+results <- subtitle_contingency_tab(
+  data = Titanic_full,
+  main = Survived,
+  condition = Sex,
+  messages = FALSE
+)
 
 # using `ggiraphExtra` for plot
 ggiraphExtra::ggSpine(
@@ -508,6 +492,5 @@ ggiraphExtra::ggSpine(
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + #<<
-  labs(subtitle = results) #<<
+) + labs(subtitle = results) # <<
 
