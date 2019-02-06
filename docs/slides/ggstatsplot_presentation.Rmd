@@ -949,6 +949,7 @@ mod <- stats::aov(
 # plot
 ggcoefstats(x = mod)
 ```
+
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
@@ -983,6 +984,7 @@ layout: true
 - `aovlist`
 - `Arima` 
 - `biglm`
+- `brms`
 - `btergm`
 - `cch`
 - `clm`
@@ -997,6 +999,7 @@ layout: true
 - `glmerMod`
 - `glmmTMB`
 - `gls`
+- `gam`
 - `Gam`
 - `gamlss`
 - `garch`
@@ -1016,6 +1019,7 @@ layout: true
 - `lmerMod`
 - `lmodel2`
 - `lmrob`
+- `mcmc`
 - `MCMCglmm`
 - `mediate` 
 - `mjoint`
@@ -1066,6 +1070,11 @@ ggcoefstats(
   exclude.intercept = FALSE
 )
 ```
+.font80[
+Technically, you only need two
+columns in the dataframe-
+<font color="blue">term</font> and <font color="blue">column</font>.
+]
 
 ]
 
@@ -1127,14 +1136,12 @@ layout: true
 
 # grouped_ functions
 
-You can repeat the same analysis for all levels of a single grouping variable by
-adding `grouping.var` argument to the function call.
-
+You can repeat the same analysis for all levels of a single grouping variable.
 ---
 
 .left-code[
 ```{r grouped_1, eval = FALSE}
-# for example
+# only one additional argument
 grouped_ggpiestats(
   data = mtcars, 
   main = cyl,
@@ -1143,7 +1150,7 @@ grouped_ggpiestats(
 )
 ```
 
-.font80[
+.font70[
 Available `grouped_` variants
 
 - `grouped_ggdotplotstats`
@@ -1324,7 +1331,7 @@ one-sample *t*-test | <font color="green">Yes</font> | <font color="green">Yes</
 two-sample *t*-test (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 two-sample *t*-test (within) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 One-way ANOVA (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
-One-way ANOVA (within) | <font color="green">Yes</font> | <font color="red">No</font> | <font color="green">Yes</font> | <font color="red">No</font>
+One-way ANOVA (within) | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font> | <font color="red">No</font>
 correlations | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 contingency table | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
 goodness of fit | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>

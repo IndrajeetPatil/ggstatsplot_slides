@@ -933,6 +933,7 @@ mod &lt;- stats::aov(
 # plot
 ggcoefstats(x = mod)
 ```
+
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
@@ -966,6 +967,7 @@ layout: true
 - `aovlist`
 - `Arima` 
 - `biglm`
+- `brms`
 - `btergm`
 - `cch`
 - `clm`
@@ -980,6 +982,7 @@ layout: true
 - `glmerMod`
 - `glmmTMB`
 - `gls`
+- `gam`
 - `Gam`
 - `gamlss`
 - `garch`
@@ -999,6 +1002,7 @@ layout: true
 - `lmerMod`
 - `lmodel2`
 - `lmrob`
+- `mcmc`
 - `MCMCglmm`
 - `mediate` 
 - `mjoint`
@@ -1050,6 +1054,11 @@ ggcoefstats(
   exclude.intercept = FALSE
 )
 ```
+.font80[
+Technically, you only need two
+columns in the dataframe-
+&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;column&lt;/font&gt;.
+]
 
 ]
 
@@ -1112,15 +1121,13 @@ layout: true
 
 # grouped_ functions
 
-You can repeat the same analysis for all levels of a single grouping variable by
-adding `grouping.var` argument to the function call.
-
+You can repeat the same analysis for all levels of a single grouping variable.
 ---
 
 .left-code[
 
 ```r
-# for example
+# only one additional argument
 grouped_ggpiestats(
   data = mtcars, 
   main = cyl,
@@ -1129,7 +1136,7 @@ grouped_ggpiestats(
 )
 ```
 
-.font80[
+.font70[
 Available `grouped_` variants
 
 - `grouped_ggdotplotstats`
@@ -1309,7 +1316,7 @@ one-sample *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font colo
 two-sample *t*-test (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 two-sample *t*-test (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 One-way ANOVA (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 correlations | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 contingency table | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
 goodness of fit | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
