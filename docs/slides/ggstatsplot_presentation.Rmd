@@ -1,8 +1,8 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "Harvard Psych Methods Dinners"
+subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil"
-date: "2019-02-05"
+date: "2019-02-10"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -106,7 +106,7 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 --
 
 .right-column[.font150[
-In short, `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and quick (exploratory) statistical analysis.
+Short answer: `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and quick (exploratory) statistical analysis.
 ]
 ]
 
@@ -182,18 +182,26 @@ layout: true
 
 layout: false
 
-# 3. Easier syntax 
+# 3. Ready-made plot == no customization
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) tells us that a statistical graphic is a <font color="blue">*mapping*</font> from  <font color="blue">*data*</font> to <font color="blue">*aesthetic attributes*</font> (colour, shape, size) of <font color="blue">*geometric objects*</font> (points, lines, bars). This means you can create countably infinite number of graphics, each tailored for your specific data visualization problem! As such, this is an incredibly powerful framework to prepare graphics.
+The **grammar of graphics** (implemented in `ggplot2`) tells us that a
+statistical graphic is a <font color="blue">*mapping*</font> from  <font
+color="blue">*data*</font> to <font color="blue">*aesthetic attributes*</font>
+(colour, shape, size) of <font color="blue">*geometric objects*</font> (points,
+lines, bars). This means you can make infinite number of graphics, each tailored
+for your specific data visualization problem! As such, this is an incredibly
+powerful framework to prepare graphics. But...
 
 --
 
-But...
-
-.img-center-small[
+.pull-left[
 ![](images/power.jpg)
+]
+
+.pull-right[
+![](images/cat_trademill.gif)
 ]
 
 --
@@ -307,7 +315,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - defaults
 
 ---
 
@@ -345,7 +353,42 @@ Changing the type of test
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - little code, loads information
+
+---
+
+.left-code[
+```{r ggbetweenstats_1_copy, eval = FALSE}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  bf.message = TRUE #<<
+)
+```
+
+.font80[
+Default information:
+
+- <font color="red">statistical details</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="green">sample sizes</font>
+
+- <font color="pink">distribution summary</font>
+]
+]
+
+.right-plot[
+![](images/ggbetweenstats_info.png)
+]
+
+---
+
+layout: true
+
+# ggbetweenstats - pairwise comparisons
 
 ---
 
@@ -383,7 +426,7 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - (aesthetic) customization
 
 ---
 
@@ -423,7 +466,7 @@ use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - modification with `ggplot2`
 
 ---
 
@@ -843,6 +886,44 @@ Test by design
 
 ---
 
+layout: true
+
+# ggbetweenstats - little code, loads information
+
+---
+
+.left-code[
+```{r ggpiestats_1_copy, eval = FALSE}
+# let's use subset of data
+ggpiestats(
+  data = dplyr::filter(movies_long, 
+  genre %in% c("Drama", "Comedy", "Animated")), 
+  main = genre,
+  condition = mpaa,
+  conf.level = 0.99, #<<
+  bf.message = TRUE #<<
+)
+```
+
+.font80[
+Default information:
+
+- <font color="red">statistical details</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="green">sample sizes</font>
+
+- <font color="pink">distribution summary</font>
+]
+]
+
+.right-plot[
+![](images/ggbetweenstats_info.png)
+]
+
+---
+
 .left-code[
 ```{r ggpiestats_2, eval = FALSE}
 ggpiestats(
@@ -984,7 +1065,7 @@ layout: true
 - `aovlist`
 - `Arima` 
 - `biglm`
-- `brms`
+- `brmsfit`
 - `btergm`
 - `cch`
 - `clm`

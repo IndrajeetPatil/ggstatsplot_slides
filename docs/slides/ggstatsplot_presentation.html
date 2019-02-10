@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8">
     <meta name="author" content="Indrajeet Patil" />
-    <meta name="date" content="2019-02-05" />
+    <meta name="date" content="2019-02-10" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
@@ -15,9 +15,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## Harvard Psych Methods Dinners
+## An Introductory Tutorial
 ### Indrajeet Patil
-### 2019-02-05
+### 2019-02-10
 
 ---
 
@@ -83,7 +83,7 @@ Current count of number of packages on the Comprehensive R Archive Network (**CR
 --
 
 .right-column[.font150[
-In short, `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and quick (exploratory) statistical analysis.
+Short answer: `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and quick (exploratory) statistical analysis.
 ]
 ]
 
@@ -159,18 +159,26 @@ layout: true
 
 layout: false
 
-# 3. Easier syntax 
+# 3. Ready-made plot == no customization
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) tells us that a statistical graphic is a &lt;font color="blue"&gt;*mapping*&lt;/font&gt; from  &lt;font color="blue"&gt;*data*&lt;/font&gt; to &lt;font color="blue"&gt;*aesthetic attributes*&lt;/font&gt; (colour, shape, size) of &lt;font color="blue"&gt;*geometric objects*&lt;/font&gt; (points, lines, bars). This means you can create countably infinite number of graphics, each tailored for your specific data visualization problem! As such, this is an incredibly powerful framework to prepare graphics.
+The **grammar of graphics** (implemented in `ggplot2`) tells us that a
+statistical graphic is a &lt;font color="blue"&gt;*mapping*&lt;/font&gt; from  &lt;font
+color="blue"&gt;*data*&lt;/font&gt; to &lt;font color="blue"&gt;*aesthetic attributes*&lt;/font&gt;
+(colour, shape, size) of &lt;font color="blue"&gt;*geometric objects*&lt;/font&gt; (points,
+lines, bars). This means you can make infinite number of graphics, each tailored
+for your specific data visualization problem! As such, this is an incredibly
+powerful framework to prepare graphics. But...
 
 --
 
-But...
-
-.img-center-small[
+.pull-left[
 ![](images/power.jpg)
+]
+
+.pull-right[
+![](images/cat_trademill.gif)
 ]
 
 --
@@ -290,7 +298,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - defaults
 
 ---
 
@@ -328,7 +336,44 @@ Changing the type of test
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - little code, loads information
+
+---
+
+.left-code[
+
+```r
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+* bf.message = TRUE,
+  messages = FALSE
+)
+```
+
+.font80[
+Default information:
+
+- &lt;font color="red"&gt;statistical details&lt;/font&gt;
+
+- &lt;font color="blue"&gt;Bayes Factor&lt;/font&gt;
+
+- &lt;font color="green"&gt;sample sizes&lt;/font&gt;
+
+- &lt;font color="pink"&gt;distribution summary&lt;/font&gt;
+]
+]
+
+.right-plot[
+![](images/ggbetweenstats_info.png)
+]
+
+---
+
+layout: true
+
+# ggbetweenstats - pairwise comparisons
 
 ---
 
@@ -366,7 +411,7 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - customization
 
 ---
 
@@ -967,7 +1012,7 @@ layout: true
 - `aovlist`
 - `Arima` 
 - `biglm`
-- `brms`
+- `brmsfit`
 - `btergm`
 - `cch`
 - `clm`

@@ -11,8 +11,9 @@ https://indrajeetpatil.github.io/ggstatsplot/
 
 ## Follow Along
 
-You can use the script [`ggstatsplot_presentation.R`](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.R) to follow
-along during the talk or to review the plots later.
+You can use the script
+[`ggstatsplot_presentation.R`](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.R)
+to follow along during the talk or to review the plots later.
 
 ## Setup
 
