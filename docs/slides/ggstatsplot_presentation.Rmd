@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil"
-date: "2019-02-10"
+date: "2019-02-10<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -29,7 +29,7 @@ code.r{
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, fig.retina = 2, fig.align = "center",
+  fig.width = 7, fig.height = 5, fig.retina = 2, fig.align = "center",
   out.width = "100%", dpi = 300,
   message = FALSE, warning = FALSE, cache = TRUE,
   autodep = TRUE, hiline = TRUE
@@ -199,19 +199,6 @@ each tailored for your specific data visualization problem! But...
 .pull-right[
 ![](images/cat_trademill.gif)
 ]
-
---
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-The `ggstatsplot` package instead provides an **opinionated** collection of
-ready-made `ggplot2` plots for the most common statistical problems and,
-therefore, by design, is narrower in scope.
 
 ---
 
@@ -530,7 +517,7 @@ Association between two numeric variables
 
 layout: true
 
-# ggscatterstats
+# ggscatterstats - defaults
 
 ---
 
@@ -569,7 +556,41 @@ Changing the type of test
 
 layout: true
 
-# ggscatterstats
+# ggscatterstats - little code, loads information
+
+---
+
+.left-code[
+```{r ggscatterstats_1_copy, eval = FALSE}
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+  bf.message = TRUE,
+  conf.level = 0.99
+)
+```
+
+.font80[
+Default information:
+
+- <font color="red">distribution</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="orange">statistical details</font>
+]
+]
+
+.right-plot[
+![](images/ggscatterstats_info.png)
+]
+
+---
+
+layout: true
+
+# ggscatterstats - changing smoothing functions
 
 ---
 
@@ -620,7 +641,7 @@ Association between multiple numeric variables
 
 layout: true
 
-# ggcorrmat
+# ggcorrmat - defaults
 
 ---
 
@@ -657,7 +678,35 @@ about sample sizes in case
 
 layout: true
 
-# ggcorrmat
+# ggcorrmat - little code, loads information
+
+---
+
+.left-code[
+```{r ggcorrmat_1_copy, eval = FALSE}
+ggcorrmat(dplyr::starwars)
+```
+
+.font80[
+Default information:
+
+- <font color="red">statistical details</font>
+
+- <font color="blue">sample sizes</font>
+
+- <font color="green">details about test</font>
+]
+]
+
+.right-plot[
+![](images/ggcorrmat_info.png)
+]
+
+---
+
+layout: true
+
+# ggcorrmat - changing defaults
 
 ---
 
@@ -715,13 +764,13 @@ layout: true
 
 .left-code[
 ```{r gghistostats_1, eval = FALSE}
-ggstatsplot::gghistostats(
+gghistostats(
   data = movies_long,    
   x = budget,
+  type = "r", #<<
   test.value = 50, #<<
   bar.measure = "count", # default #<<
   binwidth = 10,  #<<
-  bf.message = TRUE, #<<
   messages = FALSE
 ) 
 ```
@@ -746,18 +795,24 @@ Changing the type of test
 
 ---
 
+layout: true
+
+# gghistostats - further customization
+
+---
+
 .left-code[
 ```{r gghistostats_2, eval = FALSE}
-ggstatsplot::gghistostats(
+gghistostats(
   data = movies_long,    
   x = budget,
-  type = "r",
   test.value = 50,
   test.value.size = TRUE, #<<
   bar.measure = "mix", #<<
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   normal.curve = TRUE, #<<
+  bf.message = TRUE,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
   ggstatsplot.layer = FALSE, #<<
   messages = FALSE
@@ -782,6 +837,46 @@ Available bar measures
 
 ---
 
+layout: true
+
+# gghistostats - little code, loads information
+
+---
+
+.left-code[
+```{r gghistostats_2_copy, eval = FALSE}
+gghistostats(
+  data = movies_long,    
+  x = budget,
+  test.value = 50,
+  test.value.size = TRUE, 
+  bar.measure = "mix", 
+  centrality.para = "median", 
+  test.value.line = TRUE,
+  normal.curve = TRUE,
+  bf.message = TRUE
+)
+```
+
+.font80[
+Default information:
+
+- <font color="orange">statistical details</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="green">frequency</font>
+
+- <font color="black">distribution summary</font>
+]
+]
+
+.right-plot[
+![](images/gghistostats_info.png)
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -799,7 +894,7 @@ layout: true
 
 .left-code[
 ```{r ggdotplotstats_1, eval = FALSE}
-ggstatsplot::ggdotplotstats(
+ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
@@ -807,6 +902,7 @@ ggstatsplot::ggdotplotstats(
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   test.value.color = "red", #<<
+  bf.message = TRUE, #<<
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
@@ -828,6 +924,37 @@ Changing the type of test
 .right-plot[
 ```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
 ```
+]
+
+---
+
+.left-code[
+```{r ggdotplotstats_1_copy, eval = FALSE}
+ggdotplotstats(
+  data = movies_long,
+  x = budget,
+  y = genre,
+  test.value = 52,     
+  centrality.para = "median", 
+  test.value.line = TRUE, 
+  test.value.color = "red",
+  bf.message = TRUE
+) 
+```
+
+.font80[
+Default information:
+
+- <font color="orange">statistical details</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="green">distribution summary</font>
+]
+]
+
+.right-plot[
+![](images/ggdotplotstats_info.png)
 ]
 
 ---
@@ -910,7 +1037,7 @@ Default information:
 
 - <font color="green">sample sizes</font>
 
-- <font color="red">distribution summary</font>
+- <font color="red">proportion test results</font>
 ]
 ]
 
@@ -1000,6 +1127,41 @@ argument in all plotting functions.
 
 ---
 
+layout: true
+
+# ggbarstats - little code, loads information
+
+---
+
+.left-code[
+```{r ggbarstats_1_copy, eval = FALSE}
+ggbarstats(
+  data = movies_long, 
+  main = genre,
+  condition = mpaa,
+  bf.message = TRUE
+)
+```
+
+.font80[
+Default information:
+
+- <font color="orange">statistical details</font>
+
+- <font color="blue">Bayes Factor</font>
+
+- <font color="green">sample sizes</font>
+
+- <font color="red">proportion test results</font>
+]
+]
+
+.right-plot[
+![](images/ggbarstats_info.png)
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -1049,7 +1211,7 @@ get a dataframe of results:
 
 layout: true
 
-# ggpiestats
+# ggpiestats - little code, loads information
 
 ---
 
@@ -1558,7 +1720,8 @@ layout: true
 
 --
 
-- Limited number of statistical <font color="blue">tests</font> (and effect sizes) available.
+- Limited number of statistical <font color="blue">tests</font> (and effect
+sizes) available.
 
 --
 
@@ -1599,13 +1762,15 @@ Contributions (big or small) welcome!
 .font80[
 Ways in which you can contribute
 
-- Read and correct any inconsistencies in the [documentation](https://indrajeetpatil.github.io/ggstatsplot/)
+- Read and correct any inconsistencies in the
+[documentation](https://indrajeetpatil.github.io/ggstatsplot/)
 
 - Raise issues about bugs or wanted features
 
 - Review code
 
-- Add new functionality (in the form of new plotting functions or helpers for preparing subtitles)
+- Add new functionality (in the form of new plotting functions or helpers for
+preparing subtitles)
 ]
 ]
 
@@ -1621,7 +1786,7 @@ class: center, middle
 
 Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
 
-Advisors: Mina Cikara and Fiery Cushman
+Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/) and [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php)
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 

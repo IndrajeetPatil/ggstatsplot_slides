@@ -4,3 +4,11 @@ DT
 ggstatsplot
 ggplot2
 ggiraphExtra
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats

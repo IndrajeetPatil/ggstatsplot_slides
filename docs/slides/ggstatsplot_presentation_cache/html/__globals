@@ -38,3 +38,8 @@ subtitle_1	results	subtitle_contingency_tab	Titanic_full	Survived	Sex	ggSpine	ae
 ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
 ggpiestats_1_copy	ggpiestats	filter	movies_long	genre	%in%	c	mpaa
 ggcoefstats_1_copy	mod	aov	rating	mpaa	genre	movies_long	ggcoefstats
+gghistostats_2_copy	gghistostats	movies_long	budget
+ggdotplotstats_1_copy	ggdotplotstats	movies_long	budget	genre
+ggscatterstats_1_copy	ggscatterstats	movies_long	budget	rating
+ggbarstats_1_copy	ggbarstats	movies_long	genre	mpaa
+ggcorrmat_1_copy	ggcorrmat	starwars
