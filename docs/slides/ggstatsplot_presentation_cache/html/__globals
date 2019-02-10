@@ -36,3 +36,5 @@ ggcoefstats_2	df	tribble	term	estimate	std.error	statistic	p.value	ggcoefstats
 ggcoefstats_3	meta_df	tribble	term	estimate	std.error	ggcoefstats
 subtitle_1	results	subtitle_contingency_tab	Titanic_full	Survived	Sex	ggSpine	aes	labs
 ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
+ggpiestats_1_copy	ggpiestats	filter	movies_long	genre	%in%	c	mpaa
+ggcoefstats_1_copy	mod	aov	rating	mpaa	genre	movies_long	ggcoefstats

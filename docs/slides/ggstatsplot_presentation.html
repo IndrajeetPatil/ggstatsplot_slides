@@ -159,17 +159,13 @@ layout: true
 
 layout: false
 
-# 3. Ready-made plot == no customization
+# 3. Ready-made plot = no customization
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) tells us that a
-statistical graphic is a &lt;font color="blue"&gt;*mapping*&lt;/font&gt; from  &lt;font
-color="blue"&gt;*data*&lt;/font&gt; to &lt;font color="blue"&gt;*aesthetic attributes*&lt;/font&gt;
-(colour, shape, size) of &lt;font color="blue"&gt;*geometric objects*&lt;/font&gt; (points,
-lines, bars). This means you can make infinite number of graphics, each tailored
-for your specific data visualization problem! As such, this is an incredibly
-powerful framework to prepare graphics. But...
+The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
+framework to prepare graphics and lets you make infinite number of graphics,
+each tailored for your specific data visualization problem! But...
 
 --
 
@@ -347,21 +343,20 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* bf.message = TRUE,
-  messages = FALSE
+* bf.message = TRUE
 )
 ```
 
 .font80[
 Default information:
 
-- &lt;font color="red"&gt;statistical details&lt;/font&gt;
+- &lt;font color="orange"&gt;statistical details&lt;/font&gt;
 
 - &lt;font color="blue"&gt;Bayes Factor&lt;/font&gt;
 
 - &lt;font color="green"&gt;sample sizes&lt;/font&gt;
 
-- &lt;font color="pink"&gt;distribution summary&lt;/font&gt;
+- &lt;font color="red"&gt;distribution summary&lt;/font&gt;
 ]
 ]
 
@@ -411,7 +406,7 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats - customization
+# ggbetweenstats - (aesthetic) customization
 
 ---
 
@@ -451,7 +446,7 @@ use `ggstatsplot` 😻
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - modification with *ggplot2*
 
 ---
 
@@ -871,6 +866,45 @@ Test by design
 
 ---
 
+layout: true
+
+# ggpiestats - little code, loads information
+
+---
+
+.left-code[
+
+```r
+# let's use subset of data
+ggpiestats(
+  data = dplyr::filter(movies_long, 
+  genre %in% c("Drama", "Comedy", "Animated")), 
+  main = genre,
+  condition = mpaa,
+* conf.level = 0.99,
+* bf.message = TRUE
+)
+```
+
+.font80[
+Default information:
+
+- &lt;font color="orange"&gt;statistical details&lt;/font&gt;
+
+- &lt;font color="blue"&gt;Bayes Factor&lt;/font&gt;
+
+- &lt;font color="green"&gt;sample sizes&lt;/font&gt;
+
+- &lt;font color="red"&gt;distribution summary&lt;/font&gt;
+]
+]
+
+.right-plot[
+![](images/ggpiestats_info.png)
+]
+
+---
+
 .left-code[
 
 ```r
@@ -1000,6 +1034,42 @@ get a dataframe of results:
 
 layout: true
 
+# ggpiestats
+
+---
+
+.left-code[
+
+```r
+# model
+mod &lt;- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
+
+# plot
+ggcoefstats(x = mod)
+```
+
+.font80[
+Default information:
+
+- &lt;font color="red"&gt;estimate + 95% CI&lt;/font&gt;
+
+- &lt;font color="blue"&gt;model summary&lt;/font&gt;
+
+- &lt;font color="green"&gt;statistical details&lt;/font&gt;
+]
+]
+
+.right-plot[
+![](images/ggcoefstats_info.png)
+]
+
+---
+
+layout: true
+
 # *ggcoefstats*: Supported models
 
 ---
@@ -1086,7 +1156,8 @@ layout: true
 
 ```r
 # dataframe with results
-df &lt;- tibble::tribble(
+df &lt;- 
+  tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
   "x", -1.36, 0.258, -5.26, 1.13e-5
@@ -1102,7 +1173,7 @@ ggcoefstats(
 .font80[
 Technically, you only need two
 columns in the dataframe-
-&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;column&lt;/font&gt;.
+&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;estimate&lt;/font&gt;.
 ]
 
 ]

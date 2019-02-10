@@ -182,17 +182,13 @@ layout: true
 
 layout: false
 
-# 3. Ready-made plot == no customization
+# 3. Ready-made plot = no customization
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) tells us that a
-statistical graphic is a <font color="blue">*mapping*</font> from  <font
-color="blue">*data*</font> to <font color="blue">*aesthetic attributes*</font>
-(colour, shape, size) of <font color="blue">*geometric objects*</font> (points,
-lines, bars). This means you can make infinite number of graphics, each tailored
-for your specific data visualization problem! As such, this is an incredibly
-powerful framework to prepare graphics. But...
+The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
+framework to prepare graphics and lets you make infinite number of graphics,
+each tailored for your specific data visualization problem! But...
 
 --
 
@@ -370,13 +366,13 @@ ggbetweenstats(
 .font80[
 Default information:
 
-- <font color="red">statistical details</font>
+- <font color="orange">statistical details</font>
 
 - <font color="blue">Bayes Factor</font>
 
 - <font color="green">sample sizes</font>
 
-- <font color="pink">distribution summary</font>
+- <font color="red">distribution summary</font>
 ]
 ]
 
@@ -466,7 +462,7 @@ use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
 
 layout: true
 
-# ggbetweenstats - modification with `ggplot2`
+# ggbetweenstats - modification with *ggplot2*
 
 ---
 
@@ -888,7 +884,7 @@ Test by design
 
 layout: true
 
-# ggbetweenstats - little code, loads information
+# ggpiestats - little code, loads information
 
 ---
 
@@ -908,18 +904,18 @@ ggpiestats(
 .font80[
 Default information:
 
-- <font color="red">statistical details</font>
+- <font color="orange">statistical details</font>
 
 - <font color="blue">Bayes Factor</font>
 
 - <font color="green">sample sizes</font>
 
-- <font color="pink">distribution summary</font>
+- <font color="red">distribution summary</font>
 ]
 ]
 
 .right-plot[
-![](images/ggbetweenstats_info.png)
+![](images/ggpiestats_info.png)
 ]
 
 ---
@@ -1053,6 +1049,41 @@ get a dataframe of results:
 
 layout: true
 
+# ggpiestats
+
+---
+
+.left-code[
+```{r ggcoefstats_1_copy, eval = FALSE}
+# model
+mod <- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
+
+# plot
+ggcoefstats(x = mod)
+```
+
+.font80[
+Default information:
+
+- <font color="red">estimate + 95% CI</font>
+
+- <font color="blue">model summary</font>
+
+- <font color="green">statistical details</font>
+]
+]
+
+.right-plot[
+![](images/ggcoefstats_info.png)
+]
+
+---
+
+layout: true
+
 # *ggcoefstats*: Supported models
 
 ---
@@ -1138,7 +1169,8 @@ layout: true
 .left-code[
 ```{r ggcoefstats_2, results = "hide", fig.show = "hide"}
 # dataframe with results
-df <- tibble::tribble(
+df <- 
+  tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
   "x", -1.36, 0.258, -5.26, 1.13e-5
@@ -1154,7 +1186,7 @@ ggcoefstats(
 .font80[
 Technically, you only need two
 columns in the dataframe-
-<font color="blue">term</font> and <font color="blue">column</font>.
+<font color="blue">term</font> and <font color="blue">estimate</font>.
 ]
 
 ]
@@ -1554,7 +1586,7 @@ layout: true
 .pull-left[
 
 .font80[
-Contributions (big or small) welcome! `r emo::ji("heart")`
+Contributions (big or small) welcome!
 ]
 
 ![](images/needs_you.jpg)
@@ -1585,7 +1617,11 @@ class: center, middle
 
 # Thanks!
 
+**Acknowledgments**
+
 Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
+
+Advisors: Mina Cikara and Fiery Cushman
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 
