@@ -187,7 +187,7 @@ layout: false
 --
 
 The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
-framework to prepare graphics and lets you make infinite number of graphics,
+framework to prepare graphics and can help you make infinite number of graphics,
 each tailored for your specific data visualization problem! But...
 
 --
@@ -238,6 +238,21 @@ All functions in `ggstatsplot`-
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
 2.  accept both `"quoted"` and `unquoted` arguments
+
+---
+
+layout: false
+
+# 5. Follows best practices for statistical reporting 
+
+--
+
+ For all statistical tests reported in the plots, the default template abides
+by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
+statistical reporting. For example, here are results from Yuen's test for
+trimmed means (robust *t*-test):
+
+![](images/stats_reporting_format.png)
 
 ---
 
@@ -1331,8 +1346,7 @@ layout: true
 .left-code[
 ```{r ggcoefstats_2, results = "hide", fig.show = "hide"}
 # dataframe with results
-df <- 
-  tibble::tribble(
+df <- tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
   "x", -1.36, 0.258, -5.26, 1.13e-5
@@ -1345,10 +1359,15 @@ ggcoefstats(
   exclude.intercept = FALSE
 )
 ```
-.font80[
-Technically, you only need two
-columns in the dataframe-
-<font color="blue">term</font> and <font color="blue">estimate</font>.
+
+.font70[
+Supported statistic (for dataframe):
+- *t*
+- *z*
+- *F*
+
+At the minimum, two
+columns needed - <font color="blue">term</font> and <font color="blue">estimate</font>.
 ]
 
 ]
@@ -1504,22 +1523,21 @@ layout: false
 class: inverse, center, middle
 
 # Glossary
-Principles of statistical reporting in *ggstatsplot*
+Statistical analyses in *ggstatsplot*
 
 ---
 
 layout: false
 
-# Statistical reporting template
+# Best practices in reporting statistical details
+
+---
 
 --
 
-- For all statistical tests reported in the plots, the default template abides
-by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. For example, here are results from Yuen's test for
-trimmed means (robust *t*-test):
+- As discussed before, the details included in statistical analyses follow the
+APA gold standard.
 
-![](images/stats_reporting_format.png)
 --
 
 - The default tests follow the best practices. For example, `ggbetweenstats`
@@ -1527,6 +1545,16 @@ function by default runs Welch's *t*-test and Welch's ANOVA - and not Student's
 *t*-test and Fisher's ANOVA - based on recent work (Delacre et al.,
 [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
 [2018](https://psyarxiv.com/wnezg)).
+
+-- 
+
+- No *p*-value error 
+(Lilienfeld et al.,
+[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full)).
+
+.img-center-small[
+![](images/p_error.png)
+]
 
 ---
 
@@ -1681,6 +1709,28 @@ layout: true
 
 layout: true
 
+# Example
+
+---
+
+.pull-left[
+
+**Without <font color="blue">ggstatsplot</font>**
+
+![](images/before_ggstats.PNG)
+]
+
+.pull-right[
+
+**With <font color="blue">ggstatsplot</font>**
+
+![](images/after_ggstats.PNG)
+]
+
+---
+
+layout: true
+
 # Quality assurance
 
 ---
@@ -1694,7 +1744,7 @@ If you use `ggstatsplot` to report results in your publication and find an error
 that traces back to code in this package, I will personally write an apology
 letter to you and to the editor of the journal in question.
 
-![](images/codecov_2.png)
+![](images/codecov.png)
 
 .footnote[*Reference*: <https://codecov.io/gh/IndrajeetPatil/ggstatsplot>]
 
@@ -1775,6 +1825,39 @@ preparing subtitles)
 ]
 
 ---
+layout: false
+
+class: inverse, center, middle
+
+# Not the only game in town
+other options that pack informative graphics with statistical details
+
+---
+
+layout: true
+
+# GUI softwares
+
+---
+
+--
+
+.pull-left[
+
+**jamovi**
+
+![](images/jamovi.PNG)
+]
+
+.pull-right[
+
+**JASP**
+
+![](images/jasp.PNG)
+]
+
+---
+
 
 layout: false
 

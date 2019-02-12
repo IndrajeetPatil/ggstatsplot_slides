@@ -1,6 +1,6 @@
 ## ----setup, include = FALSE----------------------------------------------
 knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, fig.retina = 2, fig.align = "center",
+  fig.width = 7, fig.height = 5, fig.retina = 2, fig.align = "center",
   out.width = "100%", dpi = 300,
   message = FALSE, warning = FALSE, cache = TRUE,
   autodep = TRUE, hiline = TRUE
@@ -65,6 +65,14 @@ ggbetweenstats(
   bf.message = TRUE, #<<
   messages = FALSE
 )
+
+## ----ggbetweenstats_1_copy, eval = FALSE---------------------------------
+## ggbetweenstats(
+##   data = movies_long,
+##   x = mpaa,
+##   y = rating,
+##   bf.message = TRUE #<<
+## )
 
 ## ----ggbetweenstats_2, eval = FALSE--------------------------------------
 ## ggbetweenstats(
@@ -170,6 +178,15 @@ ggscatterstats(
   messages = FALSE
 )
 
+## ----ggscatterstats_1_copy, eval = FALSE---------------------------------
+## ggscatterstats(
+##   data = movies_long,
+##   x = budget,
+##   y = rating,
+##   bf.message = TRUE,
+##   conf.level = 0.99
+## )
+
 ## ----ggscatterstats_2, eval = FALSE--------------------------------------
 ## ggscatterstats(
 ##   data = movies_long,
@@ -210,6 +227,9 @@ ggscatterstats(
 ## ----ggcorrmat_1, ref.label = 'ggcorrmat_1', echo = FALSE----------------
 ggcorrmat(dplyr::starwars)
 
+## ----ggcorrmat_1_copy, eval = FALSE--------------------------------------
+## ggcorrmat(dplyr::starwars)
+
 ## ----ggcorrmat_2, eval = FALSE-------------------------------------------
 ## ggcorrmat(
 ##   data = ggplot2::msleep,
@@ -235,61 +255,74 @@ ggcorrmat(
 )
 
 ## ----gghistostats_1, eval = FALSE----------------------------------------
-## ggstatsplot::gghistostats(
+## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
+##   type = "r", #<<
 ##   test.value = 50, #<<
 ##   bar.measure = "count", # default #<<
 ##   binwidth = 10,  #<<
-##   bf.message = TRUE, #<<
 ##   messages = FALSE
 ## )
 
 ## ----gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE----------
-ggstatsplot::gghistostats(
+gghistostats(
   data = movies_long,    
   x = budget,
+  type = "r", #<<
   test.value = 50, #<<
   bar.measure = "count", # default #<<
   binwidth = 10,  #<<
-  bf.message = TRUE, #<<
   messages = FALSE
 ) 
 
 ## ----gghistostats_2, eval = FALSE----------------------------------------
-## ggstatsplot::gghistostats(
+## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
-##   type = "r",
 ##   test.value = 50,
 ##   test.value.size = TRUE, #<<
 ##   bar.measure = "mix", #<<
 ##   centrality.para = "median",
 ##   test.value.line = TRUE, #<<
 ##   normal.curve = TRUE, #<<
+##   bf.message = TRUE,
 ##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
 ##   ggstatsplot.layer = FALSE, #<<
 ##   messages = FALSE
 ## )
 
 ## ----gghistostats_2, ref.label = 'gghistostats_2', echo = FALSE----------
-ggstatsplot::gghistostats(
+gghistostats(
   data = movies_long,    
   x = budget,
-  type = "r",
   test.value = 50,
   test.value.size = TRUE, #<<
   bar.measure = "mix", #<<
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   normal.curve = TRUE, #<<
+  bf.message = TRUE,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
   ggstatsplot.layer = FALSE, #<<
   messages = FALSE
 ) 
 
+## ----gghistostats_2_copy, eval = FALSE-----------------------------------
+## gghistostats(
+##   data = movies_long,
+##   x = budget,
+##   test.value = 50,
+##   test.value.size = TRUE,
+##   bar.measure = "mix",
+##   centrality.para = "median",
+##   test.value.line = TRUE,
+##   normal.curve = TRUE,
+##   bf.message = TRUE
+## )
+
 ## ----ggdotplotstats_1, eval = FALSE--------------------------------------
-## ggstatsplot::ggdotplotstats(
+## ggdotplotstats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = genre,
@@ -297,12 +330,13 @@ ggstatsplot::gghistostats(
 ##   centrality.para = "median",
 ##   test.value.line = TRUE, #<<
 ##   test.value.color = "red", #<<
+##   bf.message = TRUE, #<<
 ##   ggtheme = ggthemes::theme_par(),
 ##   messages = FALSE
 ## )
 
 ## ----ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE------
-ggstatsplot::ggdotplotstats(
+ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
@@ -310,9 +344,22 @@ ggstatsplot::ggdotplotstats(
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   test.value.color = "red", #<<
+  bf.message = TRUE, #<<
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
+
+## ----ggdotplotstats_1_copy, eval = FALSE---------------------------------
+## ggdotplotstats(
+##   data = movies_long,
+##   x = budget,
+##   y = genre,
+##   test.value = 52,
+##   centrality.para = "median",
+##   test.value.line = TRUE,
+##   test.value.color = "red",
+##   bf.message = TRUE
+## )
 
 ## ----ggpiestats_1, eval = FALSE------------------------------------------
 ## # let's use subset of data
@@ -343,6 +390,17 @@ ggpiestats(
   palette = "default_ucscgb",
   messages = FALSE
 )
+
+## ----ggpiestats_1_copy, eval = FALSE-------------------------------------
+## # let's use subset of data
+## ggpiestats(
+##   data = dplyr::filter(movies_long,
+##   genre %in% c("Drama", "Comedy", "Animated")),
+##   main = genre,
+##   condition = mpaa,
+##   conf.level = 0.99, #<<
+##   bf.message = TRUE #<<
+## )
 
 ## ----ggpiestats_2, eval = FALSE------------------------------------------
 ## ggpiestats(
@@ -392,6 +450,14 @@ ggbarstats(
   messages = FALSE
 )
 
+## ----ggbarstats_1_copy, eval = FALSE-------------------------------------
+## ggbarstats(
+##   data = movies_long,
+##   main = genre,
+##   condition = mpaa,
+##   bf.message = TRUE
+## )
+
 ## ----ggcoefstats_1, eval = FALSE-----------------------------------------
 ## # model
 ## mod <- stats::aov(
@@ -412,9 +478,20 @@ mod <- stats::aov(
 # plot
 ggcoefstats(x = mod)
 
+## ----ggcoefstats_1_copy, eval = FALSE------------------------------------
+## # model
+## mod <- stats::aov(
+##   formula = rating ~ mpaa * genre,
+##   data = movies_long
+## )
+## 
+## # plot
+## ggcoefstats(x = mod)
+
 ## ----ggcoefstats_2, results = "hide", fig.show = "hide"------------------
 # dataframe with results
-df <- tibble::tribble(
+df <- 
+  tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
   "x", -1.36, 0.258, -5.26, 1.13e-5
@@ -447,7 +524,7 @@ ggcoefstats(
 )
 
 ## ----grouped_1, eval = FALSE---------------------------------------------
-## # for example
+## # only one additional argument
 ## grouped_ggpiestats(
 ##   data = mtcars,
 ##   main = cyl,
@@ -456,7 +533,7 @@ ggcoefstats(
 ## )
 
 ## ----grouped_1, ref.label = 'grouped_1', echo = FALSE--------------------
-# for example
+# only one additional argument
 grouped_ggpiestats(
   data = mtcars, 
   main = cyl,
