@@ -1227,7 +1227,7 @@ get a <font color="blue">dataframe</font> of results:
 
 layout: true
 
-# ggpiestats - little code, loads information
+# ggcoefstats - little code, loads information
 
 ---
 
