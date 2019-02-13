@@ -234,10 +234,11 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 <br>
 <br>
-All functions in `ggstatsplot`-
+**All** functions in `ggstatsplot`-
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
-2.  accept both `"quoted"` and `unquoted` arguments
+2.  data is always expected to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
+3.  accept both `"quoted"` and `unquoted` arguments
 
 ---
 
@@ -742,7 +743,7 @@ ggcorrmat(
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
-get a dataframe of results:
+get a <font color="blue">dataframe</font> of results:
 
 - `"r"` → **correlation**
 
@@ -1207,7 +1208,7 @@ ggcoefstats(x = mod)
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
-get a dataframe of results:
+get a <font color="blue">dataframe</font> of results:
 
 - `"tidy"` → **estimates**
 
@@ -1361,13 +1362,13 @@ ggcoefstats(
 ```
 
 .font70[
-Supported statistic (for dataframe):
+Supported statistic (for <font color="blue">dataframe</font> objects):
 - *t*
 - *z*
 - *F*
 
 At the minimum, two
-columns needed - <font color="blue">term</font> and <font color="blue">estimate</font>.
+columns needed - <br><font color="blue">term</font> and <font color="blue">estimate</font>.
 ]
 
 ]
@@ -1531,26 +1532,21 @@ layout: false
 
 # Best practices in reporting statistical details
 
----
-
 --
 
 - As discussed before, the details included in statistical analyses follow the
 APA gold standard.
 
---
-
 - The default tests follow the best practices. For example, `ggbetweenstats`
-function by default runs Welch's *t*-test and Welch's ANOVA - and not Student's
-*t*-test and Fisher's ANOVA - based on recent work (Delacre et al.,
+function by default runs <font color="blue">Welch's *t*-test</font> and <font
+color="blue">Welch's ANOVA</font> - and not Student's *t*-test and Fisher's
+ANOVA - based on recent work (Delacre et al.,
 [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
 [2018](https://psyarxiv.com/wnezg)).
 
--- 
-
-- No *p*-value error 
+- No *p*-value error <br>
 (Lilienfeld et al.,
-[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full)).
+[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full))
 
 .img-center-small[
 ![](images/p_error.png)
@@ -1582,8 +1578,6 @@ layout: false
 
 Combination of frequentist and Bayesian statistics for each analysis to properly
 interpret the null results.
-
---
 
 ![](images/null_results.png)
 

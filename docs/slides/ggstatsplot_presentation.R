@@ -490,8 +490,7 @@ ggcoefstats(x = mod)
 
 ## ----ggcoefstats_2, results = "hide", fig.show = "hide"------------------
 # dataframe with results
-df <- 
-  tibble::tribble(
+df <- tibble::tribble(
   ~term, ~estimate, ~std.error, ~statistic, ~p.value,
   "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
   "x", -1.36, 0.258, -5.26, 1.13e-5

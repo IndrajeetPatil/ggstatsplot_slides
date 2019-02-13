@@ -213,10 +213,11 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 &lt;br&gt;
 &lt;br&gt;
-All functions in `ggstatsplot`-
+**All** functions in `ggstatsplot`-
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
-2.  accept both `"quoted"` and `unquoted` arguments
+2.  data is always expected to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
+3.  accept both `"quoted"` and `unquoted` arguments
 
 ---
 
@@ -728,7 +729,7 @@ ggcorrmat(
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
-get a dataframe of results:
+get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
 - `"r"` → **correlation**
 
@@ -1197,7 +1198,7 @@ ggcoefstats(x = mod)
 .font80[
 In addition to `"plot"` as `output`, 
 this function can also be used to
-get a dataframe of results:
+get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
 - `"tidy"` → **estimates**
 
@@ -1352,13 +1353,13 @@ ggcoefstats(
 ```
 
 .font70[
-Supported statistic (for dataframe):
+Supported statistic (for &lt;font color="blue"&gt;dataframe&lt;/font&gt; objects):
 - *t*
 - *z*
 - *F*
 
 At the minimum, two
-columns needed - &lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;estimate&lt;/font&gt;.
+columns needed - &lt;br&gt;&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;estimate&lt;/font&gt;.
 ]
 
 ]
@@ -1523,26 +1524,21 @@ layout: false
 
 # Best practices in reporting statistical details
 
----
-
 --
 
 - As discussed before, the details included in statistical analyses follow the
 APA gold standard.
 
---
-
 - The default tests follow the best practices. For example, `ggbetweenstats`
-function by default runs Welch's *t*-test and Welch's ANOVA - and not Student's
-*t*-test and Fisher's ANOVA - based on recent work (Delacre et al.,
+function by default runs &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font
+color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's
+ANOVA - based on recent work (Delacre et al.,
 [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
 [2018](https://psyarxiv.com/wnezg)).
 
--- 
-
-- No *p*-value error 
+- No *p*-value error &lt;br&gt;
 (Lilienfeld et al.,
-[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full)).
+[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full))
 
 .img-center-small[
 ![](images/p_error.png)
@@ -1574,8 +1570,6 @@ layout: false
 
 Combination of frequentist and Bayesian statistics for each analysis to properly
 interpret the null results.
-
---
 
 ![](images/null_results.png)
 
