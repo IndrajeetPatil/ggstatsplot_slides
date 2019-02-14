@@ -466,7 +466,7 @@ ggbetweenstats(
 ```
 
 .font80[
-**Note**: You can modify the
+**Note**: You can modify 
 all `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
@@ -744,6 +744,142 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcorrmat_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# ggcorrmat - dataframe output example
+
+---
+
+.pull-left[
+.font70[
+correlation coefficients
+
+
+```r
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+* type = "np",
+* output = "r",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+
+&lt;div class="kable-table"&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sleep_cycle &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; awake &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; brainwt &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; bodywt &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.49 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.87 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.85 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.49 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.87 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.96 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.85 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.96 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+]
+]
+
+.pull-right[
+.font70[
+*p*-values
+
+
+```r
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+* type = "np",
+* output = "p",
+  p.adjust.method = "none",
+  messages = FALSE
+)
+```
+
+&lt;div class="kable-table"&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sleep_cycle &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; awake &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; brainwt &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; bodywt &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0045296 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0045296 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4e-06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2e-07 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000014 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000002 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+]
 ]
 
 ---
@@ -1051,6 +1187,12 @@ Default information:
 
 ---
 
+layout: true
+
+# ggpiestats - proportion test
+
+---
+
 .left-code[
 
 ```r
@@ -1094,7 +1236,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggbarstats
+# ggbarstats - defaults
 
 ---
 
@@ -1178,7 +1320,7 @@ Displaying results from regression analyses
 
 layout: true
 
-# ggcoefstats
+# ggcoefstats - defaults
 
 ---
 
@@ -1246,6 +1388,131 @@ Default information:
 
 .right-plot[
 ![](images/ggcoefstats_info.png)
+]
+
+---
+
+layout: true
+
+# ggcoefstats - other outputs than plot
+
+---
+
+.pull-left[
+.font70[
+model summary
+
+
+```r
+library(lme4)
+
+# model
+mod1 &lt;- lme4::lmer(
+  formula = Reaction ~ Days + (Days | Subject), 
+  sleepstudy)
+
+# dataframe
+ggcoefstats(x = mod1, output = "glance")
+```
+
+&lt;div class="kable-table"&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; sigma &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; logLik &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; REMLcrit &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df.residual &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 25.59181 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -871.8141 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1755.628 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1774.786 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1743.628 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 174 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+]
+]
+
+.pull-right[
+.font70[
+augmented dataframe
+
+```r
+library(ordinal)
+
+# model
+mod2 &lt;- clm(formula = rating ~ temp * contact, 
+            data = wine)
+
+# dataframe
+ggcoefstats(x = mod2, output = "augment") %&gt;%
+  head(5)
+```
+
+&lt;div class="kable-table"&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; rating &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; temp &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; contact &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .fitted &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .se.fit &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cold &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5622964 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0884961 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cold &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2086491 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0788338 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cold &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4346731 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0837035 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cold &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0893885 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0436085 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; warm &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1902823 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0711286 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+]
 ]
 
 ---

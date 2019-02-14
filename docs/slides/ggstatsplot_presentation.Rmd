@@ -482,7 +482,7 @@ ggbetweenstats(
 ```
 
 .font80[
-**Note**: You can modify the
+**Note**: You can modify 
 all `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
@@ -759,6 +759,48 @@ get a <font color="blue">dataframe</font> of results:
 .right-plot[
 ```{r ggcorrmat_2, ref.label = 'ggcorrmat_2', echo = FALSE}
 ```
+]
+
+---
+
+layout: true
+
+# ggcorrmat - dataframe output example
+
+---
+
+.pull-left[
+.font70[
+correlation coefficients
+
+```{r ggcorrmat_3}
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+  type = "np", #<<
+  output = "r", #<<
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+]
+]
+
+.pull-right[
+.font70[
+*p*-values
+
+```{r ggcorrmat_4}
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+  type = "np", #<<
+  output = "p", #<<
+  p.adjust.method = "none",
+  messages = FALSE
+)
+```
+]
 ]
 
 ---
@@ -1063,6 +1105,12 @@ Default information:
 
 ---
 
+layout: true
+
+# ggpiestats - proportion test
+
+---
+
 .left-code[
 ```{r ggpiestats_2, eval = FALSE}
 ggpiestats(
@@ -1106,7 +1154,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggbarstats
+# ggbarstats - defaults
 
 ---
 
@@ -1189,7 +1237,7 @@ Displaying results from regression analyses
 
 layout: true
 
-# ggcoefstats
+# ggcoefstats - defaults
 
 ---
 
@@ -1256,6 +1304,49 @@ Default information:
 
 .right-plot[
 ![](images/ggcoefstats_info.png)
+]
+
+---
+
+layout: true
+
+# ggcoefstats - other outputs than plot
+
+---
+
+.pull-left[
+.font70[
+model summary
+
+```{r ggcoefstats_5}
+library(lme4)
+
+# model
+mod1 <- lme4::lmer(
+  formula = Reaction ~ Days + (Days | Subject), 
+  sleepstudy)
+
+# dataframe
+ggcoefstats(x = mod1, output = "glance")
+```
+]
+]
+
+.pull-right[
+.font70[
+augmented dataframe
+```{r ggcoefstats_6}
+library(ordinal)
+
+# model
+mod2 <- clm(formula = rating ~ temp * contact, 
+            data = wine)
+
+# dataframe
+ggcoefstats(x = mod2, output = "augment") %>%
+  head(5)
+```
+]
 ]
 
 ---
