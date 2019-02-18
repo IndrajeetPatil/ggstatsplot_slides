@@ -134,8 +134,8 @@ layout: true
 <br>
 <br>
 <br>
-In a typical *exploratory* data analysis workflow, <font color="blue">*data visualization*</font> and <font color="blue">*statistical modelling*</font> are two different phases: visualization informs modelling,
-and modelling in its turn can suggest a different visualization method, and so
+In a typical *exploratory* data analysis workflow, <font color="blue">*data visualization*</font> and <font color="blue">*statistical modeling*</font> are two different phases: visualization informs modeling,
+and modeling in its turn can suggest a different visualization method, and so
 on and so forth. 
 
 .footnote[(Grolemund & Wickham, *R for Data Science*, 2017)]
@@ -1682,7 +1682,7 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.0.8.9000)
+(as of 0.0.9)
 
 ---
 
