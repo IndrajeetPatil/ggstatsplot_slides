@@ -314,7 +314,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats - defaults
+# ggbetweenstats - defaults (parametric)
 
 ---
 
@@ -423,11 +423,15 @@ Changing pairwise comparisons displayed
 
 ---
 
+exclude: true
+
 layout: true
 
 # ggbetweenstats - (aesthetic) customization
 
 ---
+
+exclude: true
 
 .left-code[
 ```{r ggbetweenstats_3, eval = FALSE}
@@ -453,6 +457,9 @@ ggbetweenstats(
 Aesthetic preferences
 are not an excuse to not
 use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
+
+The default palette used
+is colorblind-friendly.
 ]
 ]
 
@@ -606,7 +613,7 @@ Default information:
 
 layout: true
 
-# ggscatterstats - changing smoothing functions
+# ggscatterstats - conditional point tagging
 
 ---
 
@@ -616,13 +623,45 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
+  type = "r", #<<
+  label.var = title, #<<
+  label.expression = budget > 150 #<<
+                     & rating > 7.5, #<<
+  ggtheme = ggthemes::theme_stata(), #<<
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+]
+
+.right-plot[
+```{r ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE}
+```
+]
+
+---
+
+exclude: true
+
+layout: true
+
+# ggscatterstats - changing smoothing functions
+
+---
+
+exclude: true
+
+.left-code[
+```{r ggscatterstats_3, eval = FALSE}
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
   marginal = FALSE, #<<
   method = "loess", #<<
   results.subtitle = FALSE, #<<
   centrality.para = "mean", #<<
-  label.var = title, #<<
-  label.expression = budget > 150 #<<
-                     & rating > 7.5, #<<
   ggtheme = ggthemes::theme_stata(), #<<
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -640,7 +679,7 @@ Available centrality parameters
 ]
 
 .right-plot[
-```{r ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE}
+```{r ggscatterstats_3, ref.label = 'ggscatterstats_3', echo = FALSE}
 ```
 ]
 
@@ -771,7 +810,7 @@ layout: true
 
 .pull-left[
 .font70[
-correlation coefficients
+**correlation coefficients**
 
 ```{r ggcorrmat_3}
 ggcorrmat(
@@ -788,7 +827,7 @@ ggcorrmat(
 
 .pull-right[
 .font70[
-*p*-values
+**p-values**
 
 ```{r ggcorrmat_4}
 ggcorrmat(
@@ -816,7 +855,7 @@ Distribution of a numeric variable
 
 layout: true
 
-# gghistostats
+# gghistostats - defaults
 
 ---
 
@@ -1282,10 +1321,8 @@ layout: true
 .left-code[
 ```{r ggcoefstats_1_copy, eval = FALSE}
 # model
-mod <- stats::aov(
-  formula = rating ~ mpaa * genre,
-  data = movies_long
-)
+mod <- stats::aov(formula = rating ~ mpaa * genre,
+                  data = movies_long)
 
 # plot
 ggcoefstats(x = mod)
@@ -1316,25 +1353,27 @@ layout: true
 
 .pull-left[
 .font70[
-model summary
+**model summary**
 
 ```{r ggcoefstats_5}
 library(lme4)
 
 # model
-mod1 <- lme4::lmer(
-  formula = Reaction ~ Days + (Days | Subject), 
-  sleepstudy)
+mod1 <- 
+  lme4::lmer(formula = Reaction ~ Days + (Days | Subject),
+             data = sleepstudy)
 
 # dataframe
-ggcoefstats(x = mod1, output = "glance")
+ggcoefstats(x = mod1, 
+            output = "glance") #<<
 ```
 ]
 ]
 
 .pull-right[
 .font70[
-augmented dataframe
+**augmented dataframe**
+
 ```{r ggcoefstats_6}
 library(ordinal)
 
@@ -1343,7 +1382,8 @@ mod2 <- clm(formula = rating ~ temp * contact,
             data = wine)
 
 # dataframe
-ggcoefstats(x = mod2, output = "augment") %>%
+ggcoefstats(x = mod2, 
+            output = "augment") %>%  #<<
   head(5)
 ```
 ]
@@ -1357,6 +1397,7 @@ layout: true
 
 ---
 
+.font80[
 .pull-left[
 .pull-left[
 - `aareg`
@@ -1408,13 +1449,14 @@ layout: true
 - `multinom`
 - `nlmerMod`
 - `nlrq`
+- `nls`
 ]
 .pull-right[
-- `nls`
 - `orcutt`
 - `plm`
 - `polr`
 - `ridgelm`
+- `rjags`
 - `rlm`
 - `rlmerMod`
 - `rq`
@@ -1424,6 +1466,7 @@ layout: true
 - `svyglm`
 - `svyolr`
 - `svyglm`
+]
 ]
 ]
 
@@ -1445,9 +1488,10 @@ df <- tibble::tribble(
 )
 
 # plot
+# statistic argument decides label format
 ggcoefstats(
   x = df,
-  statistic = "z",
+  statistic = "z", #<<
   exclude.intercept = FALSE
 )
 ```
@@ -1579,7 +1623,8 @@ layout: true
 .left-code[
 ```{r subtitle_1, eval = FALSE}
 # using `ggstatsplot` for stats
-results <- subtitle_contingency_tab(
+results <- 
+  ggstatsplot::subtitle_contingency_tab( #<< 
   data = Titanic_full,
   main = Survived,
   condition = Sex,
@@ -1587,7 +1632,7 @@ results <- subtitle_contingency_tab(
 )
 
 # using `ggiraphExtra` for plot
-ggiraphExtra::ggSpine(
+ggiraphExtra::ggSpine( #<< 
   data = Titanic_full,
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
@@ -1595,7 +1640,7 @@ ggiraphExtra::ggSpine(
 ) + labs(subtitle = results) # <<
 ```
 
-.font80[
+.font70[
 <br>
 **All** included analyses have their
 corresponding [helper functions](https://indrajeetpatil.github.io/ggstatsplot/reference/index.html#section-helper-functions-for-preparing-statistics-subtitles) for preparing 
@@ -1701,7 +1746,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 `ggcorrmat` | Correlation matrix | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 `ggscatterstats` | Correlation between two variables | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
 `ggpiestats`, `ggbarstats` | Association between categorical variables | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font>
-`ggcoefstats` | Regression model coefficients | <font color="green">Yes</font> | <font color="red">No</font>| <font color="green">Yes</font> | <font color="red">No</font>
+`ggcoefstats` | Regression model coefficients | <font color="green">Yes</font> | <font color="green">Yes</font>| <font color="green">Yes</font> | <font color="green">Yes</font>
 
 ---
 
@@ -1719,7 +1764,7 @@ one-sample *t*-test | <font color="green">Yes</font> | <font color="green">Yes</
 two-sample *t*-test (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 two-sample *t*-test (within) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 One-way ANOVA (between) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
-One-way ANOVA (within) | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font> | <font color="red">No</font>
+One-way ANOVA (within) | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font>
 correlations | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 contingency table | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
 goodness of fit | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
@@ -1803,7 +1848,12 @@ layout: true
 **Without <font color="blue">ggstatsplot</font>**
 
 ![](images/before_ggstats.PNG)
+
+![](images/no_joy.jpg)
+
 ]
+
+--
 
 .pull-right[
 
@@ -1822,7 +1872,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes over <font color="blue">**1200**</font> tests to make
+`ggstatsplot` includes over <font color="blue">**1300**</font> tests to make
 sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error

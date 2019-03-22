@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -296,7 +296,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats - defaults
+# ggbetweenstats - defaults (parametric)
 
 ---
 
@@ -406,11 +406,15 @@ Changing pairwise comparisons displayed
 
 ---
 
+exclude: true
+
 layout: true
 
 # ggbetweenstats - (aesthetic) customization
 
 ---
+
+exclude: true
 
 .left-code[
 
@@ -437,6 +441,9 @@ ggbetweenstats(
 Aesthetic preferences
 are not an excuse to not
 use `ggstatsplot` 😻
+
+The default palette used
+is colorblind-friendly.
 ]
 ]
 
@@ -590,9 +597,44 @@ Default information:
 
 layout: true
 
+# ggscatterstats - conditional point tagging
+
+---
+
+.left-code[
+
+```r
+ggscatterstats(
+  data = movies_long,
+  x = budget,
+  y = rating,
+* type = "r",
+* label.var = title,
+* label.expression = budget &gt; 150
+*                    &amp; rating &gt; 7.5,
+* ggtheme = ggthemes::theme_stata(),
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+exclude: true
+
+layout: true
+
 # ggscatterstats - changing smoothing functions
 
 ---
+
+exclude: true
 
 .left-code[
 
@@ -605,9 +647,6 @@ ggscatterstats(
 * method = "loess",
 * results.subtitle = FALSE,
 * centrality.para = "mean",
-* label.var = title,
-* label.expression = budget &gt; 150
-*                    &amp; rating &gt; 7.5,
 * ggtheme = ggthemes::theme_stata(),
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -625,7 +664,7 @@ Available centrality parameters
 ]
 
 .right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -756,7 +795,7 @@ layout: true
 
 .pull-left[
 .font70[
-correlation coefficients
+**correlation coefficients**
 
 
 ```r
@@ -820,7 +859,7 @@ ggcorrmat(
 
 .pull-right[
 .font70[
-*p*-values
+**p-values**
 
 
 ```r
@@ -895,7 +934,7 @@ Distribution of a numeric variable
 
 layout: true
 
-# gghistostats
+# gghistostats - defaults
 
 ---
 
@@ -1366,10 +1405,8 @@ layout: true
 
 ```r
 # model
-mod &lt;- stats::aov(
-  formula = rating ~ mpaa * genre,
-  data = movies_long
-)
+mod &lt;- stats::aov(formula = rating ~ mpaa * genre,
+                  data = movies_long)
 
 # plot
 ggcoefstats(x = mod)
@@ -1400,19 +1437,20 @@ layout: true
 
 .pull-left[
 .font70[
-model summary
+**model summary**
 
 
 ```r
 library(lme4)
 
 # model
-mod1 &lt;- lme4::lmer(
-  formula = Reaction ~ Days + (Days | Subject), 
-  sleepstudy)
+mod1 &lt;- 
+  lme4::lmer(formula = Reaction ~ Days + (Days | Subject),
+             data = sleepstudy)
 
 # dataframe
-ggcoefstats(x = mod1, output = "glance")
+ggcoefstats(x = mod1, 
+*           output = "glance")
 ```
 
 &lt;div class="kable-table"&gt;
@@ -1446,7 +1484,8 @@ ggcoefstats(x = mod1, output = "glance")
 
 .pull-right[
 .font70[
-augmented dataframe
+**augmented dataframe**
+
 
 ```r
 library(ordinal)
@@ -1456,7 +1495,8 @@ mod2 &lt;- clm(formula = rating ~ temp * contact,
             data = wine)
 
 # dataframe
-ggcoefstats(x = mod2, output = "augment") %&gt;%
+ggcoefstats(x = mod2, 
+*           output = "augment") %&gt;%
   head(5)
 ```
 
@@ -1523,6 +1563,7 @@ layout: true
 
 ---
 
+.font80[
 .pull-left[
 .pull-left[
 - `aareg`
@@ -1574,13 +1615,14 @@ layout: true
 - `multinom`
 - `nlmerMod`
 - `nlrq`
+- `nls`
 ]
 .pull-right[
-- `nls`
 - `orcutt`
 - `plm`
 - `polr`
 - `ridgelm`
+- `rjags`
 - `rlm`
 - `rlmerMod`
 - `rq`
@@ -1590,6 +1632,7 @@ layout: true
 - `svyglm`
 - `svyolr`
 - `svyglm`
+]
 ]
 ]
 
@@ -1612,9 +1655,10 @@ df &lt;- tibble::tribble(
 )
 
 # plot
+# statistic argument decides label format
 ggcoefstats(
   x = df,
-  statistic = "z",
+* statistic = "z",
   exclude.intercept = FALSE
 )
 ```
@@ -1748,7 +1792,8 @@ layout: true
 
 ```r
 # using `ggstatsplot` for stats
-results &lt;- subtitle_contingency_tab(
+results &lt;- 
+* ggstatsplot::subtitle_contingency_tab(
   data = Titanic_full,
   main = Survived,
   condition = Sex,
@@ -1756,7 +1801,7 @@ results &lt;- subtitle_contingency_tab(
 )
 
 # using `ggiraphExtra` for plot
-ggiraphExtra::ggSpine(
+*ggiraphExtra::ggSpine(
   data = Titanic_full,
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
@@ -1764,7 +1809,7 @@ ggiraphExtra::ggSpine(
 ) + labs(subtitle = results) # &lt;&lt;
 ```
 
-.font80[
+.font70[
 &lt;br&gt;
 **All** included analyses have their
 corresponding [helper functions](https://indrajeetpatil.github.io/ggstatsplot/reference/index.html#section-helper-functions-for-preparing-statistics-subtitles) for preparing 
@@ -1869,7 +1914,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 `ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 `ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;| &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;| &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 
 ---
 
@@ -1887,7 +1932,7 @@ one-sample *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font colo
 two-sample *t*-test (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 two-sample *t*-test (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 One-way ANOVA (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 correlations | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 contingency table | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
 goodness of fit | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
@@ -1971,7 +2016,12 @@ layout: true
 **Without &lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;**
 
 ![](images/before_ggstats.PNG)
+
+![](images/no_joy.jpg)
+
 ]
+
+--
 
 .pull-right[
 
@@ -1990,7 +2040,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes over &lt;font color="blue"&gt;**1200**&lt;/font&gt; tests to make
+`ggstatsplot` includes over &lt;font color="blue"&gt;**1300**&lt;/font&gt; tests to make
 sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
@@ -2142,6 +2192,7 @@ class: inverse, center, middle
 patilindrajeet.science@gmail.com
 ]
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:9",
@@ -2153,11 +2204,41 @@ patilindrajeet.science@gmail.com
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
 })();</script>
 
 <script>
@@ -2172,8 +2253,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 </script>
 
 <script>
-(function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -2187,7 +2268,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
