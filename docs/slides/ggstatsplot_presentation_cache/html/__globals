@@ -48,3 +48,6 @@ ggcoefstats_5	library	lme4	mod1	lmer	Reaction	Days	Subject	sleepstudy	ggcoefstat
 ggcoefstats_6	library	ordinal	mod2	clm	rating	temp	contact	wine	ggcoefstats	%>%	head
 ggcorrmat_4	ggcorrmat	msleep	sleep_cycle	bodywt
 ggscatterstats_3	ggscatterstats	movies_long	budget	rating	theme_stata
+ggwithinstats_1	ggwithinstats	WineTasting	Wine	Taste	Taster	theme_ipsum_tw
+ggwithinstats_2	ggwithinstats	iris_long	attribute	value
+ggwithinstats_1_copy	ggwithinstats	WineTasting	Wine	Taste	theme_ipsum_tw

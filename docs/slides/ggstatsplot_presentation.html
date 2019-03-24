@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil
-### 2019-02-10<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2019-03-26<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -152,7 +152,7 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-.font150[“I plotted my data and what I found will surprise me! - BuzzFeed”]
+.font150[“I plotted my data and what I found will surprise me!" - BuzzFeed]
 
 ---
 
@@ -180,7 +180,7 @@ each tailored for your specific data visualization problem! But...
 
 layout: false
 
-# 4. Consistent API
+# 4. Consistent API =  no cognitive fatigue
 
 --
 
@@ -216,7 +216,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 **All** functions in `ggstatsplot`-
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
-2.  data is always expected to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
+2.  expect the data to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
 3.  accept both `"quoted"` and `unquoted` arguments
 
 ---
@@ -334,7 +334,7 @@ Changing the type of test
 
 layout: true
 
-# ggbetweenstats - little code, loads information
+# ggbetweenstats - little code, rich details
 
 ---
 
@@ -406,7 +406,7 @@ Changing pairwise comparisons displayed
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -414,7 +414,7 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 .left-code[
 
@@ -491,6 +491,38 @@ Yaay!
 
 ---
 
+layout: true
+
+# Summary of tests - *ggbetweenstats*
+
+---
+
+Type | No. of groups | Test
+----------- | --- | -------------------------
+Parametric | &gt; 2 | Student's or Welch's one-way ANOVA
+Non-parametric | &gt; 2 | Kruskal–Wallis one-way ANOVA
+Robust | &gt; 2 | Heteroscedastic one-way ANOVA for trimmed means
+Bayes Factor | &gt; 2 | Student's ANOVA
+Parametric | 2 | Student's or Welch's *t*-test
+Non-parametric | 2 | Mann–Whitney *U* test
+Robust | 2 |  Yuen's test for trimmed means
+Bayes Factor | 2 | Student's *t*-test
+
+--
+
+Pairwise comparion tests
+
+Type | Equal variance? | Test | *p*-value adjustment? 
+----------- | --- | ------------------------- | ---
+Parametric | No | Games-Howell test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Parametric | Yes | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Non-parametric | No | Dwass-Steel-Crichtlow-Fligner test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Robust | No | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Bayes Factor | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+Bayes Factor | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -502,13 +534,151 @@ For within group/condition comparisons
 
 layout: true
 
-# ggwithinstats
+# ggwithinstats - repeated measures equivalent
 
 ---
 
-This function is still under construction. Here is a current draft.
+.left-code[
 
-![](images/ggwithin_draft.png)
+```r
+ggwithinstats(
+  data = WRS2::WineTasting,
+  x = Wine,
+  y = Taste,
+* pairwise.comparisons = TRUE,
+  pairwise.annotation = "p",
+  outlier.tagging = TRUE,
+  outlier.label = Taster,
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+- `"np"` → **non-parametric**
+- `"r"` → **robust**
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggwithinstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# ggwithinstats - little code, rich details
+
+---
+
+.left-code[
+
+```r
+ggwithinstats(
+  data = WRS2::WineTasting,
+  x = Wine,
+  y = Taste,
+* pairwise.comparisons = TRUE,
+  pairwise.annotation = "p",
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
+  ggstatsplot.layer = FALSE,
+  messages = FALSE
+)
+```
+
+.font80[
+Default information:
+
+- &lt;font color="orange"&gt;statistical details&lt;/font&gt;
+
+- &lt;font color="blue"&gt;pairwise comparisons&lt;/font&gt;
+
+- &lt;font color="green"&gt;sample sizes&lt;/font&gt;
+
+- &lt;font color="red"&gt;distribution summary&lt;/font&gt;
+]
+]
+
+.right-plot[
+![](images/ggwithinstats_info.png)
+]
+
+---
+
+exclude: true
+
+layout: true
+
+# ggwithinstats - changing defaults
+
+---
+
+exclude: true
+
+.left-code[
+
+```r
+ggwithinstats(
+  data = iris_long,
+  x = attribute,
+  y = value,
+* type = "r",
+  messages = FALSE
+)
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggwithinstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# Summary of tests - *ggwithinstats*
+
+---
+
+Type | No. of groups | Test
+----------- | --- | -------------------------
+Parametric | &gt; 2 | One-way repeated measures ANOVA
+Non-parametric | &gt; 2 | Friedman test
+Robust | &gt; 2 | Heteroscedastic one-way repeated measures ANOVA for trimmed means
+Bayes Factor | &gt; 2 | One-way repeated measures ANOVA
+Parametric | 2 | Student's *t*-test
+Non-parametric | 2 | Mann–Whitney *U* test
+Robust | 2 | Yuen's test on trimmed means for dependent samples
+Bayes Factor | 2 | Student's *t*-test
+
+--
+
+Pairwise comparion tests
+
+Type | Test | *p*-value adjustment? 
+----------- | ---------------------------- | ---
+Parametric | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Non-parametric | Durbin-Conover test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Robust | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+Bayes Factor | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 
 ---
 
@@ -562,7 +732,7 @@ Changing the type of test
 
 layout: true
 
-# ggscatterstats - little code, loads information
+# ggscatterstats - little code, rich details
 
 ---
 
@@ -623,6 +793,21 @@ ggscatterstats(
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
+
+---
+
+layout: true
+
+# Summary of tests - *ggscatterstats*
+
+---
+
+Type | Test
+----------- | -------------------------
+Parametric | Pearson's correlation coefficient
+Non-parametric | Spearman's rank correlation coefficient
+Robust | Percentage bend correlation coefficient
+Bayes Factor | Pearson's correlation coefficient
 
 ---
 
@@ -717,7 +902,7 @@ about sample sizes in case
 
 layout: true
 
-# ggcorrmat - little code, loads information
+# ggcorrmat - little code, rich details
 
 ---
 
@@ -1015,7 +1200,7 @@ Available bar measures
 
 layout: true
 
-# gghistostats - little code, loads information
+# gghistostats - little code, rich details
 
 ---
 
@@ -1051,6 +1236,21 @@ Default information:
 .right-plot[
 ![](images/gghistostats_info.png)
 ]
+
+---
+
+layout: true
+
+# Summary of tests - *gghistostats*
+
+---
+
+Type | Test
+----------- | -------------------------
+Parametric | One-sample Student's *t*-test
+Non-parametric | One-sample Wilcoxon test 
+Robust | One-sample percentile bootstrap
+Bayes Factor | One-sample Student's *t*-test
 
 ---
 
@@ -1189,7 +1389,7 @@ Test by design
 
 layout: true
 
-# ggpiestats - little code, loads information
+# ggpiestats - little code, rich details
 
 ---
 
@@ -1314,7 +1514,7 @@ argument in all plotting functions.
 
 layout: true
 
-# ggbarstats - little code, loads information
+# ggbarstats - little code, rich details
 
 ---
 
@@ -1397,7 +1597,7 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
 layout: true
 
-# ggcoefstats - little code, loads information
+# ggcoefstats - little code, rich details
 
 ---
 
