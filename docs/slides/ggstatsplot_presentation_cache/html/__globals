@@ -21,7 +21,7 @@ ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_3	ggbetweenstats	movies_long	mpaa	rating	title	theme_ipsum_tw
 ggbetweenstats_4	ggbetweenstats	movies_long	mpaa	rating	scale_y_continuous	dup_axis
 ggscatterstats_1	ggscatterstats	movies_long	budget	rating
-ggscatterstats_2	ggscatterstats	movies_long	budget	rating	title	theme_stata
+ggscatterstats_2	ggscatterstats	movies_long	budget	rating	title
 ggcorrmat_1	ggcorrmat	starwars
 ggcorrmat_2	ggcorrmat	msleep	sleep_cycle	bodywt
 ggpiestats_1	ggpiestats	filter	movies_long	genre	%in%	c	mpaa
@@ -51,3 +51,6 @@ ggscatterstats_3	ggscatterstats	movies_long	budget	rating	theme_stata
 ggwithinstats_1	ggwithinstats	WineTasting	Wine	Taste	Taster	theme_ipsum_tw
 ggwithinstats_2	ggwithinstats	iris_long	attribute	value
 ggwithinstats_1_copy	ggwithinstats	WineTasting	Wine	Taste	theme_ipsum_tw
+ggbetweenstats_5	ggbetweenstats	mtcars	am	wt
+ggcorrmat_5	ggcorrmat	msleep	sleep_cycle	bodywt
+ggcorrmat_6	options	ggcorrmat	msleep	awake	bodywt

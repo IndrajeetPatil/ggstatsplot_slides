@@ -314,7 +314,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats - defaults (parametric)
+# ggbetweenstats - defaults
 
 ---
 
@@ -322,7 +322,7 @@ layout: true
 ```{r ggbetweenstats_1, eval = FALSE}
 ggbetweenstats(
   data = movies_long,
-  x = mpaa,
+  x = mpaa, # > 2 groups #<<  
   y = rating,
   type = "p", # default #<<  
   bf.message = TRUE, #<<
@@ -459,7 +459,7 @@ are not an excuse to not
 use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
 
 The default palette used
-is colorblind-friendly.
+is **colorblind-friendly**.
 ]
 ]
 
@@ -512,6 +512,48 @@ exclude: true
 
 layout: true
 
+# ggbetweenstats - 2 groups
+
+---
+
+exclude: true
+
+.left-code[
+```{r ggbetweenstats_5, eval = FALSE}
+ggbetweenstats(
+  data = mtcars,
+  x = am, # 2 groups #<<  
+  y = wt,
+  type = "p", # default #<<  
+  bf.message = TRUE, #<<
+  messages = FALSE
+)
+```
+
+.font80[
+Changing the type of test
+
+- `"p"` → **parametric**
+
+- `"np"` → **non-parametric**
+
+- `"r"` → **robust**
+
+- `"bf"` → **bayes factor**
+]
+]
+
+.right-plot[
+```{r ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE}
+```
+]
+
+---
+
+exclude: true
+
+layout: true
+
 # Summary of tests - *ggbetweenstats*
 
 ---
@@ -529,9 +571,40 @@ Non-parametric | 2 | Mann–Whitney *U* test
 Robust | 2 |  Yuen's test for trimmed means
 Bayes Factor | 2 | Student's *t*-test
 
---
+---
 
-Pairwise comparion tests
+exclude: true
+
+layout: true
+
+# Effect sizes + CI - *ggbetweenstats*
+
+---
+
+exclude: true
+
+Type | No. of groups | Test | CI?
+----------- | --- | ------------------------- | --- 
+Parametric | > 2 | $\eta_{p}^2$, $\eta^2$, $\omega_{p}^2$, $\omega^2$ | <font color="green">Yes<font>
+Non-parametric | > 2 | $\eta_{H}^2$ (*H*-statistic based eta-squared) | <font color="green">Yes<font>
+Robust | > 2 | $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
+Bayes Factor | > 2 | <font color="red">No<font> | <font color="red">No<font>
+Parametric | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font>
+Non-parametric | 2 | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
+Robust | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
+Bayes Factor | 2 | <font color="red">No<font> | <font color="red">No<font>
+
+---
+
+exclude: true
+
+layout: true
+
+# Pairwise comparion tests - *ggbetweenstats*
+
+---
+
+exclude: true
 
 Type | Equal variance? | Test | *p*-value adjustment? 
 ----------- | --- | ------------------------- | ---
@@ -567,7 +640,7 @@ ggwithinstats(
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
   pairwise.annotation = "p",
-  outlier.tagging = TRUE,
+  outlier.tagging = TRUE, #<< 
   outlier.label = Taster,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<< 
   ggstatsplot.layer = FALSE,
@@ -575,12 +648,15 @@ ggwithinstats(
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
+
 - `"np"` → **non-parametric**
+
 - `"r"` → **robust**
+
 - `"bf"` → **bayes factor**
 ]
 ]
@@ -645,7 +721,7 @@ exclude: true
 ```{r ggwithinstats_2, eval = FALSE}
 ggwithinstats(
   data = iris_long,
-  x = attribute,
+  x = attribute, # 2 groups #<< 
   y = value,
   type = "r", #<< 
   messages = FALSE
@@ -693,9 +769,40 @@ Non-parametric | 2 | Mann–Whitney *U* test
 Robust | 2 | Yuen's test on trimmed means for dependent samples
 Bayes Factor | 2 | Student's *t*-test
 
---
+---
 
-Pairwise comparion tests
+exclude: false
+
+layout: true
+
+# Effect sizes + CI - *ggwithinstats*
+
+---
+
+exclude: false
+
+Type | No. of groups | Test | CI?
+----------- | --- | ------------------------- | --- 
+Parametric | > 2 | $\eta_{p}^2$, $\omega^2$ | <font color="green">Yes<font>
+Non-parametric | > 2 | $W_{Kendall}$ (Kendall's coefficient of concordance) | <font color="green">Yes<font>
+Robust | > 2 | <font color="red">No<font> | <font color="green">Yes<font>
+Bayes Factor | > 2 | <font color="red">No<font> | <font color="red">No<font>
+Parametric | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font>
+Non-parametric | 2 | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
+Robust | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
+Bayes Factor | 2 | <font color="red">No<font> | <font color="red">No<font>
+
+---
+
+exclude: true
+
+layout: true
+
+# Pairwise comparion tests - *ggwithinstats*
+
+---
+
+exclude: true
 
 Type | Test | *p*-value adjustment? 
 ----------- | ---------------------------- | ---
@@ -800,15 +907,24 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  type = "r", #<<
+  type = "r", 
   label.var = title, #<<
   label.expression = budget > 150 #<<
                      & rating > 7.5, #<<
-  ggstatsplot.layer = FALSE,
+  marginal.type = "density", #<<
   messages = FALSE
 )
 ```
 
+.font70[
+Changing the marginal type
+
+- **histogram**
+- **boxplot**
+- **density**
+- **violin**
+- **densigram**
+]
 ]
 
 .right-plot[
@@ -897,7 +1013,7 @@ layout: true
 
 .left-code[
 ```{r ggcorrmat_1, eval = FALSE}
-ggcorrmat(dplyr::starwars)
+ggcorrmat(data = dplyr::starwars)
 ```
 
 .font80[
@@ -909,7 +1025,7 @@ Changing the type of test
 
 - `"r"` → **robust**
 
-- `"bf"` → not yet implemented
+- `"bf"` → <font color="red">not yet implemented</font>
 <br>
 <br>
 **Note**: Informative label
@@ -934,7 +1050,7 @@ layout: true
 
 .left-code[
 ```{r ggcorrmat_1_copy, eval = FALSE}
-ggcorrmat(dplyr::starwars)
+ggcorrmat(data = dplyr::starwars)
 ```
 
 .font80[
@@ -975,7 +1091,7 @@ ggcorrmat(
 ```
 
 .font80[
-In addition to `"plot"` as `output`, 
+In addition to `output = "plot"`, 
 this function can also be used to
 get a <font color="blue">dataframe</font> of results:
 
@@ -999,13 +1115,13 @@ get a <font color="blue">dataframe</font> of results:
 
 layout: true
 
-# ggcorrmat - dataframe output example
+# ggcorrmat - dataframe outputs
 
 ---
 
 .pull-left[
 .font70[
-**correlation coefficients**
+**<font color="blue">correlation coefficients</font>**
 
 ```{r ggcorrmat_3}
 ggcorrmat(
@@ -1022,7 +1138,7 @@ ggcorrmat(
 
 .pull-right[
 .font70[
-**p-values**
+**<font color="blue">p-values</font>**
 
 ```{r ggcorrmat_4}
 ggcorrmat(
@@ -1031,6 +1147,49 @@ ggcorrmat(
   type = "np", #<<
   output = "p", #<<
   p.adjust.method = "none",
+  messages = FALSE
+)
+```
+]
+]
+
+---
+
+layout: true
+
+# ggcorrmat - dataframe outputs
+
+---
+
+.pull-left[
+.font70[
+**<font color="blue">sample sizes</font>**
+
+```{r ggcorrmat_5}
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = sleep_cycle:bodywt,
+  type = "np", #<<
+  output = "n", #<<
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+]
+]
+
+.pull-right[
+.font70[
+**<font color="blue">confidence intervals</font>**
+
+```{r ggcorrmat_6}
+options(digits = 3)
+ggcorrmat(
+  data = ggplot2::msleep,
+  cor.vars = awake:bodywt,
+  type = "np", #<<
+  output = "ci", #<<
+  p.adjust.method = "fdr",
   messages = FALSE
 )
 ```
@@ -1169,25 +1328,6 @@ Default information:
 
 ---
 
-exclude: true
-
-layout: true
-
-# Summary of tests - *gghistostats*
-
----
-
-exclude: true
-
-Type | Test
------------ | -------------------------
-Parametric | One-sample Student's *t*-test
-Non-parametric | One-sample Wilcoxon test 
-Robust | One-sample percentile bootstrap
-Bayes Factor | One-sample Student's *t*-test
-
----
-
 layout: false
 
 class: inverse, center, middle
@@ -1199,7 +1339,7 @@ Distribution of a numeric variable with labels
 
 layout: true
 
-# ggdotplotstats
+# ggdotplotstats - defaults
 
 ---
 
@@ -1209,6 +1349,7 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
+  effsize.type = "d", #<< 
   test.value = 52, #<<     
   centrality.para = "median", 
   test.value.line = TRUE, #<<
@@ -1221,7 +1362,6 @@ ggdotplotstats(
 
 .font80[
 Changing the type of test
-
 - `"p"` → **parametric**
 
 - `"np"` → **non-parametric**
@@ -1236,6 +1376,12 @@ Changing the type of test
 ```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
 ```
 ]
+
+---
+
+layout: true
+
+# ggdotplotstats - little code, rich details
 
 ---
 
@@ -1270,6 +1416,36 @@ Default information:
 
 ---
 
+exclude: true
+
+layout: true
+
+# Summary of tests - *gghistostats*/*ggdotplotstats*
+
+---
+
+exclude: true
+
+--
+
+Type | Test
+------------------ | -------------------------
+Parametric | One-sample Student's *t*-test
+Non-parametric | One-sample Wilcoxon test 
+Robust | One-sample percentile bootstrap
+Bayes Factor | One-sample Student's *t*-test
+
+--
+
+Type | Effect size | CI?
+----------- | ------------------------- | --- 
+Parametric | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font>
+Non-parametric | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
+Robust | $M_{robust}$ (Robust location measure) | <font color="green">Yes<font>
+Bayes Factor | <font color="red">No<font> | <font color="red">No<font>
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -1281,7 +1457,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggpiestats
+# ggpiestats - defaults
 
 ---
 
@@ -1289,7 +1465,7 @@ layout: true
 ```{r ggpiestats_1, eval = FALSE}
 # let's use subset of data
 ggpiestats(
-  data = dplyr::filter(movies_long, 
+  data = dplyr::filter(.data = movies_long, 
   genre %in% c("Drama", "Comedy", "Animated")), 
   main = genre,
   condition = mpaa,
@@ -1376,7 +1552,7 @@ ggpiestats(
 ```
 
 .font70[
-**Note** If the data is in *tabled* 
+**Note**: If the data is in *tabled* 
 format, you can use the `counts` 
 argument.
 
@@ -1428,12 +1604,17 @@ ggbarstats(
 )
 ```
 
-.font80[
-<br>
+.font70[
 **Note**: Even if you display 
 Bayes Factor message in a caption, 
 you can still use the `caption`
-argument in all plotting functions.
+argument.
+
+Label information
+
+- **percentage** (default) 
+- **counts**
+- **both** (of the above)
 ]
 ]
 
@@ -1476,6 +1657,34 @@ Default information:
 .right-plot[
 ![](images/ggbarstats_info.png)
 ]
+
+---
+
+exclude: true
+
+layout: true
+
+# Test + Effect sizes + CI - *ggpiestats*/*ggbarstats*
+
+---
+
+exclude: true
+
+--
+
+Type of data | Design | Test
+----------- | ------------  | -------------------------
+Unpaired | $n \times p$ contingency table | Pearson's $\chi^2$ test
+Paired | $n \times p$ contingency table | McNemar's test
+Frequency | $n \times 1$ contingency table | Goodness of fit
+
+--
+
+Type | Effect size | CI?
+--------------- | ------------------------- | --- 
+Pearson's $\chi^2$ test | Cramer's $V$ | <font color="green">Yes<font>
+McNemar's test | Cohen's $g$ | <font color="green">Yes<font>
+Goodness of fit | <font color="red">No<font> | <font color="red">No<font> 
 
 ---
 
@@ -1535,8 +1744,10 @@ layout: true
 .left-code[
 ```{r ggcoefstats_1_copy, eval = FALSE}
 # model
-mod <- stats::aov(formula = rating ~ mpaa * genre,
-                  data = movies_long)
+mod <- stats::aov(
+  formula = rating ~ mpaa * genre,
+  data = movies_long
+)
 
 # plot
 ggcoefstats(x = mod)
@@ -1834,7 +2045,6 @@ layout: true
 `ggstatsplot` can also be used just to get the statistical details.
 
 --
-
 .left-code[
 ```{r subtitle_1, eval = FALSE}
 # using `ggstatsplot` for stats
@@ -2031,13 +2241,15 @@ layout: true
 
 layout: true
 
-# Example
+# Example - after and before *ggstatsplot*
 
 ---
 
+--
+
 .pull-left[
 
-**Without <font color="blue">ggstatsplot</font>**
+**Before <font color="blue">ggstatsplot</font>**
 
 ![](images/before_ggstats.PNG)
 
@@ -2049,7 +2261,7 @@ layout: true
 
 .pull-right[
 
-**With <font color="blue">ggstatsplot</font>**
+**After <font color="blue">ggstatsplot</font>**
 
 ![](images/after_ggstats.PNG)
 ]
@@ -2125,7 +2337,7 @@ layout: true
 
 .pull-left[
 
-.font80[
+.font90[
 Contributions (big or small) welcome!
 ]
 
@@ -2136,7 +2348,7 @@ Contributions (big or small) welcome!
 --
 
 .pull-right[
-.font80[
+.font90[
 Ways in which you can contribute
 
 - Read and correct any inconsistencies in the
