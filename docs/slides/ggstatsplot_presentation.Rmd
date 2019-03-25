@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial"
+subtitle: "Greater Boston useR Group meeting"
 author: "Indrajeet Patil"
 date: "2019-03-26<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
@@ -161,7 +161,7 @@ layout: true
 ]
 
 
-.footnote[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)]
+.footnote[[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
 --
 
@@ -707,15 +707,15 @@ Default information:
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
-# ggwithinstats - changing defaults
+# ggwithinstats - two groups
 
 ---
 
-exclude: true
+exclude: false
 
 .left-code[
 ```{r ggwithinstats_2, eval = FALSE}
@@ -771,7 +771,7 @@ Bayes Factor | 2 | Student's *t*-test
 
 ---
 
-exclude: false
+exclude: true
 
 layout: true
 
@@ -779,7 +779,7 @@ layout: true
 
 ---
 
-exclude: false
+exclude: true
 
 Type | No. of groups | Test | CI?
 ----------- | --- | ------------------------- | --- 
@@ -908,6 +908,7 @@ ggscatterstats(
   x = budget,
   y = rating,
   type = "r", 
+  centrality.para = "mean", #<<
   label.var = title, #<<
   label.expression = budget > 150 #<<
                      & rating > 7.5, #<<
@@ -1426,8 +1427,6 @@ layout: true
 
 exclude: true
 
---
-
 Type | Test
 ------------------ | -------------------------
 Parametric | One-sample Student's *t*-test
@@ -1435,7 +1434,7 @@ Non-parametric | One-sample Wilcoxon test
 Robust | One-sample percentile bootstrap
 Bayes Factor | One-sample Student's *t*-test
 
---
+exclude: true
 
 Type | Effect size | CI?
 ----------- | ------------------------- | --- 
@@ -1670,18 +1669,16 @@ layout: true
 
 exclude: true
 
---
-
 Type of data | Design | Test
 ----------- | ------------  | -------------------------
 Unpaired | $n \times p$ contingency table | Pearson's $\chi^2$ test
 Paired | $n \times p$ contingency table | McNemar's test
 Frequency | $n \times 1$ contingency table | Goodness of fit
 
---
+<br>
 
 Type | Effect size | CI?
---------------- | ------------------------- | --- 
+---------------------- | ----------------------------- | -----
 Pearson's $\chi^2$ test | Cramer's $V$ | <font color="green">Yes<font>
 McNemar's test | Cohen's $g$ | <font color="green">Yes<font>
 Goodness of fit | <font color="red">No<font> | <font color="red">No<font> 
@@ -1716,7 +1713,7 @@ ggcoefstats(x = mod)
 ```
 
 .font80[
-In addition to `"plot"` as `output`, 
+In addition to `output = "plot"`, 
 this function can also be used to
 get a <font color="blue">dataframe</font> of results:
 
@@ -1772,7 +1769,7 @@ Default information:
 
 layout: true
 
-# ggcoefstats - other outputs than plot
+# ggcoefstats - dataframe outputs
 
 ---
 
@@ -1945,7 +1942,7 @@ layout: true
 
 ---
 
-.left-code[
+.pull-left[
 ```{r ggcoefstats_3, results = "hide", fig.show = "hide"}
 # made up data
 meta_df <- tibble::tribble(
@@ -1969,10 +1966,11 @@ ggcoefstats(
 .font100[
 `r emo::ji("warning")` Work in progrss `r emo::ji("warning")`
 ]
+
 ]
 
-.right-plot[
-![](`r knitr::fig_chunk("ggcoefstats_3", "png")`)
+.pull-right[
+![](images/ggcoefstats_3.png)
 ]
 
 ---
@@ -1989,9 +1987,10 @@ all levels of a single grouping variable
 
 layout: true
 
-# grouped_ functions
+# *grouped_* functions
 
 You can repeat the same analysis for all levels of a single grouping variable.
+
 ---
 
 .left-code[
@@ -2007,7 +2006,6 @@ grouped_ggpiestats(
 
 .font70[
 Available `grouped_` variants
-
 - `grouped_ggdotplotstats`
 - `grouped_ggbarstats`    
 - `grouped_ggscatterstats`
@@ -2045,6 +2043,7 @@ layout: true
 `ggstatsplot` can also be used just to get the statistical details.
 
 --
+
 .left-code[
 ```{r subtitle_1, eval = FALSE}
 # using `ggstatsplot` for stats
@@ -2062,7 +2061,7 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + labs(subtitle = results) # <<
+) + labs(subtitle = results) #<<
 ```
 
 .font70[
@@ -2127,7 +2126,7 @@ the results manually or copy-paste them from someplace else.
 
 ![](images\statcheck.png)
 
-.footnote[(Nuijten et al., *Behavior Research Methods*, 2016)]
+.footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
 
 ---
 
@@ -2142,7 +2141,7 @@ interpret the null results.
 
 ![](images/null_results.png)
 
-.footnote[(Aczel et al., *AMPPS*, 2018)]
+.footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 
 ---
 
@@ -2152,7 +2151,7 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.0.9)
+(as of 0.0.10.9000)
 
 ---
 
@@ -2167,6 +2166,7 @@ layout: false
 Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 ------- | ------------------ | ---- | ----- | ----| ----- 
 `ggbetweenstats` | Between group/condition comparisons | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
+`ggwithinstats` | Within group/condition comparisons | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
 `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
 `ggcorrmat` | Correlation matrix | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 `ggscatterstats` | Correlation between two variables | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
@@ -2276,7 +2276,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes over <font color="blue">**1300**</font> tests to make
+`ggstatsplot` includes about <font color="blue">**1400**</font> tests to make
 sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
@@ -2286,6 +2286,33 @@ letter to you and to the editor of the journal in question.
 ![](images/codecov.png)
 
 .footnote[*Reference*: <https://codecov.io/gh/IndrajeetPatil/ggstatsplot>]
+
+---
+
+exclude: true
+
+layout: true
+
+# Informative plot designs
+
+---
+
+exclude: true
+
+![](images/books.JPG)
+
+---
+
+layout: true
+
+# Documentation
+
+---
+
+Exhaustive documentation at the dedicated website- <br>
+<https://indrajeetpatil.github.io/ggstatsplot/>
+
+![](images/website.PNG)
 
 ---
 
@@ -2323,7 +2350,8 @@ time-constrained presentation settings (e.g., conference talks).
 
 --
 
-- Bulky API (in terms of number of function arguments to keep in mind).
+- Bulky API (in terms of number of function arguments to keep in mind).<br>
+(Saving grace: Defaults are sufficient most of the time.)
 
 ---
 
@@ -2373,13 +2401,15 @@ other options that pack informative graphics with statistical details
 
 ---
 
+exclude: true
+
 layout: true
 
 # GUI softwares
 
 ---
 
---
+exclude: true
 
 .pull-left[
 
@@ -2387,6 +2417,8 @@ layout: true
 
 ![](images/jamovi.PNG)
 ]
+
+exclude: true
 
 .pull-right[
 
@@ -2397,14 +2429,29 @@ layout: true
 
 ---
 
+exclude: true
 
 layout: false
 
 class: center, middle
 
-# Thanks!
+# Slides
 
-**Acknowledgments**
+**Slides**
+
+View companion script at- <br>
+[https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.Rmd](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.Rmd)
+
+View the Github repo at- <br>
+[https://github.com/IndrajeetPatil/ggstatsplot_slides](https://github.com/IndrajeetPatil/ggstatsplot_slides)
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Acknowledgments
 
 Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
 

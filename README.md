@@ -25,5 +25,8 @@ install.packages(c("ggstatsplot", "tidyverse"))
 
 ## Versions
 
-These slides are from a presentation given at the **Harvard Psych Method Dinners** 
-on February 5, 2019.
+These slides are from presentations given at various gatherings:
+
+  - **Greater Boston useR Group meeting**, Boston, MA, March, 26, 2019.
+  - **Harvard Psych Method Dinners**, William James Hall, Harvard University,
+    Cambridge, MA, USA, February 5, 2019.
