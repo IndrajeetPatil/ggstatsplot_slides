@@ -622,7 +622,8 @@ layout: false
 class: inverse, center, middle
 
 # ggwithinstats
-For within group/condition comparisons
+For within group/condition comparisons<br>
+(`r emo::ji("warning")` Work in progrss `r emo::ji("warning")`)
 
 ---
 
@@ -1819,7 +1820,7 @@ layout: true
 
 ---
 
-.font80[
+.font90[
 .pull-left[
 .pull-left[
 - `aareg`
@@ -2392,6 +2393,9 @@ preparing subtitles)
 ]
 
 ---
+
+exclude: true
+
 layout: false
 
 class: inverse, center, middle
@@ -2457,7 +2461,7 @@ Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
 
 Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/) and [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php)
 
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
 The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2).
 
