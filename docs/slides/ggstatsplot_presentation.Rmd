@@ -91,7 +91,7 @@ layout: true
 --
 
 .right-column[.font150[
-Current count of number of packages on the Comprehensive R Archive Network (**CRAN**)<br>
+Current count of packages on the Comprehensive R Archive Network (**CRAN**)<br>
 **> 13,000**
 ]
 .footnote[<https://cran.r-project.org/web/packages/>]
@@ -138,7 +138,7 @@ In a typical *exploratory* data analysis workflow, <font color="blue">*data visu
 and modeling in its turn can suggest a different visualization method, and so
 on and so forth. 
 
-.footnote[(Grolemund & Wickham, *R for Data Science*, 2017)]
+.footnote[[(Grolemund & Wickham, *R for Data Science*, 2017)](https://r4ds.had.co.nz/)]
 
 --
 
@@ -283,8 +283,8 @@ Then you can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
 ```{r github, eval = FALSE, tidy = FALSE}
-library(devtools)
-devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
+library(remotes)
+remotes::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 ```
 
 --
@@ -508,15 +508,11 @@ Yaay!
 
 ---
 
-exclude: true
-
 layout: true
 
 # ggbetweenstats - 2 groups
 
 ---
-
-exclude: true
 
 .left-code[
 ```{r ggbetweenstats_5, eval = FALSE}
@@ -2085,7 +2081,7 @@ layout: false
 class: inverse, center, middle
 
 # Glossary
-Statistical analyses in *ggstatsplot*
+Statistical reporting in *ggstatsplot*
 
 ---
 
@@ -2236,7 +2232,8 @@ layout: true
 
 --
 
-- Minimal amount of code needed (minimizes chances of error).
+- Minimal amount of code needed for all functions (typically only `data`, `x`,
+  and `y`). This minimizes chances of error.
 
 ---
 
