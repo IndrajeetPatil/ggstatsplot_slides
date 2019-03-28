@@ -14,9 +14,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## Greater Boston useR Group meeting
+## New York University
 ### Indrajeet Patil
-### 2019-03-26<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2019-03-28<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -229,8 +229,7 @@ layout: false
 
  For all statistical tests reported in the plots, the default template abides
 by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. For example, here are results from Yuen's test for
-trimmed means (robust *t*-test):
+statistical reporting. For example, here are results from a robust *t*-test:
 
 ![](images/stats_reporting_format.png)
 
@@ -529,7 +528,7 @@ Changing the type of test
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -537,22 +536,24 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
+.font100[
 Type | No. of groups | Test
------------ | --- | -------------------------
-Parametric | &gt; 2 | Student's or Welch's one-way ANOVA
-Non-parametric | &gt; 2 | Kruskal–Wallis one-way ANOVA
-Robust | &gt; 2 | Heteroscedastic one-way ANOVA for trimmed means
-Bayes Factor | &gt; 2 | Student's ANOVA
-Parametric | 2 | Student's or Welch's *t*-test
-Non-parametric | 2 | Mann–Whitney *U* test
-Robust | 2 |  Yuen's test for trimmed means
-Bayes Factor | 2 | Student's *t*-test
+----------- | -- | --------------------------
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | &gt; 2 | Student's or Welch's one-way ANOVA
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | 2 | Student's or Welch's *t*-test
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | &gt; 2 | Kruskal–Wallis one-way ANOVA
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | 2 | Mann–Whitney *U* test
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | Heteroscedastic one-way ANOVA for trimmed means
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 |  Yuen's test for trimmed means
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | Student's ANOVA
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | Student's *t*-test
+]
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -560,22 +561,22 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
-Type | No. of groups | Test | CI?
------------ | --- | ------------------------- | --- 
-Parametric | &gt; 2 | `\(\eta_{p}^2\)`, `\(\eta^2\)`, `\(\omega_{p}^2\)`, `\(\omega^2\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
-Non-parametric | &gt; 2 | `\(\eta_{H}^2\)` (*H*-statistic based eta-squared) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Robust | &gt; 2 | `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Bayes Factor | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
-Parametric | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Non-parametric | 2 | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Robust | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Bayes Factor | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+Type | Levels | Test | CI?
+------------ | -- | -------------------------- | ---- 
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | | &gt; 2 | `\(\eta_{p}^2\)`, `\(\eta^2\)`, `\(\omega_{p}^2\)`, `\(\omega^2\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | &gt; 2 | `\(\eta_{H}^2\)` (*H*-statistic based eta-squared) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;**  | 2 | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -583,16 +584,16 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | Equal variance? | Test | *p*-value adjustment? 
 ----------- | --- | ------------------------- | ---
-Parametric | No | Games-Howell test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Parametric | Yes | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Non-parametric | No | Dwass-Steel-Crichtlow-Fligner test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Robust | No | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Bayes Factor | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-Bayes Factor | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | No | Games-Howell test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Yes | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | No | Dwass-Steel-Crichtlow-Fligner test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | No | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 
 ---
 
@@ -729,7 +730,7 @@ Changing the type of test
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -737,22 +738,22 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | No. of groups | Test
 ----------- | --- | -------------------------
-Parametric | &gt; 2 | One-way repeated measures ANOVA
-Non-parametric | &gt; 2 | Friedman test
-Robust | &gt; 2 | Heteroscedastic one-way repeated measures ANOVA for trimmed means
-Bayes Factor | &gt; 2 | One-way repeated measures ANOVA
-Parametric | 2 | Student's *t*-test
-Non-parametric | 2 | Mann–Whitney *U* test
-Robust | 2 | Yuen's test on trimmed means for dependent samples
-Bayes Factor | 2 | Student's *t*-test
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | &gt; 2 | One-way repeated measures ANOVA
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | &gt; 2 | Friedman test
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | Heteroscedastic one-way repeated measures ANOVA for trimmed means
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | One-way repeated measures ANOVA
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | 2 | Student's *t*-test
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | 2 | Mann–Whitney *U* test
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 | Yuen's test on trimmed means for dependent samples
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | Student's *t*-test
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -760,22 +761,22 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | No. of groups | Test | CI?
 ----------- | --- | ------------------------- | --- 
-Parametric | &gt; 2 | `\(\eta_{p}^2\)`, `\(\omega^2\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
-Non-parametric | &gt; 2 | `\(W_{Kendall}\)` (Kendall's coefficient of concordance) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Robust | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="green"&gt;Yes&lt;font&gt;
-Bayes Factor | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
-Parametric | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Non-parametric | 2 | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Robust | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Bayes Factor | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | &gt; 2 | `\(\eta_{p}^2\)`, `\(\omega^2\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | &gt; 2 | `\(W_{Kendall}\)` (Kendall's coefficient of concordance) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | 2 | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -783,14 +784,14 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | Test | *p*-value adjustment? 
 ----------- | ---------------------------- | ---
-Parametric | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Non-parametric | Durbin-Conover test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Robust | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-Bayes Factor | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | Durbin-Conover test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 
 ---
 
@@ -917,7 +918,7 @@ Changing the marginal type
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -925,18 +926,18 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | Test
 ----------- | -------------------------
-Parametric | Pearson's correlation coefficient
-Non-parametric | Spearman's rank correlation coefficient
-Robust | Percentage bend correlation coefficient
-Bayes Factor | Pearson's correlation coefficient
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Pearson's correlation coefficient
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | Spearman's rank correlation coefficient
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | Percentage bend correlation coefficient
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | Pearson's correlation coefficient
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -944,7 +945,7 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 .left-code[
 
@@ -1591,7 +1592,7 @@ Default information:
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -1599,23 +1600,23 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 Type | Test
 ------------------ | -------------------------
-Parametric | One-sample Student's *t*-test
-Non-parametric | One-sample Wilcoxon test 
-Robust | One-sample percentile bootstrap
-Bayes Factor | One-sample Student's *t*-test
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | One-sample Student's *t*-test
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | One-sample Wilcoxon test 
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | One-sample percentile bootstrap
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | One-sample Student's *t*-test
 
-exclude: true
+&lt;br&gt;
 
 Type | Effect size | CI?
 ----------- | ------------------------- | --- 
-Parametric | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Non-parametric | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Robust | `\(M_{robust}\)` (Robust location measure) | &lt;font color="green"&gt;Yes&lt;font&gt;
-Bayes Factor | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | &lt;font color="green"&gt;Yes&lt;font&gt;
+ **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | *r* (computed as `\(Z/\sqrt{N}\)`) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | `\(M_{robust}\)` (Robust location measure) | &lt;font color="green"&gt;Yes&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
 
 ---
 
@@ -1835,26 +1836,28 @@ Default information:
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
-# Test + Effect sizes + CI - *ggpiestats*/*ggbarstats*
+# Test summary - *ggpiestats*/*ggbarstats*
 
 ---
 
-exclude: true
+exclude: false
 
-Type of data | Design | Test
+**Tests**
+
+Data | Design | Test
 ----------- | ------------  | -------------------------
 Unpaired | `\(n \times p\)` contingency table | Pearson's `\(\chi^2\)` test
 Paired | `\(n \times p\)` contingency table | McNemar's test
 Frequency | `\(n \times 1\)` contingency table | Goodness of fit
 
-&lt;br&gt;
+**Effect sizes + CI**
 
-Type | Effect size | CI?
----------------------- | ----------------------------- | -----
+Test | Effect size | CI?
+----------------------- | ----------------------------- | -----
 Pearson's `\(\chi^2\)` test | Cramer's `\(V\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
 McNemar's test | Cohen's `\(g\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
 Goodness of fit | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt; 
@@ -2424,7 +2427,7 @@ layout: false
 
 --
 
-Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
+Functions | Description | **&lt;font color="blue"&gt;Parametric&lt;font&gt;** |  **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | **&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;**
 ------- | ------------------ | ---- | ----- | ----| ----- 
 `ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggwithinstats` | Within group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
@@ -2444,7 +2447,7 @@ layout: false
 
 --
 
-Test | Parametric | Non-parametric | Robust | Bayes
+Test | **&lt;font color="blue"&gt;Parametric&lt;font&gt;** |  **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | **&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;**
 ---------------------------- | ------ | ------ | ------ | ------
 one-sample *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 two-sample *t*-test (between) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
@@ -2503,7 +2506,7 @@ layout: true
 
 layout: true
 
-# Example - after and before *ggstatsplot*
+# Example - before and after *ggstatsplot*
 
 ---
 
@@ -2551,7 +2554,7 @@ letter to you and to the editor of the journal in question.
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -2559,10 +2562,19 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
+.pull-left[
+.font150[
+The default plots in *&lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;* are
+**opinionated**, yes, but an attempt has been made to make sure that the
+defaults follow best principles outlined in the data visualization research.
+]
+]
+
+.pull-right[
 ![](images/books.JPG)
-
+]
 ---
 
 layout: true
@@ -2655,7 +2667,7 @@ preparing subtitles)
 
 ---
 
-exclude: true
+exclude: false
 
 layout: false
 
@@ -2666,7 +2678,7 @@ other options that pack informative graphics with statistical details
 
 ---
 
-exclude: true
+exclude: false
 
 layout: true
 
@@ -2674,7 +2686,7 @@ layout: true
 
 ---
 
-exclude: true
+exclude: false
 
 .pull-left[
 
@@ -2683,7 +2695,7 @@ exclude: true
 ![](images/jamovi.PNG)
 ]
 
-exclude: true
+exclude: false
 
 .pull-right[
 
@@ -2691,24 +2703,6 @@ exclude: true
 
 ![](images/jasp.PNG)
 ]
-
----
-
-exclude: true
-
-layout: false
-
-class: center, middle
-
-# Slides
-
-**Slides**
-
-View companion script at- &lt;br&gt;
-[https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.Rmd](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.Rmd)
-
-View the Github repo at- &lt;br&gt;
-[https://github.com/IndrajeetPatil/ggstatsplot_slides](https://github.com/IndrajeetPatil/ggstatsplot_slides)
 
 ---
 
