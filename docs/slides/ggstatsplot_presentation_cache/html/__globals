@@ -54,3 +54,5 @@ ggwithinstats_1_copy	ggwithinstats	WineTasting	Wine	Taste	theme_ipsum_tw
 ggbetweenstats_5	ggbetweenstats	mtcars	am	wt
 ggcorrmat_5	ggcorrmat	msleep	sleep_cycle	bodywt
 ggcorrmat_6	options	ggcorrmat	msleep	awake	bodywt
+type_p	library	ggstatsplot	ggbetweenstats	mtcars	am	wt	ggscatterstats	mpg	gghistostats
+type_np	library	ggstatsplot	ggbetweenstats	mtcars	am	wt	ggscatterstats	mpg	gghistostats

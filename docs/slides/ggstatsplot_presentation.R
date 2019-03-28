@@ -44,8 +44,8 @@ as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 
 
 ## ----github, eval = FALSE, tidy = FALSE----------------------------------
-## library(devtools)
-## devtools::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
+## library(remotes)
+## remotes::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
 
 
 ## ----load, eval = TRUE, warning=FALSE------------------------------------
@@ -788,7 +788,7 @@ grouped_ggpiestats(
 ##   aes(x = Sex, fill = Survived),
 ##   addlabel = TRUE,
 ##   interactive = FALSE
-## ) + labs(subtitle = results) # <<
+## ) + labs(subtitle = results) #<<
 
 
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE------------------
@@ -807,5 +807,61 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + labs(subtitle = results) # <<
+) + labs(subtitle = results) #<<
+
+
+## ----type_p, eval = FALSE------------------------------------------------
+## library(ggstatsplot)
+## 
+## # result-1
+## ggbetweenstats(
+##   data = mtcars,
+##   x = am,
+##   y = wt,
+##   type = "p" #<<
+## )
+## 
+## # result-2
+## ggscatterstats(
+##   data = mtcars,
+##   x = wt,
+##   y = mpg,
+##   type = "p" #<<
+## )
+## 
+## # result -3
+## gghistostats(
+##   data = mtcars,
+##   x = wt,
+##   test.value = 2,
+##   type = "p" #<<
+## )
+
+
+## ----type_np, eval = FALSE-----------------------------------------------
+## library(ggstatsplot)
+## 
+## # result-1
+## ggbetweenstats(
+##   data = mtcars,
+##   x = am,
+##   y = wt,
+##   type = "np" #<<
+## )
+## 
+## # result-2
+## ggscatterstats(
+##   data = mtcars,
+##   x = wt,
+##   y = mpg,
+##   type = "np" #<<
+## )
+## 
+## # result -3
+## gghistostats(
+##   data = mtcars,
+##   x = wt,
+##   test.value = 2,
+##   type = "np" #<<
+## )
 
