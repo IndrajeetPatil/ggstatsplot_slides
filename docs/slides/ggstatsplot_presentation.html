@@ -68,7 +68,7 @@ layout: true
 
 .right-column[.font150[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)&lt;br&gt;
-**&gt; 13,000**
+**&lt;font color="red"&gt; &gt; 13,000&lt;/font&gt;**
 ]
 .footnote[&lt;https://cran.r-project.org/web/packages/&gt;]
 ]
@@ -1394,10 +1394,7 @@ layout: true
 gghistostats(
   data = movies_long,    
   x = budget,
-* type = "r",
 * test.value = 50,
-* bar.measure = "count", # default
-* binwidth = 10,
   messages = FALSE
 ) 
 ```
@@ -1433,15 +1430,15 @@ layout: true
 gghistostats(
   data = movies_long,    
   x = budget,
+  effsize.type = "d",
   test.value = 50,
-* test.value.size = TRUE,
 * bar.measure = "mix",
   centrality.para = "median", 
 * test.value.line = TRUE,
 * normal.curve = TRUE,
   bf.message = TRUE,
-* ggtheme = hrbrthemes::theme_ipsum_tw(),
-* ggstatsplot.layer = FALSE,
+  ggtheme = hrbrthemes::theme_ipsum_tw(), 
+  ggstatsplot.layer = FALSE, 
   messages = FALSE
 ) 
 ```
@@ -1475,6 +1472,7 @@ layout: true
 gghistostats(
   data = movies_long,    
   x = budget,
+  effsize.type = "d",
   test.value = 50,
   test.value.size = TRUE, 
   bar.measure = "mix", 
@@ -1526,12 +1524,12 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-* effsize.type = "d",
+  effsize.type = "d", 
 * test.value = 52,
   centrality.para = "median", 
 * test.value.line = TRUE,
-* test.value.color = "red",
-* bf.message = TRUE,
+  test.value.color = "red", 
+  bf.message = TRUE, 
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
@@ -1568,6 +1566,7 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
+  effsize.type = "d",
   test.value = 52,     
   centrality.para = "median", 
   test.value.line = TRUE, 
@@ -2418,11 +2417,9 @@ layout: false
 --
 
 .pull-left[
-Me: **&lt;font color="blue"&gt;Parametric&lt;font&gt;**
+**&lt;font color="blue"&gt;Parametric&lt;font&gt;**
 
 ```r
-library(ggstatsplot)
-
 # result-1
 ggbetweenstats(
   data = mtcars,
@@ -2452,11 +2449,9 @@ gghistostats(
 --
 
 .pull-right[
-Reviewer-2: **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** 
+**&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** 
 
 ```r
-library(ggstatsplot)
-
 # result-1
 ggbetweenstats(
   data = mtcars,
