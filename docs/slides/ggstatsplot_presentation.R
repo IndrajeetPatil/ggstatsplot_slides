@@ -59,7 +59,6 @@ library(ggplot2)
 ##   x = mpaa, # > 2 groups #<<
 ##   y = rating,
 ##   type = "p", # default #<<
-##   bf.message = TRUE, #<<
 ##   messages = FALSE
 ## )
 
@@ -70,7 +69,6 @@ ggbetweenstats(
   x = mpaa, # > 2 groups #<<  
   y = rating,
   type = "p", # default #<<  
-  bf.message = TRUE, #<<
   messages = FALSE
 )
 
@@ -79,8 +77,7 @@ ggbetweenstats(
 ## ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
-##   y = rating,
-##   bf.message = TRUE #<<
+##   y = rating
 ## )
 
 
@@ -178,7 +175,6 @@ ggbetweenstats(
 ##   x = am, # 2 groups #<<
 ##   y = wt,
 ##   type = "p", # default #<<
-##   bf.message = TRUE, #<<
 ##   messages = FALSE
 ## )
 
@@ -189,7 +185,6 @@ ggbetweenstats(
   x = am, # 2 groups #<<  
   y = wt,
   type = "p", # default #<<  
-  bf.message = TRUE, #<<
   messages = FALSE
 )
 
@@ -201,8 +196,6 @@ ggbetweenstats(
 ##   y = Taste,
 ##   pairwise.comparisons = TRUE, #<<
 ##   pairwise.annotation = "p",
-##   outlier.tagging = TRUE, #<<
-##   outlier.label = Taster,
 ##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
 ##   ggstatsplot.layer = FALSE,
 ##   messages = FALSE
@@ -216,8 +209,6 @@ ggwithinstats(
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
   pairwise.annotation = "p",
-  outlier.tagging = TRUE, #<< 
-  outlier.label = Taster,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<< 
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -227,7 +218,7 @@ ggwithinstats(
 ## ----ggwithinstats_1_copy, eval = FALSE----------------------------------
 ## ggwithinstats(
 ##   data = WRS2::WineTasting,
-##   x = Wine,
+##   x = Wine, # > 2 groups #<<
 ##   y = Taste,
 ##   pairwise.comparisons = TRUE, #<<
 ##   pairwise.annotation = "p",
@@ -262,8 +253,7 @@ ggwithinstats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = rating,
-##   type = "p", # default #<<
-##   bf.message = TRUE, #<<
+##   type = "p", # default #<<<
 ##   conf.level = 0.99, #<<
 ##   messages = FALSE
 ## )
@@ -274,8 +264,7 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  type = "p", # default #<<
-  bf.message = TRUE, #<<
+  type = "p", # default #<<<
   conf.level = 0.99, #<<
   messages = FALSE
 )
@@ -286,7 +275,6 @@ ggscatterstats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = rating,
-##   bf.message = TRUE,
 ##   conf.level = 0.99
 ## )
 
@@ -438,10 +426,7 @@ ggcorrmat(
 ## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
-##   type = "r", #<<
 ##   test.value = 50, #<<
-##   bar.measure = "count", # default #<<
-##   binwidth = 10,  #<<
 ##   messages = FALSE
 ## )
 
@@ -450,10 +435,7 @@ ggcorrmat(
 gghistostats(
   data = movies_long,    
   x = budget,
-  type = "r", #<<
   test.value = 50, #<<
-  bar.measure = "count", # default #<<
-  binwidth = 10,  #<<
   messages = FALSE
 ) 
 
@@ -462,15 +444,14 @@ gghistostats(
 ## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
+##   effsize.type = "d",
 ##   test.value = 50,
-##   test.value.size = TRUE, #<<
 ##   bar.measure = "mix", #<<
 ##   centrality.para = "median",
 ##   test.value.line = TRUE, #<<
 ##   normal.curve = TRUE, #<<
-##   bf.message = TRUE,
-##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-##   ggstatsplot.layer = FALSE, #<<
+##   ggtheme = hrbrthemes::theme_ipsum_tw(),
+##   ggstatsplot.layer = FALSE,
 ##   messages = FALSE
 ## )
 
@@ -479,15 +460,14 @@ gghistostats(
 gghistostats(
   data = movies_long,    
   x = budget,
+  effsize.type = "d",
   test.value = 50,
-  test.value.size = TRUE, #<<
   bar.measure = "mix", #<<
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   normal.curve = TRUE, #<<
-  bf.message = TRUE,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-  ggstatsplot.layer = FALSE, #<<
+  ggtheme = hrbrthemes::theme_ipsum_tw(), 
+  ggstatsplot.layer = FALSE, 
   messages = FALSE
 ) 
 
@@ -496,13 +476,13 @@ gghistostats(
 ## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
+##   effsize.type = "d",
 ##   test.value = 50,
 ##   test.value.size = TRUE,
 ##   bar.measure = "mix",
 ##   centrality.para = "median",
 ##   test.value.line = TRUE,
-##   normal.curve = TRUE,
-##   bf.message = TRUE
+##   normal.curve = TRUE
 ## )
 
 
@@ -511,12 +491,11 @@ gghistostats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = genre,
-##   effsize.type = "d", #<<
+##   effsize.type = "d",
 ##   test.value = 52, #<<
 ##   centrality.para = "median",
 ##   test.value.line = TRUE, #<<
-##   test.value.color = "red", #<<
-##   bf.message = TRUE, #<<
+##   test.value.color = "red",
 ##   ggtheme = ggthemes::theme_par(),
 ##   messages = FALSE
 ## )
@@ -527,12 +506,11 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  effsize.type = "d", #<< 
+  effsize.type = "d", 
   test.value = 52, #<<     
   centrality.para = "median", 
   test.value.line = TRUE, #<<
-  test.value.color = "red", #<<
-  bf.message = TRUE, #<<
+  test.value.color = "red", 
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
@@ -543,11 +521,11 @@ ggdotplotstats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = genre,
+##   effsize.type = "d",
 ##   test.value = 52,
 ##   centrality.para = "median",
 ##   test.value.line = TRUE,
-##   test.value.color = "red",
-##   bf.message = TRUE
+##   test.value.color = "red"
 ## )
 
 
@@ -560,7 +538,6 @@ ggdotplotstats(
 ##   condition = mpaa,
 ##   paired = FALSE, # default #<<
 ##   conf.level = 0.99, #<<
-##   bf.message = TRUE, #<<
 ##   package = "ggsci",
 ##   palette = "default_ucscgb",
 ##   messages = FALSE
@@ -576,7 +553,6 @@ ggpiestats(
   condition = mpaa,
   paired = FALSE, # default #<< 
   conf.level = 0.99, #<<
-  bf.message = TRUE, #<<
   package = "ggsci",
   palette = "default_ucscgb",
   messages = FALSE
@@ -590,8 +566,7 @@ ggpiestats(
 ##   genre %in% c("Drama", "Comedy", "Animated")),
 ##   main = genre,
 ##   condition = mpaa,
-##   conf.level = 0.99, #<<
-##   bf.message = TRUE #<<
+##   conf.level = 0.99 #<<
 ## )
 
 
@@ -621,7 +596,6 @@ ggpiestats(
 ##   main = genre,
 ##   condition = mpaa,
 ##   paired = FALSE, # default #<<
-##   bf.message = TRUE, #<<
 ##   package = "ggsci",
 ##   palette = "default_igv",
 ##   caption = substitute(                       #<<
@@ -637,7 +611,6 @@ ggbarstats(
   main = genre,
   condition = mpaa,
   paired = FALSE, # default #<<
-  bf.message = TRUE, #<<
   package = "ggsci",
   palette = "default_igv",
   caption = substitute(                       #<< 
@@ -651,8 +624,7 @@ ggbarstats(
 ## ggbarstats(
 ##   data = movies_long,
 ##   main = genre,
-##   condition = mpaa,
-##   bf.message = TRUE
+##   condition = mpaa
 ## )
 
 
@@ -724,7 +696,7 @@ df <- tibble::tribble(
 )
 
 # plot
-# statistic argument decides label format
+# `statistic` argument decides label format
 ggcoefstats(
   x = df,
   statistic = "z", #<<
@@ -748,6 +720,7 @@ meta_df <- tibble::tribble(
 ggcoefstats(
   x = meta_df,
   meta.analytic.effect = TRUE, #<<
+  bf.message = TRUE,  #<<
   xlab = "estimate"
 )
 
@@ -758,6 +731,7 @@ ggcoefstats(
 ##   data = mtcars,
 ##   main = cyl,
 ##   grouping.var = am, #<<
+##   results.subtitle = FALSE, #<<
 ##   messages = FALSE
 ## )
 
@@ -768,6 +742,7 @@ grouped_ggpiestats(
   data = mtcars, 
   main = cyl,
   grouping.var = am, #<< 
+  results.subtitle = FALSE, #<<
   messages = FALSE
 )
 
@@ -775,10 +750,11 @@ grouped_ggpiestats(
 ## ----subtitle_1, eval = FALSE--------------------------------------------
 ## # using `ggstatsplot` for stats
 ## results <-
-##   ggstatsplot::subtitle_contingency_tab( #<<
+##   ggstatsplot::ggpiestats(
 ##   data = Titanic_full,
 ##   main = Survived,
 ##   condition = Sex,
+##   return = "subtitle", #<<
 ##   messages = FALSE
 ## )
 ## 
@@ -794,10 +770,11 @@ grouped_ggpiestats(
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE------------------
 # using `ggstatsplot` for stats
 results <- 
-  ggstatsplot::subtitle_contingency_tab( #<< 
+  ggstatsplot::ggpiestats(  
   data = Titanic_full,
   main = Survived,
   condition = Sex,
+  return = "subtitle", #<<
   messages = FALSE
 )
 
@@ -811,8 +788,6 @@ ggiraphExtra::ggSpine( #<<
 
 
 ## ----type_p, eval = FALSE------------------------------------------------
-## library(ggstatsplot)
-## 
 ## # result-1
 ## ggbetweenstats(
 ##   data = mtcars,
@@ -839,8 +814,6 @@ ggiraphExtra::ggSpine( #<<
 
 
 ## ----type_np, eval = FALSE-----------------------------------------------
-## library(ggstatsplot)
-## 
 ## # result-1
 ## ggbetweenstats(
 ##   data = mtcars,

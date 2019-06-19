@@ -1,8 +1,8 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "New York University"
+subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil"
-date: "2019-03-28<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
+date: "2019-06-19<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -324,7 +324,6 @@ ggbetweenstats(
   x = mpaa, # > 2 groups #<<  
   y = rating,
   type = "p", # default #<<  
-  bf.message = TRUE, #<<
   messages = FALSE
 )
 ```
@@ -360,8 +359,7 @@ layout: true
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
-  y = rating,
-  bf.message = TRUE #<<
+  y = rating
 )
 ```
 
@@ -426,7 +424,7 @@ exclude: false
 
 layout: true
 
-# ggbetweenstats - (aesthetic) customization
+# ggbetweenstats - (aesthetic) changes & outlier tagging
 
 ---
 
@@ -520,7 +518,6 @@ ggbetweenstats(
   x = am, # 2 groups #<<  
   y = wt,
   type = "p", # default #<<  
-  bf.message = TRUE, #<<
   messages = FALSE
 )
 ```
@@ -558,7 +555,7 @@ exclude: false
 .font100[
 Type | No. of groups | Test
 ----------- | -- | --------------------------
-**<font color="blue">Parametric<font>** | > 2 | Student's or Welch's one-way ANOVA
+**<font color="blue">Parametric<font>** | > 2 | Fisher's or Welch's one-way ANOVA
 **<font color="blue">Parametric<font>** | 2 | Student's or Welch's *t*-test
  **<font color="#ff6600">Non-parametric<font>** | > 2 | Kruskal–Wallis one-way ANOVA
  **<font color="#ff6600">Non-parametric<font>** | 2 | Mann–Whitney *U* test
@@ -584,8 +581,8 @@ Type | Levels | Test | CI?
 ------------ | -- | -------------------------- | ---- 
 **<font color="blue">Parametric<font>** | > 2 | $\eta_{p}^2$, $\eta^2$, $\omega_{p}^2$, $\omega^2$ | <font color="green">Yes<font>
 **<font color="blue">Parametric<font>** | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font>
-**<font color="#ff6600">Non-parametric<font>** | > 2 | $\eta_{H}^2$ (*H*-statistic based eta-squared) | <font color="green">Yes<font>
-**<font color="#ff6600">Non-parametric<font>**  | 2 | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
+**<font color="#ff6600">Non-parametric<font>** | > 2 | $\epsilon^2$ | <font color="green">Yes<font>
+**<font color="#ff6600">Non-parametric<font>**  | 2 | *r* (computed as $Z/\sqrt{N_{obs}}$) | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | > 2 | $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#009933">Bayes Factor<font>** | > 2 | <font color="red">No<font> | <font color="red">No<font>
@@ -620,7 +617,6 @@ class: inverse, center, middle
 
 # ggwithinstats
 For within group/condition comparisons<br>
-(`r emo::ji("warning")` Work in progrss `r emo::ji("warning")`)
 
 ---
 
@@ -638,8 +634,6 @@ ggwithinstats(
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
   pairwise.annotation = "p",
-  outlier.tagging = TRUE, #<< 
-  outlier.label = Taster,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<< 
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -676,7 +670,7 @@ layout: true
 ```{r ggwithinstats_1_copy, eval = FALSE}
 ggwithinstats(
   data = WRS2::WineTasting,
-  x = Wine,
+  x = Wine, # > 2 groups #<< 
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
   pairwise.annotation = "p",
@@ -760,7 +754,7 @@ Type | No. of groups | Test
 ----------- | --- | -------------------------
 **<font color="blue">Parametric<font>** | > 2 | One-way repeated measures ANOVA
 **<font color="blue">Parametric<font>** | 2 | Student's *t*-test
-**<font color="#ff6600">Non-parametric<font>** | > 2 | Friedman test
+**<font color="#ff6600">Non-parametric<font>** | > 2 | Friedman rank sum test
 **<font color="#ff6600">Non-parametric<font>** | 2 | Mann–Whitney *U* test
 **<font color="#ff00ff">Robust<font>** | > 2 | Heteroscedastic one-way repeated measures ANOVA for trimmed means
 **<font color="#ff00ff">Robust<font>** | 2 | Yuen's test on trimmed means for dependent samples
@@ -784,7 +778,7 @@ Type | No. of groups | Test | CI?
 **<font color="blue">Parametric<font>** | > 2 | $\eta_{p}^2$, $\omega^2$ | <font color="green">Yes<font>
 **<font color="blue">Parametric<font>** | 2 | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font> 
 **<font color="#ff6600">Non-parametric<font>** | > 2 | $W_{Kendall}$ (Kendall's coefficient of concordance) | <font color="green">Yes<font>
-**<font color="#ff6600">Non-parametric<font>** | 2 | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
+**<font color="#ff6600">Non-parametric<font>** | 2 | *r* (computed as $Z/\sqrt{N_{pairs}}$) | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | > 2 | <font color="red">No<font> | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#009933">Bayes Factor<font>** | > 2 | <font color="red">No<font> | <font color="red">No<font>
@@ -832,8 +826,7 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  type = "p", # default #<<
-  bf.message = TRUE, #<<
+  type = "p", # default #<<<
   conf.level = 0.99, #<<
   messages = FALSE
 )
@@ -871,7 +864,6 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  bf.message = TRUE,
   conf.level = 0.99
 )
 ```
@@ -963,17 +955,15 @@ layout: true
 exclude: false
 
 .left-code[
-```{r ggscatterstats_3, eval = FALSE}
+```{r ggscatterstats_3, results = "hide", fig.show = "hide"}
 ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  marginal = FALSE, #<<
-  method = "loess", #<<
-  results.subtitle = FALSE, #<<
-  centrality.para = "mean", #<<
-  ggtheme = ggthemes::theme_stata(), #<<
-  ggstatsplot.layer = FALSE,
+  marginal = FALSE,  
+  method = "gam", #<<
+  formula = y ~ s(x, k = 3), #<<
+  centrality.para = "mean", #<< 
   messages = FALSE
 )
 ```
@@ -989,8 +979,7 @@ Available centrality parameters
 ]
 
 .right-plot[
-```{r ggscatterstats_3, ref.label = 'ggscatterstats_3', echo = FALSE}
-```
+![](`r knitr::fig_chunk("ggscatterstats_3", "png")`)
 ]
 
 ---
@@ -1024,7 +1013,7 @@ Changing the type of test
 
 - `"r"` → **robust**
 
-- `"bf"` → <font color="red">not yet implemented</font>
+- `"bf"` → <font color="red">not implemented</font>
 
 ]
 ]
@@ -1260,7 +1249,6 @@ gghistostats(
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   normal.curve = TRUE, #<<
-  bf.message = TRUE,
   ggtheme = hrbrthemes::theme_ipsum_tw(), 
   ggstatsplot.layer = FALSE, 
   messages = FALSE
@@ -1302,8 +1290,7 @@ gghistostats(
   bar.measure = "mix", 
   centrality.para = "median", 
   test.value.line = TRUE,
-  normal.curve = TRUE,
-  bf.message = TRUE
+  normal.curve = TRUE
 )
 ```
 
@@ -1352,7 +1339,6 @@ ggdotplotstats(
   centrality.para = "median", 
   test.value.line = TRUE, #<<
   test.value.color = "red", 
-  bf.message = TRUE, 
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
@@ -1393,8 +1379,7 @@ ggdotplotstats(
   test.value = 52,     
   centrality.para = "median", 
   test.value.line = TRUE, 
-  test.value.color = "red",
-  bf.message = TRUE
+  test.value.color = "red"
 ) 
 ```
 
@@ -1437,8 +1422,8 @@ Type | Test
 Type | Effect size | CI?
 ----------- | ------------------------- | --- 
 **<font color="blue">Parametric<font>** | Cohen's *d*, Hedge's *g* (central-and noncentral-*t* distribution based) | <font color="green">Yes<font>
-**<font color="#ff6600">Non-parametric<font>** | *r* (computed as $Z/\sqrt{N}$) | <font color="green">Yes<font>
-**<font color="#ff00ff">Robust<font>** | $M_{robust}$ (Robust location measure) | <font color="green">Yes<font>
+**<font color="#ff6600">Non-parametric<font>** | *r* (computed as $Z/\sqrt{N_{obs}}$) | <font color="green">Yes<font>
+**<font color="#ff00ff">Robust<font>** | $M_{robust}$ (a robust location measure) | <font color="green">Yes<font>
 **<font color="#009933">Bayes Factor<font>** | <font color="red">No<font> | <font color="red">No<font>
 
 ---
@@ -1468,7 +1453,6 @@ ggpiestats(
   condition = mpaa,
   paired = FALSE, # default #<< 
   conf.level = 0.99, #<<
-  bf.message = TRUE, #<<
   package = "ggsci",
   palette = "default_ucscgb",
   messages = FALSE
@@ -1507,8 +1491,7 @@ ggpiestats(
   genre %in% c("Drama", "Comedy", "Animated")), 
   main = genre,
   condition = mpaa,
-  conf.level = 0.99, #<<
-  bf.message = TRUE #<<
+  conf.level = 0.99 #<<
 )
 ```
 
@@ -1591,7 +1574,6 @@ ggbarstats(
   main = genre,
   condition = mpaa,
   paired = FALSE, # default #<<
-  bf.message = TRUE, #<<
   package = "ggsci",
   palette = "default_igv",
   caption = substitute(                       #<< 
@@ -1633,8 +1615,7 @@ layout: true
 ggbarstats(
   data = movies_long, 
   main = genre,
-  condition = mpaa,
-  bf.message = TRUE
+  condition = mpaa
 )
 ```
 
@@ -1681,7 +1662,7 @@ Test | Effect size | CI?
 ----------------------- | ----------------------------- | -----
 Pearson's $\chi^2$ test | Cramer's $V$ | <font color="green">Yes<font>
 McNemar's test | Cohen's $g$ | <font color="green">Yes<font>
-Goodness of fit | <font color="red">No<font> | <font color="red">No<font> 
+Goodness of fit | <font color="red">No<font> | <font color="green">Yes<font>
 
 ---
 
@@ -1835,6 +1816,8 @@ layout: true
 - `clmm`
 - `confusionMatrix`
 - `coxph`
+- `drc`
+- `epi.2by2`
 - `ergm`
 ]
 .pull-right[
@@ -1850,25 +1833,27 @@ layout: true
 - `glm` 
 - `glmmadmb` 
 - `glmmTMB`
-- `glmrob`
+- `glmRob`
 - `gmm`
+- `ivreg`
 ]
 ]
 
 .pull-right[
 .pull-left[
-- `ivreg`
 - `lm`
 - `lm.beta`
 - `lmerMod`
 - `lmodel2`
-- `lmrob`
+- `lmRob`
 - `mcmc`
 - `MCMCglmm`
 - `mediate` 
 - `mjoint`
 - `mle2`
+- `mlm`
 - `multinom`
+- `negbin`
 - `nlmerMod`
 - `nlrq`
 - `nls`
@@ -1882,6 +1867,7 @@ layout: true
 - `rlm`
 - `rlmerMod`
 - `rq`
+- `speedglm`
 - `speedlm`
 - `stanreg`
 - `survreg`
@@ -1910,7 +1896,7 @@ df <- tibble::tribble(
 )
 
 # plot
-# statistic argument decides label format
+# `statistic` argument decides label format
 ggcoefstats(
   x = df,
   statistic = "z", #<<
@@ -1959,12 +1945,14 @@ meta_df <- tibble::tribble(
 ggcoefstats(
   x = meta_df,
   meta.analytic.effect = TRUE, #<<
+  bf.message = TRUE,  #<<
   xlab = "estimate"
 )
 ```
 
-.font100[
-`r emo::ji("warning")` Work in progrss `r emo::ji("warning")`
+.font80[
+- Frequentist random-effects meta-analysis from `metafor`
+- Bayesian random-effects meta-analysis from `metaBMA`
 ]
 
 ]
@@ -2000,6 +1988,7 @@ grouped_ggpiestats(
   data = mtcars, 
   main = cyl,
   grouping.var = am, #<< 
+  results.subtitle = FALSE, #<<
   messages = FALSE
 )
 ```
@@ -2036,7 +2025,7 @@ but still want to display statistical results?
 
 layout: true
 
-# Using subtitle helper functions
+# Using as helper functions
 
 ---
 
@@ -2048,10 +2037,11 @@ layout: true
 ```{r subtitle_1, eval = FALSE}
 # using `ggstatsplot` for stats
 results <- 
-  ggstatsplot::subtitle_contingency_tab( #<< 
+  ggstatsplot::ggpiestats(  
   data = Titanic_full,
   main = Survived,
   condition = Sex,
+  return = "subtitle", #<<
   messages = FALSE
 )
 
@@ -2145,7 +2135,6 @@ interpret the null results.
 
 ---
 
-
 layout: false
 
 # Toggling between type of statistics
@@ -2220,7 +2209,7 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.0.10.9000)
+(as of 0.0.11.9000)
 
 ---
 
@@ -2239,7 +2228,7 @@ Functions | Description | **<font color="blue">Parametric<font>** |  **<font col
 `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
 `ggcorrmat` | Correlation matrix | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 `ggscatterstats` | Correlation between two variables | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font>
-`ggpiestats`, `ggbarstats` | Association between categorical variables | <font color="green">Yes</font> | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font>
+`ggpiestats`, `ggbarstats` | Association between categorical variables | <font color="green">Yes</font> | `NA` | `NA` | <font color="green">Yes</font>
 `ggcoefstats` | Regression model coefficients | <font color="green">Yes</font> | <font color="green">Yes</font>| <font color="green">Yes</font> | <font color="green">Yes</font>
 
 ---
