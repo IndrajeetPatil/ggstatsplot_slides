@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil
-### 2019-06-19<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2019-06-28<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -1841,8 +1841,8 @@ Frequency | `\(n \times 1\)` contingency table | Goodness of fit
 Test | Effect size | CI?
 ----------------------- | ----------------------------- | -----
 Pearson's `\(\chi^2\)` test | Cramer's `\(V\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
-McNemar's test | Cohen's `\(g\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
-Goodness of fit | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="green"&gt;Yes&lt;font&gt;
+McNemar's `\(\chi^2\)` test | Cohen's `\(g\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
+Goodness of fit `\(\chi^2\)` test | Cramer's `\(V\)` | &lt;font color="green"&gt;Yes&lt;font&gt;
 
 ---
 
@@ -2410,15 +2410,15 @@ layout: false
 **&lt;font color="blue"&gt;Parametric&lt;font&gt;**
 
 ```r
-# result-1
+# anova
 ggbetweenstats(
   data = mtcars,
-  x = am,
+  x = cyl,
   y = wt,
 * type = "p"
 )
 
-# result-2
+# correlation analysis
 ggscatterstats(
   data = mtcars,
   x = wt,
@@ -2426,7 +2426,7 @@ ggscatterstats(
 * type = "p"
 )
 
-# result -3
+# t-test
 gghistostats(
   data = mtcars,
   x = wt,
@@ -2442,15 +2442,15 @@ gghistostats(
 **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** 
 
 ```r
-# result-1
+# anova
 ggbetweenstats(
   data = mtcars,
-  x = am,
+  x = cyl,
   y = wt,
 * type = "np"
 )
 
-# result-2
+# correlation analysis
 ggscatterstats(
   data = mtcars,
   x = wt,
@@ -2458,7 +2458,7 @@ ggscatterstats(
 * type = "np"
 )
 
-# result -3
+# t-test
 gghistostats(
   data = mtcars,
   x = wt,
@@ -2602,7 +2602,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes about &lt;font color="blue"&gt;**1400**&lt;/font&gt; tests to make
+`ggstatsplot` includes over &lt;font color="blue"&gt;**1400**&lt;/font&gt; tests to make
 sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
@@ -2686,7 +2686,7 @@ time-constrained presentation settings (e.g., conference talks).
 
 --
 
-- Bulky API (in terms of number of function arguments to keep in mind).&lt;br&gt;
+- &lt;font color="blue"&gt;Bulky API&lt;/font&gt; (in terms of number of function arguments to keep in mind).&lt;br&gt;
 (Saving grace: Defaults are sufficient most of the time.)
 
 ---

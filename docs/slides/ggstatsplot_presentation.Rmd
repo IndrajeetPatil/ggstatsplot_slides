@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil"
-date: "2019-06-19<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
+date: "2019-06-28<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -1661,8 +1661,8 @@ Frequency | $n \times 1$ contingency table | Goodness of fit
 Test | Effect size | CI?
 ----------------------- | ----------------------------- | -----
 Pearson's $\chi^2$ test | Cramer's $V$ | <font color="green">Yes<font>
-McNemar's test | Cohen's $g$ | <font color="green">Yes<font>
-Goodness of fit | <font color="red">No<font> | <font color="green">Yes<font>
+McNemar's $\chi^2$ test | Cohen's $g$ | <font color="green">Yes<font>
+Goodness of fit $\chi^2$ test | Cramer's $V$ | <font color="green">Yes<font>
 
 ---
 
@@ -2144,15 +2144,15 @@ layout: false
 .pull-left[
 **<font color="blue">Parametric<font>**
 ```{r type_p, eval = FALSE}
-# result-1
+# anova
 ggbetweenstats(
   data = mtcars,
-  x = am,
+  x = cyl,
   y = wt,
   type = "p" #<<
 )
 
-# result-2
+# correlation analysis
 ggscatterstats(
   data = mtcars,
   x = wt,
@@ -2160,7 +2160,7 @@ ggscatterstats(
   type = "p" #<<
 )
 
-# result -3
+# t-test
 gghistostats(
   data = mtcars,
   x = wt,
@@ -2175,15 +2175,15 @@ gghistostats(
 .pull-right[
 **<font color="#ff6600">Non-parametric<font>** 
 ```{r type_np, eval = FALSE}
-# result-1
+# anova
 ggbetweenstats(
   data = mtcars,
-  x = am,
+  x = cyl,
   y = wt,
   type = "np" #<<
 )
 
-# result-2
+# correlation analysis
 ggscatterstats(
   data = mtcars,
   x = wt,
@@ -2191,7 +2191,7 @@ ggscatterstats(
   type = "np" #<<
 )
 
-# result -3
+# t-test
 gghistostats(
   data = mtcars,
   x = wt,
@@ -2335,7 +2335,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes about <font color="blue">**1400**</font> tests to make
+`ggstatsplot` includes over <font color="blue">**1400**</font> tests to make
 sure that all the functions are working properly. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
@@ -2419,7 +2419,7 @@ time-constrained presentation settings (e.g., conference talks).
 
 --
 
-- Bulky API (in terms of number of function arguments to keep in mind).<br>
+- <font color="blue">Bulky API</font> (in terms of number of function arguments to keep in mind).<br>
 (Saving grace: Defaults are sufficient most of the time.)
 
 ---

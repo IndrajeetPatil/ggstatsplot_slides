@@ -54,5 +54,5 @@ ggwithinstats_1_copy	::	ggwithinstats	Taste	Wine
 ggbetweenstats_5	am	ggbetweenstats	mtcars	wt
 ggcorrmat_5	ggcorrmat	msleep	sleep_cycle	bodywt
 ggcorrmat_6	options	ggcorrmat	msleep	awake	bodywt
-type_p	ggbetweenstats	mtcars	am	wt	ggscatterstats	mpg	gghistostats
-type_np	ggbetweenstats	mtcars	am	wt	ggscatterstats	mpg	gghistostats
+type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
+type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
