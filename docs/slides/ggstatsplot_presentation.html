@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil
-### 2019-06-28<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2019-09-11<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -1628,8 +1628,8 @@ layout: true
 ggpiestats(
   data = dplyr::filter(.data = movies_long, 
   genre %in% c("Drama", "Comedy", "Animated")), 
-  main = genre,
-  condition = mpaa,
+  x = genre,
+  y =  mpaa,
 * paired = FALSE, # default
 * conf.level = 0.99,
   package = "ggsci",
@@ -1668,8 +1668,8 @@ layout: true
 ggpiestats(
   data = dplyr::filter(movies_long, 
   genre %in% c("Drama", "Comedy", "Animated")), 
-  main = genre,
-  condition = mpaa,
+  x = genre,
+  y =  mpaa,
 * conf.level = 0.99
 )
 ```
@@ -1704,7 +1704,7 @@ layout: true
 ```r
 ggpiestats(
   data = as.data.frame(Titanic), 
-* main = Survived,
+* x = Survived,
 * counts = Freq,
 * slice.label = "both",
   messages = FALSE
@@ -1720,7 +1720,7 @@ Test by analysis
 
 - `condition != NULL` → contingency table
 
-- `condition == NULL` → goodness of fit
+- `y = = NULL` → goodness of fit
 
 ]
 ]
@@ -1751,8 +1751,8 @@ layout: true
 ```r
 ggbarstats(
   data = movies_long, 
-  main = genre,
-  condition = mpaa,
+  x = genre,
+  y =  mpaa,
 * paired = FALSE, # default
   package = "ggsci",
   palette = "default_igv",
@@ -1794,8 +1794,8 @@ layout: true
 ```r
 ggbarstats(
   data = movies_long, 
-  main = genre,
-  condition = mpaa
+  x = genre,
+  y =  mpaa
 )
 ```
 
@@ -2071,7 +2071,9 @@ layout: true
 - `aov`
 - `aovlist`
 - `Arima` 
+- `bglmerMod`
 - `biglm`
+- `blmerMod`
 - `brmsfit`
 - `btergm`
 - `cch`
@@ -2079,6 +2081,7 @@ layout: true
 - `clmm`
 - `confusionMatrix`
 - `coxph`
+- `data.table`
 - `drc`
 - `epi.2by2`
 - `ergm`
@@ -2087,6 +2090,7 @@ layout: true
 - `felm`
 - `fitdistr`
 - `glmerMod`
+- `glmmPQL`
 - `glmmTMB`
 - `gls`
 - `gam`
@@ -2096,6 +2100,7 @@ layout: true
 - `glm` 
 - `glmmadmb` 
 - `glmmTMB`
+- `glmrob`
 - `glmRob`
 - `gmm`
 - `ivreg`
@@ -2106,15 +2111,19 @@ layout: true
 .pull-left[
 - `lm`
 - `lm.beta`
+- `lme`
 - `lmerMod`
 - `lmodel2`
+- `lmrob`
 - `lmRob`
+- `mclogit` 
 - `mcmc`
 - `MCMCglmm`
 - `mediate` 
 - `mjoint`
 - `mle2`
 - `mlm`
+- `mmclogit`
 - `multinom`
 - `negbin`
 - `nlmerMod`
@@ -2137,6 +2146,8 @@ layout: true
 - `svyglm`
 - `svyolr`
 - `svyglm`
+- `tobit`
+- `wblm`
 ]
 ]
 ]
@@ -2252,7 +2263,7 @@ You can repeat the same analysis for all levels of a single grouping variable.
 # only one additional argument
 grouped_ggpiestats(
   data = mtcars, 
-  main = cyl,
+  x = cyl,
 * grouping.var = am,
 * results.subtitle = FALSE,
   messages = FALSE
@@ -2305,8 +2316,8 @@ layout: true
 results &lt;- 
   ggstatsplot::ggpiestats(  
   data = Titanic_full,
-  main = Survived,
-  condition = Sex,
+  x = Survived,
+  y =  Sex,
 * return = "subtitle",
   messages = FALSE
 )
@@ -2476,7 +2487,7 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.0.11.9000)
+(as of 0.1.1.9000)
 
 ---
 
