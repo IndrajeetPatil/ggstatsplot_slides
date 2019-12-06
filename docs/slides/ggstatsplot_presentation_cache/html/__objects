@@ -1,58 +1,46 @@
-unnamed-chunk-1	dojutsu	fit
-unnamed-chunk-2	
-cars	
-unnamed-chunk-3	.ggstatsplot_presentation_cache/html/unnamed-chunk-3_a209828281dccb49a5e031dedef1e3f5_meta
-unnamed-chunk-4	.ggstatsplot_presentation_cache/html/unnamed-chunk-4_abc7c5a238a2c519162fd6d1525a9292_meta
-unnamed-chunk-5	
-unnamed-chunk-6	
-unnamed-chunk-7	
-unnamed-chunk-8	
-unnamed-chunk-9	
-unnamed-chunk-10	
-utils	
-github	
-other_API	
 lm	
 cor	
 cor.test	
+utils	
+github	
+load	.Random.seed
 ggbetweenstats_1	
-load	
+ggbetweenstats_1_copy	
 ggbetweenstats_2	
 ggbetweenstats_3	
 ggbetweenstats_4	
-ggscatterstats_1	
-ggscatterstats_2	
-ggcorrmat_1	
-ggcorrmat_2	
-ggpiestats_1	
-ggbarstats_1	
-gghistostats_1	
-ggpiestats_2	
-gghistostats_2	
-ggdotplotstats_1	
-ggcoefstats_1	mod
-grouped_1	
-ggcoefstats_2	df
-ggcoefstats_3	meta_df
-subtitle_1	results
-ggbetweenstats_1_copy	
-ggpiestats_1_copy	
-ggcoefstats_1_copy	
-gghistostats_2_copy	
-ggdotplotstats_1_copy	
-ggscatterstats_1_copy	
-ggbarstats_1_copy	
-ggcorrmat_1_copy	
-ggcorrmat_3	
-ggcoefstats_5	mod1
-ggcoefstats_6	mod2
-ggcorrmat_4	
-ggscatterstats_3	
-ggwithinstats_1	
-ggwithinstats_2	
-ggwithinstats_1_copy	
 ggbetweenstats_5	
+ggwithinstats_1	
+ggwithinstats_1_copy	
+ggwithinstats_2	
+ggscatterstats_1	
+ggscatterstats_1_copy	
+ggscatterstats_2	
+ggscatterstats_3	
+ggcorrmat_1	
+ggcorrmat_1_copy	
+ggcorrmat_2	
+ggcorrmat_3	
+ggcorrmat_4	
 ggcorrmat_5	
 ggcorrmat_6	
+gghistostats_1	
+gghistostats_2	
+gghistostats_2_copy	
+ggdotplotstats_1	
+ggdotplotstats_1_copy	
+ggpiestats_1	
+ggpiestats_1_copy	
+ggpiestats_2	
+ggbarstats_1	
+ggbarstats_1_copy	
+ggcoefstats_1	mod
+ggcoefstats_1_copy	
+ggcoefstats_5	mod1
+ggcoefstats_6	mod2
+ggcoefstats_2	df
+ggcoefstats_3	meta_df
+grouped_1	
+subtitle_1	results
 type_p	
 type_np	

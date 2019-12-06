@@ -278,7 +278,7 @@ utils::install.packages("ggstatsplot")
 ```
 --
 
-Then you can get the development version of the package from
+You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
 ```{r github, eval = FALSE, tidy = FALSE}
@@ -402,6 +402,7 @@ ggbetweenstats(
   messages = FALSE
 )
 ```
+
 .font80[
 Changing pairwise comparisons displayed
 

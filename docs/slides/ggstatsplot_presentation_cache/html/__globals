@@ -1,58 +1,46 @@
-unnamed-chunk-1	fit	lm	dist	speed	cars	coef	summary	dojutsu	c	grep
-unnamed-chunk-2	kable	head	iris
-cars	par	c	plot	cars	abline	fit
-unnamed-chunk-3	library	leaflet	%>%	addTiles	setView
-unnamed-chunk-4	datatable	head	iris	list
-unnamed-chunk-5	message
-unnamed-chunk-6	library	ggplot2	ggplot	mtcars	aes	mpg	disp	geom_point	geom_smooth
-unnamed-chunk-7	head	iris
-unnamed-chunk-8	names	list_css
-unnamed-chunk-9	head	iris
-unnamed-chunk-10	names	list_css
-utils	install.packages
-github	library	remotes	install_github
-other_API	lm	wt	mpg	mtcars	cor	cor.test
-lm	lm	wt	mpg	mtcars
-cor	cor	mtcars	wt	mpg
-cor.test	cor.test	wt	mpg	mtcars
+lm	::	~	mtcars
+cor	$	::	mtcars
+cor.test	::	~	mtcars
+utils	::
+github	::	library
+load	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
-load	library	ggstatsplot	ggplot2
+ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_3	::	ggbetweenstats	movies_long	mpaa	rating	title
 ggbetweenstats_4	dup_axis	ggbetweenstats	movies_long	mpaa	rating	scale_y_continuous
+ggbetweenstats_5	am	ggbetweenstats	mtcars	wt
+ggwithinstats_1	::	ggwithinstats	Taste	Wine
+ggwithinstats_1_copy	::	ggwithinstats	Taste	Wine
+ggwithinstats_2	attribute	ggwithinstats	iris_long	value
 ggscatterstats_1	budget	ggscatterstats	movies_long	rating
+ggscatterstats_1_copy	budget	ggscatterstats	movies_long	rating
 ggscatterstats_2	&	>	budget	ggscatterstats	movies_long	rating	title
+ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
 ggcorrmat_1	::	ggcorrmat
+ggcorrmat_1_copy	::	ggcorrmat
 ggcorrmat_2	::	bodywt	ggcorrmat	sleep_cycle
-ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
-ggbarstats_1	genre	ggbarstats	movies_long	mpaa	substitute
+ggcorrmat_3	::	bodywt	ggcorrmat	sleep_cycle
+ggcorrmat_4	::	bodywt	ggcorrmat	sleep_cycle
+ggcorrmat_5	::	bodywt	ggcorrmat	sleep_cycle
+ggcorrmat_6	::	awake	bodywt	ggcorrmat	options
 gghistostats_1	budget	gghistostats	movies_long
-ggpiestats_2	as.data.frame	Freq	ggpiestats	Survived	Titanic
 gghistostats_2	::	budget	gghistostats	movies_long
+gghistostats_2_copy	budget	gghistostats	movies_long
 ggdotplotstats_1	::	budget	genre	ggdotplotstats	movies_long
+ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
+ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
+ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
+ggpiestats_2	as.data.frame	Freq	ggpiestats	Survived	Titanic
+ggbarstats_1	genre	ggbarstats	movies_long	mpaa	substitute
+ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long
-grouped_1	am	cyl	grouped_ggpiestats	mtcars
+ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
+ggcoefstats_5	::	~	ggcoefstats	library	sleepstudy
+ggcoefstats_6	%>%	~	clm	ggcoefstats	head	library	wine
 ggcoefstats_2	::	~	ggcoefstats
 ggcoefstats_3	::	~	ggcoefstats
+grouped_1	am	cyl	grouped_ggpiestats	mtcars
 subtitle_1	::	aes	labs	Sex	Survived	Titanic_full
-ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
-ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
-ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-gghistostats_2_copy	budget	gghistostats	movies_long
-ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
-ggscatterstats_1_copy	budget	ggscatterstats	movies_long	rating
-ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
-ggcorrmat_1_copy	ggcorrmat	starwars
-ggcorrmat_3	ggcorrmat	msleep	sleep_cycle	bodywt
-ggcoefstats_5	library	lme4	mod1	lmer	Reaction	Days	Subject	sleepstudy	ggcoefstats
-ggcoefstats_6	library	ordinal	mod2	clm	rating	temp	contact	wine	ggcoefstats	%>%	head
-ggcorrmat_4	ggcorrmat	msleep	sleep_cycle	bodywt
-ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
-ggwithinstats_1	::	ggwithinstats	Taste	Wine
-ggwithinstats_2	attribute	ggwithinstats	iris_long	value
-ggwithinstats_1_copy	::	ggwithinstats	Taste	Wine
-ggbetweenstats_5	am	ggbetweenstats	mtcars	wt
-ggcorrmat_5	ggcorrmat	msleep	sleep_cycle	bodywt
-ggcorrmat_6	options	ggcorrmat	msleep	awake	bodywt
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
