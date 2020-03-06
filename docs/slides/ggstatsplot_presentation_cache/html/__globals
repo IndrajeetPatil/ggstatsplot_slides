@@ -1,7 +1,7 @@
 lm	::	~	mtcars
 cor	$	::	mtcars
 cor.test	::	~	mtcars
-utils	::
+utils	install.packages
 github	::	library
 load	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
@@ -20,10 +20,6 @@ ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
 ggcorrmat_1	::	ggcorrmat
 ggcorrmat_1_copy	::	ggcorrmat
 ggcorrmat_2	::	bodywt	ggcorrmat	sleep_cycle
-ggcorrmat_3	::	bodywt	ggcorrmat	sleep_cycle
-ggcorrmat_4	::	bodywt	ggcorrmat	sleep_cycle
-ggcorrmat_5	::	bodywt	ggcorrmat	sleep_cycle
-ggcorrmat_6	::	awake	bodywt	ggcorrmat	options
 gghistostats_1	budget	gghistostats	movies_long
 gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long
@@ -32,12 +28,10 @@ ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
 ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_2	as.data.frame	Freq	ggpiestats	Survived	Titanic
-ggbarstats_1	genre	ggbarstats	movies_long	mpaa	substitute
+ggbarstats_1	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long
 ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-ggcoefstats_5	::	~	ggcoefstats	library	sleepstudy
-ggcoefstats_6	%>%	~	clm	ggcoefstats	head	library	wine
 ggcoefstats_2	::	~	ggcoefstats
 ggcoefstats_3	::	~	ggcoefstats
 grouped_1	am	cyl	grouped_ggpiestats	mtcars

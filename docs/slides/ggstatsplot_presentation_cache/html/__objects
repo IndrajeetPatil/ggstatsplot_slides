@@ -20,10 +20,6 @@ ggscatterstats_3
 ggcorrmat_1	
 ggcorrmat_1_copy	
 ggcorrmat_2	
-ggcorrmat_3	
-ggcorrmat_4	
-ggcorrmat_5	
-ggcorrmat_6	
 gghistostats_1	
 gghistostats_2	
 gghistostats_2_copy	
@@ -36,8 +32,6 @@ ggbarstats_1
 ggbarstats_1_copy	
 ggcoefstats_1	mod
 ggcoefstats_1_copy	
-ggcoefstats_5	mod1
-ggcoefstats_6	mod2
 ggcoefstats_2	df
 ggcoefstats_3	meta_df
 grouped_1	

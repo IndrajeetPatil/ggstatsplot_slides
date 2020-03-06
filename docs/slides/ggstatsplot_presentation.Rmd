@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil"
-date: "2019-09-11<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
+date: "2020-03-06<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -92,7 +92,7 @@ layout: true
 
 .right-column[.font150[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)<br>
-**<font color="red"> > 13,000</font>**
+**<font color="red"> > 14,000</font>**
 ]
 .footnote[<https://cran.r-project.org/web/packages/>]
 ]
@@ -274,7 +274,7 @@ Install the **ggstatsplot** package from
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
-utils::install.packages("ggstatsplot")
+install.packages("ggstatsplot")
 ```
 --
 
@@ -438,9 +438,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "r", #<<
-  conf.level = 0.99, #<<
   pairwise.comparisons = TRUE,
-  pairwise.annotation = "p", 
   outlier.tagging = TRUE, #<<
   outlier.label = title, #<<
   outlier.coef = 2, #<<
@@ -634,7 +632,6 @@ ggwithinstats(
   x = Wine,
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
-  pairwise.annotation = "p",
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<< 
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -674,7 +671,6 @@ ggwithinstats(
   x = Wine, # > 2 groups #<< 
   y = Taste,
   pairwise.comparisons = TRUE, #<< 
-  pairwise.annotation = "p",
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<< 
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -828,7 +824,6 @@ ggscatterstats(
   x = budget,
   y = rating,
   type = "p", # default #<<<
-  conf.level = 0.99, #<<
   messages = FALSE
 )
 ```
@@ -864,8 +859,7 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating,
-  conf.level = 0.99
+  y = rating
 )
 ```
 
@@ -898,8 +892,7 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  type = "r", 
-  centrality.para = "mean", #<<
+  type = "r",
   label.var = title, #<<
   label.expression = budget > 150 #<<
                      & rating > 7.5, #<<
@@ -1002,7 +995,7 @@ layout: true
 
 .left-code[
 ```{r ggcorrmat_1, eval = FALSE}
-ggcorrmat(data = dplyr::starwars)
+ggcorrmat(dplyr::starwars)
 ```
 
 .font80[
@@ -1034,7 +1027,7 @@ layout: true
 
 .left-code[
 ```{r ggcorrmat_1_copy, eval = FALSE}
-ggcorrmat(data = dplyr::starwars)
+ggcorrmat(dplyr::starwars)
 ```
 
 .font80[
@@ -1073,10 +1066,7 @@ ggcorrmat(
   cor.vars = sleep_cycle:bodywt,
   type = "r",
   matrix.type = "upper", #<<
-  p.adjust.method = "holm", #<<
-  colors = NULL,
-  package = "yarrr", #<<
-  palette = "southpark" #<<
+  p.adjust.method = "holm"
 )
 ```
 
@@ -1099,91 +1089,6 @@ get a <font color="blue">dataframe</font> of results:
 .right-plot[
 ```{r ggcorrmat_2, ref.label = 'ggcorrmat_2', echo = FALSE}
 ```
-]
-
----
-
-layout: true
-
-# ggcorrmat - dataframe outputs
-
----
-
-.pull-left[
-.font70[
-**<font color="blue">correlation coefficients</font>**
-
-```{r ggcorrmat_3}
-ggcorrmat(
-  data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
-  type = "np", #<<
-  output = "r", #<<
-  p.adjust.method = "fdr",
-  messages = FALSE
-)
-```
-]
-]
-
-.pull-right[
-.font70[
-**<font color="blue">p-values</font>**
-
-```{r ggcorrmat_4}
-ggcorrmat(
-  data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
-  type = "np", #<<
-  output = "p", #<<
-  p.adjust.method = "none",
-  messages = FALSE
-)
-```
-]
-]
-
----
-
-layout: true
-
-# ggcorrmat - dataframe outputs
-
----
-
-.pull-left[
-.font70[
-**<font color="blue">sample sizes</font>**
-
-```{r ggcorrmat_5}
-ggcorrmat(
-  data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
-  type = "np", #<<
-  output = "n", #<<
-  p.adjust.method = "fdr",
-  messages = FALSE
-)
-```
-]
-]
-
-.pull-right[
-.font70[
-**<font color="blue">confidence intervals</font>**
-
-```{r ggcorrmat_6}
-options(digits = 3)
-ggcorrmat(
-  data = ggplot2::msleep,
-  cor.vars = awake:bodywt,
-  type = "np", #<<
-  output = "ci", #<<
-  p.adjust.method = "fdr",
-  messages = FALSE
-)
-```
-]
 ]
 
 ---
@@ -1339,7 +1244,6 @@ ggdotplotstats(
   test.value = 52, #<<     
   centrality.para = "median", 
   test.value.line = TRUE, #<<
-  test.value.color = "red", 
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
 ) 
@@ -1379,8 +1283,7 @@ ggdotplotstats(
   effsize.type = "d",
   test.value = 52,     
   centrality.para = "median", 
-  test.value.line = TRUE, 
-  test.value.color = "red"
+  test.value.line = TRUE
 ) 
 ```
 
@@ -1452,10 +1355,6 @@ ggpiestats(
   genre %in% c("Drama", "Comedy", "Animated")), 
   x = genre,
   y =  mpaa,
-  paired = FALSE, # default #<< 
-  conf.level = 0.99, #<<
-  package = "ggsci",
-  palette = "default_ucscgb",
   messages = FALSE
 )
 ```
@@ -1491,8 +1390,7 @@ ggpiestats(
   data = dplyr::filter(movies_long, 
   genre %in% c("Drama", "Comedy", "Animated")), 
   x = genre,
-  y =  mpaa,
-  conf.level = 0.99 #<<
+  y =  mpaa
 )
 ```
 
@@ -1574,12 +1472,8 @@ ggbarstats(
   data = movies_long, 
   x = genre,
   y =  mpaa,
-  paired = FALSE, # default #<<
   package = "ggsci",
   palette = "default_igv",
-  caption = substitute(                       #<< 
-    paste(italic("Source"), ": www.imdb.com") #<<
-  ),                                          #<<
   messages = FALSE
 )
 ```
@@ -1616,7 +1510,10 @@ layout: true
 ggbarstats(
   data = movies_long, 
   x = genre,
-  y =  mpaa
+  y =  mpaa,
+  package = "ggsci",
+  palette = "default_igv",
+  messages = FALSE
 )
 ```
 
@@ -1691,7 +1588,7 @@ mod <- stats::aov(
 )
 
 # plot
-ggcoefstats(x = mod)
+ggcoefstats(mod)
 ```
 
 .font80[
@@ -1729,7 +1626,7 @@ mod <- stats::aov(
 )
 
 # plot
-ggcoefstats(x = mod)
+ggcoefstats(mod)
 ```
 
 .font80[
@@ -1745,52 +1642,6 @@ Default information:
 
 .right-plot[
 ![](images/ggcoefstats_info.png)
-]
-
----
-
-layout: true
-
-# ggcoefstats - dataframe outputs
-
----
-
-.pull-left[
-.font70[
-**model summary**
-
-```{r ggcoefstats_5}
-library(lme4)
-
-# model
-mod1 <- 
-  lme4::lmer(formula = Reaction ~ Days + (Days | Subject),
-             data = sleepstudy)
-
-# dataframe
-ggcoefstats(x = mod1, 
-            output = "glance") #<<
-```
-]
-]
-
-.pull-right[
-.font70[
-**augmented dataframe**
-
-```{r ggcoefstats_6}
-library(ordinal)
-
-# model
-mod2 <- clm(formula = rating ~ temp * contact, 
-            data = wine)
-
-# dataframe
-ggcoefstats(x = mod2, 
-            output = "augment") %>%  #<<
-  head(5)
-```
-]
 ]
 
 ---
@@ -2221,7 +2072,7 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.1.1.9000)
+(as of 0.3.1)
 
 ---
 
@@ -2347,8 +2198,7 @@ layout: true
 
 --
 
-`ggstatsplot` includes over <font color="blue">**1400**</font> tests to make
-sure that all the functions are working properly. 
+`ggstatsplot` has 100% code coverage. 
 
 If you use `ggstatsplot` to report results in your publication and find an error
 that traces back to code in this package, I will personally write an apology
@@ -2474,52 +2324,15 @@ preparing subtitles)
 
 ---
 
-exclude: false
-
-layout: false
-
-class: inverse, center, middle
-
-# Not the only game in town
-other options that pack informative graphics with statistical details
-
----
-
-exclude: false
-
-layout: true
-
-# GUI softwares
-
----
-
-exclude: false
-
-.pull-left[
-
-**jamovi**
-
-![](images/jamovi.PNG)
-]
-
-.pull-right[
-
-**JASP**
-
-![](images/jasp.PNG)
-]
-
----
-
 layout: false
 
 class: inverse, center, middle
 
 # Acknowledgments
 
-Contributor to *ggstatsplot*: [Chuck Powell](https://github.com/ibecav)
+Contributors to *ggstatsplot*
 
-Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/) and [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php)
+Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
 Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
