@@ -15,9 +15,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial
+## An Introductory Tutorial (version: 0.4.0)
 ### Indrajeet Patil
-### 2020-03-06<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2020-04-16<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -379,11 +379,11 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* type = "np",
-* mean.ci = TRUE,
-* pairwise.comparisons = TRUE,
-* pairwise.display = "ns",
-* p.adjust.method = "fdr",
+  type = "np", # &lt;&lt;
+  mean.ci = TRUE, # &lt;&lt;
+  pairwise.comparisons = TRUE, # &lt;&lt;
+  pairwise.display = "ns", # &lt;&lt;
+  p.adjust.method = "fdr", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -422,14 +422,14 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* type = "r",
+  type = "r", # &lt;&lt;
   pairwise.comparisons = TRUE,
-* outlier.tagging = TRUE,
-* outlier.label = title,
-* outlier.coef = 2,
-* ggtheme = hrbrthemes::theme_ipsum_tw(),
-* palette = "Darjeeling2",
-* package = "wesanderson",
+  outlier.tagging = TRUE, # &lt;&lt;
+  outlier.label = title, # &lt;&lt;
+  outlier.coef = 2, # &lt;&lt;
+  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
+  palette = "Darjeeling2", # &lt;&lt;
+  package = "wesanderson", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -463,10 +463,10 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* type = "bf",
+  type = "bf", # &lt;&lt;
   messages = FALSE
-) + 
-* scale_y_continuous(sec.axis = dup_axis())
+) +
+  scale_y_continuous(sec.axis = dup_axis()) # &lt;&lt;
 ```
 
 .font80[
@@ -589,8 +589,7 @@ Type | Equal variance? | Test | *p*-value adjustment?
 **&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Yes | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
  **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | No | Dwass-Steel-Crichtlow-Fligner test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | No | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | No | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
-**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | Yes | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | `NA` | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
 
 ---
 
@@ -616,8 +615,8 @@ ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
   y = Taste,
-* pairwise.comparisons = TRUE,
-* ggtheme = hrbrthemes::theme_ipsum_tw(),
+  pairwise.comparisons = TRUE, # &lt;&lt;
+  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
   ggstatsplot.layer = FALSE,
   messages = FALSE
 )
@@ -655,8 +654,8 @@ ggwithinstats(
   data = WRS2::WineTasting,
 * x = Wine, # &gt; 2 groups
   y = Taste,
-* pairwise.comparisons = TRUE,
-* ggtheme = hrbrthemes::theme_ipsum_tw(),
+  pairwise.comparisons = TRUE, # &lt;&lt;
+  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
   ggstatsplot.layer = FALSE,
   messages = FALSE
 )
@@ -698,7 +697,7 @@ ggwithinstats(
   data = iris_long,
 * x = attribute, # 2 groups
   y = value,
-* type = "r",
+  type = "r", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -783,7 +782,7 @@ Type | Test | *p*-value adjustment?
 **&lt;font color="blue"&gt;Parametric&lt;font&gt;** | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
  **&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** | Durbin-Conover test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | Yuen's trimmed means test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
-**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &lt;font color="red"&gt;No&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | Student's *t*-test | &lt;font color="green"&gt;Yes&lt;/font&gt;  
 
 ---
 
@@ -880,10 +879,10 @@ ggscatterstats(
   x = budget,
   y = rating,
   type = "r",
-* label.var = title,
-* label.expression = budget &gt; 150
-*                    &amp; rating &gt; 7.5,
-* marginal.type = "density",
+  label.var = title, # &lt;&lt;
+  label.expression = budget &gt; 150 # &lt;&lt;
+  &amp; rating &gt; 7.5, # &lt;&lt;
+  marginal.type = "density", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -941,10 +940,10 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  marginal = FALSE,  
-* method = "gam",
-* formula = y ~ s(x, k = 3),
-* centrality.para = "mean",
+  marginal = FALSE,
+  method = "gam", # &lt;&lt;
+  formula = y ~ s(x, k = 3), # &lt;&lt;
+  centrality.para = "mean", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -1054,7 +1053,7 @@ ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
   type = "r",
-* matrix.type = "upper",
+  matrix.type = "upper", # &lt;&lt;
   p.adjust.method = "holm"
 )
 ```
@@ -1100,11 +1099,11 @@ layout: true
 
 ```r
 gghistostats(
-  data = movies_long,    
+  data = movies_long,
   x = budget,
-* test.value = 50,
+  test.value = 50, # &lt;&lt;
   messages = FALSE
-) 
+)
 ```
 
 .font80[
@@ -1136,18 +1135,18 @@ layout: true
 
 ```r
 gghistostats(
-  data = movies_long,    
+  data = movies_long,
   x = budget,
   effsize.type = "d",
   test.value = 50,
-* bar.measure = "mix",
-  centrality.para = "median", 
-* test.value.line = TRUE,
-* normal.curve = TRUE,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), 
-  ggstatsplot.layer = FALSE, 
+  bar.measure = "mix", # &lt;&lt;
+  centrality.para = "median",
+  test.value.line = TRUE, # &lt;&lt;
+  normal.curve = TRUE, # &lt;&lt;
+  ggtheme = hrbrthemes::theme_ipsum_tw(),
+  ggstatsplot.layer = FALSE,
   messages = FALSE
-) 
+)
 ```
 
 .font80[
@@ -1177,13 +1176,13 @@ layout: true
 
 ```r
 gghistostats(
-  data = movies_long,    
+  data = movies_long,
   x = budget,
   effsize.type = "d",
   test.value = 50,
-  test.value.size = TRUE, 
-  bar.measure = "mix", 
-  centrality.para = "median", 
+  test.value.size = TRUE,
+  bar.measure = "mix",
+  centrality.para = "median",
   test.value.line = TRUE,
   normal.curve = TRUE
 )
@@ -1230,13 +1229,13 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  effsize.type = "d", 
-* test.value = 52,
-  centrality.para = "median", 
-* test.value.line = TRUE,
+  effsize.type = "d",
+  test.value = 52, # &lt;&lt;
+  centrality.para = "median",
+  test.value.line = TRUE, # &lt;&lt;
   ggtheme = ggthemes::theme_par(),
   messages = FALSE
-) 
+)
 ```
 
 .font80[
@@ -1271,10 +1270,10 @@ ggdotplotstats(
   x = budget,
   y = genre,
   effsize.type = "d",
-  test.value = 52,     
-  centrality.para = "median", 
+  test.value = 52,
+  centrality.para = "median",
   test.value.line = TRUE
-) 
+)
 ```
 
 .font80[
@@ -1342,10 +1341,12 @@ layout: true
 ```r
 # let's use subset of data
 ggpiestats(
-  data = dplyr::filter(.data = movies_long, 
-  genre %in% c("Drama", "Comedy", "Animated")), 
+  data = dplyr::filter(
+    .data = movies_long,
+    genre %in% c("Drama", "Comedy", "Animated")
+  ),
   x = genre,
-  y =  mpaa,
+  y = mpaa,
   messages = FALSE
 )
 ```
@@ -1378,10 +1379,12 @@ layout: true
 ```r
 # let's use subset of data
 ggpiestats(
-  data = dplyr::filter(movies_long, 
-  genre %in% c("Drama", "Comedy", "Animated")), 
+  data = dplyr::filter(
+    movies_long,
+    genre %in% c("Drama", "Comedy", "Animated")
+  ),
   x = genre,
-  y =  mpaa
+  y = mpaa
 )
 ```
 
@@ -1414,10 +1417,10 @@ layout: true
 
 ```r
 ggpiestats(
-  data = as.data.frame(Titanic), 
-* x = Survived,
-* counts = Freq,
-* slice.label = "both",
+  data = as.data.frame(Titanic),
+  x = Survived, # &lt;&lt;
+  counts = Freq, # &lt;&lt;
+  slice.label = "both", # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -1461,9 +1464,9 @@ layout: true
 
 ```r
 ggbarstats(
-  data = movies_long, 
+  data = movies_long,
   x = genre,
-  y =  mpaa,
+  y = mpaa,
   package = "ggsci",
   palette = "default_igv",
   messages = FALSE
@@ -1500,9 +1503,9 @@ layout: true
 
 ```r
 ggbarstats(
-  data = movies_long, 
+  data = movies_long,
   x = genre,
-  y =  mpaa,
+  y = mpaa,
   package = "ggsci",
   palette = "default_igv",
   messages = FALSE
@@ -1756,7 +1759,7 @@ df &lt;- tibble::tribble(
 # `statistic` argument decides label format
 ggcoefstats(
   x = df,
-* statistic = "z",
+  statistic = "z", # &lt;&lt;
   exclude.intercept = FALSE
 )
 ```
@@ -1802,8 +1805,8 @@ meta_df &lt;- tibble::tribble(
 # plot
 ggcoefstats(
   x = meta_df,
-* meta.analytic.effect = TRUE,
-* bf.message = TRUE,
+  meta.analytic.effect = TRUE, # &lt;&lt;
+  bf.message = TRUE, # &lt;&lt;
   xlab = "estimate"
 )
 ```
@@ -1844,10 +1847,10 @@ You can repeat the same analysis for all levels of a single grouping variable.
 ```r
 # only one additional argument
 grouped_ggpiestats(
-  data = mtcars, 
+  data = mtcars,
   x = cyl,
-* grouping.var = am,
-* results.subtitle = FALSE,
+  grouping.var = am, # &lt;&lt;
+  results.subtitle = FALSE, # &lt;&lt;
   messages = FALSE
 )
 ```
@@ -1895,22 +1898,22 @@ layout: true
 
 ```r
 # using `ggstatsplot` for stats
-results &lt;- 
-  ggstatsplot::ggpiestats(  
-  data = Titanic_full,
-  x = Survived,
-  y =  Sex,
-* return = "subtitle",
-  messages = FALSE
-)
+results &lt;-
+  ggstatsplot::ggpiestats(
+    data = Titanic_full,
+    x = Survived,
+    y = Sex,
+    return = "subtitle", # &lt;&lt;
+    messages = FALSE
+  )
 
 # using `ggiraphExtra` for plot
-*ggiraphExtra::ggSpine(
+ggiraphExtra::ggSpine( # &lt;&lt;
   data = Titanic_full,
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-*) + labs(subtitle = results)
+) + labs(subtitle = results) # &lt;&lt;
 ```
 
 .font70[
@@ -2008,7 +2011,7 @@ ggbetweenstats(
   data = mtcars,
   x = cyl,
   y = wt,
-* type = "p"
+  type = "p" # &lt;&lt;
 )
 
 # correlation analysis
@@ -2016,7 +2019,7 @@ ggscatterstats(
   data = mtcars,
   x = wt,
   y = mpg,
-* type = "p"
+  type = "p" # &lt;&lt;
 )
 
 # t-test
@@ -2024,7 +2027,7 @@ gghistostats(
   data = mtcars,
   x = wt,
   test.value = 2,
-* type = "p"
+  type = "p" # &lt;&lt;
 )
 ```
 ]
@@ -2040,7 +2043,7 @@ ggbetweenstats(
   data = mtcars,
   x = cyl,
   y = wt,
-* type = "np"
+  type = "np" # &lt;&lt;
 )
 
 # correlation analysis
@@ -2048,7 +2051,7 @@ ggscatterstats(
   data = mtcars,
   x = wt,
   y = mpg,
-* type = "np"
+  type = "np" # &lt;&lt;
 )
 
 # t-test
@@ -2056,7 +2059,7 @@ gghistostats(
   data = mtcars,
   x = wt,
   test.value = 2,
-* type = "np"
+  type = "np" # &lt;&lt;
 )
 ```
 ]
@@ -2069,7 +2072,6 @@ class: inverse, center, middle
 
 # Glossary
 Summary of statistical tests included
-(as of 0.3.1)
 
 ---
 
@@ -2086,7 +2088,7 @@ Functions | Description | **&lt;font color="blue"&gt;Parametric&lt;font&gt;** | 
 `ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggwithinstats` | Within group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;Yes&lt;/font&gt;
 `ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;| &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
@@ -2200,8 +2202,6 @@ layout: true
 If you use `ggstatsplot` to report results in your publication and find an error
 that traces back to code in this package, I will personally write an apology
 letter to you and to the editor of the journal in question.
-
-![](images/codecov.png)
 
 .footnote[*Reference*: &lt;https://codecov.io/gh/IndrajeetPatil/ggstatsplot&gt;]
 
@@ -2321,43 +2321,6 @@ preparing subtitles)
 
 ---
 
-exclude: false
-
-layout: false
-
-class: inverse, center, middle
-
-# Not the only game in town
-other options that pack informative graphics with statistical details
-
----
-
-exclude: false
-
-layout: true
-
-# GUI softwares
-
----
-
-exclude: false
-
-.pull-left[
-
-**jamovi**
-
-![](images/jamovi.PNG)
-]
-
-.pull-right[
-
-**JASP**
-
-![](images/jasp.PNG)
-]
-
----
-
 layout: false
 
 class: inverse, center, middle
@@ -2436,30 +2399,20 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 })();
 (function() {
   "use strict"
-  /* Replace <script> tags in slides area to make them executable
-   *
-   * Runs after post-processing of markdown source into slides and replaces only
-   * <script>s on the last slide of continued slides using the .has-continuation
-   * class added by xaringan. Finally, any <script>s in the slides area that
-   * aren't executed are commented out.
-   */
+  // Replace <script> tags in slides area to make them executable
   var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+    '.remark-slides-area .remark-slide-container script'
   );
   if (!scripts.length) return;
   for (var i = 0; i < scripts.length; i++) {
     var s = document.createElement('script');
     var code = document.createTextNode(scripts[i].textContent);
     s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
     scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-  var scriptsNotExecuted = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container.has-continuation script'
-  );
-  if (!scriptsNotExecuted.length) return;
-  for (var i = 0; i < scriptsNotExecuted.length; i++) {
-    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
-    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
   }
 })();
 (function() {
