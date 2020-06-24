@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (version: 0.4.0)"
+subtitle: "An Introductory Tutorial (version: 0.5.0.9000)"
 author: "Indrajeet Patil"
 date: "2020-04-16<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
