@@ -4,6 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
@@ -14,9 +15,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial (version: 0.4.0)
+## An Introductory Tutorial (version: 0.6.0)
 ### Indrajeet Patil
-### 2020-04-16<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2020-10-14<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -568,7 +569,7 @@ Type | Levels | Test | CI?
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
 **&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
-**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | Posterior estimate (difference) | &lt;font color="green"&gt;Yes&lt;font&gt;
 
 ---
 
@@ -762,7 +763,7 @@ Type | No. of groups | Test | CI?
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="green"&gt;Yes&lt;font&gt;
 **&lt;font color="#ff00ff"&gt;Robust&lt;font&gt;** | 2 |  `\(\xi\)` (Explanatory measure of effect size) | &lt;font color="green"&gt;Yes&lt;font&gt;
 **&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | &gt; 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
-**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | &lt;font color="red"&gt;No&lt;font&gt; | &lt;font color="red"&gt;No&lt;font&gt;
+**&lt;font color="#009933"&gt;Bayes Factor&lt;font&gt;** | 2 | Posterior estimate (difference) | &lt;font color="green"&gt;Yes&lt;font&gt;
 
 ---
 
@@ -1902,7 +1903,7 @@ results &lt;-
     data = Titanic_full,
     x = Survived,
     y = Sex,
-    return = "subtitle", # &lt;&lt;
+    output = "subtitle", # &lt;&lt;
     messages = FALSE
   )
 
@@ -2112,7 +2113,7 @@ One-way ANOVA (within) | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font c
 correlations | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
 contingency table | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
 goodness of fit | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="red"&gt;No&lt;/font&gt;
-regression | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="red"&gt;No&lt;/font&gt;
+regression | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; |  &lt;font color="green"&gt;Yes&lt;/font&gt;
 
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (version: 0.5.0.9000)"
+subtitle: "An Introductory Tutorial (version: 0.6.0)"
 author: "Indrajeet Patil"
-date: "2020-04-16<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
+date: "2020-10-14<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -592,7 +592,7 @@ Type | Levels | Test | CI?
 **<font color="#ff00ff">Robust<font>** | > 2 | $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#009933">Bayes Factor<font>** | > 2 | <font color="red">No<font> | <font color="red">No<font>
-**<font color="#009933">Bayes Factor<font>** | 2 | <font color="red">No<font> | <font color="red">No<font>
+**<font color="#009933">Bayes Factor<font>** | 2 | Posterior estimate (difference) | <font color="green">Yes<font>
 
 ---
 
@@ -785,7 +785,7 @@ Type | No. of groups | Test | CI?
 **<font color="#ff00ff">Robust<font>** | > 2 | <font color="red">No<font> | <font color="green">Yes<font>
 **<font color="#ff00ff">Robust<font>** | 2 |  $\xi$ (Explanatory measure of effect size) | <font color="green">Yes<font>
 **<font color="#009933">Bayes Factor<font>** | > 2 | <font color="red">No<font> | <font color="red">No<font>
-**<font color="#009933">Bayes Factor<font>** | 2 | <font color="red">No<font> | <font color="red">No<font>
+**<font color="#009933">Bayes Factor<font>** | 2 | Posterior estimate (difference) | <font color="green">Yes<font>
 
 ---
 
@@ -1914,7 +1914,7 @@ results <-
     data = Titanic_full,
     x = Survived,
     y = Sex,
-    return = "subtitle", # <<
+    output = "subtitle", # <<
     messages = FALSE
   )
 
@@ -2123,7 +2123,7 @@ One-way ANOVA (within) | <font color="green">Yes</font> | <font color="green">Ye
 correlations | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
 contingency table | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
 goodness of fit | <font color="green">Yes</font> | `NA` | `NA` | <font color="red">No</font>
-regression | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="red">No</font>
+regression | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> |  <font color="green">Yes</font>
 
 ---
 
