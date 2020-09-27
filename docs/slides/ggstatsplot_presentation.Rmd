@@ -403,7 +403,6 @@ ggbetweenstats(
   y = rating,
   type = "np", # <<
   mean.ci = TRUE, # <<
-  pairwise.comparisons = TRUE, # <<
   pairwise.display = "ns", # <<
   p.adjust.method = "fdr", # <<
   messages = FALSE
@@ -445,7 +444,6 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "r", # <<
-  pairwise.comparisons = TRUE,
   outlier.tagging = TRUE, # <<
   outlier.label = title, # <<
   outlier.coef = 2, # <<
@@ -637,7 +635,6 @@ ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
   y = Taste,
-  pairwise.comparisons = TRUE, # <<
   ggtheme = hrbrthemes::theme_ipsum_tw(), # <<
   ggstatsplot.layer = FALSE,
   messages = FALSE
@@ -676,7 +673,6 @@ ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine, # > 2 groups #<<
   y = Taste,
-  pairwise.comparisons = TRUE, # <<
   ggtheme = hrbrthemes::theme_ipsum_tw(), # <<
   ggstatsplot.layer = FALSE,
   messages = FALSE
