@@ -308,7 +308,6 @@ ggbetweenstats(
 * x = mpaa, # &gt; 2 groups
   y = rating,
 * type = "p", # default
-  messages = FALSE
 )
 ```
 
@@ -379,11 +378,10 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  type = "np", # &lt;&lt;
-  mean.ci = TRUE, # &lt;&lt;
-  pairwise.display = "ns", # &lt;&lt;
-  p.adjust.method = "fdr", # &lt;&lt;
-  messages = FALSE
+* type = "np",
+* mean.ci = TRUE,
+* pairwise.display = "ns",
+* p.adjust.method = "fdr",
 )
 ```
 
@@ -421,14 +419,13 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  type = "r", # &lt;&lt;
-  outlier.tagging = TRUE, # &lt;&lt;
-  outlier.label = title, # &lt;&lt;
-  outlier.coef = 2, # &lt;&lt;
-  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
-  palette = "Darjeeling2", # &lt;&lt;
-  package = "wesanderson", # &lt;&lt;
-  messages = FALSE
+* type = "r",
+* outlier.tagging = TRUE,
+* outlier.label = title,
+* outlier.coef = 2,
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
+* palette = "Darjeeling2",
+* package = "wesanderson",
 )
 ```
 
@@ -461,10 +458,9 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  type = "bf", # &lt;&lt;
-  messages = FALSE
+* type = "bf",
 ) +
-  scale_y_continuous(sec.axis = dup_axis()) # &lt;&lt;
+* scale_y_continuous(sec.axis = dup_axis())
 ```
 
 .font80[
@@ -500,7 +496,6 @@ ggbetweenstats(
 * x = am, # 2 groups
   y = wt,
 * type = "p", # default
-  messages = FALSE
 )
 ```
 
@@ -613,9 +608,8 @@ ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
   y = Taste,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
   ggstatsplot.layer = FALSE,
-  messages = FALSE
 )
 ```
 
@@ -651,9 +645,8 @@ ggwithinstats(
   data = WRS2::WineTasting,
 * x = Wine, # &gt; 2 groups
   y = Taste,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), # &lt;&lt;
+* ggtheme = hrbrthemes::theme_ipsum_tw(),
   ggstatsplot.layer = FALSE,
-  messages = FALSE
 )
 ```
 
@@ -693,8 +686,7 @@ ggwithinstats(
   data = iris_long,
 * x = attribute, # 2 groups
   y = value,
-  type = "r", # &lt;&lt;
-  messages = FALSE
+* type = "r",
 )
 ```
 
@@ -805,7 +797,6 @@ ggscatterstats(
   x = budget,
   y = rating,
   type = "p", # default #&lt;&lt;&lt;
-  messages = FALSE
 )
 ```
 
@@ -875,11 +866,10 @@ ggscatterstats(
   x = budget,
   y = rating,
   type = "r",
-  label.var = title, # &lt;&lt;
-  label.expression = budget &gt; 150 # &lt;&lt;
-  &amp; rating &gt; 7.5, # &lt;&lt;
-  marginal.type = "density", # &lt;&lt;
-  messages = FALSE
+* label.var = title,
+* label.expression = budget &gt; 150
+* &amp; rating &gt; 7.5,
+* marginal.type = "density",
 )
 ```
 
@@ -937,10 +927,9 @@ ggscatterstats(
   x = budget,
   y = rating,
   marginal = FALSE,
-  method = "gam", # &lt;&lt;
-  formula = y ~ s(x, k = 3), # &lt;&lt;
-  centrality.para = "mean", # &lt;&lt;
-  messages = FALSE
+* method = "gam",
+* formula = y ~ s(x, k = 3),
+* centrality.para = "mean",
 )
 ```
 
@@ -1049,7 +1038,7 @@ ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
   type = "r",
-  matrix.type = "upper", # &lt;&lt;
+* matrix.type = "upper",
   p.adjust.method = "holm"
 )
 ```
@@ -1097,8 +1086,7 @@ layout: true
 gghistostats(
   data = movies_long,
   x = budget,
-  test.value = 50, # &lt;&lt;
-  messages = FALSE
+* test.value = 50,
 )
 ```
 
@@ -1135,13 +1123,12 @@ gghistostats(
   x = budget,
   effsize.type = "d",
   test.value = 50,
-  bar.measure = "mix", # &lt;&lt;
+* bar.measure = "mix",
   centrality.para = "median",
-  test.value.line = TRUE, # &lt;&lt;
-  normal.curve = TRUE, # &lt;&lt;
+* test.value.line = TRUE,
+* normal.curve = TRUE,
   ggtheme = hrbrthemes::theme_ipsum_tw(),
   ggstatsplot.layer = FALSE,
-  messages = FALSE
 )
 ```
 
@@ -1226,11 +1213,10 @@ ggdotplotstats(
   x = budget,
   y = genre,
   effsize.type = "d",
-  test.value = 52, # &lt;&lt;
+* test.value = 52,
   centrality.para = "median",
-  test.value.line = TRUE, # &lt;&lt;
+* test.value.line = TRUE,
   ggtheme = ggthemes::theme_par(),
-  messages = FALSE
 )
 ```
 
@@ -1343,7 +1329,6 @@ ggpiestats(
   ),
   x = genre,
   y = mpaa,
-  messages = FALSE
 )
 ```
 
@@ -1414,10 +1399,9 @@ layout: true
 ```r
 ggpiestats(
   data = as.data.frame(Titanic),
-  x = Survived, # &lt;&lt;
-  counts = Freq, # &lt;&lt;
-  slice.label = "both", # &lt;&lt;
-  messages = FALSE
+* x = Survived,
+* counts = Freq,
+* slice.label = "both",
 )
 ```
 
@@ -1465,7 +1449,6 @@ ggbarstats(
   y = mpaa,
   package = "ggsci",
   palette = "default_igv",
-  messages = FALSE
 )
 ```
 
@@ -1504,7 +1487,6 @@ ggbarstats(
   y = mpaa,
   package = "ggsci",
   palette = "default_igv",
-  messages = FALSE
 )
 ```
 
@@ -1755,7 +1737,7 @@ df &lt;- tibble::tribble(
 # `statistic` argument decides label format
 ggcoefstats(
   x = df,
-  statistic = "z", # &lt;&lt;
+* statistic = "z",
   exclude.intercept = FALSE
 )
 ```
@@ -1801,8 +1783,8 @@ meta_df &lt;- tibble::tribble(
 # plot
 ggcoefstats(
   x = meta_df,
-  meta.analytic.effect = TRUE, # &lt;&lt;
-  bf.message = TRUE, # &lt;&lt;
+* meta.analytic.effect = TRUE,
+* bf.message = TRUE,
   xlab = "estimate"
 )
 ```
@@ -1810,6 +1792,7 @@ ggcoefstats(
 .font80[
 - Frequentist random-effects meta-analysis from `metafor`
 - Bayesian random-effects meta-analysis from `metaBMA`
+- Robust random-effects meta-analysis from `metaplus`
 ]
 
 ]
@@ -1845,9 +1828,8 @@ You can repeat the same analysis for all levels of a single grouping variable.
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
-  grouping.var = am, # &lt;&lt;
-  results.subtitle = FALSE, # &lt;&lt;
-  messages = FALSE
+* grouping.var = am,
+* results.subtitle = FALSE,
 )
 ```
 
@@ -1899,17 +1881,16 @@ results &lt;-
     data = Titanic_full,
     x = Survived,
     y = Sex,
-    output = "subtitle", # &lt;&lt;
-    messages = FALSE
+*   output = "subtitle",
   )
 
 # using `ggiraphExtra` for plot
-ggiraphExtra::ggSpine( # &lt;&lt;
+*ggiraphExtra::ggSpine(
   data = Titanic_full,
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + labs(subtitle = results) # &lt;&lt;
+*) + labs(subtitle = results)
 ```
 
 .font70[
@@ -2007,7 +1988,7 @@ ggbetweenstats(
   data = mtcars,
   x = cyl,
   y = wt,
-  type = "p" # &lt;&lt;
+* type = "p"
 )
 
 # correlation analysis
@@ -2015,7 +1996,7 @@ ggscatterstats(
   data = mtcars,
   x = wt,
   y = mpg,
-  type = "p" # &lt;&lt;
+* type = "p"
 )
 
 # t-test
@@ -2023,7 +2004,7 @@ gghistostats(
   data = mtcars,
   x = wt,
   test.value = 2,
-  type = "p" # &lt;&lt;
+* type = "p"
 )
 ```
 ]
@@ -2039,7 +2020,7 @@ ggbetweenstats(
   data = mtcars,
   x = cyl,
   y = wt,
-  type = "np" # &lt;&lt;
+* type = "np"
 )
 
 # correlation analysis
@@ -2047,7 +2028,7 @@ ggscatterstats(
   data = mtcars,
   x = wt,
   y = mpg,
-  type = "np" # &lt;&lt;
+* type = "np"
 )
 
 # t-test
@@ -2055,7 +2036,7 @@ gghistostats(
   data = mtcars,
   x = wt,
   test.value = 2,
-  type = "np" # &lt;&lt;
+* type = "np"
 )
 ```
 ]
