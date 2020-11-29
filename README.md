@@ -4,7 +4,7 @@ This is a repository for presentation about the `ggstatsplot` package (prepared
 using R package [xaringan](https://github.com/yihui/xaringan)).
 
 The slides are available here:<br>
-https://indrajeetpatil.github.io/ggstatsplot_slides/
+https://indrajeetpatil.github.io/ggstatsplot_slides/slides/ggstatsplot_presentation.html#1
 
 There is also a dedicated website for this package:<br>
 https://indrajeetpatil.github.io/ggstatsplot/
