@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial (version: 0.6.5)"
 author: "Indrajeet Patil"
-date: "2020-11-30<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
+date: "`r Sys.Date()`<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -85,7 +85,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Why **ggstatsplot**?
+# Why *ggstatsplot*?
 
 ---
 
@@ -143,15 +143,14 @@ layout: true
 <br>
 <br>
 <br>
-In a typical *exploratory* data analysis workflow, <font color="blue">*data visualization*</font> and <font color="blue">*statistical modeling*</font> are two different phases: visualization informs modeling,
+In a typical *exploratory* data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two different phases: visualization informs modeling,
 and modeling in its turn can suggest a different visualization method, and so
 on and so forth. 
 
 --
 
 The central idea of **ggstatsplot** is simple: combine these two phases into one
-in the form of graphics with statistical details, which makes data exploration
-simpler and faster.
+in the form of graphics with statistical detail for <font color="blue">simpler</font> and <font color="blue">faster</font> data exploration.
 
 ---
 
@@ -183,7 +182,7 @@ layout: true
 <br>
 <br>
 <br>
-.font150[“I plotted my data and what I found will surprise me!" - BuzzFeed]
+.font150[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
 
@@ -194,8 +193,9 @@ layout: false
 --
 
 The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
-framework to prepare graphics and can help you make infinite number of graphics,
-each tailored for your specific data visualization problem! But...
+framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
+infinite number of graphics, each tailored for your specific data visualization
+problem! But...
 
 --
 
@@ -245,7 +245,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
 2.  expect the data to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
-3.  accept both `"quoted"` and `unquoted` arguments
+3.  accept both `"string"` and `symbols` as arguments
 
 ---
 
@@ -255,7 +255,7 @@ layout: false
 
 --
 
- For all statistical tests reported in the plots, the default template abides
+ For all statistical tests reported in the plots, the default template mostly abides
 by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
 statistical reporting. For example, here are results from a robust *t*-test:
 
@@ -778,14 +778,6 @@ In addition to `output = "plot"`,
 this function can also be used to
 get a <font color="blue">dataframe</font> of results:
 
-- `"r"` → **correlation**
-
-- `"p"` → **p-values**
-
-- `"n"` → **sample sizes**
-
-- `"ci"` → **confidence intervals**
-
 ]
 ]
 
@@ -1101,8 +1093,6 @@ get a <font color="blue">dataframe</font> of results:
 - `"tidy"` → **estimates**
 
 - `"glance"` → **model summary**
-
-- `"augment"` → **predictions**
 ]
 ]
 
@@ -1153,18 +1143,17 @@ layout: true
 .left-code[
 ```{r ggcoefstats_2, eval = FALSE}
 # dataframe with results
-df <- tibble::tribble(
-  ~term, ~estimate, ~std.error, ~statistic, ~p.value,
-  "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
-  "x", -1.36, 0.258, -5.26, 1.13e-5
-)
+df <-
+  broom::tidy(
+    stats::lm(wt ~ am * cyl, mtcars),
+    conf.int = TRUE
+  )
 
 # plot
 # `statistic` argument decides label format
 ggcoefstats(
   x = df,
-  statistic = "z", #<<
-  exclude.intercept = FALSE
+  statistic = "t" #<<
 )
 ```
 
@@ -1173,6 +1162,7 @@ Supported statistic (for <font color="blue">dataframe</font> objects):
 - *t*
 - *z*
 - *F*
+- $\chi^2$
 
 At the minimum, two
 columns needed - <br><font color="blue">term</font> and <font color="blue">estimate</font>.
@@ -1196,29 +1186,31 @@ layout: true
 .pull-left[
 ```{r ggcoefstats_3, eval = FALSE}
 # made up data
-meta_df <- tibble::tribble(
-  ~term, ~estimate, ~std.error,
-  "study_1", 0.111, 0.065,
-  "study_2", -0.003, 0.258,
-  "study_3", 0.001, 0.120,
-  "study_4", 0.032, 0.022,
-  "study_5", -0.765, 0.650,
-  "study_6", -0.032, 0.058
-)
+meta_df <-
+  tibble::tribble(
+    ~term, ~estimate, ~std.error,
+    "study_1", 0.111, 0.065,
+    "study_2", -0.003, 0.258,
+    "study_3", 0.001, 0.120,
+    "study_4", 0.032, 0.022,
+    "study_5", -0.765, 0.650,
+    "study_6", -0.032, 0.058
+  )
 
 # plot
 ggcoefstats(
   x = meta_df,
   meta.analytic.effect = TRUE, #<<
-  bf.message = TRUE, #<<
   xlab = "estimate"
 )
 ```
 
 .font80[
-- Frequentist random-effects meta-analysis from `metafor`
-- Bayesian random-effects meta-analysis from `metaBMA`
-- Robust random-effects meta-analysis from `metaplus`
+Changing the type of test
+
+- `"p"` → **parametric**
+- `"r"` → **robust**
+- `"bf"` → **bayes factor**
 ]
 
 ]
@@ -1244,7 +1236,7 @@ layout: true
 
 # *grouped_* functions
 
-You can repeat the same analysis for all levels of a single grouping variable.
+You can repeat the same analysis for all levels of a **single** grouping variable.
 
 ---
 

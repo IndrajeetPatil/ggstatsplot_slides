@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (version: 0.6.5)
 ### Indrajeet Patil
-### 2020-11-30<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2020-12-01<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -55,7 +55,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Why **ggstatsplot**?
+# Why *ggstatsplot*?
 
 ---
 
@@ -113,15 +113,14 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;*data visualization*&lt;/font&gt; and &lt;font color="blue"&gt;*statistical modeling*&lt;/font&gt; are two different phases: visualization informs modeling,
+In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two different phases: visualization informs modeling,
 and modeling in its turn can suggest a different visualization method, and so
 on and so forth. 
 
 --
 
 The central idea of **ggstatsplot** is simple: combine these two phases into one
-in the form of graphics with statistical details, which makes data exploration
-simpler and faster.
+in the form of graphics with statistical detail for &lt;font color="blue"&gt;simpler&lt;/font&gt; and &lt;font color="blue"&gt;faster&lt;/font&gt; data exploration.
 
 ---
 
@@ -153,7 +152,7 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-.font150[“I plotted my data and what I found will surprise me!" - BuzzFeed]
+.font150[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
 
@@ -164,8 +163,9 @@ layout: false
 --
 
 The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
-framework to prepare graphics and can help you make infinite number of graphics,
-each tailored for your specific data visualization problem! But...
+framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
+infinite number of graphics, each tailored for your specific data visualization
+problem! But...
 
 --
 
@@ -218,7 +218,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
 2.  expect the data to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
-3.  accept both `"quoted"` and `unquoted` arguments
+3.  accept both `"string"` and `symbols` as arguments
 
 ---
 
@@ -228,7 +228,7 @@ layout: false
 
 --
 
- For all statistical tests reported in the plots, the default template abides
+ For all statistical tests reported in the plots, the default template mostly abides
 by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
 statistical reporting. For example, here are results from a robust *t*-test:
 
@@ -756,14 +756,6 @@ In addition to `output = "plot"`,
 this function can also be used to
 get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
-- `"r"` → **correlation**
-
-- `"p"` → **p-values**
-
-- `"n"` → **sample sizes**
-
-- `"ci"` → **confidence intervals**
-
 ]
 ]
 
@@ -1079,8 +1071,6 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 - `"tidy"` → **estimates**
 
 - `"glance"` → **model summary**
-
-- `"augment"` → **predictions**
 ]
 ]
 
@@ -1131,18 +1121,17 @@ layout: true
 
 ```r
 # dataframe with results
-df &lt;- tibble::tribble(
-  ~term, ~estimate, ~std.error, ~statistic, ~p.value,
-  "(Intercept)", 3.77, 0.165, 22.9, 1.49e-20,
-  "x", -1.36, 0.258, -5.26, 1.13e-5
-)
+df &lt;-
+  broom::tidy(
+    stats::lm(wt ~ am * cyl, mtcars),
+    conf.int = TRUE
+  )
 
 # plot
 # `statistic` argument decides label format
 ggcoefstats(
   x = df,
-* statistic = "z",
-  exclude.intercept = FALSE
+* statistic = "t"
 )
 ```
 
@@ -1151,6 +1140,7 @@ Supported statistic (for &lt;font color="blue"&gt;dataframe&lt;/font&gt; objects
 - *t*
 - *z*
 - *F*
+- `\(\chi^2\)`
 
 At the minimum, two
 columns needed - &lt;br&gt;&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;font color="blue"&gt;estimate&lt;/font&gt;.
@@ -1159,12 +1149,6 @@ columns needed - &lt;br&gt;&lt;font color="blue"&gt;term&lt;/font&gt; and &lt;fo
 ]
 
 .right-plot[
-
-```
-## Note: No confidence intervals available for regression coefficients,
-##  so whiskers in the plot will be skipped.
-```
-
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcoefstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -1180,29 +1164,31 @@ layout: true
 
 ```r
 # made up data
-meta_df &lt;- tibble::tribble(
-  ~term, ~estimate, ~std.error,
-  "study_1", 0.111, 0.065,
-  "study_2", -0.003, 0.258,
-  "study_3", 0.001, 0.120,
-  "study_4", 0.032, 0.022,
-  "study_5", -0.765, 0.650,
-  "study_6", -0.032, 0.058
-)
+meta_df &lt;-
+  tibble::tribble(
+    ~term, ~estimate, ~std.error,
+    "study_1", 0.111, 0.065,
+    "study_2", -0.003, 0.258,
+    "study_3", 0.001, 0.120,
+    "study_4", 0.032, 0.022,
+    "study_5", -0.765, 0.650,
+    "study_6", -0.032, 0.058
+  )
 
 # plot
 ggcoefstats(
   x = meta_df,
 * meta.analytic.effect = TRUE,
-* bf.message = TRUE,
   xlab = "estimate"
 )
 ```
 
 .font80[
-- Frequentist random-effects meta-analysis from `metafor`
-- Bayesian random-effects meta-analysis from `metaBMA`
-- Robust random-effects meta-analysis from `metaplus`
+Changing the type of test
+
+- `"p"` → **parametric**
+- `"r"` → **robust**
+- `"bf"` → **bayes factor**
 ]
 
 ]
@@ -1235,7 +1221,7 @@ layout: true
 
 # *grouped_* functions
 
-You can repeat the same analysis for all levels of a single grouping variable.
+You can repeat the same analysis for all levels of a **single** grouping variable.
 
 ---
 
@@ -1707,7 +1693,6 @@ class: inverse, center, middle
 [github.com/IndrajeetPatil](https://github.com/IndrajeetPatil) &lt;br&gt;
 patilindrajeet.science@gmail.com
 ]
-
 
 ---
 
