@@ -1,3 +1,6 @@
 base
 ggstatsplot
 ggplot2
+miscTools
+maxLik
+censReg

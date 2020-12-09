@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (version: 0.6.5)"
+subtitle: "An Introductory Tutorial (version: 0.6.6)"
 author: "Indrajeet Patil"
 date: "`r Sys.Date()`<br><br>Follow along: **https://tinyurl.com/y376yz6o**"
 output:
@@ -399,8 +399,6 @@ layout: true
 
 ---
 
-exclude: false
-
 .left-code[
 ```{r ggbetweenstats_3, eval = FALSE}
 ggbetweenstats(
@@ -482,8 +480,7 @@ layout: true
 ggbetweenstats(
   data = mtcars,
   x = am, # 2 groups #<<
-  y = wt,
-  type = "p", # default #<<
+  y = wt
 )
 ```
 
@@ -527,9 +524,7 @@ layout: true
 ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
-  y = Taste,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-  ggstatsplot.layer = FALSE,
+  y = Taste
 )
 ```
 
@@ -548,46 +543,6 @@ Changing the type of test
 
 .right-plot[
 ```{r ggwithinstats_1, ref.label = 'ggwithinstats_1', echo = FALSE}
-```
-]
-
----
-
-exclude: false
-
-layout: true
-
-# ggwithinstats - two groups
-
----
-
-exclude: false
-
-.left-code[
-```{r ggwithinstats_2, eval = FALSE}
-ggwithinstats(
-  data = iris_long,
-  x = attribute, # 2 groups #<<
-  y = value,
-  type = "r", #<<
-)
-```
-
-.font80[
-Changing the type of test
-
-- `"p"` → **parametric**
-
-- `"np"` → **non-parametric**
-
-- `"r"` → **robust**
-
-- `"bf"` → **bayes factor**
-]
-]
-
-.right-plot[
-```{r ggwithinstats_2, ref.label = 'ggwithinstats_2', echo = FALSE}
 ```
 ]
 
@@ -692,21 +647,10 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  marginal = FALSE,
   method = "gam", #<<
-  formula = y ~ s(x, k = 3), #<<
-  centrality.para = "mean", #<<
+  formula = y ~ s(x, k = 3) #<<
 )
 ```
-
-.font80[
-Available centrality parameters
-
-- **mean**
-
-- **median**
-
-]
 ]
 
 .right-plot[
@@ -767,9 +711,7 @@ layout: true
 ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
-  type = "r",
-  matrix.type = "upper", #<<
-  p.adjust.method = "holm"
+  output = "dataframe" #<<
 )
 ```
 
@@ -808,7 +750,7 @@ layout: true
 gghistostats(
   data = movies_long,
   x = budget,
-  test.value = 50, #<<
+  test.value = 30, #<<
 )
 ```
 
@@ -827,46 +769,6 @@ Changing the type of test
 
 .right-plot[
 ```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
-```
-]
-
----
-
-layout: true
-
-# gghistostats - further customization
-
----
-
-.left-code[
-```{r gghistostats_2, eval = FALSE}
-gghistostats(
-  data = movies_long,
-  x = budget,
-  effsize.type = "d",
-  test.value = 50,
-  bar.measure = "mix", #<<
-  centrality.para = "median",
-  test.value.line = TRUE, #<<
-  normal.curve = TRUE, #<<
-  ggtheme = hrbrthemes::theme_ipsum_tw(),
-  ggstatsplot.layer = FALSE,
-)
-```
-
-.font80[
-Available bar measures 
-
-- **count**
-- **proportion**
-- **both** (of the above)
-- **density**
-
-]
-]
-
-.right-plot[
-```{r gghistostats_2, ref.label = 'gghistostats_2', echo = FALSE}
 ```
 ]
 
@@ -939,7 +841,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggpiestats - defaults
+# ggpiestats - contingency table
 
 ---
 
@@ -949,10 +851,10 @@ layout: true
 ggpiestats(
   data = dplyr::filter(
     .data = movies_long,
-    genre %in% c("Drama", "Comedy", "Animated")
+    genre %in% c("Drama", "Comedy")
   ),
-  x = genre,
-  y = mpaa,
+  x = mpaa,
+  y = genre
 )
 ```
 
@@ -986,7 +888,7 @@ ggpiestats(
   data = as.data.frame(Titanic),
   x = Survived, #<<
   counts = Freq, #<<
-  label = "both", #<<
+  label = "both" #<<
 )
 ```
 
@@ -1145,7 +1047,7 @@ layout: true
 # dataframe with results
 df <-
   broom::tidy(
-    stats::lm(wt ~ am * cyl, mtcars),
+    x = stats::lm(wt ~ am * cyl, mtcars),
     conf.int = TRUE
   )
 
@@ -1164,8 +1066,8 @@ Supported statistic (for <font color="blue">dataframe</font> objects):
 - *F*
 - $\chi^2$
 
-At the minimum, two
-columns needed - <br><font color="blue">term</font> and <font color="blue">estimate</font>.
+At the minimum, one
+column needed - <font color="blue">estimate</font>.
 ]
 
 ]
@@ -1193,19 +1095,18 @@ meta_df <-
     "study_2", -0.003, 0.258,
     "study_3", 0.001, 0.120,
     "study_4", 0.032, 0.022,
-    "study_5", -0.765, 0.650,
-    "study_6", -0.032, 0.058
+    "study_5", -0.765, 0.650
   )
 
 # plot
 ggcoefstats(
   x = meta_df,
   meta.analytic.effect = TRUE, #<<
-  xlab = "estimate"
+  stats.labels = FALSE
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -1371,14 +1272,6 @@ color="blue">Welch's ANOVA</font> - and not Student's *t*-test and Fisher's
 ANOVA - based on recent work (Delacre et al.,
 [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
 [2018](https://psyarxiv.com/wnezg)).
-
-- No *p*-value error <br>
-(Lilienfeld et al.,
-[2015](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full))
-
-.img-center-small[
-![](images/p_error.png)
-]
 
 ---
 
