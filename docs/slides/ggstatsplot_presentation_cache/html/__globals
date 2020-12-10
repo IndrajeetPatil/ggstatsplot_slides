@@ -23,7 +23,7 @@ ggcorrmat_2	::	bodywt	ggcorrmat	sleep_cycle
 gghistostats_1	budget	gghistostats	movies_long
 gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long
-ggdotplotstats_1	::	budget	genre	ggdotplotstats	movies_long
+ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
 ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
 ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa

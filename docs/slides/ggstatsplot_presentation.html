@@ -41,6 +41,8 @@ layout: true
 
 ---
 
+--
+
 - Why `ggstatsplot`?
 
 - Current functions
@@ -218,20 +220,6 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 1.  rely on a **dataframe** (e.g., `data, x, y, ...`)
 2.  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
 3.  accept both `"string"` and `symbols` as arguments
-
----
-
-layout: false
-
-# 5. Follows best practices for statistical reporting 
-
---
-
- For all statistical tests reported in the plots, the default template mostly abides
-by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. For example, here are results from a robust *t*-test:
-
-![](images/stats_reporting_format.png)
 
 ---
 
@@ -417,7 +405,7 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* type = "bf",
+* type = "bf"
 ) +
 * scale_y_continuous(sec.axis = dup_axis())
 ```
@@ -542,7 +530,7 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-* type = "p", # default
+* type = "p" # default
 )
 ```
 
@@ -582,7 +570,7 @@ ggscatterstats(
 * label.var = title,
 * label.expression = budget &gt; 150
 * &amp; rating &gt; 7.5,
-* marginal.type = "density",
+* marginal.type = "density"
 )
 ```
 
@@ -652,6 +640,13 @@ layout: true
 
 .left-code[
 
+.font70[
+In addition to `output = "plot"`, 
+this function can also be used to
+get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
+]
+
+
 ```r
 ggcorrmat(
   data = ggplot2::msleep,
@@ -659,13 +654,6 @@ ggcorrmat(
 * output = "dataframe"
 )
 ```
-
-.font70[
-In addition to `output = "plot"`, 
-this function can also be used to
-get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
-
-]
 ]
 
 .font50[
@@ -836,9 +824,7 @@ ggdotplotstats(
   x = budget,
   y = genre,
 * test.value = 52,
-  centrality.para = "median",
-* test.value.line = TRUE,
-  ggtheme = ggthemes::theme_par(),
+* test.value.line = TRUE
 )
 ```
 
@@ -917,7 +903,7 @@ layout: true
 ```r
 ggpiestats(
   data = as.data.frame(Titanic),
-* x = Survived,
+  x = Survived, 
 * counts = Freq,
 * label = "both"
 )
@@ -966,7 +952,7 @@ ggbarstats(
   x = genre,
   y = mpaa,
   package = "ggsci",
-  palette = "default_igv",
+  palette = "default_igv"
 )
 ```
 
@@ -1084,7 +1070,7 @@ ggstatsplot::ggcoefstats(
 ```
 
 .font70[
-Supported statistic (for &lt;font color="blue"&gt;dataframe&lt;/font&gt; objects):
+Supported statistic:
 - *t*
 - *z*
 - *F*
@@ -1116,9 +1102,11 @@ layout: true
 
 # *grouped_* functions
 
-You can repeat the same analysis for all levels of a **single** grouping variable.
-
 ---
+
+Repeating the same analysis for all levels of a **single** grouping variable.
+
+--
 
 .left-code[
 
@@ -1128,7 +1116,7 @@ grouped_ggpiestats(
   data = mtcars,
   x = cyl,
 * grouping.var = am,
-* results.subtitle = FALSE,
+* results.subtitle = FALSE
 )
 ```
 
@@ -1180,7 +1168,7 @@ results &lt;-
     data = Titanic_full,
     x = Survived,
     y = Sex,
-*   output = "subtitle",
+*   output = "subtitle"
   )
 
 # using `ggiraphExtra` for plot
@@ -1224,15 +1212,15 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggwithinstats` | Within group/condition comparisons | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
-`ggcoefstats` | Random-effects meta-analysis | &lt;font color="green"&gt;Yes&lt;/font&gt; | `NA` | &lt;font color="green"&gt;Yes&lt;/font&gt; | &lt;font color="green"&gt;Yes&lt;/font&gt;
+`ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggwithinstats` | Within group/condition comparisons | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggcoefstats` | Random-effects meta-analysis | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
 
 ---
 
@@ -1242,8 +1230,13 @@ layout: false
 
 --
 
-- As discussed before, the details included in statistical analyses follow the
-APA gold standard.
+For all statistical tests reported in the plots, the default template mostly abides
+by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
+statistical reporting. For example, here are results from a robust *t*-test:
+
+![](images/stats_reporting_format.png)
+
+--
 
 - The default tests follow the best practices. For example, `ggbetweenstats`
 function by default runs &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font
@@ -1372,6 +1365,12 @@ layout: true
 
 --
 
+- No need to use scores of packages to get different statistical details
+    (e.g., one to get stats, one to get effect sizes, another to get Bayes
+    Factors, and yet another to get pairwise comparisons, etc.).
+
+--
+
 - Truly makes your figures worth a thousand words. 
 
 --
@@ -1395,35 +1394,6 @@ layout: true
 
 - Minimal amount of code needed for all functions (typically only `data`, `x`,
   and `y`). This minimizes chances of error.
-
----
-
-layout: true
-
-# Example - before and after *ggstatsplot*
-
----
-
---
-
-.pull-left[
-
-**Before &lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;**
-
-![](images/before_ggstats.PNG)
-
-![](images/no_joy.jpg)
-
-]
-
---
-
-.pull-right[
-
-**After &lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;**
-
-![](images/after_ggstats.PNG)
-]
 
 ---
 
@@ -1587,20 +1557,9 @@ layout: false
 
 class: inverse, center, middle
 
-# Supplementary Materials
+# For more information, see
 
----
-
-exclude: false
-
-layout: true
-
-# Summary of tests 
-
----
-
-These details are cataloged here:
-https://github.com/IndrajeetPatil/ggstatsplot/blob/master/README.md
+https://indrajeetpatil.github.io/ggstatsplot/
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
