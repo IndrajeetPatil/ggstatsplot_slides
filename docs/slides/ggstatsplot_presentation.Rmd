@@ -67,7 +67,7 @@ as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 
 layout: true
 
-**Plan**
+# Plan
 
 ---
 
@@ -144,8 +144,7 @@ layout: true
 <br>
 <br>
 In a typical *exploratory* data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two different phases: visualization informs modeling,
-and modeling in its turn can suggest a different visualization method, and so
-on and so forth. 
+and modeling can suggest a different visualization, and so on and so forth. 
 
 --
 
@@ -243,8 +242,8 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 <br>
 **All** functions in `ggstatsplot`-
 
-1.  consistently rely on a dataframe (e.g., `data, x, y, ...`)
-2.  expect the data to be in tidy format (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
+1.  rely on a **dataframe** (e.g., `data, x, y, ...`)
+2.  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
 3.  accept both `"string"` and `symbols` as arguments
 
 ---
@@ -334,7 +333,7 @@ ggbetweenstats(
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -367,13 +366,12 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "np", #<<
-  mean.ci = TRUE, #<<
   pairwise.display = "ns", #<<
   p.adjust.method = "fdr", #<<
 )
 ```
 
-.font80[
+.font70[
 Changing pairwise comparisons displayed
 
 - `"ns"` → only **non-significant**
@@ -390,8 +388,6 @@ Changing pairwise comparisons displayed
 ]
 
 ---
-
-exclude: false
 
 layout: true
 
@@ -415,10 +411,10 @@ ggbetweenstats(
 )
 ```
 
-.font80[
+.font70[
 Aesthetic preferences
 are not an excuse to not
-use `ggstatsplot` `r emo::ji("heart_eyes_cat")`
+use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
 
 The default palette used
 is **colorblind-friendly**.
@@ -449,7 +445,7 @@ ggbetweenstats(
   scale_y_continuous(sec.axis = dup_axis()) #<<
 ```
 
-.font80[
+.font70[
 **Note**: You can modify 
 all `ggstatsplot` plots further 
 using `ggplot2` functions.
@@ -484,7 +480,7 @@ ggbetweenstats(
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -569,11 +565,11 @@ ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating,
-  type = "p", # default #<<<
+  type = "p", # default #<<
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -631,34 +627,6 @@ Changing the marginal type
 
 ---
 
-exclude: false
-
-layout: true
-
-# ggscatterstats - changing smoothing functions
-
----
-
-exclude: false
-
-.left-code[
-```{r ggscatterstats_3, results = "hide", fig.show = "hide"}
-ggscatterstats(
-  data = movies_long,
-  x = budget,
-  y = rating,
-  method = "gam", #<<
-  formula = y ~ s(x, k = 3) #<<
-)
-```
-]
-
-.right-plot[
-![](`r knitr::fig_chunk("ggscatterstats_3", "png")`)
-]
-
----
-
 layout: false
 
 class: inverse, center, middle
@@ -679,7 +647,7 @@ layout: true
 ggcorrmat(dplyr::starwars)
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -715,7 +683,7 @@ ggcorrmat(
 )
 ```
 
-.font80[
+.font70[
 In addition to `output = "plot"`, 
 this function can also be used to
 get a <font color="blue">dataframe</font> of results:
@@ -723,9 +691,11 @@ get a <font color="blue">dataframe</font> of results:
 ]
 ]
 
+.font50[
 .right-plot[
 ```{r ggcorrmat_2, ref.label = 'ggcorrmat_2', echo = FALSE}
 ```
+]
 ]
 
 ---
@@ -750,11 +720,11 @@ layout: true
 gghistostats(
   data = movies_long,
   x = budget,
-  test.value = 30, #<<
+  test.value = 30 #<<
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 
 - `"p"` → **parametric**
@@ -795,7 +765,6 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  effsize.type = "d",
   test.value = 52, #<<
   centrality.para = "median",
   test.value.line = TRUE, #<<
@@ -803,7 +772,7 @@ ggdotplotstats(
 )
 ```
 
-.font80[
+.font70[
 Changing the type of test
 - `"p"` → **parametric**
 
@@ -819,14 +788,6 @@ Changing the type of test
 ```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
 ```
 ]
-
----
-
-exclude: false
-
-layout: true
-
-# Summary of tests - *gghistostats*/*ggdotplotstats*
 
 ---
 
@@ -858,7 +819,7 @@ ggpiestats(
 )
 ```
 
-.font80[
+.font70[
 
 Test by design
 
@@ -944,12 +905,6 @@ ggbarstats(
 Bayes Factor message in a caption, 
 you can still use the `caption`
 argument.
-
-Label information
-
-- **percentage** (default) 
-- **counts**
-- **both** (of the above)
 ]
 ]
 
@@ -987,7 +942,7 @@ mod <- stats::aov(
 ggcoefstats(mod)
 ```
 
-.font80[
+.font70[
 In addition to `output = "plot"`, 
 this function can also be used to
 get a <font color="blue">dataframe</font> of results:
@@ -1011,9 +966,9 @@ layout: true
 
 ---
 
-.font80[
-`aareg`, `anova`, `aov`, `aovlist`, `Arima`, `BFBayesFactor`, `bayesx`,
-`bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`, `bglmerMod`,
+.font70[
+`aareg`, `anova`, `aov`, `aovlist`, `Arima`, `bam`, `bayesx`, `bayesGARCH`,
+`BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`, `BFBayesFactor`, `bglmerMod`,
 `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`, `blmerMod`, `bracl`, `brglm`,
 `brglm2`, `brmsfit`, `brmultinom`, `btergm`, `cch`, `censReg`, `cgam`, `cgamm`,
 `cglm`, `clm`, `clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`,
@@ -1025,13 +980,13 @@ layout: true
 `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`,
 `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`,
 `lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`,
-`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`,
-`mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`,
-`nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`,
-`poissonirr`, `polr`, `ridgelm`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
-`rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`,
-`stanfit`, `stanreg`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
-`truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
+`mice`, `mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`,
+`mixor`, `mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`,
+`negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`,
+`poissonmfx`, `poissonirr`, `polr`, `ridgelm`, `rjags`, `rlm`, `rlmerMod`,
+`robmixglm`, `rq`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`,
+`speedglm`, `speedlm`, `stanfit`, `stanreg`, `survreg`, `svyglm`, `svyolr`,
+`svyglm`, `tobit`, `truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 ---
@@ -1044,16 +999,15 @@ layout: true
 
 .left-code[
 ```{r ggcoefstats_2, eval = FALSE}
+library(parameters)
+
 # dataframe with results
 df <-
-  broom::tidy(
-    x = stats::lm(wt ~ am * cyl, mtcars),
-    conf.int = TRUE
-  )
+  model_parameters(stats::lm(wt ~ cyl, mtcars)) %>%
+  standardize_names(., "broom")
 
-# plot
 # `statistic` argument decides label format
-ggcoefstats(
+ggstatsplot::ggcoefstats(
   x = df,
   statistic = "t" #<<
 )
@@ -1074,50 +1028,6 @@ column needed - <font color="blue">estimate</font>.
 
 .right-plot[
 ```{r ggcoefstats_2, ref.label = 'ggcoefstats_2', echo = FALSE}
-```
-]
-
----
-
-layout: true
-
-# *ggcoefstats*: You can also do meta-analysis!
-
----
-
-.pull-left[
-```{r ggcoefstats_3, eval = FALSE}
-# made up data
-meta_df <-
-  tibble::tribble(
-    ~term, ~estimate, ~std.error,
-    "study_1", 0.111, 0.065,
-    "study_2", -0.003, 0.258,
-    "study_3", 0.001, 0.120,
-    "study_4", 0.032, 0.022,
-    "study_5", -0.765, 0.650
-  )
-
-# plot
-ggcoefstats(
-  x = meta_df,
-  meta.analytic.effect = TRUE, #<<
-  stats.labels = FALSE
-)
-```
-
-.font70[
-Changing the type of test
-
-- `"p"` → **parametric**
-- `"r"` → **robust**
-- `"bf"` → **bayes factor**
-]
-
-]
-
-.right-plot[
-```{r ggcoefstats_3, ref.label = 'ggcoefstats_3', echo = FALSE}
 ```
 ]
 
@@ -1155,13 +1065,13 @@ grouped_ggpiestats(
 .font70[
 Available `grouped_` variants
 - `grouped_ggdotplotstats`
-- `grouped_ggbarstats`    
+- `grouped_ggbarstats`
 - `grouped_ggscatterstats`
-- `grouped_gghistostats`  
-- `grouped_ggpiestats`    
+- `grouped_gghistostats`
+- `grouped_ggpiestats`
 - `grouped_ggbetweenstats`
 - `grouped_ggwithinstats`
-- `grouped_ggcorrmat`  
+- `grouped_ggcorrmat`
 ]
 ]
 
@@ -1618,5 +1528,5 @@ layout: true
 
 ---
 
-These details are catalogued here:
+These details are cataloged here:
 https://github.com/IndrajeetPatil/ggstatsplot/blob/master/README.md

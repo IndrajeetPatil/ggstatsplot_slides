@@ -32,7 +32,7 @@ ggbarstats_1	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long
 ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-ggcoefstats_2	::	~	ggcoefstats	mtcars
+ggcoefstats_2	%>%	.	::	~	library	model_parameters	mtcars	standardize_names
 ggcoefstats_3	::	~	ggcoefstats
 grouped_1	am	cyl	grouped_ggpiestats	mtcars
 subtitle_1	::	aes	labs	Sex	Survived	Titanic_full

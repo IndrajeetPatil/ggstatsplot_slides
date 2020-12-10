@@ -4,3 +4,7 @@ ggplot2
 miscTools
 maxLik
 censReg
+coda
+Matrix
+BayesFactor
+parameters
