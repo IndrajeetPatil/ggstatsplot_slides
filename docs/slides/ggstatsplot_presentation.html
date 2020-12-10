@@ -93,7 +93,7 @@ Short answer: `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*i
 
 layout: true
 
-# 1. Simpler data analysis workflow
+# Simpler data analysis workflow
 
 ---
 
@@ -127,7 +127,7 @@ in the form of graphics with statistical detail for &lt;font color="blue"&gt;sim
 
 layout: true
 
-# 2. Information-rich graphic is worth a thousand words
+# Information-rich graphic is worth a thousand words
 
 ---
 
@@ -159,7 +159,7 @@ layout: true
 
 layout: false
 
-# 3. Ready-made plot = no customization
+# Ready-made plot = no customization
 
 --
 
@@ -182,7 +182,7 @@ problem! But...
 
 layout: false
 
-# 4. Consistent API =  no cognitive fatigue
+# Consistent API =  no cognitive fatigue
 
 --
 
@@ -217,9 +217,9 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 &lt;br&gt;
 **All** functions in `ggstatsplot`-
 
-1.  rely on a **dataframe** (e.g., `data, x, y, ...`)
-2.  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))
-3.  accept both `"string"` and `symbols` as arguments
+✅  rely on a **dataframe** (e.g., `data, x, y, ...`)&lt;br&gt;
+✅  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
+✅  accept both `"string"` and `symbols` as arguments&lt;br&gt;
 
 ---
 
@@ -265,11 +265,6 @@ library(ggstatsplot)
 library(ggplot2)
 ```
 
---
-
-You are recommended to use the [RStudioIDE](https://www.rstudio.com/products/rstudio/), 
-but you don't have to.
-
 ---
 
 layout: false
@@ -294,7 +289,7 @@ ggbetweenstats(
   data = movies_long,
 * x = mpaa, # &gt; 2 groups
   y = rating,
-* type = "p", # default
+* type = "p" # default
 )
 ```
 
@@ -332,7 +327,7 @@ ggbetweenstats(
   y = rating,
 * type = "np",
 * pairwise.display = "ns",
-* p.adjust.method = "fdr",
+* p.adjust.method = "fdr"
 )
 ```
 
@@ -355,7 +350,7 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats - (aesthetic) changes &amp; outlier tagging
+# ggbetweenstats - aesthetic changes &amp; outlier tagging
 
 ---
 
@@ -372,7 +367,7 @@ ggbetweenstats(
 * outlier.coef = 2,
 * ggtheme = hrbrthemes::theme_ipsum_tw(),
 * palette = "Darjeeling2",
-* package = "wesanderson",
+* package = "wesanderson"
 )
 ```
 
@@ -1212,15 +1207,15 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group/condition comparisons | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggwithinstats` | Within group/condition comparisons | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggcorrmat` | Correlation matrix | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggscatterstats` | Correlation between two variables | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggpiestats`, `ggbarstats` | Association between categorical variables | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggcoefstats` | Regression model coefficients | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
-`ggcoefstats` | Random-effects meta-analysis | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | `NA` | &lt;font color="green"&gt;**Yes**&lt;/font&gt; | &lt;font color="green"&gt;**Yes**&lt;/font&gt;
+`ggbetweenstats` | Between group/condition comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggwithinstats` | Within group/condition comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggcorrmat` | Correlation matrix | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggscatterstats` | Correlation between two variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggpiestats`, `ggbarstats` | Association between categorical variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggcoefstats` | Regression model coefficients | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggcoefstats` | Random-effects meta-analysis | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 
 ---
 
@@ -1456,7 +1451,37 @@ layout: false
 
 class: inverse, center, middle
 
+# Misconceptions
+
+---
+
+layout: true
+
+# Misconceptions about scope of *ggstatsplot*
+
+---
+
+--
+
+- This package is an alternative to learning `ggplot2`. ❌
+
+--
+
+- It is meant to be used in talks/presentations. ❌
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # Limitations
+
+---
+
+layout: true
+
+# Limitations of *ggstatsplot*
 
 ---
 

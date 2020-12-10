@@ -13,8 +13,8 @@ strong {
 
 .title-slide {
   background-image: url(images/hex-ggstatsplot.png);
-  background-size: 25%;
-  background-position: 88% 70%;
+  background-size: 19%;
+  background-position: 60% 90%;
 }
 
 .footnote {
@@ -56,6 +56,7 @@ strong {
   color: #d14;
   font-weight: 400;
 }
+
 .hlb {
   /* color: #d16666;
   color: #ff3e41; */
@@ -68,6 +69,7 @@ strong {
   height: 92%;
   float: left;
 }
+
 .right-plot {
   width: 62%;
   float: right;
