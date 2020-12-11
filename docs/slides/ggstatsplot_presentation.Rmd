@@ -315,8 +315,6 @@ ggbetweenstats(
 )
 ```
 
---
-
 .font70[
 Function internally decides tests
 
@@ -325,7 +323,8 @@ Function internally decides tests
 
 Defaults provide<br>
 
-`r emo::ji("check")` descriptive stats<br>
+`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` effect size + CI<br>
 `r emo::ji("check")` pairwise comparisons<br>
@@ -361,18 +360,18 @@ ggbetweenstats(
 ```
 
 .font70[
-Changing the type of test
+Changing the `type` of test
 
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
 `r emo::ji("check")` `"r"` → **robust** <br>
-`r emo::ji("check")` `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 
 Changing pairwise comparisons displayed
 
 - `"ns"` → only **non-significant**
 - `"s"` → only **significant**
-- `"all"` → **everything**
+- `"all"` → **all**
 ]
 ]
 
@@ -484,15 +483,22 @@ ggwithinstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide<br>
+
+`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` pairwise comparisons<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
+Changing the `type` of test
 
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
-
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
-
 `r emo::ji("check")` `"r"` → **robust** <br>
-
-`r emo::ji("check")` `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -528,15 +534,21 @@ ggscatterstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide<br>
+
+`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` marginal distribution<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
+Changing the `type` of test
 
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
-
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
-
 `r emo::ji("check")` `"r"` → **robust** <br>
-
-`r emo::ji("check")` `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -606,15 +618,17 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-Changing the type of test
+Defaults provide<br>
+
+`r emo::ji("check")` effect size + significance
+`r emo::ji("check")` careful handling of `NA`s
+
+Changing the `type` of test
 
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
-
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
-
 `r emo::ji("check")` `"r"` → **robust** <br>
-
-`r emo::ji("x")` `"bf"` → **bayes factor**
+`r emo::ji("x")` `"bf"` → **Bayes Factor**
 
 ]
 ]
@@ -644,9 +658,10 @@ get a <font color="blue">dataframe</font> of results:
 ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
-  output = "dataframe" #<<
+  output = "dataframe"
 )
 ```
+
 ]
 
 .font50[
@@ -683,15 +698,21 @@ gghistostats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide<br>
+
+`r emo::ji("check")` counts + proportion for bins<br>
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
+Changing the `type` of test
 
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
-
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
-
 `r emo::ji("check")` `"r"` → **robust** <br>
-
-`r emo::ji("check")` `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -729,14 +750,21 @@ ggdotplotstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide<br>
+
+`r emo::ji("check")` percentile scores<br>
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
+Changing the `type` of test
+
 `r emo::ji("check")` `"p"` → **parametric** (default)<br>
-
 `r emo::ji("check")` `"np"` → **non-parametric**<br>
-
 `r emo::ji("check")` `"r"` → **robust** <br>
-
-`r emo::ji("check")` `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -776,11 +804,17 @@ ggpiestats(
 ```
 
 .font70[
+Defaults provide<br>
+
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
 
 Test by design
 
 - `paired = FALSE` → Pearson's $\chi^2$
-
 - `paired = TRUE` → McNemar
 
 ]
@@ -817,7 +851,6 @@ argument.
 Test by analysis
 
 - `y != NULL` → contingency table
-
 - `y == NULL` → goodness of fit
 
 ]
@@ -851,12 +884,21 @@ ggbarstats(
   data = movies_long,
   x = genre,
   y = mpaa,
+  caption = "IMDB data", #<<
   package = "ggsci",
   palette = "default_igv"
 )
 ```
 
 .font70[
+Defaults provide<br>
+
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
 **Note**: Even if you display 
 Bayes Factor message in a caption, 
 you can still use the `caption`
@@ -904,9 +946,15 @@ this function can also be used to
 get a <font color="blue">dataframe</font> of results:
 
 - `"tidy"` → **estimates**
-
 - `"glance"` → **model summary**
+
+Defaults provide<br>
+
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` estimate + CI<br>
+`r emo::ji("check")` model summary (AIC + BIC)
 ]
+
 ]
 
 .right-plot[
@@ -1270,6 +1318,11 @@ layout: true
 
 --
 
+- Minimal amount of code needed for all functions (typically only `data`, `x`,
+  and `y`). This minimizes chances of error.
+  
+--
+
 - Truly makes your figures worth a thousand words. 
 
 --
@@ -1288,11 +1341,6 @@ layout: true
 
 - No need to worry about updating figures and statistical details separately
   if something about the data changes.
-
---
-
-- Minimal amount of code needed for all functions (typically only `data`, `x`,
-  and `y`). This minimizes chances of error.
 
 ---
 

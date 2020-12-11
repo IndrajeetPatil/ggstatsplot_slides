@@ -293,8 +293,6 @@ ggbetweenstats(
 )
 ```
 
---
-
 .font70[
 Function internally decides tests
 
@@ -303,7 +301,8 @@ Function internally decides tests
 
 Defaults provide&lt;br&gt;
 
-✅ descriptive stats&lt;br&gt;
+✅ raw data&lt;br&gt;
+✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
 ✅ effect size + CI&lt;br&gt;
 ✅ pairwise comparisons&lt;br&gt;
@@ -339,18 +338,18 @@ ggbetweenstats(
 ```
 
 .font70[
-Changing the type of test
+Changing the `type` of test
 
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
 ✅ `"np"` → **non-parametric**&lt;br&gt;
 ✅ `"r"` → **robust** &lt;br&gt;
-✅ `"bf"` → **bayes factor**
+✅ `"bf"` → **Bayes Factor**
 
 Changing pairwise comparisons displayed
 
 - `"ns"` → only **non-significant**
 - `"s"` → only **significant**
-- `"all"` → **everything**
+- `"all"` → **all**
 ]
 ]
 
@@ -462,15 +461,22 @@ ggwithinstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide&lt;br&gt;
+
+✅ raw data&lt;br&gt;
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ pairwise comparisons&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
+Changing the `type` of test
 
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
-
 ✅ `"np"` → **non-parametric**&lt;br&gt;
-
 ✅ `"r"` → **robust** &lt;br&gt;
-
-✅ `"bf"` → **bayes factor**
+✅ `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -506,15 +512,21 @@ ggscatterstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide&lt;br&gt;
+
+✅ raw data&lt;br&gt;
+✅ marginal distribution&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
+Changing the `type` of test
 
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
-
 ✅ `"np"` → **non-parametric**&lt;br&gt;
-
 ✅ `"r"` → **robust** &lt;br&gt;
-
-✅ `"bf"` → **bayes factor**
+✅ `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -584,15 +596,17 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-Changing the type of test
+Defaults provide&lt;br&gt;
+
+✅ effect size + significance
+✅ careful handling of `NA`s
+
+Changing the `type` of test
 
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
-
 ✅ `"np"` → **non-parametric**&lt;br&gt;
-
 ✅ `"r"` → **robust** &lt;br&gt;
-
-❌ `"bf"` → **bayes factor**
+❌ `"bf"` → **Bayes Factor**
 
 ]
 ]
@@ -622,9 +636,10 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
-* output = "dataframe"
+  output = "dataframe"
 )
 ```
+
 ]
 
 .font50[
@@ -754,15 +769,21 @@ gghistostats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide&lt;br&gt;
+
+✅ counts + proportion for bins&lt;br&gt;
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
+Changing the `type` of test
 
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
-
 ✅ `"np"` → **non-parametric**&lt;br&gt;
-
 ✅ `"r"` → **robust** &lt;br&gt;
-
-✅ `"bf"` → **bayes factor**
+✅ `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -800,14 +821,21 @@ ggdotplotstats(
 ```
 
 .font70[
-Changing the type of test
+Defaults provide&lt;br&gt;
+
+✅ percentile scores&lt;br&gt;
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
+Changing the `type` of test
+
 ✅ `"p"` → **parametric** (default)&lt;br&gt;
-
 ✅ `"np"` → **non-parametric**&lt;br&gt;
-
 ✅ `"r"` → **robust** &lt;br&gt;
-
-✅ `"bf"` → **bayes factor**
+✅ `"bf"` → **Bayes Factor**
 ]
 ]
 
@@ -847,11 +875,17 @@ ggpiestats(
 ```
 
 .font70[
+Defaults provide&lt;br&gt;
+
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
 
 Test by design
 
 - `paired = FALSE` → Pearson's `\(\chi^2\)`
-
 - `paired = TRUE` → McNemar
 
 ]
@@ -888,7 +922,6 @@ argument.
 Test by analysis
 
 - `y != NULL` → contingency table
-
 - `y == NULL` → goodness of fit
 
 ]
@@ -922,12 +955,21 @@ ggbarstats(
   data = movies_long,
   x = genre,
   y = mpaa,
+* caption = "IMDB data",
   package = "ggsci",
   palette = "default_igv"
 )
 ```
 
 .font70[
+Defaults provide&lt;br&gt;
+
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
 **Note**: Even if you display 
 Bayes Factor message in a caption, 
 you can still use the `caption`
@@ -975,9 +1017,15 @@ this function can also be used to
 get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 
 - `"tidy"` → **estimates**
-
 - `"glance"` → **model summary**
+
+Defaults provide&lt;br&gt;
+
+✅ statistic + *p*-value&lt;br&gt;
+✅ estimate + CI&lt;br&gt;
+✅ model summary (AIC + BIC)
 ]
+
 ]
 
 .right-plot[
@@ -1342,6 +1390,11 @@ layout: true
 
 --
 
+- Minimal amount of code needed for all functions (typically only `data`, `x`,
+  and `y`). This minimizes chances of error.
+  
+--
+
 - Truly makes your figures worth a thousand words. 
 
 --
@@ -1360,11 +1413,6 @@ layout: true
 
 - No need to worry about updating figures and statistical details separately
   if something about the data changes.
-
---
-
-- Minimal amount of code needed for all functions (typically only `data`, `x`,
-  and `y`). This minimizes chances of error.
 
 ---
 

@@ -8,3 +8,11 @@ coda
 Matrix
 BayesFactor
 parameters
+lme4
+carData
+car
+abind
+survival
+bdsmatrix
+coxme
+mlma
