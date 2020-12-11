@@ -8,7 +8,7 @@ ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_3	::	ggbetweenstats	movies_long	mpaa	rating	title
-ggbetweenstats_4	dup_axis	ggbetweenstats	movies_long	mpaa	rating	scale_y_continuous
+ggbetweenstats_4	am	dup_axis	ggbetweenstats	mtcars	scale_y_continuous	wt
 ggbetweenstats_5	am	ggbetweenstats	mtcars	wt
 ggwithinstats_1	::	ggwithinstats	Taste	Wine
 ggwithinstats_1_copy	::	ggwithinstats	Taste	Wine

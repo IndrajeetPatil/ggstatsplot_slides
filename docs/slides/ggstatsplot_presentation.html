@@ -8,6 +8,7 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="ggstatsplot_presentation.css" type="text/css" />
   </head>
   <body>
@@ -17,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (version: 0.6.6)
 ### Indrajeet Patil
-### 2020-12-10<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+### 2020-12-11<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
 
 ---
 
@@ -70,7 +71,7 @@ layout: true
 --
 
 .right-column[.font150[
-Current count of packages on the Comprehensive R Archive Network (**CRAN**)&lt;br&gt;
+Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;**
 ]
 .footnote[&lt;https://cran.r-project.org/web/packages/&gt;]
@@ -217,9 +218,9 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 &lt;br&gt;
 **All** functions in `ggstatsplot`-
 
-✅  rely on a **dataframe** (e.g., `data, x, y, ...`)&lt;br&gt;
-✅  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
-✅  accept both `"string"` and `symbols` as arguments&lt;br&gt;
+✅ rely on a **dataframe** (e.g., `data, x, y, ...`)&lt;br&gt;
+✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
+✅ accept both `"string"` and `symbols` as arguments&lt;br&gt;
 
 ---
 
@@ -252,7 +253,7 @@ You can get the development version of the package from
 
 ```r
 library(remotes)
-remotes::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
+remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
 --
@@ -287,23 +288,29 @@ layout: true
 ```r
 ggbetweenstats(
   data = movies_long,
-* x = mpaa, # &gt; 2 groups
-  y = rating,
-* type = "p" # default
+  x = mpaa,
+  y = rating
 )
 ```
 
+--
+
 .font70[
-Changing the type of test
+Function internally decides tests
 
-- `"p"` → **parametric**
+- *t*-test if **2** groups
+- ANOVA if **&gt; 2** groups
 
-- `"np"` → **non-parametric**
+Defaults provide&lt;br&gt;
 
-- `"r"` → **robust**
-
-- `"bf"` → **bayes factor**
+✅ descriptive stats&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CI&lt;br&gt;
+✅ pairwise comparisons&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
 ]
+
 ]
 
 .right-plot[
@@ -332,12 +339,17 @@ ggbetweenstats(
 ```
 
 .font70[
+Changing the type of test
+
+✅ `"p"` → **parametric** (default)&lt;br&gt;
+✅ `"np"` → **non-parametric**&lt;br&gt;
+✅ `"r"` → **robust** &lt;br&gt;
+✅ `"bf"` → **bayes factor**
+
 Changing pairwise comparisons displayed
 
 - `"ns"` → only **non-significant**
-
 - `"s"` → only **significant**
-
 - `"all"` → **everything**
 ]
 ]
@@ -397,9 +409,9 @@ layout: true
 
 ```r
 ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
+  data = mtcars,
+  x = am,
+  y = wt,
 * type = "bf"
 ) +
 * scale_y_continuous(sec.axis = dup_axis())
@@ -420,41 +432,6 @@ Yaay!
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-
-# ggbetweenstats - 2 groups
-
----
-
-.left-code[
-
-```r
-ggbetweenstats(
-  data = mtcars,
-* x = am, # 2 groups
-  y = wt
-)
-```
-
-.font70[
-Changing the type of test
-
-- `"p"` → **parametric**
-
-- `"np"` → **non-parametric**
-
-- `"r"` → **robust**
-
-- `"bf"` → **bayes factor**
-]
-]
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -487,13 +464,13 @@ ggwithinstats(
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+✅ `"p"` → **parametric** (default)&lt;br&gt;
 
-- `"np"` → **non-parametric**
+✅ `"np"` → **non-parametric**&lt;br&gt;
 
-- `"r"` → **robust**
+✅ `"r"` → **robust** &lt;br&gt;
 
-- `"bf"` → **bayes factor**
+✅ `"bf"` → **bayes factor**
 ]
 ]
 
@@ -524,21 +501,20 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating,
-* type = "p" # default
+  y = rating
 )
 ```
 
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+✅ `"p"` → **parametric** (default)&lt;br&gt;
 
-- `"np"` → **non-parametric**
+✅ `"np"` → **non-parametric**&lt;br&gt;
 
-- `"r"` → **robust**
+✅ `"r"` → **robust** &lt;br&gt;
 
-- `"bf"` → **bayes factor**
+✅ `"bf"` → **bayes factor**
 ]
 ]
 
@@ -610,13 +586,13 @@ ggcorrmat(dplyr::starwars)
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+✅ `"p"` → **parametric** (default)&lt;br&gt;
 
-- `"np"` → **non-parametric**
+✅ `"np"` → **non-parametric**&lt;br&gt;
 
-- `"r"` → **robust**
+✅ `"r"` → **robust** &lt;br&gt;
 
-- `"bf"` → &lt;font color="red"&gt;not implemented&lt;/font&gt;
+❌ `"bf"` → **bayes factor**
 
 ]
 ]
@@ -780,13 +756,13 @@ gghistostats(
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+✅ `"p"` → **parametric** (default)&lt;br&gt;
 
-- `"np"` → **non-parametric**
+✅ `"np"` → **non-parametric**&lt;br&gt;
 
-- `"r"` → **robust**
+✅ `"r"` → **robust** &lt;br&gt;
 
-- `"bf"` → **bayes factor**
+✅ `"bf"` → **bayes factor**
 ]
 ]
 
@@ -825,13 +801,13 @@ ggdotplotstats(
 
 .font70[
 Changing the type of test
-- `"p"` → **parametric**
+✅ `"p"` → **parametric** (default)&lt;br&gt;
 
-- `"np"` → **non-parametric**
+✅ `"np"` → **non-parametric**&lt;br&gt;
 
-- `"r"` → **robust**
+✅ `"r"` → **robust** &lt;br&gt;
 
-- `"bf"` → **bayes factor**
+✅ `"bf"` → **bayes factor**
 ]
 ]
 
@@ -1225,7 +1201,7 @@ layout: false
 
 --
 
-For all statistical tests reported in the plots, the default template mostly abides
+- For all statistical tests reported in the plots, the default template mostly abides
 by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
 statistical reporting. For example, here are results from a robust *t*-test:
 
@@ -1461,13 +1437,15 @@ layout: true
 
 ---
 
---
-
-- This package is an alternative to learning `ggplot2`. ❌
+This package is... 
 
 --
 
-- It is meant to be used in talks/presentations. ❌
+- an alternative to learning `ggplot2`. ❌
+
+--
+
+- meant to be used in talks/presentations. ❌
 
 ---
 
@@ -1568,12 +1546,14 @@ layout: false
 
 class: inverse, center, middle
 
-# Thanks!
+# Find me at...
 
 .font150.text-white[
-[@patilindrajeets](https://twitter.com/patilindrajeets) &lt;br&gt;
-[github.com/IndrajeetPatil](https://github.com/IndrajeetPatil) &lt;br&gt;
-patilindrajeet.science@gmail.com
+
+[<i class="fab  fa-twitter "></i> @patilindrajeets](http://twitter.com/patilindrajeets)  
+[<i class="fab  fa-github "></i> @IndrajeetPatil](http://github.com/IndrajeetPatil)  
+[<i class="fas  fa-link "></i> https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
+[<i class="fas  fa-paper-plane "></i> patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 ]
 
 ---

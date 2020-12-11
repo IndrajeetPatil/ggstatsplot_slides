@@ -100,7 +100,7 @@ layout: true
 --
 
 .right-column[.font150[
-Current count of packages on the Comprehensive R Archive Network (**CRAN**)<br>
+Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **<font color="red"> > 16,000</font>**
 ]
 .footnote[<https://cran.r-project.org/web/packages/>]
@@ -244,9 +244,9 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 <br>
 **All** functions in `ggstatsplot`-
 
-`r emo::ji("check")`  rely on a **dataframe** (e.g., `data, x, y, ...`)<br>
-`r emo::ji("check")`  expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))<br>
-`r emo::ji("check")`  accept both `"string"` and `symbols` as arguments<br>
+`r emo::ji("check")` rely on a **dataframe** (e.g., `data, x, y, ...`)<br>
+`r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))<br>
+`r emo::ji("check")` accept both `"string"` and `symbols` as arguments<br>
 
 ---
 
@@ -277,7 +277,7 @@ You can get the development version of the package from
 
 ```{r github, eval = FALSE, tidy = FALSE}
 library(remotes)
-remotes::install_github("IndrajeetPatil/ggstatsplot", dependencies = FALSE)
+remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
 --
@@ -310,23 +310,29 @@ layout: true
 ```{r ggbetweenstats_1, eval = FALSE}
 ggbetweenstats(
   data = movies_long,
-  x = mpaa, # > 2 groups #<<
-  y = rating,
-  type = "p" # default #<<
+  x = mpaa,
+  y = rating
 )
 ```
 
+--
+
 .font70[
-Changing the type of test
+Function internally decides tests
 
-- `"p"` → **parametric**
+- *t*-test if **2** groups
+- ANOVA if **> 2** groups
 
-- `"np"` → **non-parametric**
+Defaults provide<br>
 
-- `"r"` → **robust**
-
-- `"bf"` → **bayes factor**
+`r emo::ji("check")` descriptive stats<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` pairwise comparisons<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
 ]
+
 ]
 
 .right-plot[
@@ -355,12 +361,17 @@ ggbetweenstats(
 ```
 
 .font70[
+Changing the type of test
+
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
+`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"bf"` → **bayes factor**
+
 Changing pairwise comparisons displayed
 
 - `"ns"` → only **non-significant**
-
 - `"s"` → only **significant**
-
 - `"all"` → **everything**
 ]
 ]
@@ -420,9 +431,9 @@ layout: true
 .left-code[
 ```{r ggbetweenstats_4, eval = FALSE}
 ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
+  data = mtcars,
+  x = am,
+  y = wt,
   type = "bf" #<<
 ) +
   scale_y_continuous(sec.axis = dup_axis()) #<<
@@ -443,41 +454,6 @@ Yaay!
 
 .right-plot[
 ```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
-```
-]
-
----
-
-layout: true
-
-# ggbetweenstats - 2 groups
-
----
-
-.left-code[
-```{r ggbetweenstats_5, eval = FALSE}
-ggbetweenstats(
-  data = mtcars,
-  x = am, # 2 groups #<<
-  y = wt
-)
-```
-
-.font70[
-Changing the type of test
-
-- `"p"` → **parametric**
-
-- `"np"` → **non-parametric**
-
-- `"r"` → **robust**
-
-- `"bf"` → **bayes factor**
-]
-]
-
-.right-plot[
-```{r ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE}
 ```
 ]
 
@@ -510,13 +486,13 @@ ggwithinstats(
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
 
-- `"np"` → **non-parametric**
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
 
-- `"r"` → **robust**
+`r emo::ji("check")` `"r"` → **robust** <br>
 
-- `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **bayes factor**
 ]
 ]
 
@@ -547,21 +523,20 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating,
-  type = "p" # default #<<
+  y = rating
 )
 ```
 
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
 
-- `"np"` → **non-parametric**
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
 
-- `"r"` → **robust**
+`r emo::ji("check")` `"r"` → **robust** <br>
 
-- `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **bayes factor**
 ]
 ]
 
@@ -633,13 +608,13 @@ ggcorrmat(dplyr::starwars)
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
 
-- `"np"` → **non-parametric**
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
 
-- `"r"` → **robust**
+`r emo::ji("check")` `"r"` → **robust** <br>
 
-- `"bf"` → <font color="red">not implemented</font>
+`r emo::ji("x")` `"bf"` → **bayes factor**
 
 ]
 ]
@@ -710,13 +685,13 @@ gghistostats(
 .font70[
 Changing the type of test
 
-- `"p"` → **parametric**
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
 
-- `"np"` → **non-parametric**
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
 
-- `"r"` → **robust**
+`r emo::ji("check")` `"r"` → **robust** <br>
 
-- `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **bayes factor**
 ]
 ]
 
@@ -755,13 +730,13 @@ ggdotplotstats(
 
 .font70[
 Changing the type of test
-- `"p"` → **parametric**
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
 
-- `"np"` → **non-parametric**
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
 
-- `"r"` → **robust**
+`r emo::ji("check")` `"r"` → **robust** <br>
 
-- `"bf"` → **bayes factor**
+`r emo::ji("check")` `"bf"` → **bayes factor**
 ]
 ]
 
@@ -1390,13 +1365,15 @@ layout: true
 
 ---
 
---
-
-- This package is an alternative to learning `ggplot2`. `r emo::ji("x")`
+This package is... 
 
 --
 
-- It is meant to be used in talks/presentations. `r emo::ji("x")`
+- an alternative to learning `ggplot2`. `r emo::ji("x")`
+
+--
+
+- meant to be used in talks/presentations. `r emo::ji("x")`
 
 ---
 
@@ -1497,12 +1474,14 @@ layout: false
 
 class: inverse, center, middle
 
-# Thanks!
+# Find me at...
 
 .font150.text-white[
-[@patilindrajeets](https://twitter.com/patilindrajeets) <br>
-[github.com/IndrajeetPatil](https://github.com/IndrajeetPatil) <br>
-patilindrajeet.science@gmail.com
+
+[`r icon::fa("twitter")` @patilindrajeets](http://twitter.com/patilindrajeets)  
+[`r icon::fa("github")` @IndrajeetPatil](http://github.com/IndrajeetPatil)  
+[`r icon::fa("link")` https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
+[`r icon::fa("paper-plane")` patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 ]
 
 ---
