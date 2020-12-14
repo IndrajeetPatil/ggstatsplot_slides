@@ -59,25 +59,21 @@ options(
   knitr.table.format = "html",
   crayon.enabled = TRUE
 )
-
-as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
 ```
 
 ---
 
-layout: true
+layout: false
 
 # Plan
 
 ---
 
---
-
 - Why `ggstatsplot`?
 
-- Current functions
+- Primary functions
 
-- Benefits and scalability
+- Benefits and customizability
 
 - Limitations
 
@@ -170,8 +166,6 @@ layout: true
 
 .footnote[[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
---
-
 <br>
 <br>
 <br>
@@ -183,7 +177,7 @@ layout: true
 <br>
 <br>
 <br>
-.font150[“I plotted my data and what I found surprised me!" - BuzzFeed]
+.font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
 
@@ -193,7 +187,7 @@ layout: false
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
+The **grammar of graphics** (implemented in `ggplot2`) is a powerful
 framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
 infinite number of graphics, each tailored for your specific data visualization
 problem! But...
@@ -246,7 +240,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 `r emo::ji("check")` rely on a **dataframe** (e.g., `data, x, y, ...`)<br>
 `r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))<br>
-`r emo::ji("check")` accept both `"string"` and `symbols` as arguments<br>
+`r emo::ji("check")` accept `symbols` as arguments (`x = var`)<br>
 
 ---
 
@@ -264,7 +258,7 @@ layout: false
 
 --
 
-Install the **ggstatsplot** package from 
+Install the stable version of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
@@ -295,6 +289,14 @@ layout: false
 
 class: inverse, center, middle
 
+# Primary functions
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # ggbetweenstats
 For between group/condition comparisons
 
@@ -302,7 +304,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats - defaults
+# ggbetweenstats
 
 ---
 
@@ -321,7 +323,7 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **> 2** groups
 
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` raw data<br>
 `r emo::ji("check")` descriptive statistics<br>
@@ -434,7 +436,7 @@ ggwithinstats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` raw data<br>
 `r emo::ji("check")` descriptive statistics<br>
@@ -471,7 +473,7 @@ Association between two numeric variables
 
 layout: true
 
-# ggscatterstats - defaults
+# ggscatterstats
 
 ---
 
@@ -485,7 +487,7 @@ ggscatterstats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` raw data<br>
 `r emo::ji("check")` marginal distributions<br>
@@ -559,7 +561,7 @@ Association between multiple numeric variables
 
 layout: true
 
-# ggcorrmat - defaults
+# ggcorrmat
 
 ---
 
@@ -569,7 +571,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` effect size + significance<br>
 `r emo::ji("check")` careful handling of `NA`s
@@ -593,34 +595,22 @@ Changing the `type` of test
 
 layout: true
 
-# ggcorrmat - changing defaults
+# ggcorrmat - getting a dataframe
 
 ---
 
-.left-code[
-
 .font70[
-In addition to `output = "plot"`, 
-this function can also be used to
-get a <font color="blue">dataframe</font> of results:
+In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font> of results:
 ]
 
-```{r ggcorrmat_2, eval = FALSE}
+.font40[
+```{r ggcorrmat_2}
 ggcorrmat(
   data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
   type = "bf",
-  output = "dataframe"
+  output = "dataframe" #<<
 )
 ```
-
-]
-
-.font50[
-.right-plot[
-```{r ggcorrmat_2, ref.label = 'ggcorrmat_2', echo = FALSE}
-```
-]
 ]
 
 ---
@@ -636,7 +626,7 @@ Distribution of a numeric variable
 
 layout: true
 
-# gghistostats - defaults
+# gghistostats
 
 ---
 
@@ -650,7 +640,7 @@ gghistostats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` counts + proportion for bins<br>
 `r emo::ji("check")` descriptive statistics<br>
@@ -686,7 +676,7 @@ Distribution of a numeric variable with labels
 
 layout: true
 
-# ggdotplotstats - defaults
+# ggdotplotstats
 
 ---
 
@@ -702,7 +692,7 @@ ggdotplotstats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
@@ -755,7 +745,7 @@ ggpiestats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
@@ -826,7 +816,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggbarstats - defaults
+# ggbarstats
 
 ---
 
@@ -842,7 +832,7 @@ ggbarstats(
 ```
 
 .font70[
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
@@ -871,7 +861,7 @@ Displaying results from regression analyses
 
 layout: true
 
-# ggcoefstats - defaults
+# ggcoefstats
 
 ---
 
@@ -895,7 +885,7 @@ get a <font color="blue">dataframe</font> of results:
 - `"tidy"` → **estimates**
 - `"glance"` → **model summary**
 
-Defaults return<br>
+**Defaults** return<br>
 
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` estimate + CIs<br>
@@ -1416,11 +1406,17 @@ This package is...
 
 --
 
-- an alternative to learning `ggplot2`. `r emo::ji("x")`
+- an alternative to learning `ggplot2`. `r emo::ji("x")`<br>
+--
+(The better you know `ggplot2`, the more you can modify the defaults to your
+requirements.)
 
 --
 
-- meant to be used in talks/presentations. `r emo::ji("x")`
+- meant to be used in talks/presentations. `r emo::ji("x")`<br>
+--
+(Although these plots are fantastic for data exploration, they might be too
+complicated for settings where you are pressed for time.)
 
 ---
 

@@ -36,19 +36,17 @@ code.r{
 
 ---
 
-layout: true
+layout: false
 
 # Plan
 
 ---
 
---
-
 - Why `ggstatsplot`?
 
-- Current functions
+- Primary functions
 
-- Benefits and scalability
+- Benefits and customizability
 
 - Limitations
 
@@ -141,8 +139,6 @@ layout: true
 
 .footnote[[(Matejka &amp; Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
---
-
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
@@ -154,7 +150,7 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-.font150[“I plotted my data and what I found surprised me!" - BuzzFeed]
+.font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
 
@@ -164,7 +160,7 @@ layout: false
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) is an incredibly powerful
+The **grammar of graphics** (implemented in `ggplot2`) is a powerful
 framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
 infinite number of graphics, each tailored for your specific data visualization
 problem! But...
@@ -220,7 +216,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 ✅ rely on a **dataframe** (e.g., `data, x, y, ...`)&lt;br&gt;
 ✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
-✅ accept both `"string"` and `symbols` as arguments&lt;br&gt;
+✅ accept `symbols` as arguments (`x = var`)&lt;br&gt;
 
 ---
 
@@ -238,7 +234,7 @@ layout: false
 
 --
 
-Install the **ggstatsplot** package from 
+Install the stable version of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -272,6 +268,14 @@ layout: false
 
 class: inverse, center, middle
 
+# Primary functions
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # ggbetweenstats
 For between group/condition comparisons
 
@@ -279,7 +283,7 @@ For between group/condition comparisons
 
 layout: true
 
-# ggbetweenstats - defaults
+# ggbetweenstats
 
 ---
 
@@ -299,7 +303,7 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **&gt; 2** groups
 
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ raw data&lt;br&gt;
 ✅ descriptive statistics&lt;br&gt;
@@ -412,7 +416,7 @@ ggwithinstats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ raw data&lt;br&gt;
 ✅ descriptive statistics&lt;br&gt;
@@ -448,7 +452,7 @@ Association between two numeric variables
 
 layout: true
 
-# ggscatterstats - defaults
+# ggscatterstats
 
 ---
 
@@ -463,7 +467,7 @@ ggscatterstats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ raw data&lt;br&gt;
 ✅ marginal distributions&lt;br&gt;
@@ -536,7 +540,7 @@ Association between multiple numeric variables
 
 layout: true
 
-# ggcorrmat - defaults
+# ggcorrmat
 
 ---
 
@@ -547,7 +551,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ effect size + significance&lt;br&gt;
 ✅ careful handling of `NA`s
@@ -570,32 +574,24 @@ Changing the `type` of test
 
 layout: true
 
-# ggcorrmat - changing defaults
+# ggcorrmat - getting a dataframe
 
 ---
 
-.left-code[
-
 .font70[
-In addition to `output = "plot"`, 
-this function can also be used to
-get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
+In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 ]
 
+.font40[
 
 ```r
 ggcorrmat(
   data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
   type = "bf",
-  output = "dataframe"
+* output = "dataframe"
 )
 ```
 
-]
-
-.font50[
-.right-plot[
 &lt;div class="kable-table"&gt;
 
 &lt;table&gt;
@@ -618,13 +614,148 @@ ggcorrmat(
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7317177 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6288534 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8184845 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.000791e+09 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4383527 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6669346 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2360498 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01075 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.854778e+00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.9999985 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.9999990 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.9999979 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.3446516 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.5273034 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1701582 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99850 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02275 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.292097e+00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.3016980 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4549859 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1436299 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99825 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.275398e+00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.3129315 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.5591645 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0804987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.97350 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.08400 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.424379e+00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7320292 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.8285003 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6334420 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.005547e+09 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2067858 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4177026 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0114455 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.93075 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19325 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.539296e-01 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.3128467 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4861973 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1188084 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99300 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.04175 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.801667e+00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4306764 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2111705 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6576437 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99925 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.01325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4340140 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2206357 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6648865 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99350 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02175 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -635,9 +766,9 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.8194467 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7099600 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9080399 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8224116 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7238766 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9080385 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
@@ -650,11 +781,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3844369 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1499450 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6146620 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.98750 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.03950 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3814361 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1314552 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6018975 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.04000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -665,11 +796,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3434079 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1717558 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5380536 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99750 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02825 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3440299 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1636629 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5274184 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02575 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -680,11 +811,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3019316 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1504995 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4584473 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99850 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02775 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3039058 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1470093 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4593194 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02600 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -695,9 +826,9 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9253591 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.8917446 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9537244 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9261647 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8928126 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9532144 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
@@ -711,7 +842,6 @@ ggcorrmat(
 &lt;/table&gt;
 
 &lt;/div&gt;
-]
 ]
 
 ---
@@ -727,7 +857,7 @@ Distribution of a numeric variable
 
 layout: true
 
-# gghistostats - defaults
+# gghistostats
 
 ---
 
@@ -742,7 +872,7 @@ gghistostats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ counts + proportion for bins&lt;br&gt;
 ✅ descriptive statistics&lt;br&gt;
@@ -777,7 +907,7 @@ Distribution of a numeric variable with labels
 
 layout: true
 
-# ggdotplotstats - defaults
+# ggdotplotstats
 
 ---
 
@@ -794,7 +924,7 @@ ggdotplotstats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
@@ -847,7 +977,7 @@ ggpiestats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
@@ -917,7 +1047,7 @@ For composition of categorical variables
 
 layout: true
 
-# ggbarstats - defaults
+# ggbarstats
 
 ---
 
@@ -934,7 +1064,7 @@ ggbarstats(
 ```
 
 .font70[
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
@@ -962,7 +1092,7 @@ Displaying results from regression analyses
 
 layout: true
 
-# ggcoefstats - defaults
+# ggcoefstats
 
 ---
 
@@ -987,7 +1117,7 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 - `"tidy"` → **estimates**
 - `"glance"` → **model summary**
 
-Defaults return&lt;br&gt;
+**Defaults** return&lt;br&gt;
 
 ✅ statistic + *p*-value&lt;br&gt;
 ✅ estimate + CIs&lt;br&gt;
@@ -1509,11 +1639,17 @@ This package is...
 
 --
 
-- an alternative to learning `ggplot2`. ❌
+- an alternative to learning `ggplot2`. ❌&lt;br&gt;
+--
+(The better you know `ggplot2`, the more you can modify the defaults to your
+requirements.)
 
 --
 
-- meant to be used in talks/presentations. ❌
+- meant to be used in talks/presentations. ❌&lt;br&gt;
+--
+(Although these plots are fantastic for data exploration, they might be too
+complicated for settings where you are pressed for time.)
 
 ---
 
