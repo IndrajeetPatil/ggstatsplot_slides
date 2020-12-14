@@ -321,12 +321,12 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **> 2** groups
 
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` raw data<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
 `r emo::ji("check")` pairwise comparisons<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
@@ -384,7 +384,7 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats - aesthetic changes & outlier tagging
+# ggbetweenstats - outlier tagging
 
 ---
 
@@ -397,62 +397,13 @@ ggbetweenstats(
   type = "r", #<<
   outlier.tagging = TRUE, #<<
   outlier.label = title, #<<
-  outlier.coef = 2, #<<
-  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-  palette = "Darjeeling2", #<<
-  package = "wesanderson" #<<
+  outlier.coef = 2 #<<
 )
 ```
-
-.font70[
-Aesthetic preferences
-are not an excuse to not
-use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
-
-The default palette used
-is **colorblind-friendly**.
-]
 ]
 
 .right-plot[
 ```{r ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE}
-```
-]
-
----
-
-layout: true
-
-# ggbetweenstats - modification with *ggplot2*
-
----
-
-.left-code[
-```{r ggbetweenstats_4, eval = FALSE}
-ggbetweenstats(
-  data = mtcars,
-  x = am,
-  y = wt,
-  type = "bf" #<<
-) +
-  scale_y_continuous(sec.axis = dup_axis()) #<<
-```
-
-.font70[
-**Note**: You can modify 
-all `ggstatsplot` plots further 
-using `ggplot2` functions.
-Yaay!
-]
-
-.img-left-small[
-![](images/happy_cat.gif)
-]
-
-]
-
-.right-plot[
-```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
 ```
 ]
 
@@ -483,12 +434,12 @@ ggwithinstats(
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` raw data<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
 `r emo::ji("check")` pairwise comparisons<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
@@ -534,12 +485,12 @@ ggscatterstats(
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` raw data<br>
-`r emo::ji("check")` marginal distribution<br>
+`r emo::ji("check")` marginal distributions<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
 
@@ -618,9 +569,9 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
-`r emo::ji("check")` effect size + significance
+`r emo::ji("check")` effect size + significance<br>
 `r emo::ji("check")` careful handling of `NA`s
 
 Changing the `type` of test
@@ -658,6 +609,7 @@ get a <font color="blue">dataframe</font> of results:
 ggcorrmat(
   data = ggplot2::msleep,
   cor.vars = sleep_cycle:bodywt,
+  type = "bf",
   output = "dataframe"
 )
 ```
@@ -698,12 +650,12 @@ gghistostats(
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` counts + proportion for bins<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
 
@@ -750,12 +702,11 @@ ggdotplotstats(
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
-`r emo::ji("check")` percentile scores<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
 
@@ -804,11 +755,12 @@ ggpiestats(
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
+`r emo::ji("check")` Goodness-of-fit tests<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
 
@@ -884,25 +836,20 @@ ggbarstats(
   data = movies_long,
   x = genre,
   y = mpaa,
-  caption = "IMDB data", #<<
   package = "ggsci",
   palette = "default_igv"
 )
 ```
 
 .font70[
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CI<br>
+`r emo::ji("check")` effect size + CIs<br>
+`r emo::ji("check")` Goodness-of-fit tests<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
-
-**Note**: Even if you display 
-Bayes Factor message in a caption, 
-you can still use the `caption`
-argument.
 ]
 ]
 
@@ -948,10 +895,10 @@ get a <font color="blue">dataframe</font> of results:
 - `"tidy"` → **estimates**
 - `"glance"` → **model summary**
 
-Defaults provide<br>
+Defaults return<br>
 
 `r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` estimate + CI<br>
+`r emo::ji("check")` estimate + CIs<br>
 `r emo::ji("check")` model summary (AIC + BIC)
 ]
 
@@ -966,7 +913,7 @@ Defaults provide<br>
 
 layout: true
 
-# *ggcoefstats*: Supported models
+# ggcoefstats: Supported models
 
 ---
 
@@ -997,7 +944,7 @@ layout: true
 
 layout: true
 
-# *ggcoefstats*: If not implemented, use a dataframe
+# ggcoefstats: If not implemented, use a dataframe
 
 ---
 
@@ -1053,8 +1000,6 @@ layout: true
 
 ---
 
-Repeating the same analysis for all levels of a **single** grouping variable.
-
 --
 
 .left-code[
@@ -1092,19 +1037,115 @@ layout: false
 
 class: inverse, center, middle
 
-# Utility beyond *ggstatsplot*
-What if I don't like the default plots 
-but still want to display statistical results?
+# Customizability of *ggstatsplot*
+What if I don't like the default plots
+
+---
+
+exclude: false
+
+layout: true
+
+# Defaults
+
+---
+
+exclude: false
+
+.pull-left[
+.font100[
+The default plots in *<font color="blue">ggstatsplot</font>* are
+**opinionated**, yes, but an attempt has been made to make sure that they
+follow best principles outlined in the data visualization research.
+]
+]
+
+.pull-right[
+![](images/books.JPG)
+]
 
 ---
 
 layout: true
 
-# Using as helper functions
+# Changing aesthetics (themes + palettes)
 
 ---
 
-`ggstatsplot` can also be used just to get the statistical details.
+.left-code[
+```{r ggbetweenstats_4, eval = FALSE}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  results.subtitle = FALSE,
+  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+  palette = "Darjeeling2", #<<
+  package = "wesanderson" #<<
+)
+```
+
+.font70[
+Aesthetic preferences
+are not an excuse to not
+use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
+
+The default palette used
+is **colorblind-friendly**.
+]
+]
+
+.right-plot[
+```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# Further modification with *ggplot2*
+
+---
+
+.left-code[
+```{r ggbetweenstats_5, eval = FALSE}
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  type = "bf"
+) +
+  scale_y_continuous(sec.axis = dup_axis()) #<<
+```
+
+.font70[
+**Note**: You can modify 
+all `ggstatsplot` plots further 
+using `ggplot2` functions.
+Yaay!
+]
+
+.img-left-small[
+![](images/happy_cat.gif)
+]
+
+]
+
+.right-plot[
+```{r ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# To extract expression
+
+---
+
+`ggstatsplot` can also be used just to get the statistical expressions.
 
 --
 
@@ -1346,48 +1387,6 @@ layout: true
 
 layout: true
 
-# Quality assurance
-
----
-
---
-
-`ggstatsplot` has 100% code coverage. 
-
-If you use `ggstatsplot` to report results in your publication and find an error
-that traces back to code in this package, I will personally write an apology
-letter to you and to the editor of the journal in question.
-
-.footnote[*Reference*: <https://codecov.io/gh/IndrajeetPatil/ggstatsplot>]
-
----
-
-exclude: false
-
-layout: true
-
-# Informative plot designs
-
----
-
-exclude: false
-
-.pull-left[
-.font150[
-The default plots in *<font color="blue">ggstatsplot</font>* are
-**opinionated**, yes, but an attempt has been made to make sure that they
-follow best principles outlined in the data visualization research.
-]
-]
-
-.pull-right[
-![](images/books.JPG)
-]
-
----
-
-layout: true
-
 # Documentation
 
 ---
@@ -1447,6 +1446,11 @@ layout: true
 
 - Limited number of statistical <font color="blue">tests</font> (and effect
 sizes) available.
+
+--
+
+- Requires non-trivial level of statistical proficiency (but only plots
+  without stats can also be used).
 
 --
 
