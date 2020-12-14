@@ -31,8 +31,6 @@ options(
   crayon.enabled = TRUE
 )
 
-as_table <- function(...) knitr::kable(..., format = "html", digits = 3)
-
 
 ## ----lm, eval = FALSE-------------------------------------------------------------------
 ## stats::lm(formula = wt ~ mpg, data = mtcars)
@@ -106,10 +104,7 @@ ggbetweenstats(
 ##   type = "r", #<<
 ##   outlier.tagging = TRUE, #<<
 ##   outlier.label = title, #<<
-##   outlier.coef = 2, #<<
-##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-##   palette = "Darjeeling2", #<<
-##   package = "wesanderson" #<<
+##   outlier.coef = 2 #<<
 ## )
 
 
@@ -121,31 +116,8 @@ ggbetweenstats(
   type = "r", #<<
   outlier.tagging = TRUE, #<<
   outlier.label = title, #<<
-  outlier.coef = 2, #<<
-  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
-  palette = "Darjeeling2", #<<
-  package = "wesanderson" #<<
+  outlier.coef = 2 #<<
 )
-
-
-## ----ggbetweenstats_4, eval = FALSE-----------------------------------------------------
-## ggbetweenstats(
-##   data = mtcars,
-##   x = am,
-##   y = wt,
-##   type = "bf" #<<
-## ) +
-##   scale_y_continuous(sec.axis = dup_axis()) #<<
-
-
-## ----ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE---------------------
-ggbetweenstats(
-  data = mtcars,
-  x = am,
-  y = wt,
-  type = "bf" #<<
-) +
-  scale_y_continuous(sec.axis = dup_axis()) #<<
 
 
 ## ----ggwithinstats_1, eval = FALSE------------------------------------------------------
@@ -214,19 +186,13 @@ ggscatterstats(
 ggcorrmat(dplyr::starwars)
 
 
-## ----ggcorrmat_2, eval = FALSE----------------------------------------------------------
-## ggcorrmat(
-##   data = ggplot2::msleep,
-##   cor.vars = sleep_cycle:bodywt,
-##   output = "dataframe"
-## )
+## ----ggcorrmat_2------------------------------------------------------------------------
+library(ggplot2) # for data
 
-
-## ----ggcorrmat_2, ref.label = 'ggcorrmat_2', echo = FALSE-------------------------------
 ggcorrmat(
-  data = ggplot2::msleep,
-  cor.vars = sleep_cycle:bodywt,
-  output = "dataframe"
+  data = dplyr::select(msleep, sleep_rem, awake, brainwt),
+  type = "bf",
+  output = "dataframe" #<<
 )
 
 
@@ -313,7 +279,6 @@ ggpiestats(
 ##   data = movies_long,
 ##   x = genre,
 ##   y = mpaa,
-##   caption = "IMDB data", #<<
 ##   package = "ggsci",
 ##   palette = "default_igv"
 ## )
@@ -324,7 +289,6 @@ ggbarstats(
   data = movies_long,
   x = genre,
   y = mpaa,
-  caption = "IMDB data", #<<
   package = "ggsci",
   palette = "default_igv"
 )
@@ -357,7 +321,7 @@ ggcoefstats(mod)
 ## 
 ## # dataframe with results
 ## df <-
-##   model_parameters(stats::lm(wt ~ cyl, mtcars)) %>%
+##   model_parameters(lm(wt ~ cyl, mtcars)) %>%
 ##   standardize_names(., "broom")
 ## 
 ## # `statistic` argument decides label format
@@ -372,7 +336,7 @@ library(parameters)
 
 # dataframe with results
 df <-
-  model_parameters(stats::lm(wt ~ cyl, mtcars)) %>%
+  model_parameters(lm(wt ~ cyl, mtcars)) %>%
   standardize_names(., "broom")
 
 # `statistic` argument decides label format
@@ -383,23 +347,63 @@ ggstatsplot::ggcoefstats(
 
 
 ## ----grouped_1, eval = FALSE------------------------------------------------------------
-## # only one additional argument
 ## grouped_ggpiestats(
 ##   data = mtcars,
 ##   x = cyl,
-##   grouping.var = am, #<<
-##   results.subtitle = FALSE #<<
+##   grouping.var = am #<<
 ## )
 
 
 ## ----grouped_1, ref.label = 'grouped_1', echo = FALSE-----------------------------------
-# only one additional argument
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
-  grouping.var = am, #<<
-  results.subtitle = FALSE #<<
+  grouping.var = am #<<
 )
+
+
+## ----ggbetweenstats_4, eval = FALSE-----------------------------------------------------
+## ggbetweenstats(
+##   data = movies_long,
+##   x = mpaa,
+##   y = rating,
+##   results.subtitle = FALSE,
+##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+##   palette = "Darjeeling2", #<<
+##   package = "wesanderson" #<<
+## )
+
+
+## ----ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE---------------------
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  results.subtitle = FALSE,
+  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+  palette = "Darjeeling2", #<<
+  package = "wesanderson" #<<
+)
+
+
+## ----ggbetweenstats_5, eval = FALSE-----------------------------------------------------
+## ggbetweenstats(
+##   data = mtcars,
+##   x = am,
+##   y = wt,
+##   type = "bf"
+## ) +
+##   scale_y_continuous(sec.axis = dup_axis()) #<<
+
+
+## ----ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE---------------------
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  type = "bf"
+) +
+  scale_y_continuous(sec.axis = dup_axis()) #<<
 
 
 ## ----subtitle_1, eval = FALSE-----------------------------------------------------------

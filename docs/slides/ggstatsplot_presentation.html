@@ -36,7 +36,7 @@ code.r{
 
 ---
 
-layout: false
+layout: true
 
 # Plan
 
@@ -48,7 +48,7 @@ layout: false
 
 - Benefits and customizability
 
-- Limitations
+- Misconceptions and limitations
 
 ---
 
@@ -68,11 +68,15 @@ layout: true
 
 --
 
-.right-column[.font150[
+.right-column[
+
+.font130[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;**
 ]
+
 .footnote[&lt;https://cran.r-project.org/web/packages/&gt;]
+
 ]
 
 --
@@ -83,8 +87,8 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.right-column[.font150[
-Short answer: `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and quick (exploratory) statistical analysis.
+.right-column[.font130[
+Short answer: `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and quick (exploratory) data analysis.
 ]
 ]
 
@@ -119,12 +123,13 @@ and modeling can suggest a different visualization, and so on and so forth.
 
 --
 
-The central idea of **ggstatsplot** is simple: combine these two phases into one
-in the form of graphics with statistical detail for &lt;font color="blue"&gt;simpler&lt;/font&gt; and &lt;font color="blue"&gt;faster&lt;/font&gt; data exploration.
+The central idea of **ggstatsplot** is simple: combine these two phases into one!
 
 ---
 
 layout: true
+
+class: center
 
 # Information-rich graphic is worth a thousand words
 
@@ -214,7 +219,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 &lt;br&gt;
 **All** functions in `ggstatsplot`-
 
-✅ rely on a **dataframe** (e.g., `data, x, y, ...`)&lt;br&gt;
+✅ rely on a **dataframe** (`function(data, x, ...)`)&lt;br&gt;
 ✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
 ✅ accept `symbols` as arguments (`x = var`)&lt;br&gt;
 
@@ -578,15 +583,15 @@ layout: true
 
 ---
 
-.font70[
 In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
-]
 
-.font40[
+.font60[
 
 ```r
+library(ggplot2) # for data
+
 ggcorrmat(
-  data = ggplot2::msleep,
+  data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
 * output = "dataframe"
 )
@@ -614,103 +619,13 @@ ggcorrmat(
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7317177 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6288534 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.8184845 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.000791e+09 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4383527 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6669346 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2360498 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99500 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.01075 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.854778e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.9999985 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.9999990 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.9999979 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.3446516 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.5273034 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1701582 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99850 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02275 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.292097e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.3016980 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4549859 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1436299 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99825 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02750 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.275398e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.3129315 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.5591645 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0804987 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.97350 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.08400 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.424379e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.7320292 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.8285003 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6334420 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7320232 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.8233131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6372307 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -721,11 +636,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2067858 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4177026 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0114455 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.93075 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.19325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2104464 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4297109 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0084730 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9335 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1985 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -734,107 +649,17 @@ ggcorrmat(
    &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.3128467 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4861973 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1188084 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99300 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.04175 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.801667e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4340140 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2206357 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6648865 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99350 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02175 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.854778e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.8224116 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7238766 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9080385 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.802376e+06 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_cycle &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3814361 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1314552 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6018975 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99200 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.04000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.757386e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3440299 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1636629 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5274184 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99700 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02575 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3448133 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1503431 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5180235 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9950 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0305 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 7.292097e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3039058 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1470093 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4593194 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99625 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02600 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.267755e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bodywt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9261647 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.8928126 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9532144 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.577200e+22 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
   &lt;/tr&gt;
@@ -1086,7 +911,7 @@ layout: false
 class: inverse, center, middle
 
 # ggcoefstats
-Displaying results from regression analyses
+For regression model objects
 
 ---
 
@@ -1161,6 +986,14 @@ layout: true
 `svyglm`, `tobit`, `truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
+--
+
+Thanks to [`easystats`](https://easystats.github.io/easystats/)!
+
+.img-left-small[
+![](images/easystats.jpg)
+]
+
 ---
 
 layout: true
@@ -1176,7 +1009,7 @@ library(parameters)
 
 # dataframe with results
 df &lt;-
-  model_parameters(stats::lm(wt ~ cyl, mtcars)) %&gt;%
+  model_parameters(lm(wt ~ cyl, mtcars)) %&gt;%
   standardize_names(., "broom")
 
 # `statistic` argument decides label format
@@ -1226,12 +1059,10 @@ layout: true
 .left-code[
 
 ```r
-# only one additional argument
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
-* grouping.var = am,
-* results.subtitle = FALSE
+* grouping.var = am
 )
 ```
 
@@ -1259,7 +1090,7 @@ layout: false
 class: inverse, center, middle
 
 # Customizability of *ggstatsplot*
-What if I don't like the default plots
+"What if I don't like the default plots?" 🤔
 
 ---
 
@@ -1343,7 +1174,7 @@ ggbetweenstats(
 
 .font70[
 **Note**: You can modify 
-all `ggstatsplot` plots further 
+ `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
 ]
@@ -1362,11 +1193,11 @@ Yaay!
 
 layout: true
 
-# To extract expression
+# Extract expressions for custom plots
 
 ---
 
-`ggstatsplot` can also be used just to get the statistical expressions.
+`ggstatsplot` can also be used to get only the statistical expressions.
 
 --
 
@@ -1390,12 +1221,6 @@ results &lt;-
   interactive = FALSE
 *) + labs(subtitle = results)
 ```
-
-.font70[
-&lt;br&gt;
-**All** included analyses have their
-corresponding [helper functions](https://indrajeetpatil.github.io/statsExpressions/reference/index.html) for preparing subtitles with statistical details.
-]
 ]
 
 .right-plot[
@@ -1437,7 +1262,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
-# Best practices in reporting statistical details
+# Best practices in statistical reporting
 
 --
 
@@ -1465,8 +1290,7 @@ layout: false
 --
 
 Since the plot and the statistical analysis are yoked together, the chances of
-making an error in reporting the results are minimized. You never have to write
-the results manually or copy-paste them from someplace else.
+making an error in reporting the results are minimized.
 
 ![](images\statcheck.png)
 
@@ -1491,7 +1315,7 @@ interpret the null results.
 
 layout: false
 
-# Toggling between type of statistics
+# Toggling between different statistical approaches
 
 --
 
@@ -1576,18 +1400,18 @@ layout: true
 
 --
 
-- No need to use scores of packages to get different statistical details
-    (e.g., one to get stats, one to get effect sizes, another to get Bayes
-    Factors, and yet another to get pairwise comparisons, etc.).
+- No need to use scores of packages for statistical analysis
+  (e.g., one to get stats, one to get effect sizes, another to get Bayes
+  Factors, and yet another to get pairwise comparisons, etc.).
 
 --
 
 - Minimal amount of code needed for all functions (typically only `data`, `x`,
-  and `y`). This minimizes chances of error.
+  and `y`). This minimizes chances of error and makes for tidy scripts.
   
 --
 
-- Truly makes your figures worth a thousand words. 
+- Truly makes your figures worth a thousand words.
 
 --
 
@@ -1608,19 +1432,6 @@ layout: true
 
 ---
 
-layout: true
-
-# Documentation
-
----
-
-Exhaustive documentation at the dedicated website- &lt;br&gt;
-&lt;https://indrajeetpatil.github.io/ggstatsplot/&gt;
-
-![](images/website.PNG)
-
----
-
 layout: false
 
 class: inverse, center, middle
@@ -1635,21 +1446,23 @@ layout: true
 
 ---
 
+--
+
 This package is... 
 
 --
 
-- an alternative to learning `ggplot2`. ❌&lt;br&gt;
+- an alternative to learning `ggplot2` ❌&lt;br&gt;
 --
 (The better you know `ggplot2`, the more you can modify the defaults to your
 requirements.)
 
 --
 
-- meant to be used in talks/presentations. ❌&lt;br&gt;
+- meant to be used in talks/presentations ❌&lt;br&gt;
 --
-(Although these plots are fantastic for data exploration, they might be too
-complicated for settings where you are pressed for time.)
+(Default plots can be too complicated for effectively communicating results in
+time-constrained presentation settings, e.g. conference talks.)
 
 ---
 
@@ -1679,16 +1492,11 @@ sizes) available.
 --
 
 - Requires non-trivial level of statistical proficiency (but only plots
-  without stats can also be used).
+  without statistics can also be used).
 
 --
 
 - &lt;font color="blue"&gt;Faceting&lt;/font&gt; (or small multiples) not implemented.
-
---
-
-- Default plots can be too complicated for effectively communicating results in
-time-constrained presentation settings (e.g., conference talks). 
 
 --
 
@@ -1722,14 +1530,13 @@ Contributions (big or small) welcome!
 Ways in which you can contribute
 
 - Read and correct any inconsistencies in the
-[documentation](https://indrajeetpatil.github.io/ggstatsplot/)
+[documentation](https://indrajeetpatil.github.io/ggstatsplot/) 📖
 
-- Raise issues about bugs or wanted features
+- Raise issues about bugs/features 🐛
 
-- Review code
+- Review code 🕵
 
-- Add new functionality (in the form of new plotting functions or helpers for
-preparing subtitles)
+- Add new functionality 👨‍💻
 ]
 ]
 
@@ -1742,6 +1549,8 @@ class: inverse, center, middle
 # Acknowledgments
 
 Contributors to *ggstatsplot*
+
+Other developers: [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb), [Patrick Mair](https://psychology.fas.harvard.edu/people/patrick-mair)
 
 Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
@@ -1757,7 +1566,7 @@ class: inverse, center, middle
 
 # Find me at...
 
-.font150.text-white[
+.font130.text-white[
 
 [<i class="fab  fa-twitter "></i> @patilindrajeets](http://twitter.com/patilindrajeets)  
 [<i class="fab  fa-github "></i> @IndrajeetPatil](http://github.com/IndrajeetPatil)  

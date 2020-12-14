@@ -19,7 +19,7 @@ ggscatterstats_2	&	>	budget	ggscatterstats	movies_long	rating	title
 ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
 ggcorrmat_1	::	ggcorrmat
 ggcorrmat_1_copy	::	ggcorrmat
-ggcorrmat_2	::	ggcorrmat
+ggcorrmat_2	::	awake	brainwt	ggcorrmat	library	msleep	sleep_rem
 gghistostats_1	budget	gghistostats	movies_long
 gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long
@@ -32,7 +32,7 @@ ggbarstats_1	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long
 ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-ggcoefstats_2	%>%	.	::	~	library	model_parameters	mtcars	standardize_names
+ggcoefstats_2	%>%	.	::	~	library	lm	model_parameters	mtcars	standardize_names
 ggcoefstats_3	::	~	ggcoefstats
 grouped_1	am	cyl	grouped_ggpiestats	mtcars
 subtitle_1	::	aes	labs	Sex	Survived	Titanic_full

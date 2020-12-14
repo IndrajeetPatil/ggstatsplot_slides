@@ -63,7 +63,7 @@ options(
 
 ---
 
-layout: false
+layout: true
 
 # Plan
 
@@ -75,7 +75,7 @@ layout: false
 
 - Benefits and customizability
 
-- Limitations
+- Misconceptions and limitations
 
 ---
 
@@ -95,11 +95,15 @@ layout: true
 
 --
 
-.right-column[.font150[
+.right-column[
+
+.font130[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **<font color="red"> > 16,000</font>**
 ]
+
 .footnote[<https://cran.r-project.org/web/packages/>]
+
 ]
 
 --
@@ -110,8 +114,8 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.right-column[.font150[
-Short answer: `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and quick (exploratory) statistical analysis.
+.right-column[.font130[
+Short answer: `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and quick (exploratory) data analysis.
 ]
 ]
 
@@ -146,12 +150,13 @@ and modeling can suggest a different visualization, and so on and so forth.
 
 --
 
-The central idea of **ggstatsplot** is simple: combine these two phases into one
-in the form of graphics with statistical detail for <font color="blue">simpler</font> and <font color="blue">faster</font> data exploration.
+The central idea of **ggstatsplot** is simple: combine these two phases into one!
 
 ---
 
 layout: true
+
+class: center
 
 # Information-rich graphic is worth a thousand words
 
@@ -238,7 +243,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 <br>
 **All** functions in `ggstatsplot`-
 
-`r emo::ji("check")` rely on a **dataframe** (e.g., `data, x, y, ...`)<br>
+`r emo::ji("check")` rely on a **dataframe** (`function(data, x, ...)`)<br>
 `r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))<br>
 `r emo::ji("check")` accept `symbols` as arguments (`x = var`)<br>
 
@@ -599,14 +604,14 @@ layout: true
 
 ---
 
-.font70[
 In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font> of results:
-]
 
-.font40[
+.font60[
 ```{r ggcorrmat_2}
+library(ggplot2) # for data
+
 ggcorrmat(
-  data = ggplot2::msleep,
+  data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
   output = "dataframe" #<<
 )
@@ -855,7 +860,7 @@ layout: false
 class: inverse, center, middle
 
 # ggcoefstats
-Displaying results from regression analyses
+For regression model objects
 
 ---
 
@@ -930,6 +935,14 @@ layout: true
 `svyglm`, `tobit`, `truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
+--
+
+Thanks to [`easystats`](https://easystats.github.io/easystats/)!
+
+.img-left-small[
+![](images/easystats.jpg)
+]
+
 ---
 
 layout: true
@@ -944,7 +957,7 @@ library(parameters)
 
 # dataframe with results
 df <-
-  model_parameters(stats::lm(wt ~ cyl, mtcars)) %>%
+  model_parameters(lm(wt ~ cyl, mtcars)) %>%
   standardize_names(., "broom")
 
 # `statistic` argument decides label format
@@ -994,12 +1007,10 @@ layout: true
 
 .left-code[
 ```{r grouped_1, eval = FALSE}
-# only one additional argument
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
-  grouping.var = am, #<<
-  results.subtitle = FALSE #<<
+  grouping.var = am #<<
 )
 ```
 
@@ -1028,7 +1039,7 @@ layout: false
 class: inverse, center, middle
 
 # Customizability of *ggstatsplot*
-What if I don't like the default plots
+"What if I don't like the default plots?" `r emo::ji("thinking")`
 
 ---
 
@@ -1111,7 +1122,7 @@ ggbetweenstats(
 
 .font70[
 **Note**: You can modify 
-all `ggstatsplot` plots further 
+ `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
 ]
@@ -1131,11 +1142,11 @@ Yaay!
 
 layout: true
 
-# To extract expression
+# Extract expressions for custom plots
 
 ---
 
-`ggstatsplot` can also be used just to get the statistical expressions.
+`ggstatsplot` can also be used to get only the statistical expressions.
 
 --
 
@@ -1158,12 +1169,6 @@ ggiraphExtra::ggSpine( #<<
   interactive = FALSE
 ) + labs(subtitle = results) #<<
 ```
-
-.font70[
-<br>
-**All** included analyses have their
-corresponding [helper functions](https://indrajeetpatil.github.io/statsExpressions/reference/index.html) for preparing subtitles with statistical details.
-]
 ]
 
 .right-plot[
@@ -1206,7 +1211,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
-# Best practices in reporting statistical details
+# Best practices in statistical reporting
 
 --
 
@@ -1234,8 +1239,7 @@ layout: false
 --
 
 Since the plot and the statistical analysis are yoked together, the chances of
-making an error in reporting the results are minimized. You never have to write
-the results manually or copy-paste them from someplace else.
+making an error in reporting the results are minimized.
 
 ![](images\statcheck.png)
 
@@ -1260,7 +1264,7 @@ interpret the null results.
 
 layout: false
 
-# Toggling between type of statistics
+# Toggling between different statistical approaches
 
 --
 
@@ -1343,18 +1347,18 @@ layout: true
 
 --
 
-- No need to use scores of packages to get different statistical details
-    (e.g., one to get stats, one to get effect sizes, another to get Bayes
-    Factors, and yet another to get pairwise comparisons, etc.).
+- No need to use scores of packages for statistical analysis
+  (e.g., one to get stats, one to get effect sizes, another to get Bayes
+  Factors, and yet another to get pairwise comparisons, etc.).
 
 --
 
 - Minimal amount of code needed for all functions (typically only `data`, `x`,
-  and `y`). This minimizes chances of error.
+  and `y`). This minimizes chances of error and makes for tidy scripts.
   
 --
 
-- Truly makes your figures worth a thousand words. 
+- Truly makes your figures worth a thousand words.
 
 --
 
@@ -1375,19 +1379,6 @@ layout: true
 
 ---
 
-layout: true
-
-# Documentation
-
----
-
-Exhaustive documentation at the dedicated website- <br>
-<https://indrajeetpatil.github.io/ggstatsplot/>
-
-![](images/website.PNG)
-
----
-
 layout: false
 
 class: inverse, center, middle
@@ -1402,21 +1393,23 @@ layout: true
 
 ---
 
+--
+
 This package is... 
 
 --
 
-- an alternative to learning `ggplot2`. `r emo::ji("x")`<br>
+- an alternative to learning `ggplot2` `r emo::ji("x")`<br>
 --
 (The better you know `ggplot2`, the more you can modify the defaults to your
 requirements.)
 
 --
 
-- meant to be used in talks/presentations. `r emo::ji("x")`<br>
+- meant to be used in talks/presentations `r emo::ji("x")`<br>
 --
-(Although these plots are fantastic for data exploration, they might be too
-complicated for settings where you are pressed for time.)
+(Default plots can be too complicated for effectively communicating results in
+time-constrained presentation settings, e.g. conference talks.)
 
 ---
 
@@ -1446,16 +1439,11 @@ sizes) available.
 --
 
 - Requires non-trivial level of statistical proficiency (but only plots
-  without stats can also be used).
+  without statistics can also be used).
 
 --
 
 - <font color="blue">Faceting</font> (or small multiples) not implemented.
-
---
-
-- Default plots can be too complicated for effectively communicating results in
-time-constrained presentation settings (e.g., conference talks). 
 
 --
 
@@ -1489,14 +1477,13 @@ Contributions (big or small) welcome!
 Ways in which you can contribute
 
 - Read and correct any inconsistencies in the
-[documentation](https://indrajeetpatil.github.io/ggstatsplot/)
+[documentation](https://indrajeetpatil.github.io/ggstatsplot/) `r emo::ji("book")`
 
-- Raise issues about bugs or wanted features
+- Raise issues about bugs/features `r emo::ji("bug")`
 
-- Review code
+- Review code `r emo::ji("detective")`
 
-- Add new functionality (in the form of new plotting functions or helpers for
-preparing subtitles)
+- Add new functionality `r emo::ji("developer")`
 ]
 ]
 
@@ -1509,6 +1496,8 @@ class: inverse, center, middle
 # Acknowledgments
 
 Contributors to *ggstatsplot*
+
+Other developers: [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb), [Patrick Mair](https://psychology.fas.harvard.edu/people/patrick-mair)
 
 Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
@@ -1524,7 +1513,7 @@ class: inverse, center, middle
 
 # Find me at...
 
-.font150.text-white[
+.font130.text-white[
 
 [`r icon::fa("twitter")` @patilindrajeets](http://twitter.com/patilindrajeets)  
 [`r icon::fa("github")` @IndrajeetPatil](http://github.com/IndrajeetPatil)  

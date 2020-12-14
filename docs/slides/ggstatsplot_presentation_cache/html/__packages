@@ -16,3 +16,8 @@ survival
 bdsmatrix
 coxme
 mlma
+usethis
+devtools
+miniCRAN
+igraph
+ggnetwork
