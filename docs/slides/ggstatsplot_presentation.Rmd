@@ -330,7 +330,7 @@ Function internally decides tests
 
 **Defaults** return<br>
 
-`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` effect size + CIs<br>
@@ -401,7 +401,7 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  type = "r", #<<
+  type = "r",
   outlier.tagging = TRUE, #<<
   outlier.label = title, #<<
   outlier.coef = 2 #<<
@@ -443,7 +443,7 @@ ggwithinstats(
 .font70[
 **Defaults** return<br>
 
-`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` effect size + CIs<br>
@@ -494,7 +494,7 @@ ggscatterstats(
 .font70[
 **Defaults** return<br>
 
-`r emo::ji("check")` raw data<br>
+`r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` marginal distributions<br>
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` effect size + CIs<br>
@@ -606,14 +606,14 @@ layout: true
 
 In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font> of results:
 
-.font60[
-```{r ggcorrmat_2}
+.font50[
+```{r ggcorrmat_2, tidy=FALSE}
 library(ggplot2) # for data
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
-  output = "dataframe" #<<
+  output = "dataframe"
 )
 ```
 ]
@@ -920,28 +920,29 @@ layout: true
 `cglm`, `clm`, `clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`,
 `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`, `cpglm`, `cpglmm`, `crch`,
 `crq`, `DirichReg`, `drc`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`,
-`fitdistr`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
-`glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`,
-`glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivreg`, `iv_robust`,
-`lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`,
-`lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`,
-`lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`,
-`mice`, `mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`,
-`mixor`, `mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`,
-`negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`,
-`poissonmfx`, `poissonirr`, `polr`, `ridgelm`, `rjags`, `rlm`, `rlmerMod`,
-`robmixglm`, `rq`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`,
-`speedglm`, `speedlm`, `stanfit`, `stanreg`, `survreg`, `svyglm`, `svyolr`,
-`svyglm`, `tobit`, `truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
+`fitdistr`, `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`,
+`glmc`, `glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`,
+`glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`,
+`ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`,
+`lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`,
+`logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`,
+`margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`,
+`mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`, `mjoint`,
+`mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`,
+`nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`,
+`polr`, `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`,
+`rq`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`,
+`stanfit`, `stanreg`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
+`truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 --
 
 Thanks to [`easystats`](https://easystats.github.io/easystats/)!
 
-.img-left-small[
+
 ![](images/easystats.jpg)
-]
+
 
 ---
 
@@ -1057,7 +1058,7 @@ exclude: false
 .font100[
 The default plots in *<font color="blue">ggstatsplot</font>* are
 **opinionated**, yes, but an attempt has been made to make sure that they
-follow best principles outlined in the data visualization research.
+follow best practices outlined in the data visualization research.
 ]
 ]
 
@@ -1121,7 +1122,7 @@ ggbetweenstats(
 ```
 
 .font70[
-**Note**: You can modify 
+You can modify 
  `ggstatsplot` plots further 
 using `ggplot2` functions.
 Yaay!
@@ -1215,15 +1216,25 @@ layout: false
 
 --
 
-- For all statistical tests reported in the plots, the default template mostly abides
+For all statistical tests reported in the plots, the default template mostly abides
 by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. For example, here are results from a robust *t*-test:
+statistical reporting. 
 
-![](images/stats_reporting_format.png)
+For example, here are results from a robust *t*-test:
+
+![](images/stats_reporting_format.jpg)
+
+---
+
+layout: false
+
+# Best practices in statistical tests defaults
 
 --
 
-- The default tests follow the best practices. For example, `ggbetweenstats`
+The default tests follow the best practices. 
+
+For example, `ggbetweenstats`
 function by default runs <font color="blue">Welch's *t*-test</font> and <font
 color="blue">Welch's ANOVA</font> - and not Student's *t*-test and Fisher's
 ANOVA - based on recent work (Delacre et al.,
@@ -1399,14 +1410,14 @@ This package is...
 
 --
 
-- an alternative to learning `ggplot2` `r emo::ji("x")`<br>
+`r emo::ji("x")` an alternative to learning `ggplot2`<br>
 --
 (The better you know `ggplot2`, the more you can modify the defaults to your
 requirements.)
 
 --
 
-- meant to be used in talks/presentations `r emo::ji("x")`<br>
+`r emo::ji("x")` meant to be used in talks/presentations<br>
 --
 (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
@@ -1434,7 +1445,7 @@ layout: true
 --
 
 - Limited number of statistical <font color="blue">tests</font> (and effect
-sizes) available.
+  sizes) available.
 
 --
 
@@ -1448,7 +1459,7 @@ sizes) available.
 --
 
 - <font color="blue">Bulky API</font> (in terms of number of function arguments to keep in mind).<br>
-(Saving grace: Defaults are sufficient most of the time.)
+  (Saving grace: Defaults are sufficient most of the time.)
 
 ---
 
