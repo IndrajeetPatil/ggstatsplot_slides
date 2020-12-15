@@ -21,3 +21,8 @@ devtools
 miniCRAN
 igraph
 ggnetwork
+magrittr
+checkmate
+forestplot
+metafor
+bayesmeta

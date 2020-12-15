@@ -3,7 +3,7 @@
   <head>
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Indrajeet Patil" />
+    <meta name="author" content="Indrajeet Patil (Max Planck Institute, Berlin)" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -16,9 +16,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial (version: 0.6.6)
-### Indrajeet Patil
-### 2020-12-15<br><br>Follow along: <strong><a href="https://tinyurl.com/y376yz6o" class="uri">https://tinyurl.com/y376yz6o</a></strong>
+## An Introductory Tutorial
+### Indrajeet Patil (Max Planck Institute, Berlin)
+### 2020-12-15<br><br><br><strong>R-Ladies Tunis</strong>
 
 ---
 
@@ -239,7 +239,7 @@ layout: false
 
 --
 
-Install the stable version of **ggstatsplot** from 
+Install the stable version (latest: `0.6.6`) of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -1022,9 +1022,9 @@ ggstatsplot::ggcoefstats(
 
 .font70[
 Supported statistic:
-- *t*
-- *z*
-- *F*
+- `\(t\)`
+- `\(z\)`
+- `\(F\)`
 - `\(\chi^2\)`
 
 At the minimum, one
@@ -1234,14 +1234,14 @@ layout: false
 
 class: inverse, center, middle
 
-# Glossary
-Statistical reporting in *ggstatsplot*
+# Why use *ggstatsplot*? 
+Summary of benefits
 
 ---
 
 layout: false
 
-# Types of statistical analyses supported
+# Supports different statistical approaches 
 
 &lt;br&gt;
 
@@ -1263,70 +1263,7 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 
 layout: false
 
-# Best practices in statistical reporting
-
---
-
-For all statistical tests reported in the plots, the default template mostly abides
-by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. 
-
-For example, here are results from a robust *t*-test:
-
-![](images/stats_reporting_format.jpg)
-
----
-
-layout: false
-
-# Best practices in statistical tests defaults
-
---
-
-The default tests follow the best practices. 
-
-For example, `ggbetweenstats`
-function by default runs &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font
-color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's
-ANOVA - based on recent work (Delacre et al.,
-[2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
-[2018](https://psyarxiv.com/wnezg)).
-
----
-
-layout: false
-
-# Avoiding errors
-
---
-
-Since the plot and the statistical analysis are yoked together, the chances of
-making an error in reporting the results are minimized.
-
-![](images\statcheck.png)
-
-.footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
-
----
-
-layout: false
-
-# Making sense of null results
-
---
-
-Combination of frequentist and Bayesian statistics for each analysis to properly
-interpret the null results.
-
-![](images/null_results.png)
-
-.footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
-
----
-
-layout: false
-
-# Toggling between different statistical approaches
+# Toggling between statistical approaches
 
 --
 
@@ -1396,16 +1333,71 @@ gghistostats(
 
 layout: false
 
-class: inverse, center, middle
+# Best practices in statistical reporting
 
-# Why use *ggstatsplot*? 
-Summary of benefits
+--
+
+For all statistical tests reported in the plots, the expression template mostly abides
+by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
+statistical reporting. 
+
+For example, here are results from a robust *t*-test:
+
+![](images/stats_reporting_format.jpg)
+
+---
+
+layout: false
+
+# Best practices in statistical tests defaults
+
+--
+
+The default tests follow the best practices. For example,
+
+✅ `ggbetweenstats` and `ggwithinstats` default to &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font
+color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's
+ANOVA - based on recent work (Delacre et al.,
+[2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
+[2018](https://psyarxiv.com/wnezg)).
+
+✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)).
+
+---
+
+layout: false
+
+# Avoiding reporting errors
+
+--
+
+Since the plot and the statistical analysis are yoked together, the chances of
+making an error in reporting the results are minimized.
+
+![](images\statcheck.png)
+
+.footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
+
+---
+
+layout: false
+
+# Making sense of null results
+
+--
+
+Combination of frequentist and Bayesian statistics for each analysis to properly
+interpret the null results.
+
+![](images/null_results.png)
+
+.footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 
 ---
 
 layout: true
 
-# Benefits of using *ggstatsplot*
+# Summary of benefits
 
 ---
 
@@ -1418,8 +1410,12 @@ layout: true
 --
 
 - Minimal amount of code needed for all functions (typically only `data`, `x`,
-  and `y`). This minimizes chances of error and makes for tidy scripts.
+  and `y`), which minimizes chances of error and makes for tidy scripts.
   
+--
+
+- Conveniently toggle between statistical approaches.
+
 --
 
 - Truly makes your figures worth a thousand words.
@@ -1438,8 +1434,7 @@ layout: true
 
 --
 
-- No need to worry about updating figures and statistical details separately
-  if something about the data changes.
+- No need to worry about updating figures and statistical details separately.
 
 ---
 
@@ -1502,8 +1497,8 @@ layout: true
 
 --
 
-- Requires non-trivial level of statistical proficiency (but only plots
-  without statistics can also be used).
+- Although beginner-friendly to use, it expects a non-trivial level of
+  statistical proficiency (but only plots without statistics can also be used).
 
 --
 
@@ -1547,7 +1542,7 @@ Ways in which you can contribute
 
 - Review code 🕵
 
-- Add new functionality 👨‍💻
+- Add new functionality 👩‍💻
 ]
 ]
 
@@ -1564,8 +1559,6 @@ Contributors to *ggstatsplot*
 Other developers: [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb), [Patrick Mair](https://psychology.fas.harvard.edu/people/patrick-mair)
 
 Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
-
-Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
 The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2).
 
