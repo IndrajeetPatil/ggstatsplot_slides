@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil (Max Planck Institute, Berlin)"
-date: "`r Sys.Date()`<br><br><br>**R-Ladies Tunis**"
+date: "`r Sys.Date()`<br><br><br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -212,7 +212,7 @@ problem! But...
 
 layout: false
 
-# Consistent API =  no cognitive fatigue
+# Consistent API = No cognitive fatigue
 
 --
 
@@ -365,8 +365,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "np", #<<
-  pairwise.display = "ns", #<<
-  p.adjust.method = "fdr" #<<
+  pairwise.display = "ns" #<<
 )
 ```
 
@@ -407,8 +406,7 @@ ggbetweenstats(
   y = rating,
   type = "r",
   outlier.tagging = TRUE, #<<
-  outlier.label = title, #<<
-  outlier.coef = 2 #<<
+  outlier.label = title #<<
 )
 ```
 
@@ -521,8 +519,7 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  test.value = 52, #<<
-  test.value.line = TRUE #<<
+  test.value = 30 #<<
 )
 ```
 
@@ -613,7 +610,7 @@ ggscatterstats(
   label.var = title, #<<
   label.expression = budget > 150 #<<
   & rating > 7.5, #<<
-  marginal.type = "density" #<<
+  marginal.type = "boxplot" #<<
 )
 ```
 
@@ -675,10 +672,10 @@ layout: true
 
 ---
 
-In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font> of results:
+In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font>:
 
 .font50[
-```{r ggcorrmat_2, tidy=FALSE}
+```{r ggcorrmat_2}
 library(ggplot2) # for data
 
 ggcorrmat(
@@ -699,7 +696,43 @@ class: inverse, center, middle
 <br>
 `r emo::ji("science")` *ggpiestats*: If you like `r emo::ji("slice")`
 <br>
-`r emo::ji("science")` *ggbarstats*: If not
+`r emo::ji("science")` *ggbarstats*: Otherwise
+
+---
+
+layout: true
+
+# ggpiestats - goodness-of-fit test
+
+---
+
+.left-code[
+```{r ggpiestats_1, eval = FALSE}
+ggpiestats(
+  data = as.data.frame(Titanic),
+  x = Class, 
+  counts = Freq, #<<
+  label = "both" #<<
+)
+```
+
+.font70[
+**Note**: If the data is in *tabled* 
+format, you can use the `counts` 
+argument.
+
+Test by analysis
+
+- `y != NULL` → contingency table
+- `y == NULL` → goodness-of-fit
+
+]
+]
+
+.right-plot[
+```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE}
+```
+]
 
 ---
 
@@ -710,7 +743,7 @@ layout: true
 ---
 
 .left-code[
-```{r ggpiestats_1, eval = FALSE}
+```{r ggpiestats_2, eval = FALSE}
 # let's use subset of data
 ggpiestats(
   data = dplyr::filter(
@@ -735,43 +768,7 @@ ggpiestats(
 Test by design
 
 - `paired = FALSE` → Pearson's $\chi^2$
-- `paired = TRUE` → McNemar
-
-]
-]
-
-.right-plot[
-```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE}
-```
-]
-
----
-
-layout: true
-
-# ggpiestats - goodness-of-fit test
-
----
-
-.left-code[
-```{r ggpiestats_2, eval = FALSE}
-ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class, 
-  counts = Freq, #<<
-  label = "both" #<<
-)
-```
-
-.font70[
-**Note**: If the data is in *tabled* 
-format, you can use the `counts` 
-argument.
-
-Test by analysis
-
-- `y != NULL` → contingency table
-- `y == NULL` → goodness of fit
+- `paired = TRUE` → McNemar's $\chi^2$
 
 ]
 ]
@@ -792,11 +789,12 @@ layout: true
 .left-code[
 ```{r ggbarstats_1, eval = FALSE}
 ggbarstats(
-  data = movies_long,
-  x = genre,
-  y = mpaa,
-  package = "ggsci",
-  palette = "default_igv"
+  data = dplyr::filter(
+    .data = movies_long,
+    genre %in% c("Drama", "Comedy")
+  ),
+  x = mpaa,
+  y = genre
 )
 ```
 
@@ -809,6 +807,11 @@ ggbarstats(
 `r emo::ji("check")` Goodness-of-fit tests<br>
 `r emo::ji("check")` Bayesian hypothesis-testing<br>
 `r emo::ji("check")` Bayesian estimation<br>
+
+Test by design
+
+- `paired = FALSE` → Pearson's $\chi^2$
+- `paired = TRUE` → McNemar's $\chi^2$
 ]
 ]
 
@@ -838,8 +841,8 @@ layout: true
 .left-code[
 ```{r ggcoefstats_1, eval = FALSE}
 # model
-mod <- stats::aov(
-  formula = rating ~ mpaa * genre,
+mod <- stats::lm(
+  formula = rating ~ mpaa,
   data = movies_long
 )
 
@@ -848,17 +851,10 @@ ggcoefstats(mod)
 ```
 
 .font70[
-In addition to `output = "plot"`, 
-this function can also be used to
-get a <font color="blue">dataframe</font> of results:
-
-- `"tidy"` → **estimates**
-- `"glance"` → **model summary**
-
 `r emo::ji("pencil")` **Defaults** return<br>
 
-`r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` estimate + CIs<br>
+`r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` model summary (AIC + BIC)
 ]
 
@@ -908,49 +904,6 @@ Thanks to [`easystats`](https://easystats.github.io/easystats/)!
 
 ![](images/easystats.jpg)
 
-
----
-
-layout: true
-
-# ggcoefstats: If not implemented, use a dataframe
-
----
-
-.left-code[
-```{r ggcoefstats_2, eval = FALSE}
-library(parameters)
-
-# dataframe with results
-df <-
-  model_parameters(lm(wt ~ cyl, mtcars)) %>%
-  standardize_names(., "broom")
-
-# `statistic` argument decides label format
-ggstatsplot::ggcoefstats(
-  x = df,
-  statistic = "t" #<<
-)
-```
-
-.font70[
-Supported statistic:
-- $t$
-- $z$
-- $F$
-- $\chi^2$
-
-At the minimum, one
-column needed - <font color="blue">estimate</font>.
-]
-
-]
-
-.right-plot[
-```{r ggcoefstats_2, ref.label = 'ggcoefstats_2', echo = FALSE}
-```
-]
-
 ---
 
 layout: false
@@ -982,14 +935,14 @@ grouped_ggpiestats(
 
 .font70[
 Available `grouped_` variants
-- `grouped_ggdotplotstats`
-- `grouped_ggbarstats`
-- `grouped_ggscatterstats`
-- `grouped_gghistostats`
-- `grouped_ggpiestats`
 - `grouped_ggbetweenstats`
 - `grouped_ggwithinstats`
+- `grouped_gghistostats`
+- `grouped_ggdotplotstats`
+- `grouped_ggscatterstats`
 - `grouped_ggcorrmat`
+- `grouped_ggpiestats`
+- `grouped_ggbarstats`
 ]
 ]
 
@@ -1057,7 +1010,7 @@ Aesthetic preferences
 are not an excuse to not
 use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
 
-The default palette used
+The default palette 
 is **colorblind-friendly**.
 ]
 ]
@@ -1358,13 +1311,13 @@ layout: false
 
 class: inverse, center, middle
 
-# Misconceptions
+# Misconceptions and limitations
 
 ---
 
 layout: true
 
-# Misconceptions about scope of *ggstatsplot*
+# Misconceptions about *ggstatsplot*
 
 ---
 
@@ -1376,29 +1329,21 @@ This package is...
 
 `r emo::ji("x")` an alternative to learning `ggplot2`<br>
 --
-(The better you know `ggplot2`, the more you can modify the defaults to your
-requirements.)
+`r emo::ji("check")` (The better you know `ggplot2`, the more you can modify the defaults to your
+liking.)
 
 --
 
 `r emo::ji("x")` meant to be used in talks/presentations<br>
 --
-(Default plots can be too complicated for effectively communicating results in
+`r emo::ji("check")` (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
 
 --
 
 `r emo::ji("x")` the only game in town<br>
 --
-(GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# Limitations
+`r emo::ji("check")` (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
 ---
 
@@ -1414,8 +1359,8 @@ layout: true
 
 --
 
-- Limited number of statistical <font color="blue">tests</font> (and effect
-  sizes) available.
+- Limited number of statistical <font color="blue">tests</font> available.<br>
+  This will *always* be the case.
 
 --
 
@@ -1425,11 +1370,6 @@ layout: true
 --
 
 - <font color="blue">Faceting</font> (or small multiples) not implemented.
-
---
-
-- <font color="blue">Bulky API</font> (in terms of number of function arguments to keep in mind).<br>
-  (Saving grace: Defaults are sufficient most of the time.)
 
 ---
 
@@ -1455,7 +1395,7 @@ Contributions (big or small) welcome!
 
 .pull-right[
 .font90[
-Ways in which you can contribute
+Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot)
 
 - Read and correct any inconsistencies in the
 [documentation](https://indrajeetpatil.github.io/ggstatsplot/) `r emo::ji("book")`

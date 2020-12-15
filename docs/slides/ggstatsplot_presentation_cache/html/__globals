@@ -25,15 +25,15 @@ gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long
 ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
 ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
-ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
+ggpiestats_1	as.data.frame	Class	Freq	ggpiestats	Titanic
 ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
-ggpiestats_2	as.data.frame	Class	Freq	ggpiestats	Titanic
-ggbarstats_1	genre	ggbarstats	movies_long	mpaa
+ggpiestats_2	::	c	genre	ggpiestats	movies_long	mpaa
+ggbarstats_1	::	c	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long
 ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-ggcoefstats_2	%>%	.	::	~	library	lm	model_parameters	mtcars	standardize_names
-ggcoefstats_3	::	~	ggcoefstats
+ggcoefstats_2	~	ggcoefstats	lm	mtcars
+ggcoefstats_3	~	ggcoefstats	lm	mtcars
 grouped_1	am	cyl	grouped_ggpiestats	mtcars
 subtitle_1	::	aes	labs	Sex	Survived	Titanic_full
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt

@@ -4,6 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Max Planck Institute, Berlin)" />
+    <meta name="date" content="2020-12-15" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +19,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Max Planck Institute, Berlin)
-### 2020-12-15<br><br><br><strong>R-Ladies Tunis</strong>
+### 2020-12-15<br><br><br>
 
 ---
 
@@ -184,7 +185,7 @@ problem! But...
 
 layout: false
 
-# Consistent API =  no cognitive fatigue
+# Consistent API = No cognitive fatigue
 
 --
 
@@ -344,8 +345,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
 * type = "np",
-* pairwise.display = "ns",
-* p.adjust.method = "fdr"
+* pairwise.display = "ns"
 )
 ```
 
@@ -386,8 +386,7 @@ ggbetweenstats(
   y = rating,
   type = "r",
 * outlier.tagging = TRUE,
-* outlier.label = title,
-* outlier.coef = 2
+* outlier.label = title
 )
 ```
 
@@ -500,8 +499,7 @@ ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-* test.value = 52,
-* test.value.line = TRUE
+* test.value = 30
 )
 ```
 
@@ -530,7 +528,7 @@ class: inverse, center, middle
 &lt;br&gt;
 🧪 *ggscatterstats*: Two numeric variables
 &lt;br&gt;
-🔬 *ggcorrmat*: Multiple numeric variables
+🧪 *ggcorrmat*: Multiple numeric variables
 
 ---
 
@@ -592,7 +590,7 @@ ggscatterstats(
 * label.var = title,
 * label.expression = budget &gt; 150
 * &amp; rating &gt; 7.5,
-* marginal.type = "density"
+* marginal.type = "boxplot"
 )
 ```
 
@@ -653,7 +651,7 @@ layout: true
 
 ---
 
-In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
+In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt;:
 
 .font50[
 
@@ -749,7 +747,43 @@ class: inverse, center, middle
 &lt;br&gt;
 🔬 *ggpiestats*: If you like 🍰
 &lt;br&gt;
-🔬 *ggbarstats*: If not
+🔬 *ggbarstats*: Otherwise
+
+---
+
+layout: true
+
+# ggpiestats - goodness-of-fit test
+
+---
+
+.left-code[
+
+```r
+ggpiestats(
+  data = as.data.frame(Titanic),
+  x = Class, 
+* counts = Freq,
+* label = "both"
+)
+```
+
+.font70[
+**Note**: If the data is in *tabled* 
+format, you can use the `counts` 
+argument.
+
+Test by analysis
+
+- `y != NULL` → contingency table
+- `y == NULL` → goodness-of-fit
+
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
@@ -786,43 +820,7 @@ ggpiestats(
 Test by design
 
 - `paired = FALSE` → Pearson's `\(\chi^2\)`
-- `paired = TRUE` → McNemar
-
-]
-]
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-
-# ggpiestats - goodness-of-fit test
-
----
-
-.left-code[
-
-```r
-ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class, 
-* counts = Freq,
-* label = "both"
-)
-```
-
-.font70[
-**Note**: If the data is in *tabled* 
-format, you can use the `counts` 
-argument.
-
-Test by analysis
-
-- `y != NULL` → contingency table
-- `y == NULL` → goodness of fit
+- `paired = TRUE` → McNemar's `\(\chi^2\)`
 
 ]
 ]
@@ -843,11 +841,12 @@ layout: true
 
 ```r
 ggbarstats(
-  data = movies_long,
-  x = genre,
-  y = mpaa,
-  package = "ggsci",
-  palette = "default_igv"
+  data = dplyr::filter(
+    .data = movies_long,
+    genre %in% c("Drama", "Comedy")
+  ),
+  x = mpaa,
+  y = genre
 )
 ```
 
@@ -860,6 +859,11 @@ ggbarstats(
 ✅ Goodness-of-fit tests&lt;br&gt;
 ✅ Bayesian hypothesis-testing&lt;br&gt;
 ✅ Bayesian estimation&lt;br&gt;
+
+Test by design
+
+- `paired = FALSE` → Pearson's `\(\chi^2\)`
+- `paired = TRUE` → McNemar's `\(\chi^2\)`
 ]
 ]
 
@@ -875,7 +879,7 @@ class: inverse, center, middle
 
 # Hypothesis about regression cofficients
 
-🔬 *ggcoefstats*: Any regression model object
+🔭 *ggcoefstats*: Any regression model object
 
 ---
 
@@ -889,8 +893,8 @@ layout: true
 
 ```r
 # model
-mod &lt;- stats::aov(
-  formula = rating ~ mpaa * genre,
+mod &lt;- stats::lm(
+  formula = rating ~ mpaa,
   data = movies_long
 )
 
@@ -899,17 +903,10 @@ ggcoefstats(mod)
 ```
 
 .font70[
-In addition to `output = "plot"`, 
-this function can also be used to
-get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
-
-- `"tidy"` → **estimates**
-- `"glance"` → **model summary**
-
 📝 **Defaults** return&lt;br&gt;
 
-✅ statistic + *p*-value&lt;br&gt;
 ✅ estimate + CIs&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
 ✅ model summary (AIC + BIC)
 ]
 
@@ -958,49 +955,6 @@ Thanks to [`easystats`](https://easystats.github.io/easystats/)!
 
 ![](images/easystats.jpg)
 
-
----
-
-layout: true
-
-# ggcoefstats: If not implemented, use a dataframe
-
----
-
-.left-code[
-
-```r
-library(parameters)
-
-# dataframe with results
-df &lt;-
-  model_parameters(lm(wt ~ cyl, mtcars)) %&gt;%
-  standardize_names(., "broom")
-
-# `statistic` argument decides label format
-ggstatsplot::ggcoefstats(
-  x = df,
-* statistic = "t"
-)
-```
-
-.font70[
-Supported statistic:
-- `\(t\)`
-- `\(z\)`
-- `\(F\)`
-- `\(\chi^2\)`
-
-At the minimum, one
-column needed - &lt;font color="blue"&gt;estimate&lt;/font&gt;.
-]
-
-]
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggcoefstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
 ---
 
 layout: false
@@ -1033,14 +987,14 @@ grouped_ggpiestats(
 
 .font70[
 Available `grouped_` variants
-- `grouped_ggdotplotstats`
-- `grouped_ggbarstats`
-- `grouped_ggscatterstats`
-- `grouped_gghistostats`
-- `grouped_ggpiestats`
 - `grouped_ggbetweenstats`
 - `grouped_ggwithinstats`
+- `grouped_gghistostats`
+- `grouped_ggdotplotstats`
+- `grouped_ggscatterstats`
 - `grouped_ggcorrmat`
+- `grouped_ggpiestats`
+- `grouped_ggbarstats`
 ]
 ]
 
@@ -1108,7 +1062,7 @@ Aesthetic preferences
 are not an excuse to not
 use `ggstatsplot`! 😻
 
-The default palette used
+The default palette 
 is **colorblind-friendly**.
 ]
 ]
@@ -1410,13 +1364,13 @@ layout: false
 
 class: inverse, center, middle
 
-# Misconceptions
+# Misconceptions and limitations
 
 ---
 
 layout: true
 
-# Misconceptions about scope of *ggstatsplot*
+# Misconceptions about *ggstatsplot*
 
 ---
 
@@ -1428,29 +1382,21 @@ This package is...
 
 ❌ an alternative to learning `ggplot2`&lt;br&gt;
 --
-(The better you know `ggplot2`, the more you can modify the defaults to your
-requirements.)
+✅ (The better you know `ggplot2`, the more you can modify the defaults to your
+liking.)
 
 --
 
 ❌ meant to be used in talks/presentations&lt;br&gt;
 --
-(Default plots can be too complicated for effectively communicating results in
+✅ (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
 
 --
 
 ❌ the only game in town&lt;br&gt;
 --
-(GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# Limitations
+✅ (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
 ---
 
@@ -1466,8 +1412,8 @@ layout: true
 
 --
 
-- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; (and effect
-  sizes) available.
+- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available.&lt;br&gt;
+  This will *always* be the case.
 
 --
 
@@ -1477,11 +1423,6 @@ layout: true
 --
 
 - &lt;font color="blue"&gt;Faceting&lt;/font&gt; (or small multiples) not implemented.
-
---
-
-- &lt;font color="blue"&gt;Bulky API&lt;/font&gt; (in terms of number of function arguments to keep in mind).&lt;br&gt;
-  (Saving grace: Defaults are sufficient most of the time.)
 
 ---
 
@@ -1507,7 +1448,7 @@ Contributions (big or small) welcome!
 
 .pull-right[
 .font90[
-Ways in which you can contribute
+Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot)
 
 - Read and correct any inconsistencies in the
 [documentation](https://indrajeetpatil.github.io/ggstatsplot/) 📖
@@ -1516,7 +1457,7 @@ Ways in which you can contribute
 
 - Review code 🕵
 
-- Add new functionality 👩‍💻
+- Add new functionality 👨‍💻
 ]
 ]
 
