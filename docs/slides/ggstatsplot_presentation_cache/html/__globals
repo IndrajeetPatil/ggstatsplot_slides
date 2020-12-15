@@ -27,7 +27,7 @@ ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
 ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
 ggpiestats_1	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
-ggpiestats_2	as.data.frame	Freq	ggpiestats	Survived	Titanic
+ggpiestats_2	as.data.frame	Class	Freq	ggpiestats	Titanic
 ggbarstats_1	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	::	~	ggcoefstats	movies_long

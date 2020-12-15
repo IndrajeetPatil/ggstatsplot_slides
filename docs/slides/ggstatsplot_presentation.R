@@ -101,7 +101,7 @@ ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
 ##   y = rating,
-##   type = "r", #<<
+##   type = "r",
 ##   outlier.tagging = TRUE, #<<
 ##   outlier.label = title, #<<
 ##   outlier.coef = 2 #<<
@@ -113,7 +113,7 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  type = "r", #<<
+  type = "r",
   outlier.tagging = TRUE, #<<
   outlier.label = title, #<<
   outlier.coef = 2 #<<
@@ -133,6 +133,42 @@ ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
   y = Taste
+)
+
+
+## ----gghistostats_1, eval = FALSE-------------------------------------------------------
+## gghistostats(
+##   data = movies_long,
+##   x = budget,
+##   test.value = 30 #<<
+## )
+
+
+## ----gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE-------------------------
+gghistostats(
+  data = movies_long,
+  x = budget,
+  test.value = 30 #<<
+)
+
+
+## ----ggdotplotstats_1, eval = FALSE-----------------------------------------------------
+## ggdotplotstats(
+##   data = movies_long,
+##   x = budget,
+##   y = genre,
+##   test.value = 52, #<<
+##   test.value.line = TRUE #<<
+## )
+
+
+## ----ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE---------------------
+ggdotplotstats(
+  data = movies_long,
+  x = budget,
+  y = genre,
+  test.value = 52, #<<
+  test.value.line = TRUE #<<
 )
 
 
@@ -186,49 +222,13 @@ ggscatterstats(
 ggcorrmat(dplyr::starwars)
 
 
-## ----ggcorrmat_2------------------------------------------------------------------------
+## ----ggcorrmat_2, tidy=FALSE------------------------------------------------------------
 library(ggplot2) # for data
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
-  output = "dataframe" #<<
-)
-
-
-## ----gghistostats_1, eval = FALSE-------------------------------------------------------
-## gghistostats(
-##   data = movies_long,
-##   x = budget,
-##   test.value = 30 #<<
-## )
-
-
-## ----gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE-------------------------
-gghistostats(
-  data = movies_long,
-  x = budget,
-  test.value = 30 #<<
-)
-
-
-## ----ggdotplotstats_1, eval = FALSE-----------------------------------------------------
-## ggdotplotstats(
-##   data = movies_long,
-##   x = budget,
-##   y = genre,
-##   test.value = 52, #<<
-##   test.value.line = TRUE #<<
-## )
-
-
-## ----ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE---------------------
-ggdotplotstats(
-  data = movies_long,
-  x = budget,
-  y = genre,
-  test.value = 52, #<<
-  test.value.line = TRUE #<<
+  output = "dataframe"
 )
 
 
@@ -259,7 +259,7 @@ ggpiestats(
 ## ----ggpiestats_2, eval = FALSE---------------------------------------------------------
 ## ggpiestats(
 ##   data = as.data.frame(Titanic),
-##   x = Survived,
+##   x = Class,
 ##   counts = Freq, #<<
 ##   label = "both" #<<
 ## )
@@ -268,7 +268,7 @@ ggpiestats(
 ## ----ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE-----------------------------
 ggpiestats(
   data = as.data.frame(Titanic),
-  x = Survived, 
+  x = Class, 
   counts = Freq, #<<
   label = "both" #<<
 )

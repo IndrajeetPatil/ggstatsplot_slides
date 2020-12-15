@@ -28,6 +28,7 @@ code.r{
 </style>
 
 ```{r setup, include = FALSE}
+future::plan("multicore")
 knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 5,
@@ -302,14 +303,17 @@ layout: false
 
 class: inverse, center, middle
 
-# ggbetweenstats
-For between group/condition comparisons
+# Hypothesis about group differences
+
+`r emo::ji("science")` *ggbetweenstats*, *ggwithinstats*: multiple groups
+
+`r emo::ji("science")` *gghistostats*, *ggdotplotstats*: single group
 
 ---
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - For between group comparisons
 
 ---
 
@@ -328,7 +332,7 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **> 2** groups
 
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` descriptive statistics<br>
@@ -407,21 +411,18 @@ ggbetweenstats(
   outlier.coef = 2 #<<
 )
 ```
+
+.font70[
+[Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
+interquartile range flags outliers.
+]
+
 ]
 
 .right-plot[
 ```{r ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE}
 ```
 ]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggwithinstats
-For within group/condition comparisons<br>
 
 ---
 
@@ -441,7 +442,7 @@ ggwithinstats(
 ```
 
 .font70[
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` descriptive statistics<br>
@@ -467,18 +468,97 @@ Changing the `type` of test
 
 ---
 
-layout: false
+layout: true
 
-class: inverse, center, middle
+# gghistostats - Distribution of a numeric variable
 
-# ggscatterstats
-Association between two numeric variables
+---
+
+.left-code[
+```{r gghistostats_1, eval = FALSE}
+gghistostats(
+  data = movies_long,
+  x = budget,
+  test.value = 30 #<<
+)
+```
+
+.font70[
+`r emo::ji("pencil")` **Defaults** return<br>
+
+`r emo::ji("check")` counts + proportion for bins<br>
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CIs<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+
+Changing the `type` of test
+
+`r emo::ji("check")` `"p"` → **parametric** (default)<br>
+`r emo::ji("check")` `"np"` → **non-parametric**<br>
+`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
+]
+]
+
+.right-plot[
+```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
+```
+]
 
 ---
 
 layout: true
 
-# ggscatterstats
+# ggdotplotstats - Labeled numeric variable
+
+---
+
+.left-code[
+```{r ggdotplotstats_1, eval = FALSE}
+ggdotplotstats(
+  data = movies_long,
+  x = budget,
+  y = genre,
+  test.value = 52, #<<
+  test.value.line = TRUE #<<
+)
+```
+
+.font70[
+`r emo::ji("pencil")` **Defaults** return<br>
+
+`r emo::ji("check")` descriptive statistics<br>
+`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` effect size + CIs<br>
+`r emo::ji("check")` Bayesian hypothesis-testing<br>
+`r emo::ji("check")` Bayesian estimation<br>
+]
+]
+
+.right-plot[
+```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
+```
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Hypothesis about correlation
+<br>
+`r emo::ji("science")` *ggscatterstats*: Two numeric variables
+<br>
+`r emo::ji("science")` *ggcorrmat*: Multiple numeric variables
+
+---
+
+layout: true
+
+# ggscatterstats - Two numeric variables
 
 ---
 
@@ -492,7 +572,7 @@ ggscatterstats(
 ```
 
 .font70[
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` raw data + distributions<br>
 `r emo::ji("check")` marginal distributions<br>
@@ -555,18 +635,9 @@ Changing the marginal type
 
 ---
 
-layout: false
-
-class: inverse, center, middle
-
-# ggcorrmat
-Association between multiple numeric variables
-
----
-
 layout: true
 
-# ggcorrmat
+# ggcorrmat - Multiple numeric variables
 
 ---
 
@@ -576,7 +647,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` effect size + significance<br>
 `r emo::ji("check")` careful handling of `NA`s
@@ -613,7 +684,7 @@ library(ggplot2) # for data
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
-  output = "dataframe"
+  output = "dataframe" #<<
 )
 ```
 ]
@@ -624,115 +695,17 @@ layout: false
 
 class: inverse, center, middle
 
-# gghistostats
-Distribution of a numeric variable
+# Hypothesis of composition of categorical variables
+<br>
+`r emo::ji("science")` *ggpiestats*: If you like `r emo::ji("slice")`
+<br>
+`r emo::ji("science")` *ggbarstats*: If not
 
 ---
 
 layout: true
 
-# gghistostats
-
----
-
-.left-code[
-```{r gghistostats_1, eval = FALSE}
-gghistostats(
-  data = movies_long,
-  x = budget,
-  test.value = 30 #<<
-)
-```
-
-.font70[
-**Defaults** return<br>
-
-`r emo::ji("check")` counts + proportion for bins<br>
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
-
-Changing the `type` of test
-
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
-`r emo::ji("check")` `"bf"` → **Bayes Factor**
-]
-]
-
-.right-plot[
-```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
-```
-]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggdotplotstats
-Distribution of a numeric variable with labels
-
----
-
-layout: true
-
-# ggdotplotstats
-
----
-
-.left-code[
-```{r ggdotplotstats_1, eval = FALSE}
-ggdotplotstats(
-  data = movies_long,
-  x = budget,
-  y = genre,
-  test.value = 52, #<<
-  test.value.line = TRUE #<<
-)
-```
-
-.font70[
-**Defaults** return<br>
-
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
-
-Changing the `type` of test
-
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
-`r emo::ji("check")` `"bf"` → **Bayes Factor**
-]
-]
-
-.right-plot[
-```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
-```
-]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggpiestats
-For composition of categorical variables
-
----
-
-layout: true
-
-# ggpiestats - contingency table
+# ggpiestats - association between categorical variables
 
 ---
 
@@ -750,7 +723,7 @@ ggpiestats(
 ```
 
 .font70[
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
@@ -776,7 +749,7 @@ Test by design
 
 layout: true
 
-# ggpiestats - proportion test
+# ggpiestats - goodness-of-fit test
 
 ---
 
@@ -784,7 +757,7 @@ layout: true
 ```{r ggpiestats_2, eval = FALSE}
 ggpiestats(
   data = as.data.frame(Titanic),
-  x = Survived, 
+  x = Class, 
   counts = Freq, #<<
   label = "both" #<<
 )
@@ -810,18 +783,9 @@ Test by analysis
 
 ---
 
-layout: false
-
-class: inverse, center, middle
-
-# ggbarstats
-For composition of categorical variables
-
----
-
 layout: true
 
-# ggbarstats
+# ggbarstats - association between categorical variables
 
 ---
 
@@ -837,7 +801,7 @@ ggbarstats(
 ```
 
 .font70[
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` descriptive statistics<br>
 `r emo::ji("check")` statistic + *p*-value<br>
@@ -859,8 +823,9 @@ layout: false
 
 class: inverse, center, middle
 
-# ggcoefstats
-For regression model objects
+# Hypothesis about regression cofficients
+
+`r emo::ji("science")` *ggcoefstats*: Any regression model object
 
 ---
 
@@ -890,7 +855,7 @@ get a <font color="blue">dataframe</font> of results:
 - `"tidy"` → **estimates**
 - `"glance"` → **model summary**
 
-**Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return<br>
 
 `r emo::ji("check")` statistic + *p*-value<br>
 `r emo::ji("check")` estimate + CIs<br>
@@ -1198,8 +1163,8 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group/condition comparisons | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
-`ggwithinstats` | Within group/condition comparisons | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
+`ggbetweenstats` | Between group comparisons | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
+`ggwithinstats` | Within group comparisons | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 `ggcorrmat` | Correlation matrix | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 `ggscatterstats` | Correlation between two variables | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
@@ -1296,7 +1261,7 @@ For example, here are results from a robust *t*-test:
 
 layout: false
 
-# Best practices in statistical tests defaults
+# Statistically informed tests defaults
 
 --
 
@@ -1309,6 +1274,10 @@ ANOVA - based on recent work (Delacre et al.,
 [2018](https://psyarxiv.com/wnezg)).
 
 `r emo::ji("check")` Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)).
+
+`r emo::ji("check")` Whenever multiple tests are carried out, *p*-values are adjusted for them by default.
+
+etc.
 
 ---
 
@@ -1416,6 +1385,12 @@ requirements.)
 --
 (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
+
+--
+
+`r emo::ji("x")` the only game in town<br>
+--
+(GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
 ---
 

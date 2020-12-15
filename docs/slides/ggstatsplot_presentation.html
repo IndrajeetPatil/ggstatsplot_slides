@@ -281,14 +281,17 @@ layout: false
 
 class: inverse, center, middle
 
-# ggbetweenstats
-For between group/condition comparisons
+# Hypothesis about group differences
+
+🔭 *ggbetweenstats*, *ggwithinstats*: multiple groups
+
+🔬 *gghistostats*, *ggdotplotstats*: single group
 
 ---
 
 layout: true
 
-# ggbetweenstats
+# ggbetweenstats - For between group comparisons
 
 ---
 
@@ -308,7 +311,7 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **&gt; 2** groups
 
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ raw data + distributions&lt;br&gt;
 ✅ descriptive statistics&lt;br&gt;
@@ -387,20 +390,17 @@ ggbetweenstats(
 * outlier.coef = 2
 )
 ```
+
+.font70[
+[Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
+interquartile range flags outliers.
+]
+
 ]
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggwithinstats
-For within group/condition comparisons&lt;br&gt;
 
 ---
 
@@ -421,7 +421,7 @@ ggwithinstats(
 ```
 
 .font70[
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ raw data + distributions&lt;br&gt;
 ✅ descriptive statistics&lt;br&gt;
@@ -446,18 +446,97 @@ Changing the `type` of test
 
 ---
 
-layout: false
+layout: true
 
-class: inverse, center, middle
+# gghistostats - Distribution of a numeric variable
 
-# ggscatterstats
-Association between two numeric variables
+---
+
+.left-code[
+
+```r
+gghistostats(
+  data = movies_long,
+  x = budget,
+* test.value = 30
+)
+```
+
+.font70[
+📝 **Defaults** return&lt;br&gt;
+
+✅ counts + proportion for bins&lt;br&gt;
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CIs&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+
+Changing the `type` of test
+
+✅ `"p"` → **parametric** (default)&lt;br&gt;
+✅ `"np"` → **non-parametric**&lt;br&gt;
+✅ `"r"` → **robust** &lt;br&gt;
+✅ `"bf"` → **Bayes Factor**
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/gghistostats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
 layout: true
 
-# ggscatterstats
+# ggdotplotstats - Labeled numeric variable
+
+---
+
+.left-code[
+
+```r
+ggdotplotstats(
+  data = movies_long,
+  x = budget,
+  y = genre,
+* test.value = 52,
+* test.value.line = TRUE
+)
+```
+
+.font70[
+📝 **Defaults** return&lt;br&gt;
+
+✅ descriptive statistics&lt;br&gt;
+✅ statistic + *p*-value&lt;br&gt;
+✅ effect size + CIs&lt;br&gt;
+✅ Bayesian hypothesis-testing&lt;br&gt;
+✅ Bayesian estimation&lt;br&gt;
+]
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/ggdotplotstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# Hypothesis about correlation
+&lt;br&gt;
+🧪 *ggscatterstats*: Two numeric variables
+&lt;br&gt;
+🔬 *ggcorrmat*: Multiple numeric variables
+
+---
+
+layout: true
+
+# ggscatterstats - Two numeric variables
 
 ---
 
@@ -472,7 +551,7 @@ ggscatterstats(
 ```
 
 .font70[
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ raw data + distributions&lt;br&gt;
 ✅ marginal distributions&lt;br&gt;
@@ -534,18 +613,9 @@ Changing the marginal type
 
 ---
 
-layout: false
-
-class: inverse, center, middle
-
-# ggcorrmat
-Association between multiple numeric variables
-
----
-
 layout: true
 
-# ggcorrmat
+# ggcorrmat - Multiple numeric variables
 
 ---
 
@@ -556,7 +626,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ effect size + significance&lt;br&gt;
 ✅ careful handling of `NA`s
@@ -593,7 +663,7 @@ library(ggplot2) # for data
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
-  output = "dataframe"
+* output = "dataframe"
 )
 ```
 
@@ -621,11 +691,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.7320232 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.8233131 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6372307 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.0000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7329811 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.8228639 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6318712 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -636,11 +706,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2104464 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4297109 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0084730 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9335 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1985 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2099777 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4221222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0047202 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.93425 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20700 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -651,11 +721,11 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3448133 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1503431 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5180235 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9950 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0305 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3408375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1614112 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5289136 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.99675 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02875 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
@@ -675,115 +745,17 @@ layout: false
 
 class: inverse, center, middle
 
-# gghistostats
-Distribution of a numeric variable
+# Hypothesis of composition of categorical variables
+&lt;br&gt;
+🔬 *ggpiestats*: If you like 🍰
+&lt;br&gt;
+🔬 *ggbarstats*: If not
 
 ---
 
 layout: true
 
-# gghistostats
-
----
-
-.left-code[
-
-```r
-gghistostats(
-  data = movies_long,
-  x = budget,
-* test.value = 30
-)
-```
-
-.font70[
-**Defaults** return&lt;br&gt;
-
-✅ counts + proportion for bins&lt;br&gt;
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
-
-Changing the `type` of test
-
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
-]
-]
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/gghistostats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggdotplotstats
-Distribution of a numeric variable with labels
-
----
-
-layout: true
-
-# ggdotplotstats
-
----
-
-.left-code[
-
-```r
-ggdotplotstats(
-  data = movies_long,
-  x = budget,
-  y = genre,
-* test.value = 52,
-* test.value.line = TRUE
-)
-```
-
-.font70[
-**Defaults** return&lt;br&gt;
-
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
-
-Changing the `type` of test
-
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
-]
-]
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggdotplotstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: false
-
-class: inverse, center, middle
-
-# ggpiestats
-For composition of categorical variables
-
----
-
-layout: true
-
-# ggpiestats - contingency table
+# ggpiestats - association between categorical variables
 
 ---
 
@@ -802,7 +774,7 @@ ggpiestats(
 ```
 
 .font70[
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
@@ -827,7 +799,7 @@ Test by design
 
 layout: true
 
-# ggpiestats - proportion test
+# ggpiestats - goodness-of-fit test
 
 ---
 
@@ -836,7 +808,7 @@ layout: true
 ```r
 ggpiestats(
   data = as.data.frame(Titanic),
-  x = Survived, 
+  x = Class, 
 * counts = Freq,
 * label = "both"
 )
@@ -861,18 +833,9 @@ Test by analysis
 
 ---
 
-layout: false
-
-class: inverse, center, middle
-
-# ggbarstats
-For composition of categorical variables
-
----
-
 layout: true
 
-# ggbarstats
+# ggbarstats - association between categorical variables
 
 ---
 
@@ -889,7 +852,7 @@ ggbarstats(
 ```
 
 .font70[
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ descriptive statistics&lt;br&gt;
 ✅ statistic + *p*-value&lt;br&gt;
@@ -910,8 +873,9 @@ layout: false
 
 class: inverse, center, middle
 
-# ggcoefstats
-For regression model objects
+# Hypothesis about regression cofficients
+
+🔬 *ggcoefstats*: Any regression model object
 
 ---
 
@@ -942,7 +906,7 @@ get a &lt;font color="blue"&gt;dataframe&lt;/font&gt; of results:
 - `"tidy"` → **estimates**
 - `"glance"` → **model summary**
 
-**Defaults** return&lt;br&gt;
+📝 **Defaults** return&lt;br&gt;
 
 ✅ statistic + *p*-value&lt;br&gt;
 ✅ estimate + CIs&lt;br&gt;
@@ -1249,8 +1213,8 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group/condition comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggwithinstats` | Within group/condition comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggbetweenstats` | Between group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggwithinstats` | Within group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggcorrmat` | Correlation matrix | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggscatterstats` | Correlation between two variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
@@ -1349,7 +1313,7 @@ For example, here are results from a robust *t*-test:
 
 layout: false
 
-# Best practices in statistical tests defaults
+# Statistically informed tests defaults
 
 --
 
@@ -1362,6 +1326,10 @@ ANOVA - based on recent work (Delacre et al.,
 [2018](https://psyarxiv.com/wnezg)).
 
 ✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)).
+
+✅ Whenever multiple tests are carried out, *p*-values are adjusted for them by default.
+
+etc.
 
 ---
 
@@ -1469,6 +1437,12 @@ requirements.)
 --
 (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
+
+--
+
+❌ the only game in town&lt;br&gt;
+--
+(GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
 ---
 
