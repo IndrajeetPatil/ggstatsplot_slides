@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Max Planck Institute, Berlin)" />
-    <meta name="date" content="2020-12-15" />
+    <meta name="date" content="2020-12-19" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Max Planck Institute, Berlin)
-### 2020-12-15<br><br><br>
+### 2020-12-19 <br> <br> <br>
 
 ---
 
@@ -111,14 +111,14 @@ layout: true
 
 --
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
 In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two different phases: visualization informs modeling,
 and modeling can suggest a different visualization, and so on and so forth. 
 
@@ -145,17 +145,17 @@ class: center
 
 .footnote[[(Matejka &amp; Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
 .font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
@@ -216,13 +216,13 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 --
 
-&lt;br&gt;
-&lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
 **All** functions in `ggstatsplot`-
 
-✅ rely on a **dataframe** (`function(data, x, ...)`)&lt;br&gt;
-✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))&lt;br&gt;
-✅ accept `symbols` as arguments (`x = var`)&lt;br&gt;
+✅ rely on a **dataframe** (`function(data, x, ...)`) &lt;br&gt;
+✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf)) &lt;br&gt;
+✅ accept `symbols` as arguments (`x = var`) &lt;br&gt;
 
 ---
 
@@ -254,7 +254,6 @@ You can get the development version of the package from
 
 
 ```r
-library(remotes)
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -312,15 +311,15 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **&gt; 2** groups
 
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ raw data + distributions&lt;br&gt;
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ pairwise comparisons&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ raw data + distributions &lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ pairwise comparisons &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 ]
 
 ]
@@ -352,9 +351,9 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
+✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"` → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayes Factor**
 
 Changing pairwise comparisons displayed
@@ -393,6 +392,13 @@ ggbetweenstats(
 .font70[
 [Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
 interquartile range flags outliers.
+
+Centrality measures
+
+✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
+✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 
 ]
@@ -420,21 +426,21 @@ ggwithinstats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ raw data + distributions&lt;br&gt;
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ pairwise comparisons&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ raw data + distributions &lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ pairwise comparisons &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
+✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"` → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayes Factor**
 ]
 ]
@@ -462,20 +468,20 @@ gghistostats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ counts + proportion for bins&lt;br&gt;
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ counts + proportion for bins &lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
+✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"` → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayes Factor**
 ]
 ]
@@ -504,13 +510,13 @@ ggdotplotstats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 ]
 ]
 
@@ -525,9 +531,9 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis about correlation
-&lt;br&gt;
+ &lt;br&gt;
 🧪 *ggscatterstats*: Two numeric variables
-&lt;br&gt;
+ &lt;br&gt;
 🧪 *ggcorrmat*: Multiple numeric variables
 
 ---
@@ -549,20 +555,20 @@ ggscatterstats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ raw data + distributions&lt;br&gt;
-✅ marginal distributions&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ raw data + distributions &lt;br&gt;
+✅ marginal distributions &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
+✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"` → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayes Factor**
 ]
 ]
@@ -624,17 +630,17 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ effect size + significance&lt;br&gt;
+✅ effect size + significance &lt;br&gt;
 ✅ careful handling of `NA`s
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default)&lt;br&gt;
-✅ `"np"` → **non-parametric**&lt;br&gt;
-✅ `"r"` → **robust** &lt;br&gt;
-❌ `"bf"` → **Bayes Factor**
+✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"` → **robust**  &lt;br&gt;
+✅ `"bf"` → **Bayes Factor**
 
 ]
 ]
@@ -737,6 +743,9 @@ ggcorrmat(
 &lt;/div&gt;
 ]
 
+Partial correlations are also supported! 
+Just set `partial = TRUE`.
+
 ---
 
 layout: false
@@ -744,9 +753,9 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
-&lt;br&gt;
+ &lt;br&gt;
 🔬 *ggpiestats*: If you like 🍰
-&lt;br&gt;
+ &lt;br&gt;
 🔬 *ggbarstats*: Otherwise
 
 ---
@@ -808,14 +817,14 @@ ggpiestats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Goodness-of-fit tests&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Goodness-of-fit tests &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 
 Test by design
 
@@ -851,14 +860,14 @@ ggbarstats(
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ descriptive statistics&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
-✅ effect size + CIs&lt;br&gt;
-✅ Goodness-of-fit tests&lt;br&gt;
-✅ Bayesian hypothesis-testing&lt;br&gt;
-✅ Bayesian estimation&lt;br&gt;
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Goodness-of-fit tests &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+✅ Bayesian estimation &lt;br&gt;
 
 Test by design
 
@@ -903,10 +912,10 @@ ggcoefstats(mod)
 ```
 
 .font70[
-📝 **Defaults** return&lt;br&gt;
+📝 **Defaults** return &lt;br&gt;
 
-✅ estimate + CIs&lt;br&gt;
-✅ statistic + *p*-value&lt;br&gt;
+✅ estimate + CIs &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
 ✅ model summary (AIC + BIC)
 ]
 
@@ -1161,7 +1170,7 @@ layout: false
 
 # Supports different statistical approaches 
 
-&lt;br&gt;
+ &lt;br&gt;
 
 --
 
@@ -1380,21 +1389,21 @@ This package is...
 
 --
 
-❌ an alternative to learning `ggplot2`&lt;br&gt;
+❌ an alternative to learning `ggplot2` &lt;br&gt;
 --
 ✅ (The better you know `ggplot2`, the more you can modify the defaults to your
 liking.)
 
 --
 
-❌ meant to be used in talks/presentations&lt;br&gt;
+❌ meant to be used in talks/presentations &lt;br&gt;
 --
 ✅ (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
 
 --
 
-❌ the only game in town&lt;br&gt;
+❌ the only game in town &lt;br&gt;
 --
 ✅ (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
@@ -1412,7 +1421,7 @@ layout: true
 
 --
 
-- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available.&lt;br&gt;
+- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available. &lt;br&gt;
   This will *always* be the case.
 
 --

@@ -2,7 +2,7 @@
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
 subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil (Max Planck Institute, Berlin)"
-date: "`r Sys.Date()`<br><br><br>"
+date: "`r Sys.Date()` <br> <br> <br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -138,14 +138,14 @@ layout: true
 
 --
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
 In a typical *exploratory* data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two different phases: visualization informs modeling,
 and modeling can suggest a different visualization, and so on and so forth. 
 
@@ -172,17 +172,17 @@ class: center
 
 .footnote[[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
 .font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
 
 ---
@@ -240,13 +240,13 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 --
 
-<br>
-<br>
+ <br>
+ <br>
 **All** functions in `ggstatsplot`-
 
-`r emo::ji("check")` rely on a **dataframe** (`function(data, x, ...)`)<br>
-`r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf))<br>
-`r emo::ji("check")` accept `symbols` as arguments (`x = var`)<br>
+`r emo::ji("check")` rely on a **dataframe** (`function(data, x, ...)`) <br>
+`r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf)) <br>
+`r emo::ji("check")` accept `symbols` as arguments (`x = var`) <br>
 
 ---
 
@@ -276,7 +276,6 @@ You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
 ```{r github, eval = FALSE, tidy = FALSE}
-library(remotes)
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -332,15 +331,15 @@ Function internally decides tests
 - *t*-test if **2** groups
 - ANOVA if **> 2** groups
 
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` raw data + distributions<br>
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` pairwise comparisons<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` raw data + distributions <br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` pairwise comparisons <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 ]
 
 ]
@@ -372,9 +371,9 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"np"` → **non-parametric** <br>
+`r emo::ji("check")` `"r"` → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayes Factor**
 
 Changing pairwise comparisons displayed
@@ -413,6 +412,13 @@ ggbetweenstats(
 .font70[
 [Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
 interquartile range flags outliers.
+
+Centrality measures
+
+`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
+`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 
 ]
@@ -440,21 +446,21 @@ ggwithinstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` raw data + distributions<br>
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` pairwise comparisons<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` raw data + distributions <br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` pairwise comparisons <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"np"` → **non-parametric** <br>
+`r emo::ji("check")` `"r"` → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
@@ -482,20 +488,20 @@ gghistostats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` counts + proportion for bins<br>
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` counts + proportion for bins <br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"np"` → **non-parametric** <br>
+`r emo::ji("check")` `"r"` → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
@@ -524,13 +530,13 @@ ggdotplotstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 ]
 ]
 
@@ -546,9 +552,9 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis about correlation
-<br>
+ <br>
 `r emo::ji("science")` *ggscatterstats*: Two numeric variables
-<br>
+ <br>
 `r emo::ji("science")` *ggcorrmat*: Multiple numeric variables
 
 ---
@@ -569,20 +575,20 @@ ggscatterstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` raw data + distributions<br>
-`r emo::ji("check")` marginal distributions<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` raw data + distributions <br>
+`r emo::ji("check")` marginal distributions <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
+`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"np"` → **non-parametric** <br>
+`r emo::ji("check")` `"r"` → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayes Factor**
 ]
 ]
@@ -644,17 +650,17 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` effect size + significance<br>
+`r emo::ji("check")` effect size + significance <br>
 `r emo::ji("check")` careful handling of `NA`s
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default)<br>
-`r emo::ji("check")` `"np"` → **non-parametric**<br>
-`r emo::ji("check")` `"r"` → **robust** <br>
-`r emo::ji("x")` `"bf"` → **Bayes Factor**
+`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"np"` → **non-parametric** <br>
+`r emo::ji("check")` `"r"` → **robust**  <br>
+`r emo::ji("check")` `"bf"` → **Bayes Factor**
 
 ]
 ]
@@ -686,6 +692,9 @@ ggcorrmat(
 ```
 ]
 
+Partial correlations are also supported! 
+Just set `partial = TRUE`.
+
 ---
 
 layout: false
@@ -693,9 +702,9 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
-<br>
+ <br>
 `r emo::ji("science")` *ggpiestats*: If you like `r emo::ji("slice")`
-<br>
+ <br>
 `r emo::ji("science")` *ggbarstats*: Otherwise
 
 ---
@@ -756,14 +765,14 @@ ggpiestats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Goodness-of-fit tests<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Goodness-of-fit tests <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 
 Test by design
 
@@ -799,14 +808,14 @@ ggbarstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` descriptive statistics<br>
-`r emo::ji("check")` statistic + *p*-value<br>
-`r emo::ji("check")` effect size + CIs<br>
-`r emo::ji("check")` Goodness-of-fit tests<br>
-`r emo::ji("check")` Bayesian hypothesis-testing<br>
-`r emo::ji("check")` Bayesian estimation<br>
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Goodness-of-fit tests <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+`r emo::ji("check")` Bayesian estimation <br>
 
 Test by design
 
@@ -851,10 +860,10 @@ ggcoefstats(mod)
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return<br>
+`r emo::ji("pencil")` **Defaults** return <br>
 
-`r emo::ji("check")` estimate + CIs<br>
-`r emo::ji("check")` statistic + *p*-value<br>
+`r emo::ji("check")` estimate + CIs <br>
+`r emo::ji("check")` statistic + *p*-value <br>
 `r emo::ji("check")` model summary (AIC + BIC)
 ]
 
@@ -1110,7 +1119,7 @@ layout: false
 
 # Supports different statistical approaches 
 
-<br>
+ <br>
 
 --
 
@@ -1327,21 +1336,21 @@ This package is...
 
 --
 
-`r emo::ji("x")` an alternative to learning `ggplot2`<br>
+`r emo::ji("x")` an alternative to learning `ggplot2` <br>
 --
 `r emo::ji("check")` (The better you know `ggplot2`, the more you can modify the defaults to your
 liking.)
 
 --
 
-`r emo::ji("x")` meant to be used in talks/presentations<br>
+`r emo::ji("x")` meant to be used in talks/presentations <br>
 --
 `r emo::ji("check")` (Default plots can be too complicated for effectively communicating results in
 time-constrained presentation settings, e.g. conference talks.)
 
 --
 
-`r emo::ji("x")` the only game in town<br>
+`r emo::ji("x")` the only game in town <br>
 --
 `r emo::ji("check")` (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
 
@@ -1359,7 +1368,7 @@ layout: true
 
 --
 
-- Limited number of statistical <font color="blue">tests</font> available.<br>
+- Limited number of statistical <font color="blue">tests</font> available. <br>
   This will *always* be the case.
 
 --

@@ -2,7 +2,7 @@ lm	::	~	mtcars
 cor	$	::	mtcars
 cor.test	::	~	mtcars
 utils	install.packages
-github	::	library
+github	::
 load	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
