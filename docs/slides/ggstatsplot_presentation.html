@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Max Planck Institute, Berlin)" />
-    <meta name="date" content="2020-12-19" />
+    <meta name="date" content="2021-01-20" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Max Planck Institute, Berlin)
-### 2020-12-19 <br> <br> <br>
+### 2021-01-20 <br> <br> <br>
 
 ---
 
@@ -221,8 +221,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 **All** functions in `ggstatsplot`-
 
 ✅ rely on a **dataframe** (`function(data, x, ...)`) &lt;br&gt;
-✅ expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf)) &lt;br&gt;
-✅ accept `symbols` as arguments (`x = var`) &lt;br&gt;
+✅ expect **tidy** data &lt;br&gt;
 
 ---
 
@@ -240,7 +239,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.6.6`) of **ggstatsplot** from 
+Install the stable version (latest: `0.6.8`) of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -477,12 +476,12 @@ gghistostats(
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
 
-Changing the `type` of test
+Centrality measures
 
-✅ `"p"` → **parametric** (default) &lt;br&gt;
-✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"` → **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
+✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
+✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 ]
 
@@ -517,6 +516,13 @@ ggdotplotstats(
 ✅ effect size + CIs &lt;br&gt;
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
+
+Centrality measures
+
+✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
+✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 ]
 
@@ -532,7 +538,7 @@ class: inverse, center, middle
 
 # Hypothesis about correlation
  &lt;br&gt;
-🧪 *ggscatterstats*: Two numeric variables
+🔭 *ggscatterstats*: Two numeric variables
  &lt;br&gt;
 🧪 *ggcorrmat*: Multiple numeric variables
 
@@ -1496,10 +1502,10 @@ class: inverse, center, middle
 
 .font130.text-white[
 
-[<i class="fab  fa-twitter "></i> @patilindrajeets](http://twitter.com/patilindrajeets)  
-[<i class="fab  fa-github "></i> @IndrajeetPatil](http://github.com/IndrajeetPatil)  
-[<i class="fas  fa-link "></i> https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
-[<i class="fas  fa-paper-plane "></i> patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[`&lt;i class="fab  fa-twitter "&gt;&lt;/i&gt;`{=html} @patilindrajeets](http://twitter.com/patilindrajeets)  
+[`&lt;i class="fab  fa-github "&gt;&lt;/i&gt;`{=html} @IndrajeetPatil](http://github.com/IndrajeetPatil)  
+[`&lt;i class="fas  fa-link "&gt;&lt;/i&gt;`{=html} https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
+[`&lt;i class="fas  fa-paper-plane "&gt;&lt;/i&gt;`{=html} patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 ]
 
 ---

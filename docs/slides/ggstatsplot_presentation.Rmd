@@ -245,8 +245,7 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 **All** functions in `ggstatsplot`-
 
 `r emo::ji("check")` rely on a **dataframe** (`function(data, x, ...)`) <br>
-`r emo::ji("check")` expect **tidy** data (Wickham, [2014](https://vita.had.co.nz/papers/tidy-data.pdf)) <br>
-`r emo::ji("check")` accept `symbols` as arguments (`x = var`) <br>
+`r emo::ji("check")` expect **tidy** data <br>
 
 ---
 
@@ -264,7 +263,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.6.6`) of **ggstatsplot** from 
+Install the stable version (latest: `0.6.8`) of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
@@ -497,12 +496,12 @@ gghistostats(
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
 
-Changing the `type` of test
+Centrality measures
 
-`r emo::ji("check")` `"p"` → **parametric** (default) <br>
-`r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"` → **robust**  <br>
-`r emo::ji("check")` `"bf"` → **Bayes Factor**
+`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
+`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 ]
 
@@ -537,6 +536,13 @@ ggdotplotstats(
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
+
+Centrality measures
+
+`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
+`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 ]
 
