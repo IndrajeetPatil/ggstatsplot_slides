@@ -3,7 +3,7 @@ cor
 cor.test	
 utils	
 github	
-load	.Random.seed
+load	
 ggbetweenstats_1	
 ggbetweenstats_1_copy	
 ggbetweenstats_2	

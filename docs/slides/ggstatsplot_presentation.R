@@ -1,4 +1,5 @@
-## ----setup, include = FALSE-------------------------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------------------------------------------------------------
+future::plan("multicore")
 knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 5,
@@ -32,33 +33,32 @@ options(
 )
 
 
-## ----lm, eval = FALSE-------------------------------------------------------------------
+## ----lm, eval = FALSE---------------------------------------------------------------------------------------------------------------
 ## stats::lm(formula = wt ~ mpg, data = mtcars)
 
 
-## ----cor, eval = FALSE------------------------------------------------------------------
+## ----cor, eval = FALSE--------------------------------------------------------------------------------------------------------------
 ## stats::cor(x = mtcars$wt, y = mtcars$mpg)
 
 
-## ----cor.test, eval = FALSE-------------------------------------------------------------
+## ----cor.test, eval = FALSE---------------------------------------------------------------------------------------------------------
 ## stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 
 
-## ----utils, eval = FALSE, tidy = FALSE--------------------------------------------------
+## ----utils, eval = FALSE, tidy = FALSE----------------------------------------------------------------------------------------------
 ## install.packages("ggstatsplot")
 
 
-## ----github, eval = FALSE, tidy = FALSE-------------------------------------------------
-## library(remotes)
+## ----github, eval = FALSE, tidy = FALSE---------------------------------------------------------------------------------------------
 ## remotes::install_github("IndrajeetPatil/ggstatsplot")
 
 
-## ----load, eval = TRUE, warning=FALSE---------------------------------------------------
+## ----load, eval = TRUE, warning=FALSE-----------------------------------------------------------------------------------------------
 library(ggstatsplot)
 library(ggplot2)
 
 
-## ----ggbetweenstats_1, eval = FALSE-----------------------------------------------------
+## ----ggbetweenstats_1, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
@@ -66,7 +66,7 @@ library(ggplot2)
 ## )
 
 
-## ----ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE---------------------
+## ----ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE-----------------------------------------------------------------
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -74,53 +74,49 @@ ggbetweenstats(
 )
 
 
-## ----ggbetweenstats_2, eval = FALSE-----------------------------------------------------
+## ----ggbetweenstats_2, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
 ##   y = rating,
 ##   type = "np", #<<
-##   pairwise.display = "ns", #<<
-##   p.adjust.method = "fdr" #<<
+##   pairwise.display = "ns" #<<
 ## )
 
 
-## ----ggbetweenstats_2, ref.label = 'ggbetweenstats_2', echo = FALSE---------------------
+## ----ggbetweenstats_2, ref.label = 'ggbetweenstats_2', echo = FALSE-----------------------------------------------------------------
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
   type = "np", #<<
-  pairwise.display = "ns", #<<
-  p.adjust.method = "fdr" #<<
+  pairwise.display = "ns" #<<
 )
 
 
-## ----ggbetweenstats_3, eval = FALSE-----------------------------------------------------
+## ----ggbetweenstats_3, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
 ##   y = rating,
 ##   type = "r",
 ##   outlier.tagging = TRUE, #<<
-##   outlier.label = title, #<<
-##   outlier.coef = 2 #<<
+##   outlier.label = title #<<
 ## )
 
 
-## ----ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE---------------------
+## ----ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE-----------------------------------------------------------------
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
   type = "r",
   outlier.tagging = TRUE, #<<
-  outlier.label = title, #<<
-  outlier.coef = 2 #<<
+  outlier.label = title #<<
 )
 
 
-## ----ggwithinstats_1, eval = FALSE------------------------------------------------------
+## ----ggwithinstats_1, eval = FALSE--------------------------------------------------------------------------------------------------
 ## ggwithinstats(
 ##   data = WRS2::WineTasting,
 ##   x = Wine,
@@ -128,7 +124,7 @@ ggbetweenstats(
 ## )
 
 
-## ----ggwithinstats_1, ref.label = 'ggwithinstats_1', echo = FALSE-----------------------
+## ----ggwithinstats_1, ref.label = 'ggwithinstats_1', echo = FALSE-------------------------------------------------------------------
 ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
@@ -136,7 +132,7 @@ ggwithinstats(
 )
 
 
-## ----gghistostats_1, eval = FALSE-------------------------------------------------------
+## ----gghistostats_1, eval = FALSE---------------------------------------------------------------------------------------------------
 ## gghistostats(
 ##   data = movies_long,
 ##   x = budget,
@@ -144,7 +140,7 @@ ggwithinstats(
 ## )
 
 
-## ----gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE-------------------------
+## ----gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE---------------------------------------------------------------------
 gghistostats(
   data = movies_long,
   x = budget,
@@ -152,27 +148,25 @@ gghistostats(
 )
 
 
-## ----ggdotplotstats_1, eval = FALSE-----------------------------------------------------
+## ----ggdotplotstats_1, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggdotplotstats(
 ##   data = movies_long,
 ##   x = budget,
 ##   y = genre,
-##   test.value = 52, #<<
-##   test.value.line = TRUE #<<
+##   test.value = 30 #<<
 ## )
 
 
-## ----ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE---------------------
+## ----ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE-----------------------------------------------------------------
 ggdotplotstats(
   data = movies_long,
   x = budget,
   y = genre,
-  test.value = 52, #<<
-  test.value.line = TRUE #<<
+  test.value = 30 #<<
 )
 
 
-## ----ggscatterstats_1, eval = FALSE-----------------------------------------------------
+## ----ggscatterstats_1, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggscatterstats(
 ##   data = movies_long,
 ##   x = budget,
@@ -180,7 +174,7 @@ ggdotplotstats(
 ## )
 
 
-## ----ggscatterstats_1, ref.label = 'ggscatterstats_1', echo = FALSE---------------------
+## ----ggscatterstats_1, ref.label = 'ggscatterstats_1', echo = FALSE-----------------------------------------------------------------
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -188,7 +182,7 @@ ggscatterstats(
 )
 
 
-## ----ggscatterstats_2, eval = FALSE-----------------------------------------------------
+## ----ggscatterstats_2, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggscatterstats(
 ##   data = movies_long,
 ##   x = budget,
@@ -197,11 +191,11 @@ ggscatterstats(
 ##   label.var = title, #<<
 ##   label.expression = budget > 150 #<<
 ##   & rating > 7.5, #<<
-##   marginal.type = "density" #<<
+##   marginal.type = "boxplot" #<<
 ## )
 
 
-## ----ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE---------------------
+## ----ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE-----------------------------------------------------------------
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -210,29 +204,47 @@ ggscatterstats(
   label.var = title, #<<
   label.expression = budget > 150 #<<
   & rating > 7.5, #<<
-  marginal.type = "density" #<<
+  marginal.type = "boxplot" #<<
 )
 
 
-## ----ggcorrmat_1, eval = FALSE----------------------------------------------------------
+## ----ggcorrmat_1, eval = FALSE------------------------------------------------------------------------------------------------------
 ## ggcorrmat(dplyr::starwars)
 
 
-## ----ggcorrmat_1, ref.label = 'ggcorrmat_1', echo = FALSE-------------------------------
+## ----ggcorrmat_1, ref.label = 'ggcorrmat_1', echo = FALSE---------------------------------------------------------------------------
 ggcorrmat(dplyr::starwars)
 
 
-## ----ggcorrmat_2, tidy=FALSE------------------------------------------------------------
+## ----ggcorrmat_2--------------------------------------------------------------------------------------------------------------------
 library(ggplot2) # for data
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
   type = "bf",
-  output = "dataframe"
+  output = "dataframe" #<<
 )
 
 
-## ----ggpiestats_1, eval = FALSE---------------------------------------------------------
+## ----ggpiestats_1, eval = FALSE-----------------------------------------------------------------------------------------------------
+## ggpiestats(
+##   data = as.data.frame(Titanic),
+##   x = Class,
+##   counts = Freq, #<<
+##   label = "both" #<<
+## )
+
+
+## ----ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE-------------------------------------------------------------------------
+ggpiestats(
+  data = as.data.frame(Titanic),
+  x = Class,
+  counts = Freq, #<<
+  label = "both" #<<
+)
+
+
+## ----ggpiestats_2, eval = FALSE-----------------------------------------------------------------------------------------------------
 ## # let's use subset of data
 ## ggpiestats(
 ##   data = dplyr::filter(
@@ -244,7 +256,7 @@ ggcorrmat(
 ## )
 
 
-## ----ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE-----------------------------
+## ----ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE-------------------------------------------------------------------------
 # let's use subset of data
 ggpiestats(
   data = dplyr::filter(
@@ -256,48 +268,32 @@ ggpiestats(
 )
 
 
-## ----ggpiestats_2, eval = FALSE---------------------------------------------------------
-## ggpiestats(
-##   data = as.data.frame(Titanic),
-##   x = Class,
-##   counts = Freq, #<<
-##   label = "both" #<<
-## )
-
-
-## ----ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE-----------------------------
-ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class, 
-  counts = Freq, #<<
-  label = "both" #<<
-)
-
-
-## ----ggbarstats_1, eval = FALSE---------------------------------------------------------
+## ----ggbarstats_1, eval = FALSE-----------------------------------------------------------------------------------------------------
 ## ggbarstats(
-##   data = movies_long,
-##   x = genre,
-##   y = mpaa,
-##   package = "ggsci",
-##   palette = "default_igv"
+##   data = dplyr::filter(
+##     .data = movies_long,
+##     genre %in% c("Drama", "Comedy")
+##   ),
+##   x = mpaa,
+##   y = genre
 ## )
 
 
-## ----ggbarstats_1, ref.label = 'ggbarstats_1', echo = FALSE-----------------------------
+## ----ggbarstats_1, ref.label = 'ggbarstats_1', echo = FALSE-------------------------------------------------------------------------
 ggbarstats(
-  data = movies_long,
-  x = genre,
-  y = mpaa,
-  package = "ggsci",
-  palette = "default_igv"
+  data = dplyr::filter(
+    .data = movies_long,
+    genre %in% c("Drama", "Comedy")
+  ),
+  x = mpaa,
+  y = genre
 )
 
 
-## ----ggcoefstats_1, eval = FALSE--------------------------------------------------------
+## ----ggcoefstats_1, eval = FALSE----------------------------------------------------------------------------------------------------
 ## # model
-## mod <- stats::aov(
-##   formula = rating ~ mpaa * genre,
+## mod <- stats::lm(
+##   formula = rating ~ mpaa,
 ##   data = movies_long
 ## )
 ## 
@@ -305,10 +301,10 @@ ggbarstats(
 ## ggcoefstats(mod)
 
 
-## ----ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE---------------------------
+## ----ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE-----------------------------------------------------------------------
 # model
-mod <- stats::aov(
-  formula = rating ~ mpaa * genre,
+mod <- stats::lm(
+  formula = rating ~ mpaa,
   data = movies_long
 )
 
@@ -316,37 +312,7 @@ mod <- stats::aov(
 ggcoefstats(mod)
 
 
-## ----ggcoefstats_2, eval = FALSE--------------------------------------------------------
-## library(parameters)
-## 
-## # dataframe with results
-## df <-
-##   model_parameters(lm(wt ~ cyl, mtcars)) %>%
-##   standardize_names(., "broom")
-## 
-## # `statistic` argument decides label format
-## ggstatsplot::ggcoefstats(
-##   x = df,
-##   statistic = "t" #<<
-## )
-
-
-## ----ggcoefstats_2, ref.label = 'ggcoefstats_2', echo = FALSE---------------------------
-library(parameters)
-
-# dataframe with results
-df <-
-  model_parameters(lm(wt ~ cyl, mtcars)) %>%
-  standardize_names(., "broom")
-
-# `statistic` argument decides label format
-ggstatsplot::ggcoefstats(
-  x = df,
-  statistic = "t" #<<
-)
-
-
-## ----grouped_1, eval = FALSE------------------------------------------------------------
+## ----grouped_1, eval = FALSE--------------------------------------------------------------------------------------------------------
 ## grouped_ggpiestats(
 ##   data = mtcars,
 ##   x = cyl,
@@ -354,7 +320,7 @@ ggstatsplot::ggcoefstats(
 ## )
 
 
-## ----grouped_1, ref.label = 'grouped_1', echo = FALSE-----------------------------------
+## ----grouped_1, ref.label = 'grouped_1', echo = FALSE-------------------------------------------------------------------------------
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
@@ -362,7 +328,7 @@ grouped_ggpiestats(
 )
 
 
-## ----ggbetweenstats_4, eval = FALSE-----------------------------------------------------
+## ----ggbetweenstats_4, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggbetweenstats(
 ##   data = movies_long,
 ##   x = mpaa,
@@ -374,7 +340,7 @@ grouped_ggpiestats(
 ## )
 
 
-## ----ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE---------------------
+## ----ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE-----------------------------------------------------------------
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -386,7 +352,7 @@ ggbetweenstats(
 )
 
 
-## ----ggbetweenstats_5, eval = FALSE-----------------------------------------------------
+## ----ggbetweenstats_5, eval = FALSE-------------------------------------------------------------------------------------------------
 ## ggbetweenstats(
 ##   data = mtcars,
 ##   x = am,
@@ -396,7 +362,7 @@ ggbetweenstats(
 ##   scale_y_continuous(sec.axis = dup_axis()) #<<
 
 
-## ----ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE---------------------
+## ----ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE-----------------------------------------------------------------
 ggbetweenstats(
   data = mtcars,
   x = am,
@@ -406,7 +372,7 @@ ggbetweenstats(
   scale_y_continuous(sec.axis = dup_axis()) #<<
 
 
-## ----subtitle_1, eval = FALSE-----------------------------------------------------------
+## ----subtitle_1, eval = FALSE-------------------------------------------------------------------------------------------------------
 ## # using `ggstatsplot` for stats
 ## results <-
 ##   ggstatsplot::ggpiestats(
@@ -425,7 +391,7 @@ ggbetweenstats(
 ## ) + labs(subtitle = results) #<<
 
 
-## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE---------------------------------
+## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE-----------------------------------------------------------------------------
 # using `ggstatsplot` for stats
 results <-
   ggstatsplot::ggpiestats(
@@ -444,7 +410,7 @@ ggiraphExtra::ggSpine( #<<
 ) + labs(subtitle = results) #<<
 
 
-## ----type_p, eval = FALSE---------------------------------------------------------------
+## ----type_p, eval = FALSE-----------------------------------------------------------------------------------------------------------
 ## # anova
 ## ggbetweenstats(
 ##   data = mtcars,
@@ -470,7 +436,7 @@ ggiraphExtra::ggSpine( #<<
 ## )
 
 
-## ----type_np, eval = FALSE--------------------------------------------------------------
+## ----type_np, eval = FALSE----------------------------------------------------------------------------------------------------------
 ## # anova
 ## ggbetweenstats(
 ##   data = mtcars,

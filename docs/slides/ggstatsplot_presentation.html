@@ -3,13 +3,12 @@
   <head>
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Indrajeet Patil (Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-01-20" />
+    <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
+    <meta name="date" content="2021-02-09" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="ggstatsplot_presentation.css" type="text/css" />
   </head>
   <body>
@@ -18,8 +17,8 @@ class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
-### Indrajeet Patil (Max Planck Institute, Berlin)
-### 2021-01-20 <br> <br> <br>
+### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
+### 2021-02-09 <br> <br> <br>
 
 ---
 
@@ -282,7 +281,7 @@ class: inverse, center, middle
 
 # Hypothesis about group differences
 
-🔭 *ggbetweenstats*, *ggwithinstats*: multiple groups
+🔬 *ggbetweenstats*, *ggwithinstats*: multiple groups
 
 🔬 *gghistostats*, *ggdotplotstats*: single group
 
@@ -538,9 +537,9 @@ class: inverse, center, middle
 
 # Hypothesis about correlation
  &lt;br&gt;
-🔭 *ggscatterstats*: Two numeric variables
+🔬 *ggscatterstats*: Two numeric variables
  &lt;br&gt;
-🧪 *ggcorrmat*: Multiple numeric variables
+🔬 *ggcorrmat*: Multiple numeric variables
 
 ---
 
@@ -685,6 +684,7 @@ ggcorrmat(
    &lt;th style="text-align:left;"&gt; parameter1 &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; parameter2 &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; conf.level &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; conf.low &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; conf.high &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; pd &lt;/th&gt;
@@ -701,46 +701,49 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.7329811 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.8228639 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6318712 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7336828 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.8234833 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6313331 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.005547e+09 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2099777 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4221222 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0047202 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.93425 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.20700 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2078193 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4302893 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0089833 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.926 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.204 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 6.539296e-01 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3408375 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1614112 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5289136 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99675 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02875 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; cauchy &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3424784 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1737942 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5447638 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.997 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.026 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 7.292097e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -760,9 +763,9 @@ class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
  &lt;br&gt;
-🔬 *ggpiestats*: If you like 🍰
+🔭 *ggpiestats*: If you like 🍰
  &lt;br&gt;
-🔬 *ggbarstats*: Otherwise
+🔭 *ggbarstats*: Otherwise
 
 ---
 
@@ -777,7 +780,7 @@ layout: true
 ```r
 ggpiestats(
   data = as.data.frame(Titanic),
-  x = Class, 
+  x = Class,
 * counts = Freq,
 * label = "both"
 )
@@ -892,7 +895,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Hypothesis about regression cofficients
+# Hypothesis about regression coefficients
 
 🔭 *ggcoefstats*: Any regression model object
 
@@ -940,27 +943,28 @@ layout: true
 ---
 
 .font70[
-`aareg`, `anova`, `aov`, `aovlist`, `Arima`, `bam`, `bayesx`, `bayesGARCH`,
-`BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`, `BFBayesFactor`, `bglmerMod`,
-`bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`, `blmerMod`, `bracl`, `brglm`,
-`brglm2`, `brmsfit`, `brmultinom`, `btergm`, `cch`, `censReg`, `cgam`, `cgamm`,
-`cglm`, `clm`, `clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`,
-`confusionMatrix`, `coxme`, `coxph`, `coxph.penal`, `cpglm`, `cpglmm`, `crch`,
-`crq`, `DirichReg`, `drc`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`,
-`fitdistr`, `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`,
-`glmc`, `glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`,
-`glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`,
-`ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`,
-`lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`,
-`logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`,
-`margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`,
-`mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`, `mjoint`,
-`mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`,
-`nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`,
-`polr`, `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`,
-`rq`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`,
-`stanfit`, `stanreg`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
-`truncreg`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
+`aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
+`bam`, `bayesx`, `bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`,
+`BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
+`blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
+`cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
+`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`,
+`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `emmGrid`,
+`epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`,
+`Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`,
+`glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`,
+`HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`,
+`lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`,
+`lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`,
+`manova`, `maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
+`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`,
+`mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`,
+`nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`,
+`poissonirr`, `polr`, `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`,
+`robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`,
+`speedglm`, `speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`,
+`svyolr`, `svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`,
+`wblm`, `zeroinfl`, etc.
 ]
 
 --
@@ -1472,7 +1476,7 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Review code 🕵
 
-- Add new functionality 👨‍💻
+- Add new functionality 👩‍💻
 ]
 ]
 
@@ -1488,7 +1492,7 @@ Contributors to *ggstatsplot*
 
 Other developers: [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb), [Patrick Mair](https://psychology.fas.harvard.edu/people/patrick-mair)
 
-Advisors: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
+Support: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
 The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2).
 
@@ -1502,10 +1506,11 @@ class: inverse, center, middle
 
 .font130.text-white[
 
-[`&lt;i class="fab  fa-twitter "&gt;&lt;/i&gt;`{=html} @patilindrajeets](http://twitter.com/patilindrajeets)  
-[`&lt;i class="fab  fa-github "&gt;&lt;/i&gt;`{=html} @IndrajeetPatil](http://github.com/IndrajeetPatil)  
-[`&lt;i class="fas  fa-link "&gt;&lt;/i&gt;`{=html} https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
-[`&lt;i class="fas  fa-paper-plane "&gt;&lt;/i&gt;`{=html} patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[🐦 @patilindrajeets](http://twitter.com/patilindrajeets)  
+[💻 @IndrajeetPatil](http://github.com/IndrajeetPatil)  
+[🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
+[📧 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+
 ]
 
 ---
