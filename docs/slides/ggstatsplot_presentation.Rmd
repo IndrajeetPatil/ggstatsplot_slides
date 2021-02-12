@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial"
+subtitle: "An Introductory Tutorial (Version: 0.7.0)"
 author: "Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
