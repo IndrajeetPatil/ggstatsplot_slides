@@ -1,5 +1,6 @@
 body {
   font-size: 1.1em;
+  /* font-family: 'JetBrainsMonoRoman-Medium'; */
 }
 
 img {
@@ -30,6 +31,10 @@ strong {
 
 .remark-code {
   font-size: 0.8em;
+}
+
+.remark-code, .remark-inline-code {
+  font-family: 'JetBrainsMono-Regular';
 }
 
 .left-column h3 {

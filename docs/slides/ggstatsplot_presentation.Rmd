@@ -1291,7 +1291,10 @@ layout: false
 
 --
 
-> "we found that half of all published psychology papers that use NHST contained at least one p-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent p-value that may have affected the statistical conclusion"
+> "half of all published psychology papers that use NHST contained at least one
+p-value that was inconsistent with its test statistic and degrees of freedom.
+One in eight papers contained a grossly inconsistent p-value that may have
+affected the statistical conclusion"
 
 > [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
 
