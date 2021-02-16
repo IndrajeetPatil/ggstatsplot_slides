@@ -352,7 +352,7 @@ Changing the `type` of test
 ✅ `"p"` → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"` → **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
+✅ `"bf"` → **Bayesian**
 
 Changing pairwise comparisons displayed
 
@@ -382,6 +382,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "r",
+  pairwise.comparisons = FALSE,
 * outlier.tagging = TRUE,
 * outlier.label = title
 )
@@ -439,7 +440,7 @@ Changing the `type` of test
 ✅ `"p"` → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"` → **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
+✅ `"bf"` → **Bayesian**
 ]
 ]
 
@@ -574,7 +575,7 @@ Changing the `type` of test
 ✅ `"p"` → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"` → **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
+✅ `"bf"` → **Bayesian**
 ]
 ]
 
@@ -624,7 +625,7 @@ Changing the marginal type
 
 layout: true
 
-# ggcorrmat - Multiple numeric variables
+# ggcorrmat - multiple numeric variables
 
 ---
 
@@ -645,7 +646,7 @@ Changing the `type` of test
 ✅ `"p"` → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"` → **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayes Factor**
+✅ `"bf"` → **Bayesian**
 
 ]
 ]
@@ -671,7 +672,7 @@ library(ggplot2) # for data
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
-  type = "bf",
+  type = "bayes",
 * output = "dataframe"
 )
 ```
@@ -912,7 +913,10 @@ mod &lt;- stats::lm(
 )
 
 # plot
-ggcoefstats(mod)
+ggcoefstats(
+  x = mod,
+  title = "IMDB rating by MPAA rating"
+)
 ```
 
 .font70[
@@ -1027,26 +1031,26 @@ class: inverse, center, middle
 
 ---
 
-exclude: false
+&lt;!-- exclude: false --&gt;
 
-layout: true
+&lt;!-- layout: true --&gt;
 
-# Defaults
+&lt;!-- # Defaults --&gt;
 
----
+&lt;!-- --- --&gt;
 
-exclude: false
+&lt;!-- exclude: false --&gt;
 
-.pull-left[
-.font100[
-The default plots in *&lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;* are
-**opinionated**, yes, but they try to follow best practices outlined in the data visualization research.
-]
-]
+&lt;!-- .pull-left[ --&gt;
+&lt;!-- .font100[ --&gt;
+&lt;!-- The default plots in *&lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;* are --&gt;
+&lt;!-- **opinionated**, yes, but they try to follow best practices outlined in the data visualization research. --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
 
-.pull-right[
-![](images/books.JPG)
-]
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- ![](images/books.JPG) --&gt;
+&lt;!-- ] --&gt;
 
 ---
 
@@ -1099,7 +1103,7 @@ ggbetweenstats(
   data = mtcars,
   x = am,
   y = wt,
-  type = "bf"
+  type = "bayes"
 ) +
 * scale_y_continuous(sec.axis = dup_axis())
 ```
@@ -1108,7 +1112,7 @@ ggbetweenstats(
 You can modify 
  `ggstatsplot` plots further 
 using `ggplot2` functions.
-Yaay!
+Yaay! 🎉
 ]
 
 .img-left-small[
@@ -1215,7 +1219,7 @@ layout: false
 
 --
 
-Functions | Description | Parametric | Non-parametric | Robust | Bayes Factor
+Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 ------- | ------------------ | ---- | ----- | ----| ----- 
 `ggbetweenstats` | Between group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggwithinstats` | Within group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
@@ -1305,11 +1309,10 @@ layout: false
 
 --
 
-For all statistical tests reported in the plots, the expression template mostly abides
-by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for
-statistical reporting. 
+The expression template tries to follow the APA gold standard for statistical
+reporting.
 
-For example, here are results from a robust *t*-test:
+For example, expression for robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
@@ -1344,12 +1347,14 @@ layout: false
 
 --
 
-Since the plot and the statistical analysis are yoked together, the chances of
-making an error in reporting the results are minimized.
-
 &gt; "we found that half of all published psychology papers that use NHST contained at least one p-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent p-value that may have affected the statistical conclusion"
 
 &gt; [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
+
+--
+
+Since the plot and the statistical analysis are yoked together, the chances of
+making an error in reporting the results are minimized.
 
 ---
 
@@ -1359,19 +1364,24 @@ layout: false
 
 --
 
-Combination of frequentist and Bayesian statistics for each analysis to properly interpret the null results.
-
 `\(p &gt; 0.05\)`: The null hypothesis (`H0`) can't be rejected
 
 But can it be **accepted**?! NHST 🤫
 
+--
+
 &gt; "In 72% of cases, nonsignificant results were misinterpreted, in that the
-authors inferred that the effect was absent. A Bayes factor reanalysis revealed
+authors inferred that the effect was absent. A Bayesian reanalysis revealed
 that fewer than 5% of the nonsignificant findings provided strong evidence
 (i.e., `\(BF_{01} &gt; 10\)`) in favor of the null hypothesis over the alternative
 hypothesis."
 
 &gt; [(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
+
+--
+
+Juxtaposing frequentist and Bayesian statistics for the same analysis helps to
+properly interpret the null results.
 
 ---
 
@@ -1389,7 +1399,7 @@ layout: true
 
 --
 
-- Minimal amount of code needed for all functions (typically only `data`, `x`,
+- Minimal amount of code needed (typically only `data`, `x`,
   and `y`), which minimizes chances of error and makes for tidy scripts.
   
 --
@@ -1440,21 +1450,28 @@ This package is...
 
 ❌ an alternative to learning `ggplot2` &lt;br&gt;
 --
-✅ (The better you know `ggplot2`, the more you can modify the defaults to your
-liking.)
+✅ (the more you know `ggplot2`, the better you can modify the
+defaults to your liking)
 
 --
 
 ❌ meant to be used in talks/presentations &lt;br&gt;
 --
-✅ (Default plots can be too complicated for effectively communicating results in
-time-constrained presentation settings, e.g. conference talks.)
+✅ (default plots can be too complicated for effectively
+communicating results in time-constrained presentation settings, e.g. conference
+talks)
+
+--
+
+❌ meant for mass communication &lt;br&gt;
+--
+✅ LOL 😆
 
 --
 
 ❌ the only game in town &lt;br&gt;
 --
-✅ (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)).
+✅ (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 
@@ -1475,12 +1492,12 @@ layout: true
 
 --
 
-- Although beginner-friendly to use, it expects a non-trivial level of
-  statistical proficiency (but only plots without statistics can also be used).
+- Expects a non-trivial level of statistical proficiency (but plots without
+  statistics can still be useful).
 
 --
 
-- &lt;font color="blue"&gt;Faceting&lt;/font&gt; (or small multiples) not implemented.
+- &lt;font color="blue"&gt;Faceting&lt;/font&gt; not implemented.
 
 ---
 
@@ -1511,11 +1528,13 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 - Read and correct any inconsistencies in the
 [documentation](https://indrajeetpatil.github.io/ggstatsplot/) 📖
 
-- Raise issues about bugs/features 🐛
+- Raise issues about bugs/features 🐞
 
 - Review code 🕵
 
-- Add new functionality 👨‍💻
+- Add new functionality 👩‍💻
+
+- Either mention or cite software if used in a publication 📝
 ]
 ]
 
@@ -1527,13 +1546,15 @@ class: inverse, center, middle
 
 # Acknowledgments
 
-Contributors to *ggstatsplot*
+Other developers 🙌
+[Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb)
 
-Other developers: [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb), [Patrick Mair](https://psychology.fas.harvard.edu/people/patrick-mair)
+Support 💰
+[Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
-Support: [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
+Contributors to *ggstatsplot* 🙏
 
-The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2).
+&lt;!-- The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) --&gt;
 
 ---
 
@@ -1543,12 +1564,15 @@ class: inverse, center, middle
 
 # Find me at...
 
-.font130.text-white[
+.font100[
 
-[🐦 @patilindrajeets](http://twitter.com/patilindrajeets)  
+[🐦 @patilindrajeets](http://twitter.com/patilindrajeets)
+
 [💻 @IndrajeetPatil](http://github.com/IndrajeetPatil)  
+
 [🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
-[📧 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+
+[📬 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 
 ]
 
