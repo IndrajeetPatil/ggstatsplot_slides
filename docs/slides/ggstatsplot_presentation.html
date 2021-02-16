@@ -281,7 +281,7 @@ class: inverse, center, middle
 
 # Hypothesis about group differences
 
-🔬 *ggbetweenstats*, *ggwithinstats*: multiple groups
+🔭 *ggbetweenstats*, *ggwithinstats*: multiple groups
 
 🔬 *gghistostats*, *ggdotplotstats*: single group
 
@@ -537,9 +537,9 @@ class: inverse, center, middle
 
 # Hypothesis about correlation
  &lt;br&gt;
-🔬 *ggscatterstats*: Two numeric variables
+🧪 *ggscatterstats*: Two numeric variables
  &lt;br&gt;
-🔬 *ggcorrmat*: Multiple numeric variables
+🔭 *ggcorrmat*: Multiple numeric variables
 
 ---
 
@@ -701,12 +701,12 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.7336828 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7341405 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.8234833 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6313331 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.8274824 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6435327 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
@@ -717,12 +717,12 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2078193 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2056326 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4302893 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0089833 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.926 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.204 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.4268012 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0041230 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9300 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20400 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
@@ -733,12 +733,12 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3424784 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3458349 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1737942 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5447638 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.997 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.026 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1475235 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5179443 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9975 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03275 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
@@ -763,9 +763,9 @@ class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
  &lt;br&gt;
-🔭 *ggpiestats*: If you like 🍰
+🔭 *ggpiestats*: If you like 🍕
  &lt;br&gt;
-🔭 *ggbarstats*: Otherwise
+🔬 *ggbarstats*: Otherwise
 
 ---
 
@@ -790,13 +790,8 @@ ggpiestats(
 **Note**: If the data is in *tabled* 
 format, you can use the `counts` 
 argument.
-
-Test by analysis
-
-- `y != NULL` → contingency table
-- `y == NULL` → goodness-of-fit
-
 ]
+
 ]
 
 .right-plot[
@@ -817,7 +812,7 @@ layout: true
 # let's use subset of data
 ggpiestats(
   data = dplyr::filter(
-    .data = movies_long,
+    movies_long,
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
@@ -860,7 +855,7 @@ layout: true
 ```r
 ggbarstats(
   data = dplyr::filter(
-    .data = movies_long,
+    movies_long,
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
@@ -897,7 +892,7 @@ class: inverse, center, middle
 
 # Hypothesis about regression coefficients
 
-🔭 *ggcoefstats*: Any regression model object
+🔬 *ggcoefstats*: Any regression model object
 
 ---
 
@@ -949,22 +944,22 @@ layout: true
 `blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
 `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
 `coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`,
-`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `emmGrid`,
-`epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`,
-`Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`,
-`glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`,
-`HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`,
-`lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`,
-`lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`,
-`manova`, `maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
-`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`,
-`mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`,
-`nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`,
-`poissonirr`, `polr`, `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`,
-`robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`,
-`speedglm`, `speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`,
-`svyolr`, `svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`,
-`wblm`, `zeroinfl`, etc.
+`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `eglm`, `elm`,
+`emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`,
+`flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`,
+`glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`,
+`glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`,
+`iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`,
+`lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`,
+`lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`,
+`MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`, `merMod`,
+`merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`, `multinom`,
+`negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`,
+`orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `ridgelm`,
+`riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`,
+`rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
+`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
+`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 --
@@ -1045,8 +1040,7 @@ exclude: false
 .pull-left[
 .font100[
 The default plots in *&lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;* are
-**opinionated**, yes, but an attempt has been made to make sure that they
-follow best practices outlined in the data visualization research.
+**opinionated**, yes, but they try to follow best practices outlined in the data visualization research.
 ]
 ]
 
@@ -1131,11 +1125,11 @@ Yaay!
 
 layout: true
 
-# Too much information 🐒
+# Too much information 🙈
 
 ---
 
-You can also use these functions to get **only for plots**.
+`ggstatsplot` can be used to get **only plots**.
 
 --
 
@@ -1144,9 +1138,9 @@ You can also use these functions to get **only for plots**.
 ```r
 # using `ggstatsplot` only for plot
 ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
   # turn off centrality measure
 * centrality.plotting = FALSE,
   # turn off statistical analysis
@@ -1154,7 +1148,7 @@ ggbetweenstats(
   # turn off Bayesian message
 * bf.message = FALSE,
   # turn off pairwise comparisons
-* pairwise.comparisons = FALSE,
+* pairwise.comparisons = FALSE
 )
 ```
 ]
@@ -1172,7 +1166,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can also be used to get **only the expressions**.
+`ggstatsplot` can be used to get **only the expressions**.
 
 --
 
@@ -1353,12 +1347,9 @@ layout: false
 Since the plot and the statistical analysis are yoked together, the chances of
 making an error in reporting the results are minimized.
 
-&gt; "we found that half of all published psychology papers that use NHST contained
-at least one p-value that was inconsistent with its test statistic and degrees
-of freedom. One in eight papers contained a grossly inconsistent p-value that
-may have affected the statistical conclusion"
+&gt; "we found that half of all published psychology papers that use NHST contained at least one p-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent p-value that may have affected the statistical conclusion"
 
-.footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
+&gt; [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
 
 ---
 
@@ -1368,16 +1359,19 @@ layout: false
 
 --
 
-Combination of frequentist and Bayesian statistics for each analysis to properly
-interpret the null results.
+Combination of frequentist and Bayesian statistics for each analysis to properly interpret the null results.
+
+`\(p &gt; 0.05\)`: The null hypothesis (`H0`) can't be rejected
+
+But can it be **accepted**?! NHST 🤫
 
 &gt; "In 72% of cases, nonsignificant results were misinterpreted, in that the
 authors inferred that the effect was absent. A Bayes factor reanalysis revealed
 that fewer than 5% of the nonsignificant findings provided strong evidence
-(i.e., BF01 &gt; 10) in favor of the null hypothesis over the alternative
+(i.e., `\(BF_{01} &gt; 10\)`) in favor of the null hypothesis over the alternative
 hypothesis."
 
-.footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
+&gt; [(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
 
 ---
 
@@ -1521,7 +1515,7 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Review code 🕵
 
-- Add new functionality 👩‍💻
+- Add new functionality 👨‍💻
 ]
 ]
 

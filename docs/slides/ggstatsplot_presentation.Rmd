@@ -735,13 +735,8 @@ ggpiestats(
 **Note**: If the data is in *tabled* 
 format, you can use the `counts` 
 argument.
-
-Test by analysis
-
-- `y != NULL` → contingency table
-- `y == NULL` → goodness-of-fit
-
 ]
+
 ]
 
 .right-plot[
@@ -762,7 +757,7 @@ layout: true
 # let's use subset of data
 ggpiestats(
   data = dplyr::filter(
-    .data = movies_long,
+    movies_long,
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
@@ -805,7 +800,7 @@ layout: true
 ```{r ggbarstats_1, eval = FALSE}
 ggbarstats(
   data = dplyr::filter(
-    .data = movies_long,
+    movies_long,
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
@@ -895,22 +890,22 @@ layout: true
 `blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
 `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
 `coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`,
-`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `emmGrid`,
-`epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`,
-`Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`,
-`glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`,
-`HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`,
-`lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`,
-`lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`,
-`manova`, `maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
-`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mixor`,
-`mjoint`, `mle2`, `mlm`, `multinom`, `negbin`, `negbinmfx`, `negbinirr`,
-`nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`,
-`poissonirr`, `polr`, `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`,
-`robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`,
-`speedglm`, `speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`,
-`svyolr`, `svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`,
-`wblm`, `zeroinfl`, etc.
+`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `eglm`, `elm`,
+`emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`,
+`flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`,
+`glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`,
+`glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`,
+`iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`,
+`lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`,
+`lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`,
+`MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`, `merMod`,
+`merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`, `multinom`,
+`negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`,
+`orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `ridgelm`,
+`riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`,
+`rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
+`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
+`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 --
@@ -991,8 +986,7 @@ exclude: false
 .pull-left[
 .font100[
 The default plots in *<font color="blue">ggstatsplot</font>* are
-**opinionated**, yes, but an attempt has been made to make sure that they
-follow best practices outlined in the data visualization research.
+**opinionated**, yes, but they try to follow best practices outlined in the data visualization research.
 ]
 ]
 
@@ -1077,11 +1071,11 @@ Yaay!
 
 layout: true
 
-# Too much information `r emo::ji("monkey")`
+# Too much information 🙈
 
 ---
 
-You can also use these functions to get **only for plots**.
+`ggstatsplot` can be used to get **only plots**.
 
 --
 
@@ -1089,17 +1083,17 @@ You can also use these functions to get **only for plots**.
 ```{r only_plot, eval = FALSE}
 # using `ggstatsplot` only for plot
 ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
   # turn off centrality measure
-  centrality.plotting = FALSE, #<< 
+  centrality.plotting = FALSE, #<<
   # turn off statistical analysis
-  results.subtitle = FALSE, #<< 
+  results.subtitle = FALSE, #<<
   # turn off Bayesian message
   bf.message = FALSE, #<<
   # turn off pairwise comparisons
-  pairwise.comparisons = FALSE, #<< 
+  pairwise.comparisons = FALSE #<<
 )
 ```
 ]
@@ -1118,7 +1112,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can also be used to get **only the expressions**.
+`ggstatsplot` can be used to get **only the expressions**.
 
 --
 
@@ -1297,12 +1291,9 @@ layout: false
 Since the plot and the statistical analysis are yoked together, the chances of
 making an error in reporting the results are minimized.
 
-> "we found that half of all published psychology papers that use NHST contained
-at least one p-value that was inconsistent with its test statistic and degrees
-of freedom. One in eight papers contained a grossly inconsistent p-value that
-may have affected the statistical conclusion"
+> "we found that half of all published psychology papers that use NHST contained at least one p-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent p-value that may have affected the statistical conclusion"
 
-.footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
+> [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
 
 ---
 
@@ -1312,16 +1303,19 @@ layout: false
 
 --
 
-Combination of frequentist and Bayesian statistics for each analysis to properly
-interpret the null results.
+Combination of frequentist and Bayesian statistics for each analysis to properly interpret the null results.
+
+$p > 0.05$: The null hypothesis (`H0`) can't be rejected
+
+But can it be **accepted**?! NHST 🤫
 
 > "In 72% of cases, nonsignificant results were misinterpreted, in that the
 authors inferred that the effect was absent. A Bayes factor reanalysis revealed
 that fewer than 5% of the nonsignificant findings provided strong evidence
-(i.e., BF01 > 10) in favor of the null hypothesis over the alternative
+(i.e., $BF_{01} > 10$) in favor of the null hypothesis over the alternative
 hypothesis."
 
-.footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
+> [(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
 
 ---
 
