@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-12" />
+    <meta name="date" content="2021-02-16" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-12 <br> <br> <br>
+### 2021-02-16 <br> <br> <br>
 
 ---
 
@@ -1131,11 +1131,48 @@ Yaay!
 
 layout: true
 
+# Too much information 🐒
+
+---
+
+You can also use these functions to get **only for plots**.
+
+--
+
+.left-code[
+
+```r
+# using `ggstatsplot` only for plot
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  # turn off centrality measure
+* centrality.plotting = FALSE,
+  # turn off statistical analysis
+* results.subtitle = FALSE,
+  # turn off Bayesian message
+* bf.message = FALSE,
+  # turn off pairwise comparisons
+* pairwise.comparisons = FALSE,
+)
+```
+]
+
+.right-plot[
+&lt;img src="ggstatsplot_presentation_files/figure-html/only_plot-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+
+layout: true
+
 # Extract expressions for custom plots
 
 ---
 
-`ggstatsplot` can also be used to get only the statistical expressions.
+`ggstatsplot` can also be used to get **only the expressions**.
 
 --
 
@@ -1282,27 +1319,28 @@ For example, here are results from a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
----
 
-layout: false
+&lt;!-- --- --&gt;
 
-# Statistically informed tests defaults
+&lt;!-- layout: false --&gt;
 
---
+&lt;!-- # Statistically informed tests defaults --&gt;
 
-The default tests follow the best practices. For example,
+&lt;!-- -- --&gt;
 
-✅ `ggbetweenstats` and `ggwithinstats` default to &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font
-color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's
-ANOVA - based on recent work (Delacre et al.,
-[2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
-[2018](https://psyarxiv.com/wnezg)).
+&lt;!-- The default tests follow the best practices. For example, --&gt;
 
-✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)).
+&lt;!-- ✅ `ggbetweenstats` and `ggwithinstats` default to &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font --&gt;
+&lt;!-- color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's --&gt;
+&lt;!-- ANOVA - based on recent work (Delacre et al., --&gt;
+&lt;!-- [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/), --&gt;
+&lt;!-- [2018](https://psyarxiv.com/wnezg)). --&gt;
 
-✅ Whenever multiple tests are carried out, *p*-values are adjusted for them by default.
+&lt;!-- ✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)). --&gt;
 
-etc.
+&lt;!-- ✅ Whenever multiple tests are carried out, *p*-values are adjusted for them by default. --&gt;
+
+&lt;!-- etc. --&gt;
 
 ---
 
@@ -1315,7 +1353,10 @@ layout: false
 Since the plot and the statistical analysis are yoked together, the chances of
 making an error in reporting the results are minimized.
 
-![](images\statcheck.png)
+&gt; "we found that half of all published psychology papers that use NHST contained
+at least one p-value that was inconsistent with its test statistic and degrees
+of freedom. One in eight papers contained a grossly inconsistent p-value that
+may have affected the statistical conclusion"
 
 .footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
 
@@ -1330,7 +1371,11 @@ layout: false
 Combination of frequentist and Bayesian statistics for each analysis to properly
 interpret the null results.
 
-![](images/null_results.png)
+&gt; "In 72% of cases, nonsignificant results were misinterpreted, in that the
+authors inferred that the effect was absent. A Bayes factor reanalysis revealed
+that fewer than 5% of the nonsignificant findings provided strong evidence
+(i.e., BF01 &gt; 10) in favor of the null hypothesis over the alternative
+hypothesis."
 
 .footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 

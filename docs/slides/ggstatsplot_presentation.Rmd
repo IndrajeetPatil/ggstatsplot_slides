@@ -1077,11 +1077,48 @@ Yaay!
 
 layout: true
 
+# Too much information `r emo::ji("monkey")`
+
+---
+
+You can also use these functions to get **only for plots**.
+
+--
+
+.left-code[
+```{r only_plot, eval = FALSE}
+# using `ggstatsplot` only for plot
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  # turn off centrality measure
+  centrality.plotting = FALSE, #<< 
+  # turn off statistical analysis
+  results.subtitle = FALSE, #<< 
+  # turn off Bayesian message
+  bf.message = FALSE, #<<
+  # turn off pairwise comparisons
+  pairwise.comparisons = FALSE, #<< 
+)
+```
+]
+
+.right-plot[
+```{r only_plot, ref.label = 'only_plot', echo = FALSE}
+```
+]
+
+---
+
+
+layout: true
+
 # Extract expressions for custom plots
 
 ---
 
-`ggstatsplot` can also be used to get only the statistical expressions.
+`ggstatsplot` can also be used to get **only the expressions**.
 
 --
 
@@ -1226,27 +1263,28 @@ For example, here are results from a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
----
 
-layout: false
+<!-- --- -->
 
-# Statistically informed tests defaults
+<!-- layout: false -->
 
---
+<!-- # Statistically informed tests defaults -->
 
-The default tests follow the best practices. For example,
+<!-- -- -->
 
-`r emo::ji("check")` `ggbetweenstats` and `ggwithinstats` default to <font color="blue">Welch's *t*-test</font> and <font
-color="blue">Welch's ANOVA</font> - and not Student's *t*-test and Fisher's
-ANOVA - based on recent work (Delacre et al.,
-[2017](https://www.rips-irsp.com/article/10.5334/irsp.82/),
-[2018](https://psyarxiv.com/wnezg)).
+<!-- The default tests follow the best practices. For example, -->
 
-`r emo::ji("check")` Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)).
+<!-- `r emo::ji("check")` `ggbetweenstats` and `ggwithinstats` default to <font color="blue">Welch's *t*-test</font> and <font -->
+<!-- color="blue">Welch's ANOVA</font> - and not Student's *t*-test and Fisher's -->
+<!-- ANOVA - based on recent work (Delacre et al., -->
+<!-- [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/), -->
+<!-- [2018](https://psyarxiv.com/wnezg)). -->
 
-`r emo::ji("check")` Whenever multiple tests are carried out, *p*-values are adjusted for them by default.
+<!-- `r emo::ji("check")` Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)). -->
 
-etc.
+<!-- `r emo::ji("check")` Whenever multiple tests are carried out, *p*-values are adjusted for them by default. -->
+
+<!-- etc. -->
 
 ---
 
@@ -1259,7 +1297,10 @@ layout: false
 Since the plot and the statistical analysis are yoked together, the chances of
 making an error in reporting the results are minimized.
 
-![](images\statcheck.png)
+> "we found that half of all published psychology papers that use NHST contained
+at least one p-value that was inconsistent with its test statistic and degrees
+of freedom. One in eight papers contained a grossly inconsistent p-value that
+may have affected the statistical conclusion"
 
 .footnote[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
 
@@ -1274,7 +1315,11 @@ layout: false
 Combination of frequentist and Bayesian statistics for each analysis to properly
 interpret the null results.
 
-![](images/null_results.png)
+> "In 72% of cases, nonsignificant results were misinterpreted, in that the
+authors inferred that the effect was absent. A Bayes factor reanalysis revealed
+that fewer than 5% of the nonsignificant findings provided strong evidence
+(i.e., BF01 > 10) in favor of the null hypothesis over the alternative
+hypothesis."
 
 .footnote[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 

@@ -38,3 +38,4 @@ grouped_1	am	cyl	grouped_ggpiestats	mtcars
 subtitle_1	::	aes	labs	Sex	Survived	Titanic_full
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
+only_plot	cyl	ggbetweenstats	mtcars	wt
