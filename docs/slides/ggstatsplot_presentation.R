@@ -100,6 +100,7 @@ ggbetweenstats(
 ##   x = mpaa,
 ##   y = rating,
 ##   type = "r",
+##   pairwise.comparisons = FALSE,
 ##   outlier.tagging = TRUE, #<<
 ##   outlier.label = title #<<
 ## )
@@ -111,6 +112,7 @@ ggbetweenstats(
   x = mpaa,
   y = rating,
   type = "r",
+  pairwise.comparisons = FALSE,
   outlier.tagging = TRUE, #<<
   outlier.label = title #<<
 )
@@ -221,7 +223,7 @@ library(ggplot2) # for data
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
-  type = "bf",
+  type = "bayes",
   output = "dataframe" #<<
 )
 
@@ -298,7 +300,10 @@ ggbarstats(
 ## )
 ## 
 ## # plot
-## ggcoefstats(mod)
+## ggcoefstats(
+##   x = mod,
+##   title = "IMDB rating by MPAA rating"
+## )
 
 
 ## ----ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE---------------------------
@@ -309,7 +314,10 @@ mod <- stats::lm(
 )
 
 # plot
-ggcoefstats(mod)
+ggcoefstats(
+  x = mod,
+  title = "IMDB rating by MPAA rating"
+)
 
 
 ## ----grouped_1, eval = FALSE------------------------------------------------------------
@@ -357,7 +365,7 @@ ggbetweenstats(
 ##   data = mtcars,
 ##   x = am,
 ##   y = wt,
-##   type = "bf"
+##   type = "bayes"
 ## ) +
 ##   scale_y_continuous(sec.axis = dup_axis()) #<<
 
@@ -367,7 +375,7 @@ ggbetweenstats(
   data = mtcars,
   x = am,
   y = wt,
-  type = "bf"
+  type = "bayes"
 ) +
   scale_y_continuous(sec.axis = dup_axis()) #<<
 
@@ -375,9 +383,9 @@ ggbetweenstats(
 ## ----only_plot, eval = FALSE------------------------------------------------------------
 ## # using `ggstatsplot` only for plot
 ## ggbetweenstats(
-##   data = mtcars,
-##   x = cyl,
-##   y = wt,
+##   data = iris,
+##   x = Species,
+##   y = Sepal.Length,
 ##   # turn off centrality measure
 ##   centrality.plotting = FALSE, #<<
 ##   # turn off statistical analysis
@@ -385,16 +393,16 @@ ggbetweenstats(
 ##   # turn off Bayesian message
 ##   bf.message = FALSE, #<<
 ##   # turn off pairwise comparisons
-##   pairwise.comparisons = FALSE, #<<
+##   pairwise.comparisons = FALSE #<<
 ## )
 
 
 ## ----only_plot, ref.label = 'only_plot', echo = FALSE-----------------------------------
 # using `ggstatsplot` only for plot
 ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
   # turn off centrality measure
   centrality.plotting = FALSE, #<<
   # turn off statistical analysis
@@ -402,7 +410,7 @@ ggbetweenstats(
   # turn off Bayesian message
   bf.message = FALSE, #<<
   # turn off pairwise comparisons
-  pairwise.comparisons = FALSE, #<<
+  pairwise.comparisons = FALSE #<<
 )
 
 
@@ -422,7 +430,8 @@ ggbetweenstats(
 ##   aes(x = Sex, fill = Survived),
 ##   addlabel = TRUE,
 ##   interactive = FALSE
-## ) + labs(subtitle = results) #<<
+## ) +
+##   labs(subtitle = results) #<<
 
 
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE---------------------------------
@@ -441,7 +450,8 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + labs(subtitle = results) #<<
+) + 
+  labs(subtitle = results) #<<
 
 
 ## ----type_p, eval = FALSE---------------------------------------------------------------

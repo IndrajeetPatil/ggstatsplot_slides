@@ -27,6 +27,8 @@ install.packages(c("ggstatsplot", "tidyverse"))
 
 These slides are from presentations given at various gatherings:
 
+  - **UseR Oslo meetup**, online talk, February, 18, 2021.
+
   - **R-Ladies Tunis**, online talk, December, 15, 2020.
 
   - **Methods Talk series** (Psychology Department, New York University), NYC, NY,
