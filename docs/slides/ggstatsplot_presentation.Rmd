@@ -216,36 +216,47 @@ layout: false
 
 --
 
+.pull-left[
+
 ```{r lm, eval = FALSE}
 stats::lm(formula = wt ~ mpg, data = mtcars)
 ```
 
---
+<!-- -- -->
 
 ```{r cor, eval = FALSE}
 stats::cor(x = mtcars$wt, y = mtcars$mpg)
 ```
 
---
+<!-- -- -->
 
 ```{r cor.test, eval = FALSE}
 stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 ```
 
+]
+
 --
 
-.img-right-small[
+.img-left-small[
 ![](images/sideeye.gif)
 ]
 
 --
 
- <br>
- <br>
+.pull-right[
 **All** functions in `ggstatsplot`-
 
-`r emo::ji("check")` rely on a **dataframe** (`function(data, x, ...)`) <br>
+`r emo::ji("check")` rely on a **dataframe** <br>
 `r emo::ji("check")` expect **tidy** data <br>
+`r emo::ji("check")` have consistent API (`function(data, x, ...)`) <br>
+]
+
+--
+
+.img-right-small[
+![](images/thumbsup.gif)
+]
 
 ---
 
@@ -377,10 +388,11 @@ Changing the `type` of test
 
 Changing pairwise comparisons displayed
 
-- `"ns"` → only **non-significant**
-- `"s"` → only **significant**
-- `"all"` → **all**
+ℹ️ `"ns"` → only **non-significant**  <br>
+ℹ️ `"s"` → only **significant**  <br>
+ℹ️ `"all"` → **all**
 ]
+
 ]
 
 .right-plot[
@@ -630,11 +642,11 @@ ggscatterstats(
 .font70[
 Changing the marginal type
 
-- **histogram**
-- **boxplot**
-- **density**
-- **violin**
-- **densigram**
+ℹ️ **histogram** <br>
+ℹ️ **boxplot** <br>
+ℹ️ **density** <br>
+ℹ️ **violin** <br>
+ℹ️ **densigram**
 ]
 ]
 
@@ -685,7 +697,9 @@ layout: true
 
 ---
 
+.font70[
 In addition to `output = "plot"`, this function can also be used to get a <font color="blue">dataframe</font>:
+]
 
 .font50[
 ```{r ggcorrmat_2}
@@ -699,8 +713,10 @@ ggcorrmat(
 ```
 ]
 
+.font70[
 Partial correlations are also supported! 
 Just set `partial = TRUE`.
+]
 
 ---
 
@@ -733,7 +749,16 @@ ggpiestats(
 ```
 
 .font70[
-**Note**: If the data is in *tabled* 
+`r emo::ji("pencil")` **Defaults** return <br>
+
+`r emo::ji("check")` descriptive statistics <br>
+`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` effect size + CIs <br>
+`r emo::ji("check")` Bayesian hypothesis-testing <br>
+🤞 Bayesian estimation <br>
+
+**Note** <br>
+If the data is in *tabled* 
 format, you can use the `counts` 
 argument.
 ]
@@ -1002,7 +1027,7 @@ class: inverse, center, middle
 
 layout: true
 
-# Changing aesthetics (themes + palettes)
+# Changing aesthetics (themes + palettes) 🖼🎨
 
 ---
 
@@ -1038,7 +1063,7 @@ is **colorblind-friendly**.
 
 layout: true
 
-# Further modification with *ggplot2*
+# Further modification with *ggplot2* 🛠
 
 ---
 
@@ -1056,8 +1081,7 @@ ggbetweenstats(
 .font70[
 You can modify 
  `ggstatsplot` plots further 
-using `ggplot2` functions.
-Yaay! 🎉
+using `ggplot2` functions. 🎉
 ]
 
 .img-left-small[
@@ -1112,7 +1136,7 @@ ggbetweenstats(
 
 layout: true
 
-# Extract expressions for custom plots
+# Expressions for custom plots 🀄️
 
 ---
 
@@ -1137,7 +1161,8 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + labs(subtitle = results) #<<
+) + 
+  labs(subtitle = results) #<<
 ```
 ]
 
@@ -1152,16 +1177,13 @@ layout: false
 
 class: inverse, center, middle
 
-# Why use *ggstatsplot*? 
-Summary of benefits
+# Why use *ggstatsplot*? 👍️
 
 ---
 
 layout: false
 
 # Supports different statistical approaches 
-
- <br>
 
 --
 
@@ -1174,14 +1196,63 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 `ggscatterstats` | Correlation between two variables | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 `ggpiestats`, `ggbarstats` | Association between categorical variables | **<font color="green">Yes</font>** | `NA` | `NA` | **<font color="green">Yes</font>**
 `ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **<font color="green">Yes</font>** | `NA` | `NA` | **<font color="green">Yes</font>**
-`ggcoefstats` | Regression model coefficients | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
+`ggcoefstats` | Regression modeling | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 `ggcoefstats` | Random-effects meta-analysis | **<font color="green">Yes</font>** | `NA` | **<font color="green">Yes</font>** | **<font color="green">Yes</font>**
 
 ---
 
 layout: false
 
-# Toggling between statistical approaches
+# One package to access it all 💍
+
+--
+
+.pull-left[
+
+.font90[
+**Load 'em up!**
+
+📦 to carry out the test (e.g. `stats`) <br>
+📦 computing effect size + CIs (e.g. `effectsize`) <br>
+📦 for descriptives (e.g. `skimr`) <br>
+📦 pairwise comparisons (e.g. `multcomp`) <br>
+📦 Bayesian hypothesis testing (e.g. `BayesFactor`) <br>
+📦 Bayesian estimation (e.g. `bayestestR`) <br>
+📦 . <br>
+📦 . <br>
+]
+
+.img-left-small[
+![](images/packages.gif)
+]
+
+]
+
+--
+
+.pull-right[
+
+.font90[
+**Root of headache**
+
+🤔 accepts dataframe, vectors, matrix? <br>
+🤔 long/wide format data? <br>
+🤔 works with `NA`s? <br>
+🤔 returns list, dataframe, arrays? <br>
+
+.img-right-small[
+![](images/monkey.gif)
+]
+
+]
+
+]
+
+---
+
+layout: false
+
+# Toggling between statistical approaches 🔀
 
 --
 
@@ -1249,7 +1320,7 @@ gghistostats(
 
 layout: false
 
-# Best practices in statistical reporting
+# Best practices in statistical reporting 🏆
 
 --
 
@@ -1418,24 +1489,24 @@ talks)
 
 `r emo::ji("x")` the only game in town <br>
 --
-`r emo::ji("check")` (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
+`r emo::ji("check")` (GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 
 layout: true
 
-# Limitations of *ggstatsplot*
+# Limitations of *ggstatsplot* 👎️
 
 ---
 
 --
 
-- Limited kinds of <font color="blue">plots</font> available.
+- Limited kinds of <font color="blue">plots</font> available. 
 
 --
 
-- Limited number of statistical <font color="blue">tests</font> available. <br>
-  This will *always* be the case.
+- Limited number of statistical <font color="blue">tests</font> available.
+  This will **always** be the case. 🤷
 
 --
 
@@ -1450,7 +1521,7 @@ layout: true
 
 layout: true
 
-# Overcoming these limitations
+# Overcoming these limitations 👥
 
 ---
 

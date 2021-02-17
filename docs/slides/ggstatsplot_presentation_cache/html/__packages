@@ -29,3 +29,5 @@ bayesmeta
 numDeriv
 gplots
 xaringanBuilder
+shiny
+data.table

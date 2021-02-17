@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-16" />
+    <meta name="date" content="2021-02-17" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-16 <br> <br> <br>
+### 2021-02-17 <br> <br> <br>
 
 ---
 
@@ -188,39 +188,50 @@ layout: false
 
 --
 
+.pull-left[
+
 
 ```r
 stats::lm(formula = wt ~ mpg, data = mtcars)
 ```
 
---
+&lt;!-- -- --&gt;
 
 
 ```r
 stats::cor(x = mtcars$wt, y = mtcars$mpg)
 ```
 
---
+&lt;!-- -- --&gt;
 
 
 ```r
 stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 ```
 
+]
+
 --
 
-.img-right-small[
+.img-left-small[
 ![](images/sideeye.gif)
 ]
 
 --
 
- &lt;br&gt;
- &lt;br&gt;
+.pull-right[
 **All** functions in `ggstatsplot`-
 
-✅ rely on a **dataframe** (`function(data, x, ...)`) &lt;br&gt;
+✅ rely on a **dataframe** &lt;br&gt;
 ✅ expect **tidy** data &lt;br&gt;
+✅ consistent API (`function(data, x, ...)`) &lt;br&gt;
+]
+
+--
+
+.img-right-small[
+![](images/thumbsup.gif)
+]
 
 ---
 
@@ -356,10 +367,11 @@ Changing the `type` of test
 
 Changing pairwise comparisons displayed
 
-- `"ns"` → only **non-significant**
-- `"s"` → only **significant**
-- `"all"` → **all**
+ℹ️ `"ns"` → only **non-significant**  &lt;br&gt;
+ℹ️ `"s"` → only **significant**  &lt;br&gt;
+ℹ️ `"all"` → **all**
 ]
+
 ]
 
 .right-plot[
@@ -609,11 +621,11 @@ ggscatterstats(
 .font70[
 Changing the marginal type
 
-- **histogram**
-- **boxplot**
-- **density**
-- **violin**
-- **densigram**
+ℹ️ **histogram** &lt;br&gt;
+ℹ️ **boxplot** &lt;br&gt;
+ℹ️ **density** &lt;br&gt;
+ℹ️ **violin** &lt;br&gt;
+ℹ️ **densigram**
 ]
 ]
 
@@ -663,7 +675,9 @@ layout: true
 
 ---
 
+.font70[
 In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt;:
+]
 
 .font50[
 
@@ -753,8 +767,10 @@ ggcorrmat(
 &lt;/div&gt;
 ]
 
+.font70[
 Partial correlations are also supported! 
 Just set `partial = TRUE`.
+]
 
 ---
 
@@ -788,7 +804,16 @@ ggpiestats(
 ```
 
 .font70[
-**Note**: If the data is in *tabled* 
+📝 **Defaults** return &lt;br&gt;
+
+✅ descriptive statistics &lt;br&gt;
+✅ statistic + *p*-value &lt;br&gt;
+✅ effect size + CIs &lt;br&gt;
+✅ Bayesian hypothesis-testing &lt;br&gt;
+🤞 Bayesian estimation &lt;br&gt;
+
+**Note** &lt;br&gt;
+If the data is in *tabled* 
 format, you can use the `counts` 
 argument.
 ]
@@ -1056,7 +1081,7 @@ class: inverse, center, middle
 
 layout: true
 
-# Changing aesthetics (themes + palettes)
+# Changing aesthetics (themes + palettes) 🖼🎨
 
 ---
 
@@ -1092,7 +1117,7 @@ is **colorblind-friendly**.
 
 layout: true
 
-# Further modification with *ggplot2*
+# Further modification with *ggplot2* 🛠
 
 ---
 
@@ -1111,8 +1136,7 @@ ggbetweenstats(
 .font70[
 You can modify 
  `ggstatsplot` plots further 
-using `ggplot2` functions.
-Yaay! 🎉
+using `ggplot2` functions. 🎉
 ]
 
 .img-left-small[
@@ -1166,7 +1190,7 @@ ggbetweenstats(
 
 layout: true
 
-# Extract expressions for custom plots
+# Expressions for custom plots 🀄️
 
 ---
 
@@ -1192,7 +1216,8 @@ results &lt;-
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-*) + labs(subtitle = results)
+) + 
+* labs(subtitle = results)
 ```
 ]
 
@@ -1206,16 +1231,13 @@ layout: false
 
 class: inverse, center, middle
 
-# Why use *ggstatsplot*? 
-Summary of benefits
+# Why use *ggstatsplot*? 👍️
 
 ---
 
 layout: false
 
 # Supports different statistical approaches 
-
- &lt;br&gt;
 
 --
 
@@ -1228,14 +1250,63 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 `ggscatterstats` | Correlation between two variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggpiestats`, `ggbarstats` | Association between categorical variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggcoefstats` | Regression model coefficients | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggcoefstats` | Regression modeling | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 `ggcoefstats` | Random-effects meta-analysis | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
 
 ---
 
 layout: false
 
-# Toggling between statistical approaches
+# One package to access it all 💍
+
+--
+
+.pull-left[
+
+.font90[
+**Load 'em up!**
+
+📦 to carry out the test (e.g. `stats`) &lt;br&gt;
+📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
+📦 for descriptives (e.g. `skimr`) &lt;br&gt;
+📦 pairwise comparisons (e.g. `multcomp`) &lt;br&gt;
+📦 Bayesian hypothesis testing (e.g. `BayesFactor`) &lt;br&gt;
+📦 Bayesian estimation (e.g. `bayestestR`) &lt;br&gt;
+📦 . &lt;br&gt;
+📦 . &lt;br&gt;
+]
+
+.img-left-small[
+![](images/packages.gif)
+]
+
+]
+
+--
+
+.pull-right[
+
+.font90[
+**Root of headache**
+
+🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
+🤔 long/wide format data? &lt;br&gt;
+🤔 works with `NA`s? &lt;br&gt;
+🤔 returns list, dataframe, arrays? &lt;br&gt;
+
+.img-right-small[
+![](images/monkey.gif)
+]
+
+]
+
+]
+
+---
+
+layout: false
+
+# Toggling between statistical approaches 🔀
 
 --
 
@@ -1305,7 +1376,7 @@ gghistostats(
 
 layout: false
 
-# Best practices in statistical reporting
+# Best practices in statistical reporting 🏆
 
 --
 
@@ -1474,24 +1545,24 @@ talks)
 
 ❌ the only game in town &lt;br&gt;
 --
-✅ (GUI software alternatives: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
+✅ (GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 
 layout: true
 
-# Limitations of *ggstatsplot*
+# Limitations of *ggstatsplot* 👎️
 
 ---
 
 --
 
-- Limited kinds of &lt;font color="blue"&gt;plots&lt;/font&gt; available.
+- Limited kinds of &lt;font color="blue"&gt;plots&lt;/font&gt; available. 
 
 --
 
-- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available. &lt;br&gt;
-  This will *always* be the case.
+- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available.
+  This will **always** be the case. 🤷
 
 --
 
@@ -1506,7 +1577,7 @@ layout: true
 
 layout: true
 
-# Overcoming these limitations
+# Overcoming these limitations 👥
 
 ---
 
