@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial at Oslo useR! Group"
+subtitle: "An Introductory Tutorial (Version: 0.7.0)"
 author: "Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -76,7 +76,9 @@ layout: true
 
 - Benefits and customizability
 
-- Misconceptions and limitations
+- Misconceptions 
+
+- Limitations and Future scope
 
 ---
 
@@ -381,15 +383,15 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
 `r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"` → **robust**  <br>
+`r emo::ji("check")` `"r"`  → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayesian**
 
 Changing pairwise comparisons displayed
 
-ℹ️ `"ns"` → only **non-significant**  <br>
-ℹ️ `"s"` → only **significant**  <br>
+ℹ️ `"ns"`  → only **non-significant**  <br>
+ℹ️ `"s"`   → only **significant**  <br>
 ℹ️ `"all"` → **all**
 ]
 
@@ -427,9 +429,9 @@ interquartile range flags outliers.
 
 Centrality measures
 
-`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
 `r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
 `r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 
@@ -470,9 +472,9 @@ ggwithinstats(
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
 `r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"` → **robust**  <br>
+`r emo::ji("check")` `"r"`  → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayesian**
 ]
 ]
@@ -511,9 +513,9 @@ gghistostats(
 
 Centrality measures
 
-`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
 `r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
 `r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 ]
@@ -552,9 +554,9 @@ ggdotplotstats(
 
 Centrality measures
 
-`r emo::ji("check")` `"p"` → $\mu_{mean}$  <br>
+`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
 `r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"` → $\mu_{trimmed}$  <br>
+`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
 `r emo::ji("check")` `"bf"` → $\mu_{MAP}$
 ]
 ]
@@ -605,9 +607,9 @@ ggscatterstats(
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
 `r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"` → **robust**  <br>
+`r emo::ji("check")` `"r"`  → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayesian**
 ]
 ]
@@ -676,9 +678,9 @@ ggcorrmat(dplyr::starwars)
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"` → **parametric** (default) <br>
+`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
 `r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"` → **robust**  <br>
+`r emo::ji("check")` `"r"`  → **robust**  <br>
 `r emo::ji("check")` `"bf"` → **Bayesian**
 
 ]
@@ -865,7 +867,7 @@ class: inverse, center, middle
 
 # Hypothesis about regression coefficients
 
-`r emo::ji("science")` *ggcoefstats*: Any regression model object
+`r emo::ji("science")` *ggcoefstats*: Regression model object
 
 ---
 
@@ -913,7 +915,7 @@ layout: true
 
 ---
 
-.font65[
+.font60[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
 `bam`, `bayesx`, `bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`,
 `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
@@ -1551,15 +1553,25 @@ class: inverse, center, middle
 
 # Acknowledgments
 
+--
+
 Other developers 🙌
 
 [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb)
+
+--
 
 Support 💰
 
 [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
-Contributors to *ggstatsplot* 🙏
+--
+
+Community 🙏
+
+Contributors to *ggstatsplot* &
+*rstats* users and developers
+
 
 <!-- The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) -->
 

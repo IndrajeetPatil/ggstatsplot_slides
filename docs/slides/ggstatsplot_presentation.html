@@ -16,7 +16,7 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial at Oslo useR! Group
+## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
 ### 2021-02-18 <br> <br> <br>
 
@@ -48,7 +48,9 @@ layout: true
 
 - Benefits and customizability
 
-- Misconceptions and limitations
+- Misconceptions 
+
+- Limitations and Future scope
 
 ---
 
@@ -360,15 +362,15 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"` → **robust**  &lt;br&gt;
+✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 
 Changing pairwise comparisons displayed
 
-ℹ️ `"ns"` → only **non-significant**  &lt;br&gt;
-ℹ️ `"s"` → only **significant**  &lt;br&gt;
+ℹ️ `"ns"`  → only **non-significant**  &lt;br&gt;
+ℹ️ `"s"`   → only **significant**  &lt;br&gt;
 ℹ️ `"all"` → **all**
 ]
 
@@ -406,9 +408,9 @@ interquartile range flags outliers.
 
 Centrality measures
 
-✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"p"`  → `\(\mu_{mean}\)`  &lt;br&gt;
 ✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"r"`  → `\(\mu_{trimmed}\)`  &lt;br&gt;
 ✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 
@@ -449,9 +451,9 @@ ggwithinstats(
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"` → **robust**  &lt;br&gt;
+✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 ]
 ]
@@ -490,9 +492,9 @@ gghistostats(
 
 Centrality measures
 
-✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"p"`  → `\(\mu_{mean}\)`  &lt;br&gt;
 ✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"r"`  → `\(\mu_{trimmed}\)`  &lt;br&gt;
 ✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 ]
@@ -531,9 +533,9 @@ ggdotplotstats(
 
 Centrality measures
 
-✅ `"p"` → `\(\mu_{mean}\)`  &lt;br&gt;
+✅ `"p"`  → `\(\mu_{mean}\)`  &lt;br&gt;
 ✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"` → `\(\mu_{trimmed}\)`  &lt;br&gt;
+✅ `"r"`  → `\(\mu_{trimmed}\)`  &lt;br&gt;
 ✅ `"bf"` → `\(\mu_{MAP}\)`
 ]
 ]
@@ -584,9 +586,9 @@ ggscatterstats(
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"` → **robust**  &lt;br&gt;
+✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 ]
 ]
@@ -655,9 +657,9 @@ ggcorrmat(dplyr::starwars)
 
 Changing the `type` of test
 
-✅ `"p"` → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** (default) &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"` → **robust**  &lt;br&gt;
+✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 
 ]
@@ -919,7 +921,7 @@ class: inverse, center, middle
 
 # Hypothesis about regression coefficients
 
-🔬 *ggcoefstats*: Any regression model object
+🔬 *ggcoefstats*: Regression model object
 
 ---
 
@@ -967,7 +969,7 @@ layout: true
 
 ---
 
-.font70[
+.font60[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
 `bam`, `bayesx`, `bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`,
 `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
@@ -1607,15 +1609,25 @@ class: inverse, center, middle
 
 # Acknowledgments
 
+--
+
 Other developers 🙌
 
 [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb)
+
+--
 
 Support 💰
 
 [Mina Cikara](http://www.intergroupneurosciencelaboratory.com/), [Fiery Cushman](http://cushmanlab.fas.harvard.edu/index.php), [Iyad Rahwan](https://rahwan.me/)
 
-Contributors to *ggstatsplot* 🙏
+--
+
+Community 🙏
+
+Contributors to *ggstatsplot* &amp;
+*rstats* users and developers
+
 
 &lt;!-- The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) --&gt;
 
