@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-17" />
+    <meta name="date" content="2021-02-18" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -16,9 +16,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial (Version: 0.7.0)
+## An Introductory Tutorial at Oslo useR! Group
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-17 <br> <br> <br>
+### 2021-02-18 <br> <br> <br>
 
 ---
 
@@ -220,11 +220,11 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 --
 
 .pull-right[
-**All** functions in `ggstatsplot`-
+Functions in `ggstatsplot`-
 
-✅ rely on a **dataframe** &lt;br&gt;
+✅ expect **dataframe** &lt;br&gt;
 ✅ expect **tidy** data &lt;br&gt;
-✅ consistent API (`function(data, x, ...)`) &lt;br&gt;
+✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt;
 ]
 
 --
@@ -1085,6 +1085,10 @@ layout: true
 
 ---
 
+Aesthetic preferences are not an excuse to not use `ggstatsplot`! 😻
+
+--
+
 .left-code[
 
 ```r
@@ -1092,7 +1096,6 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  results.subtitle = FALSE,
 * ggtheme = hrbrthemes::theme_ipsum_tw(),
 * palette = "Darjeeling2",
 * package = "wesanderson"
@@ -1100,10 +1103,6 @@ ggbetweenstats(
 ```
 
 .font70[
-Aesthetic preferences
-are not an excuse to not
-use `ggstatsplot`! 😻
-
 The default palette 
 is **colorblind-friendly**.
 ]
@@ -1121,6 +1120,8 @@ layout: true
 
 ---
 
+You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
+
 .left-code[
 
 ```r
@@ -1132,12 +1133,6 @@ ggbetweenstats(
 ) +
 * scale_y_continuous(sec.axis = dup_axis())
 ```
-
-.font70[
-You can modify 
- `ggstatsplot` plots further 
-using `ggplot2` functions. 🎉
-]
 
 .img-left-small[
 ![](images/happy_cat.gif)
@@ -1293,6 +1288,7 @@ layout: false
 🤔 long/wide format data? &lt;br&gt;
 🤔 works with `NA`s? &lt;br&gt;
 🤔 returns list, dataframe, arrays? &lt;br&gt;
+🤔 works with tibbles? &lt;br&gt;
 
 .img-right-small[
 ![](images/monkey.gif)
@@ -1383,7 +1379,7 @@ layout: false
 The expression template tries to follow the APA gold standard for statistical
 reporting.
 
-For example, expression for robust *t*-test:
+For example, expression for a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
@@ -1461,44 +1457,34 @@ properly interpret the null results.
 
 layout: true
 
-# Summary of benefits
+# A few additional benefits
 
 ---
 
 --
 
-- No need to use scores of packages for statistical analysis
-  (e.g., one to get stats, one to get effect sizes, another to get Bayes
-  Factors, and yet another to get pairwise comparisons, etc.).
-
---
-
 - Minimal amount of code needed (typically only `data`, `x`,
-  and `y`), which minimizes chances of error and makes for tidy scripts.
-  
---
-
-- Conveniently toggle between statistical approaches.
+  and `y`), which minimizes chances of error and makes for tidy scripts. 💅
 
 --
 
-- Truly makes your figures worth a thousand words.
+- Truly makes your figures worth a thousand words. 💬
 
 --
 
-- No need to copy-paste results to the text editor (MS-Word, e.g.).
+- No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
 
 --
 
-- Disembodied figures stand on their own and are easy to evaluate for the reader.
+- Disembodied figures stand on their own and are easy to evaluate for the reader. 🧐
 
 --
 
-- More breathing room for theoretical discussion and other text.
+- More breathing room for theoretical discussion and other text. ✍
 
 --
 
-- No need to worry about updating figures and statistical details separately.
+- No need to worry about updating figures and statistical details separately. 🔗
 
 ---
 

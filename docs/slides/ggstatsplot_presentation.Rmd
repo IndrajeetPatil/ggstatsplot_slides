@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (Version: 0.7.0)"
+subtitle: "An Introductory Tutorial at Oslo useR! Group"
 author: "Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -245,11 +245,11 @@ stats::cor.test(formula = ~ wt + mpg, data = mtcars)
 --
 
 .pull-right[
-**All** functions in `ggstatsplot`-
+Functions in `ggstatsplot`-
 
-`r emo::ji("check")` rely on a **dataframe** <br>
+`r emo::ji("check")` expect **dataframe** <br>
 `r emo::ji("check")` expect **tidy** data <br>
-`r emo::ji("check")` have consistent API (`function(data, x, ...)`) <br>
+`r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br>
 ]
 
 --
@@ -1031,13 +1031,16 @@ layout: true
 
 ---
 
+Aesthetic preferences are not an excuse to not use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
+
+--
+
 .left-code[
 ```{r ggbetweenstats_4, eval = FALSE}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  results.subtitle = FALSE,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
   palette = "Darjeeling2", #<<
   package = "wesanderson" #<<
@@ -1045,10 +1048,6 @@ ggbetweenstats(
 ```
 
 .font70[
-Aesthetic preferences
-are not an excuse to not
-use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
-
 The default palette 
 is **colorblind-friendly**.
 ]
@@ -1067,6 +1066,8 @@ layout: true
 
 ---
 
+You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
+
 .left-code[
 ```{r ggbetweenstats_5, eval = FALSE}
 ggbetweenstats(
@@ -1077,12 +1078,6 @@ ggbetweenstats(
 ) +
   scale_y_continuous(sec.axis = dup_axis()) #<<
 ```
-
-.font70[
-You can modify 
- `ggstatsplot` plots further 
-using `ggplot2` functions. 🎉
-]
 
 .img-left-small[
 ![](images/happy_cat.gif)
@@ -1239,6 +1234,7 @@ layout: false
 🤔 long/wide format data? <br>
 🤔 works with `NA`s? <br>
 🤔 returns list, dataframe, arrays? <br>
+🤔 works with tibbles? <br>
 
 .img-right-small[
 ![](images/monkey.gif)
@@ -1327,7 +1323,7 @@ layout: false
 The expression template tries to follow the APA gold standard for statistical
 reporting.
 
-For example, expression for robust *t*-test:
+For example, expression for a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
@@ -1405,44 +1401,34 @@ properly interpret the null results.
 
 layout: true
 
-# Summary of benefits
+# A few additional benefits
 
 ---
 
 --
 
-- No need to use scores of packages for statistical analysis
-  (e.g., one to get stats, one to get effect sizes, another to get Bayes
-  Factors, and yet another to get pairwise comparisons, etc.).
-
---
-
 - Minimal amount of code needed (typically only `data`, `x`,
-  and `y`), which minimizes chances of error and makes for tidy scripts.
-  
---
-
-- Conveniently toggle between statistical approaches.
+  and `y`), which minimizes chances of error and makes for tidy scripts. 💅
 
 --
 
-- Truly makes your figures worth a thousand words.
+- Truly makes your figures worth a thousand words. 💬
 
 --
 
-- No need to copy-paste results to the text editor (MS-Word, e.g.).
+- No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
 
 --
 
-- Disembodied figures stand on their own and are easy to evaluate for the reader.
+- Disembodied figures stand on their own and are easy to evaluate for the reader. 🧐
 
 --
 
-- More breathing room for theoretical discussion and other text.
+- More breathing room for theoretical discussion and other text. ✍
 
 --
 
-- No need to worry about updating figures and statistical details separately.
+- No need to worry about updating figures and statistical details separately. 🔗
 
 ---
 
