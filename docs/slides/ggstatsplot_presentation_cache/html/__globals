@@ -19,7 +19,7 @@ ggscatterstats_2	&	>	budget	ggscatterstats	movies_long	rating	title
 ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
 ggcorrmat_1	::	ggcorrmat
 ggcorrmat_1_copy	::	ggcorrmat
-ggcorrmat_2	::	awake	brainwt	ggcorrmat	library	msleep	sleep_rem
+ggcorrmat_2	::	awake	brainwt	ggcorrmat	library	msleep	options	sleep_rem
 gghistostats_1	budget	gghistostats	movies_long
 gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long

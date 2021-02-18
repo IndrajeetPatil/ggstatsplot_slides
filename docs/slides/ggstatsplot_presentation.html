@@ -683,6 +683,7 @@ In addition to `output = "plot"`, this function can also be used to get a &lt;fo
 
 ```r
 library(ggplot2) # for data
+options(digits = 2)
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
@@ -716,48 +717,48 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.7341405 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.73 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.8274824 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.6435327 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.0000 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.83 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.005547e+09 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0e+09 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2056326 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.21 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.4268012 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0041230 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9300 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.20400 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.43 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.539296e-01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.5e-01 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3458349 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.35 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1475235 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5179443 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9975 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.03275 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.414427 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.292097e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.3e+00 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
   &lt;/tr&gt;

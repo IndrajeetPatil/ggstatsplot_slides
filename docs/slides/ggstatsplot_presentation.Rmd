@@ -704,6 +704,7 @@ In addition to `output = "plot"`, this function can also be used to get a <font 
 .font50[
 ```{r ggcorrmat_2}
 library(ggplot2) # for data
+options(digits = 2)
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
@@ -912,7 +913,7 @@ layout: true
 
 ---
 
-.font70[
+.font65[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
 `bam`, `bayesx`, `bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`,
 `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
