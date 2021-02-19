@@ -343,7 +343,7 @@ Function internally decides tests
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` pairwise comparisons <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
@@ -460,7 +460,7 @@ ggwithinstats(
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` pairwise comparisons <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
@@ -502,7 +502,7 @@ gghistostats(
 
 `r emo::ji("check")` counts + proportion for bins <br>
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
@@ -543,7 +543,7 @@ ggdotplotstats(
 `r emo::ji("pencil")` **Defaults** return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
@@ -596,7 +596,7 @@ ggscatterstats(
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` marginal distributions <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
@@ -751,7 +751,7 @@ ggpiestats(
 `r emo::ji("pencil")` **Defaults** return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 🤞 Bayesian estimation <br>
@@ -794,7 +794,7 @@ ggpiestats(
 `r emo::ji("pencil")` **Defaults** return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Goodness-of-fit tests <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
@@ -837,7 +837,7 @@ ggbarstats(
 `r emo::ji("pencil")` **Defaults** return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` Goodness-of-fit tests <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
@@ -892,7 +892,7 @@ ggcoefstats(
 `r emo::ji("pencil")` **Defaults** return <br>
 
 `r emo::ji("check")` estimate + CIs <br>
-`r emo::ji("check")` statistic + *p*-value <br>
+`r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` model summary (AIC + BIC)
 ]
 
