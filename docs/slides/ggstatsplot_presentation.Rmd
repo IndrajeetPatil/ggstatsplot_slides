@@ -1315,7 +1315,7 @@ gghistostats(
 
 layout: false
 
-# Puts the results *in context* 🕵️
+# Results *in context* of the underlying data 🕵️
 
 --
 
@@ -1325,9 +1325,9 @@ layout: false
 
 The 20 participants who received the drug intervention $(M = 24.14)$ compared to
 the 20 participants in the control group $(M = 41.78)$ demonstrated
-significantly lower weight $(t(19.03) = 2.33, p = .031)$. The effect size
-$(g_{Hedges} = 0.72, 95\% CI [0.09,1.35])$ for this analysis was found to exceed
-Cohen’s (1988) convention for a medium effect $(> .50)$.
+significantly lower weight (Welch's $t$-test: $t(19.03) = 2.33, p = .031$). The
+effect size $(g_{Hedges} = 0.72, 95\% CI [0.09,1.35])$ for this analysis was
+found to exceed Cohen’s (1988) convention for a medium effect $(> .50)$.
 ]
 
 --
