@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-18" />
+    <meta name="date" content="2021-02-19" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-18 <br> <br> <br>
+### 2021-02-19 <br> <br> <br>
 
 ---
 
@@ -197,14 +197,10 @@ layout: false
 stats::lm(formula = wt ~ mpg, data = mtcars)
 ```
 
-&lt;!-- -- --&gt;
-
 
 ```r
 stats::cor(x = mtcars$wt, y = mtcars$mpg)
 ```
-
-&lt;!-- -- --&gt;
 
 
 ```r
@@ -1370,6 +1366,37 @@ gghistostats(
 )
 ```
 ]
+
+---
+
+layout: false
+
+# Puts the results *in context* 🕵️
+
+--
+
+.pull-left[
+
+**Without ggstatsplot**
+
+The 20 participants who received the drug intervention `\((M = 24.14)\)` compared to
+the 20 participants in the control group `\((M = 41.78)\)` demonstrated
+significantly lower weight `\((t(19.03) = 2.33, p = .031)\)`. The effect size
+`\((g_{Hedges} = 0.72, 95\% CI [0.09,1.35])\)` for this analysis was found to exceed
+Cohen’s (1988) convention for a medium effect `\((&gt; .50)\)`.
+]
+
+--
+
+.pull-right[
+
+**With ggstatsplot**
+
+![](images/after_ggstats.PNG)
+
+]
+
+---
 
 ---
 

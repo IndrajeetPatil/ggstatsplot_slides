@@ -224,13 +224,9 @@ layout: false
 stats::lm(formula = wt ~ mpg, data = mtcars)
 ```
 
-<!-- -- -->
-
 ```{r cor, eval = FALSE}
 stats::cor(x = mtcars$wt, y = mtcars$mpg)
 ```
-
-<!-- -- -->
 
 ```{r cor.test, eval = FALSE}
 stats::cor.test(formula = ~ wt + mpg, data = mtcars)
@@ -1314,6 +1310,37 @@ gghistostats(
 )
 ```
 ]
+
+---
+
+layout: false
+
+# Puts the results *in context* 🕵️
+
+--
+
+.pull-left[
+
+**Without ggstatsplot**
+
+The 20 participants who received the drug intervention $(M = 24.14)$ compared to
+the 20 participants in the control group $(M = 41.78)$ demonstrated
+significantly lower weight $(t(19.03) = 2.33, p = .031)$. The effect size
+$(g_{Hedges} = 0.72, 95\% CI [0.09,1.35])$ for this analysis was found to exceed
+Cohen’s (1988) convention for a medium effect $(> .50)$.
+]
+
+--
+
+.pull-right[
+
+**With ggstatsplot**
+
+![](images/after_ggstats.PNG)
+
+]
+
+---
 
 ---
 
