@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-19" />
+    <meta name="date" content="2021-02-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-19 <br> <br> <br>
+### 2021-02-22 <br> <br> <br>
 
 ---
 
@@ -90,7 +90,8 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 --
 
 .right-column[.font130[
-Short answer: `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and quick (exploratory) data analysis.
+Short answer: &lt;br&gt;
+`ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and **faster** (exploratory) data analysis.
 ]
 ]
 
@@ -182,54 +183,51 @@ problem! But...
 ![](images/cat_trademill.gif)
 ]
 
----
+&lt;!-- --- --&gt;
 
-layout: false
+&lt;!-- layout: false --&gt;
 
-# Consistent API = No cognitive fatigue
+&lt;!-- # Consistent API = No cognitive fatigue --&gt;
 
---
+&lt;!-- -- --&gt;
 
-.pull-left[
+&lt;!-- .pull-left[ --&gt;
 
+&lt;!-- ```{r lm, eval = FALSE} --&gt;
+&lt;!-- stats::lm(formula = wt ~ mpg, data = mtcars) --&gt;
+&lt;!-- ``` --&gt;
 
-```r
-stats::lm(formula = wt ~ mpg, data = mtcars)
-```
+&lt;!-- ```{r cor, eval = FALSE} --&gt;
+&lt;!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) --&gt;
+&lt;!-- ``` --&gt;
 
+&lt;!-- ```{r cor.test, eval = FALSE} --&gt;
+&lt;!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) --&gt;
+&lt;!-- ``` --&gt;
 
-```r
-stats::cor(x = mtcars$wt, y = mtcars$mpg)
-```
+&lt;!-- ] --&gt;
 
+&lt;!-- -- --&gt;
 
-```r
-stats::cor.test(formula = ~ wt + mpg, data = mtcars)
-```
+&lt;!-- .img-left-small[ --&gt;
+&lt;!-- ![](images/sideeye.gif) --&gt;
+&lt;!-- ] --&gt;
 
-]
+&lt;!-- -- --&gt;
 
---
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- Functions in `ggstatsplot`- --&gt;
 
-.img-left-small[
-![](images/sideeye.gif)
-]
+&lt;!-- ✅ expect **dataframe** &lt;br&gt; --&gt;
+&lt;!-- ✅ expect **tidy** data &lt;br&gt; --&gt;
+&lt;!-- ✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt; --&gt;
+&lt;!-- ] --&gt;
 
---
+&lt;!-- -- --&gt;
 
-.pull-right[
-Functions in `ggstatsplot`-
-
-✅ expect **dataframe** &lt;br&gt;
-✅ expect **tidy** data &lt;br&gt;
-✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt;
-]
-
---
-
-.img-right-small[
-![](images/thumbsup.gif)
-]
+&lt;!-- .img-right-small[ --&gt;
+&lt;!-- ![](images/thumbsup.gif) --&gt;
+&lt;!-- ] --&gt;
 
 ---
 
@@ -237,7 +235,10 @@ layout: false
 
 class: inverse, center, middle
 
-# Get Started
+# And a LOT more!
+...but we will come back to that later 📌
+
+Let's get started first!
 
 ---
 

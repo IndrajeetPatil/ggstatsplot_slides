@@ -118,7 +118,8 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 --
 
 .right-column[.font130[
-Short answer: `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and quick (exploratory) data analysis.
+Short answer: <br>
+`ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and **faster** (exploratory) data analysis.
 ]
 ]
 
@@ -210,51 +211,51 @@ problem! But...
 ![](images/cat_trademill.gif)
 ]
 
----
+<!-- --- -->
 
-layout: false
+<!-- layout: false -->
 
-# Consistent API = No cognitive fatigue
+<!-- # Consistent API = No cognitive fatigue -->
 
---
+<!-- -- -->
 
-.pull-left[
+<!-- .pull-left[ -->
 
-```{r lm, eval = FALSE}
-stats::lm(formula = wt ~ mpg, data = mtcars)
-```
+<!-- ```{r lm, eval = FALSE} -->
+<!-- stats::lm(formula = wt ~ mpg, data = mtcars) -->
+<!-- ``` -->
 
-```{r cor, eval = FALSE}
-stats::cor(x = mtcars$wt, y = mtcars$mpg)
-```
+<!-- ```{r cor, eval = FALSE} -->
+<!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) -->
+<!-- ``` -->
 
-```{r cor.test, eval = FALSE}
-stats::cor.test(formula = ~ wt + mpg, data = mtcars)
-```
+<!-- ```{r cor.test, eval = FALSE} -->
+<!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) -->
+<!-- ``` -->
 
-]
+<!-- ] -->
 
---
+<!-- -- -->
 
-.img-left-small[
-![](images/sideeye.gif)
-]
+<!-- .img-left-small[ -->
+<!-- ![](images/sideeye.gif) -->
+<!-- ] -->
 
---
+<!-- -- -->
 
-.pull-right[
-Functions in `ggstatsplot`-
+<!-- .pull-right[ -->
+<!-- Functions in `ggstatsplot`- -->
 
-`r emo::ji("check")` expect **dataframe** <br>
-`r emo::ji("check")` expect **tidy** data <br>
-`r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br>
-]
+<!-- `r emo::ji("check")` expect **dataframe** <br> -->
+<!-- `r emo::ji("check")` expect **tidy** data <br> -->
+<!-- `r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br> -->
+<!-- ] -->
 
---
+<!-- -- -->
 
-.img-right-small[
-![](images/thumbsup.gif)
-]
+<!-- .img-right-small[ -->
+<!-- ![](images/thumbsup.gif) -->
+<!-- ] -->
 
 ---
 
@@ -262,7 +263,10 @@ layout: false
 
 class: inverse, center, middle
 
-# Get Started
+# And a LOT more!
+...but we will come back to that later 📌
+
+Let's get started first!
 
 ---
 
