@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-22" />
+    <meta name="date" content="2021-02-23" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial (Version: 0.7.0)
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-22 <br> <br> <br>
+### 2021-02-23 <br> <br> <br>
 
 ---
 
@@ -248,7 +248,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.6.8`) of **ggstatsplot** from 
+Install the stable version (latest: `0.7.0`) of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -291,9 +291,9 @@ class: inverse, center, middle
 
 # Hypothesis about group differences
 
-🔭 *ggbetweenstats*, *ggwithinstats*: multiple groups
+🔬 *ggbetweenstats*, *ggwithinstats*: multiple groups
 
-🔬 *gghistostats*, *ggdotplotstats*: single group
+🔭 *gghistostats*, *ggdotplotstats*: single group
 
 ---
 
@@ -549,9 +549,9 @@ class: inverse, center, middle
 
 # Hypothesis about correlation
  &lt;br&gt;
-🧪 *ggscatterstats*: Two numeric variables
+🔬 *ggscatterstats*: Two numeric variables
  &lt;br&gt;
-🔭 *ggcorrmat*: Multiple numeric variables
+🧪 *ggcorrmat*: Multiple numeric variables
 
 ---
 
@@ -718,8 +718,8 @@ ggcorrmat(
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; -0.73 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.83 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.63 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
@@ -734,10 +734,10 @@ ggcorrmat(
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; -0.21 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.43 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.93 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
@@ -748,12 +748,12 @@ ggcorrmat(
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.34 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.15 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
@@ -780,7 +780,7 @@ class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
  &lt;br&gt;
-🔭 *ggpiestats*: If you like 🍕
+🧪 *ggpiestats*: If you like 🍕
  &lt;br&gt;
 🔬 *ggbarstats*: Otherwise
 
@@ -918,7 +918,7 @@ class: inverse, center, middle
 
 # Hypothesis about regression coefficients
 
-🔬 *ggcoefstats*: Regression model object
+🔭 *ggcoefstats*: Regression model object
 
 ---
 
@@ -1623,7 +1623,7 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Review code 🕵
 
-- Add new functionality 👩‍💻
+- Add new functionality 👨‍💻
 
 - Either mention or cite software if used in a publication 📝
 ]
@@ -1675,7 +1675,7 @@ class: inverse, center, middle
 
 [🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
 
-[📬 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[📫 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 
 ]
 

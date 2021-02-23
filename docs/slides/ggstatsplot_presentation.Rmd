@@ -276,7 +276,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.6.8`) of **ggstatsplot** from 
+Install the stable version (latest: `0.7.0`) of **ggstatsplot** from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
