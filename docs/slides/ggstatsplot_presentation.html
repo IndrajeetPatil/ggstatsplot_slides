@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-23" />
+    <meta name="date" content="2021-02-26" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -16,9 +16,9 @@
 class: center, middle, inverse, title-slide
 
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
-## An Introductory Tutorial (Version: 0.7.0)
+## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-23 <br> <br> <br>
+### 2021-02-26 <br> <br> <br>
 
 ---
 
@@ -99,7 +99,7 @@ Short answer: &lt;br&gt;
 
 layout: true
 
-# Simpler data analysis workflow
+# Simpler/faster data analysis workflow
 
 ---
 
@@ -121,12 +121,13 @@ layout: true
  &lt;br&gt;
  &lt;br&gt;
  &lt;br&gt;
-In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two different phases: visualization informs modeling,
-and modeling can suggest a different visualization, and so on and so forth. 
+In a typical **exploratory** data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two
+different phases: visualization informs modeling, and modeling can suggest a
+different visualization, and so on and so forth.
 
 --
 
-The central idea of **ggstatsplot** is simple: combine these two phases into one!
+The central idea of `ggstatsplot` is simple: combine these two phases into one!
 
 ---
 
@@ -183,52 +184,6 @@ problem! But...
 ![](images/cat_trademill.gif)
 ]
 
-&lt;!-- --- --&gt;
-
-&lt;!-- layout: false --&gt;
-
-&lt;!-- # Consistent API = No cognitive fatigue --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .pull-left[ --&gt;
-
-&lt;!-- ```{r lm, eval = FALSE} --&gt;
-&lt;!-- stats::lm(formula = wt ~ mpg, data = mtcars) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ```{r cor, eval = FALSE} --&gt;
-&lt;!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ```{r cor.test, eval = FALSE} --&gt;
-&lt;!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .img-left-small[ --&gt;
-&lt;!-- ![](images/sideeye.gif) --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- Functions in `ggstatsplot`- --&gt;
-
-&lt;!-- ✅ expect **dataframe** &lt;br&gt; --&gt;
-&lt;!-- ✅ expect **tidy** data &lt;br&gt; --&gt;
-&lt;!-- ✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt; --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .img-right-small[ --&gt;
-&lt;!-- ![](images/thumbsup.gif) --&gt;
-&lt;!-- ] --&gt;
-
 ---
 
 layout: false
@@ -248,7 +203,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.0`) of **ggstatsplot** from 
+Install the stable version (latest: `0.7.0`) of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -1621,11 +1576,13 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Raise issues about bugs/features 🐞
 
+- Either mention or cite software if used in a publication 📝
+
+- Star the GitHub repo (increases visibility) ⭐
+
 - Review code 🕵
 
 - Add new functionality 👨‍💻
-
-- Either mention or cite software if used in a publication 📝
 ]
 ]
 
@@ -1656,9 +1613,6 @@ Community 🙏
 Contributors to *ggstatsplot* &amp;
 *rstats* users and developers
 
-
-&lt;!-- The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) --&gt;
-
 ---
 
 layout: false
@@ -1685,9 +1639,59 @@ layout: false
 
 class: inverse, center, middle
 
-# For more information, see
+# The End 👋
+
+For more information, see
 
 https://indrajeetpatil.github.io/ggstatsplot/
+
+---
+
+&lt;!-- ############### Removed slides #####################  --&gt;
+
+&lt;!-- layout: false --&gt;
+
+&lt;!-- # Consistent API = No cognitive fatigue --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- ```{r lm, eval = FALSE} --&gt;
+&lt;!-- stats::lm(formula = wt ~ mpg, data = mtcars) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ```{r cor, eval = FALSE} --&gt;
+&lt;!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ```{r cor.test, eval = FALSE} --&gt;
+&lt;!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- .img-left-small[ --&gt;
+&lt;!-- ![](images/sideeye.gif) --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- Functions in `ggstatsplot`- --&gt;
+
+&lt;!-- ✅ expect **dataframe** &lt;br&gt; --&gt;
+&lt;!-- ✅ expect **tidy** data &lt;br&gt; --&gt;
+&lt;!-- ✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt; --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- .img-right-small[ --&gt;
+&lt;!-- ![](images/thumbsup.gif) --&gt;
+&lt;!-- ] --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

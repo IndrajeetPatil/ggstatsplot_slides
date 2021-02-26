@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (Version: 0.7.0)"
+subtitle: "An Introductory Tutorial"
 author: "Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -127,7 +127,7 @@ Short answer: <br>
 
 layout: true
 
-# Simpler data analysis workflow
+# Simpler/faster data analysis workflow
 
 ---
 
@@ -149,12 +149,13 @@ layout: true
  <br>
  <br>
  <br>
-In a typical *exploratory* data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two different phases: visualization informs modeling,
-and modeling can suggest a different visualization, and so on and so forth. 
+In a typical **exploratory** data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two
+different phases: visualization informs modeling, and modeling can suggest a
+different visualization, and so on and so forth.
 
 --
 
-The central idea of **ggstatsplot** is simple: combine these two phases into one!
+The central idea of `ggstatsplot` is simple: combine these two phases into one!
 
 ---
 
@@ -211,52 +212,6 @@ problem! But...
 ![](images/cat_trademill.gif)
 ]
 
-<!-- --- -->
-
-<!-- layout: false -->
-
-<!-- # Consistent API = No cognitive fatigue -->
-
-<!-- -- -->
-
-<!-- .pull-left[ -->
-
-<!-- ```{r lm, eval = FALSE} -->
-<!-- stats::lm(formula = wt ~ mpg, data = mtcars) -->
-<!-- ``` -->
-
-<!-- ```{r cor, eval = FALSE} -->
-<!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) -->
-<!-- ``` -->
-
-<!-- ```{r cor.test, eval = FALSE} -->
-<!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) -->
-<!-- ``` -->
-
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .img-left-small[ -->
-<!-- ![](images/sideeye.gif) -->
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .pull-right[ -->
-<!-- Functions in `ggstatsplot`- -->
-
-<!-- `r emo::ji("check")` expect **dataframe** <br> -->
-<!-- `r emo::ji("check")` expect **tidy** data <br> -->
-<!-- `r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br> -->
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .img-right-small[ -->
-<!-- ![](images/thumbsup.gif) -->
-<!-- ] -->
-
 ---
 
 layout: false
@@ -276,7 +231,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.0`) of **ggstatsplot** from 
+Install the stable version (latest: `0.7.0`) of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
@@ -1568,11 +1523,13 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Raise issues about bugs/features 🐞
 
+- Either mention or cite software if used in a publication 📝
+
+- Star the GitHub repo (increases visibility) ⭐
+
 - Review code 🕵
 
 - Add new functionality `r emo::ji("developer")`
-
-- Either mention or cite software if used in a publication 📝
 ]
 ]
 
@@ -1603,9 +1560,6 @@ Community 🙏
 Contributors to *ggstatsplot* &
 *rstats* users and developers
 
-
-<!-- The CSS template comes from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) -->
-
 ---
 
 layout: false
@@ -1632,6 +1586,56 @@ layout: false
 
 class: inverse, center, middle
 
-# For more information, see
+# The End 👋
+
+For more information, see
 
 https://indrajeetpatil.github.io/ggstatsplot/
+
+---
+
+<!-- ############### Removed slides #####################  -->
+
+<!-- layout: false -->
+
+<!-- # Consistent API = No cognitive fatigue -->
+
+<!-- -- -->
+
+<!-- .pull-left[ -->
+
+<!-- ```{r lm, eval = FALSE} -->
+<!-- stats::lm(formula = wt ~ mpg, data = mtcars) -->
+<!-- ``` -->
+
+<!-- ```{r cor, eval = FALSE} -->
+<!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) -->
+<!-- ``` -->
+
+<!-- ```{r cor.test, eval = FALSE} -->
+<!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) -->
+<!-- ``` -->
+
+<!-- ] -->
+
+<!-- -- -->
+
+<!-- .img-left-small[ -->
+<!-- ![](images/sideeye.gif) -->
+<!-- ] -->
+
+<!-- -- -->
+
+<!-- .pull-right[ -->
+<!-- Functions in `ggstatsplot`- -->
+
+<!-- `r emo::ji("check")` expect **dataframe** <br> -->
+<!-- `r emo::ji("check")` expect **tidy** data <br> -->
+<!-- `r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br> -->
+<!-- ] -->
+
+<!-- -- -->
+
+<!-- .img-right-small[ -->
+<!-- ![](images/thumbsup.gif) -->
+<!-- ] -->
