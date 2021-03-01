@@ -31,3 +31,4 @@ gplots
 xaringanBuilder
 shiny
 data.table
+dplyr

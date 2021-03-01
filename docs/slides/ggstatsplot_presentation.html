@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-02-26" />
+    <meta name="date" content="2021-03-01" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-02-26 <br> <br> <br>
+### 2021-03-01 <br> <br> <br>
 
 ---
 
@@ -46,7 +46,9 @@ layout: true
 
 - Primary functions
 
-- Benefits and customizability
+- Customizability
+
+- Benefits
 
 - Misconceptions 
 
@@ -72,7 +74,7 @@ layout: true
 
 .right-column[
 
-.font130[
+.font120[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;**
 ]
@@ -89,7 +91,7 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.right-column[.font130[
+.right-column[.font120[
 Short answer: &lt;br&gt;
 `ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and **faster** (exploratory) data analysis.
 ]
@@ -139,8 +141,6 @@ class: center
 
 ---
 
---
-
 .img-center[
 ![](images/datasaurus.gif)
 ]
@@ -157,9 +157,10 @@ class: center
  &lt;br&gt;
  &lt;br&gt;
  &lt;br&gt;
- &lt;br&gt;
- &lt;br&gt;
-.font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
+ 
+**Graphical** summaries can reveal problems not visible from **numerical** statistics.
+ 
+“I plotted my data and what I found surprised me!" - BuzzFeed
 
 ---
 
@@ -169,8 +170,7 @@ layout: false
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) is a powerful
-framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
+The **grammar of graphics** is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make
 infinite number of graphics, each tailored for your specific data visualization
 problem! But...
 
@@ -183,6 +183,10 @@ problem! But...
 .pull-right[
 ![](images/cat_trademill.gif)
 ]
+
+--
+
+`\(\sum_{time}\)` (Needed time ↑ + Likelihood to graphical explore data ↓) = Avoidance habit
 
 ---
 
@@ -1166,7 +1170,7 @@ results &lt;-
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + 
+) +
 * labs(subtitle = results)
 ```
 ]
@@ -1362,10 +1366,8 @@ layout: false
 
 --
 
-The expression template tries to follow the APA gold standard for statistical
+The expression template tries to follow the gold standard for statistical
 reporting.
-
-For example, expression for a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 

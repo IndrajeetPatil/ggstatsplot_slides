@@ -74,7 +74,9 @@ layout: true
 
 - Primary functions
 
-- Benefits and customizability
+- Customizability
+
+- Benefits
 
 - Misconceptions 
 
@@ -100,7 +102,7 @@ layout: true
 
 .right-column[
 
-.font130[
+.font120[
 Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **<font color="red"> > 16,000</font>**
 ]
@@ -117,7 +119,7 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.right-column[.font130[
+.right-column[.font120[
 Short answer: <br>
 `ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and **faster** (exploratory) data analysis.
 ]
@@ -167,8 +169,6 @@ class: center
 
 ---
 
---
-
 .img-center[
 ![](images/datasaurus.gif)
 ]
@@ -185,9 +185,10 @@ class: center
  <br>
  <br>
  <br>
- <br>
- <br>
-.font120[“I plotted my data and what I found surprised me!" - BuzzFeed]
+ 
+**Graphical** summaries can reveal problems not visible from **numerical** statistics.
+ 
+“I plotted my data and what I found surprised me!" - BuzzFeed
 
 ---
 
@@ -197,8 +198,7 @@ layout: false
 
 --
 
-The **grammar of graphics** (implemented in `ggplot2`) is a powerful
-framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) to prepare graphics and can help you make
+The **grammar of graphics** is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make
 infinite number of graphics, each tailored for your specific data visualization
 problem! But...
 
@@ -211,6 +211,10 @@ problem! But...
 .pull-right[
 ![](images/cat_trademill.gif)
 ]
+
+--
+
+$\sum_{time}$ (Needed time ↑ + Likelihood to graphical explore data ↓) = Avoidance habit
 
 ---
 
@@ -1114,7 +1118,7 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + 
+) +
   labs(subtitle = results) #<<
 ```
 ]
@@ -1309,10 +1313,8 @@ layout: false
 
 --
 
-The expression template tries to follow the APA gold standard for statistical
+The expression template tries to follow the gold standard for statistical
 reporting.
-
-For example, expression for a robust *t*-test:
 
 ![](images/stats_reporting_format.jpg)
 
