@@ -25,7 +25,7 @@ gghistostats_2	::	budget	gghistostats	movies_long
 gghistostats_2_copy	budget	gghistostats	movies_long
 ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
 ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
-ggpiestats_1	as.data.frame	Class	Freq	ggpiestats	Titanic
+ggpiestats_1	cyl	ggpiestats	mtcars
 ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_2	::	c	genre	ggpiestats	movies_long	mpaa
 ggbarstats_1	::	c	genre	ggbarstats	movies_long	mpaa

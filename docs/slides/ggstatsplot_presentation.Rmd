@@ -6,7 +6,7 @@ date: "`r Sys.Date()` <br> <br> <br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "metropolis", "metropolis-fonts", "ggstatsplot_presentation.css"]
+    css: ["default", "metropolis", "metropolis-fonts", "hygge", "ggstatsplot_presentation.css"]
     df_print: kable
     nature:
       ratio: 16:9
@@ -115,8 +115,6 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **<font color="red"> > 16,000</font>**
 ]
 
-.footnote[<https://cran.r-project.org/web/packages/>]
-
 ]
 
 --
@@ -127,15 +125,16 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.content-box-green[
 .right-column[.font120[
 
+.content-box-yellow[
 In short, `ggstatsplot` returns <br>
 <br>
 📊 **information-rich** plots with **statistical details** <br>
  
 📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
 ]
+
 ]
 ]
 
@@ -332,7 +331,7 @@ Function internally decides tests
 `r emo::ji("check")` effect size + CIs <br>
 `r emo::ji("check")` pairwise comparisons <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+`r emo::ji("check")` Bayesian estimation
 ]
 
 ]
@@ -596,7 +595,8 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating
+  y = rating,
+  marginal.type = "histogram"
 )
 ```
 
@@ -761,9 +761,8 @@ layout: true
 .left-code[
 ```{r ggpiestats_1, eval = FALSE}
 ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class,
-  counts = Freq, #<<
+  data = mtcars,
+  x = cyl,
   label = "both" #<<
 )
 ```
@@ -1447,12 +1446,14 @@ layout: false
 
 --
 
-> "half of all published psychology papers that use NHST contained at least one
+.content-box-green[
+ "half of all published psychology papers that use NHST contained at least one
 *p*-value that was inconsistent with its test statistic and degrees of freedom.
 One in eight papers contained a grossly inconsistent *p*-value that may have
 affected the statistical conclusion"
 
-> [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
+ [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
+]
 
 --
 
@@ -1469,17 +1470,19 @@ layout: false
 
 $p > 0.05$: The null hypothesis (`H0`) can't be rejected
 
-But can it be **accepted**?! NHST 🤫
+But can it be **accepted**?! Null Hypothesis Significance Testing 🤫
 
 --
 
-> "In 72% of cases, nonsignificant results were misinterpreted, in that the
+.content-box-green[
+"In 72% of cases, nonsignificant results were misinterpreted, in that the
 authors inferred that the effect was absent. A Bayesian reanalysis revealed
 that fewer than 5% of the nonsignificant findings provided strong evidence
 (i.e., $BF_{01} > 10$) in favor of the null hypothesis over the alternative
 hypothesis."
 
-> [(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
+[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
+]
 
 --
 
@@ -1575,25 +1578,27 @@ layout: true
 
 --
 
-- Limited types of <font color="blue">plots</font> available. 
+`r emo::ji("x")` Limited types of **plots** available. 
 
 --
 
-- Limited number of statistical <font color="blue">tests</font> available.
-  This will **always** be the case. 🤷
+`r emo::ji("x")` Limited number of statistical **tests** available (no support
+for multivariate statistics, time series, etc.). This will **always** be the
+case. 🤷
 
 --
 
-- Expects a non-trivial level of statistical proficiency (but plots without
-  statistics can still be useful).
+`r emo::ji("x")` Expects a non-trivial level of statistical proficiency (but
+plots without statistics can still be useful).
 
 --
 
-- <font color="blue">Faceting</font> not implemented (requires writing new `geom_` s).
+`r emo::ji("x")` **Faceting** does not work (since there are no corresponding
+`geom_` s).
 
 --
 
-- For the same reason, plots are not `gganimate`-friendly.
+`r emo::ji("x")` For the same reason, plots are not `gganimate`-friendly.
 
 ---
 
@@ -1718,6 +1723,10 @@ class: inverse, center, middle
 
 # The End 👋
 
-For more information, see
+For more information, see-
 
-https://indrajeetpatil.github.io/ggstatsplot/
+<https://indrajeetpatil.github.io/ggstatsplot/>
+
+To access code for these slides, see-
+
+<https://github.com/IndrajeetPatil/ggstatsplot_slides/tree/master/docs/slides>

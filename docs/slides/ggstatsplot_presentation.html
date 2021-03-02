@@ -9,6 +9,7 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
     <script src="libs/mark.js/mark.min.js"></script>
     <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search/search.js"></script>
@@ -89,8 +90,6 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 **&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;**
 ]
 
-.footnote[&lt;https://cran.r-project.org/web/packages/&gt;]
-
 ]
 
 --
@@ -101,15 +100,16 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
-.content-box-green[
 .right-column[.font120[
 
+.content-box-yellow[
 In short, `ggstatsplot` returns &lt;br&gt;
 &lt;br&gt;
 📊 **information-rich** plots with **statistical details** &lt;br&gt;
  
 📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
 ]
+
 ]
 ]
 
@@ -310,7 +310,7 @@ Function internally decides tests
 ✅ effect size + CIs &lt;br&gt;
 ✅ pairwise comparisons &lt;br&gt;
 ✅ Bayesian hypothesis-testing &lt;br&gt;
-✅ Bayesian estimation &lt;br&gt;
+✅ Bayesian estimation
 ]
 
 ]
@@ -574,7 +574,8 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating
+  y = rating,
+  marginal.type = "histogram"
 )
 ```
 
@@ -815,9 +816,8 @@ layout: true
 
 ```r
 ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class,
-* counts = Freq,
+  data = mtcars,
+  x = cyl,
 * label = "both"
 )
 ```
@@ -1503,12 +1503,14 @@ layout: false
 
 --
 
-&gt; "half of all published psychology papers that use NHST contained at least one
+.content-box-green[
+ "half of all published psychology papers that use NHST contained at least one
 *p*-value that was inconsistent with its test statistic and degrees of freedom.
 One in eight papers contained a grossly inconsistent *p*-value that may have
 affected the statistical conclusion"
 
-&gt; [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
+ [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
+]
 
 --
 
@@ -1525,17 +1527,19 @@ layout: false
 
 `\(p &gt; 0.05\)`: The null hypothesis (`H0`) can't be rejected
 
-But can it be **accepted**?! NHST 🤫
+But can it be **accepted**?! Null Hypothesis Significance Testing 🤫
 
 --
 
-&gt; "In 72% of cases, nonsignificant results were misinterpreted, in that the
+.content-box-green[
+"In 72% of cases, nonsignificant results were misinterpreted, in that the
 authors inferred that the effect was absent. A Bayesian reanalysis revealed
 that fewer than 5% of the nonsignificant findings provided strong evidence
 (i.e., `\(BF_{01} &gt; 10\)`) in favor of the null hypothesis over the alternative
 hypothesis."
 
-&gt; [(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
+[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
+]
 
 --
 
@@ -1631,25 +1635,27 @@ layout: true
 
 --
 
-- Limited types of &lt;font color="blue"&gt;plots&lt;/font&gt; available. 
+❌ Limited types of **plots** available. 
 
 --
 
-- Limited number of statistical &lt;font color="blue"&gt;tests&lt;/font&gt; available.
-  This will **always** be the case. 🤷
+❌ Limited number of statistical **tests** available (no support
+for multivariate statistics, time series, etc.). This will **always** be the
+case. 🤷
 
 --
 
-- Expects a non-trivial level of statistical proficiency (but plots without
-  statistics can still be useful).
+❌ Expects a non-trivial level of statistical proficiency (but
+plots without statistics can still be useful).
 
 --
 
-- &lt;font color="blue"&gt;Faceting&lt;/font&gt; not implemented (requires writing new `geom_` s).
+❌ **Faceting** does not work (since there are no corresponding
+`geom_` s).
 
 --
 
-- For the same reason, plots are not `gganimate`-friendly.
+❌ For the same reason, plots are not `gganimate`-friendly.
 
 ---
 
@@ -1774,9 +1780,13 @@ class: inverse, center, middle
 
 # The End 👋
 
-For more information, see
+For more information, see-
 
-https://indrajeetpatil.github.io/ggstatsplot/
+&lt;https://indrajeetpatil.github.io/ggstatsplot/&gt;
+
+To access code for these slides, see-
+
+&lt;https://github.com/IndrajeetPatil/ggstatsplot_slides/tree/master/docs/slides&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
