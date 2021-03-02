@@ -35,7 +35,9 @@ ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
 ggcoefstats_2	~	ggcoefstats	lm	mtcars
 ggcoefstats_3	~	ggcoefstats	lm	mtcars
 grouped_1	am	cyl	grouped_ggpiestats	mtcars
-subtitle_1	::	aes	labs	Sex	Survived	Titanic_full
+subtitle_1	::	aes	ggpiestats	labs	Sex	Survived	Titanic_full
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 only_plot	ggbetweenstats	iris	Sepal.Length	Species
+xaringanExtra-search	::
+unnamed-chunk-1	library	mtcars	one_sample_test	wt

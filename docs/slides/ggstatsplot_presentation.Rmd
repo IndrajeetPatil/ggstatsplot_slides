@@ -62,6 +62,10 @@ options(
 )
 ```
 
+```{r xaringanExtra-search, echo=FALSE}
+xaringanExtra::use_search(show_icon = TRUE)
+```
+
 ---
 
 layout: true
@@ -80,7 +84,9 @@ layout: true
 
 - Misconceptions 
 
-- Limitations and Future scope
+- Limitations
+
+- Future plans
 
 ---
 
@@ -175,6 +181,8 @@ class: center
 
 
 .footnote[[(Matejka & Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
+
+--
 
  <br>
  <br>
@@ -880,23 +888,24 @@ layout: true
 `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
 `blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
 `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
-`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`,
-`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `eglm`, `elm`,
-`emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`,
-`flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`,
-`glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`,
-`glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`,
-`iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`,
-`lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`,
-`lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`,
-`MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`, `merMod`,
-`merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`, `multinom`,
-`negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`,
-`orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `ridgelm`,
-`riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`,
-`rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
-`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
-`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
+`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
+`coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`,
+`eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`,
+`fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
+`glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`,
+`glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`,
+`ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`,
+`lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`,
+`LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`,
+`mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`,
+`merMod`, `merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`,
+`multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`,
+`nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `probitmfx`,
+`ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
+`rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`,
+`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`,
+`svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
+`zeroinfl`, etc.
 ]
 
 --
@@ -1090,7 +1099,6 @@ ggbetweenstats(
 
 ---
 
-
 layout: true
 
 # Expressions for custom plots 🀄️
@@ -1105,7 +1113,7 @@ layout: true
 ```{r subtitle_1, eval = FALSE}
 # using `ggstatsplot` for stats
 results <-
-  ggstatsplot::ggpiestats(
+  ggpiestats(
     data = Titanic_full,
     x = Survived,
     y = Sex,
@@ -1125,6 +1133,38 @@ ggiraphExtra::ggSpine( #<<
 
 .right-plot[
 ```{r subtitle_1, ref.label = 'subtitle_1', echo = FALSE}
+```
+]
+
+---
+
+layout: true
+
+# Only dataframes
+
+---
+
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can be used to get
+**only the dataframes**.
+
+--
+
+.pull-left[
+
+<img src="images/statsExpressions.png" alt="drawing" style="width:350px;"/>
+
+]
+
+.pull-right[
+```{r, eval=FALSE, df.print="tibble"}
+library(statsExpressions)
+
+# for example
+one_sample_test(
+  data = mtcars,
+  x = wt,
+  test.value = 3
+)
 ```
 ]
 
@@ -1492,7 +1532,11 @@ layout: true
 
 --
 
-- <font color="blue">Faceting</font> not implemented.
+- <font color="blue">Faceting</font> not implemented (requires writing new `geom_` s).
+
+--
+
+- For the same reason, plots are not `gganimate`-friendly.
 
 ---
 
@@ -1533,6 +1577,33 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Add new functionality `r emo::ji("developer")`
 ]
+]
+
+---
+
+layout: true
+
+# Future plans 📅
+
+---
+
+.pull-left[
+**New plots**
+- density plot
+- connected scatterplot
+- sankey diagram
+- bar plot
+
+**New statistical tests**
+- survival analysis
+- cluster analysis
+- exploratory factor analysis
+]
+
+.pull-right[
+
+![](images/taytay.gif)
+
 ]
 
 ---

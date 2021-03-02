@@ -4,11 +4,15 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-03-01" />
+    <meta name="date" content="2021-03-02" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/mark.js/mark.min.js"></script>
+    <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-search/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":true,"autoSearch":true}) })</script>
     <link rel="stylesheet" href="ggstatsplot_presentation.css" type="text/css" />
   </head>
   <body>
@@ -18,7 +22,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-03-01 <br> <br> <br>
+### 2021-03-02 <br> <br> <br>
 
 ---
 
@@ -31,6 +35,8 @@ code.r{
   font-size: 14px;
 }
 &lt;/style&gt;
+
+
 
 
 
@@ -52,7 +58,9 @@ layout: true
 
 - Misconceptions 
 
-- Limitations and Future scope
+- Limitations
+
+- Future plans
 
 ---
 
@@ -147,6 +155,8 @@ class: center
 
 
 .footnote[[(Matejka &amp; Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
+
+--
 
  &lt;br&gt;
  &lt;br&gt;
@@ -931,23 +941,24 @@ layout: true
 `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
 `blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
 `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
-`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxph.penal`,
-`cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`, `eglm`, `elm`,
-`emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`, `fixest`,
-`flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`, `glmerMod`,
-`glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`, `glmRob`,
-`glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`, `ivreg`,
-`iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`, `lmodel2`,
-`lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`, `LORgee`,
-`lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`, `mcmc.list`,
-`MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`, `merMod`,
-`merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`, `multinom`,
-`negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`,
-`orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `ridgelm`,
-`riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`,
-`rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
-`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`, `svyglm`, `tobit`,
-`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
+`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
+`coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`,
+`eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`,
+`fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
+`glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`,
+`glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`,
+`ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`,
+`lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`,
+`LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`,
+`mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`,
+`merMod`, `merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`,
+`multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`,
+`nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `probitmfx`,
+`ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
+`rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`,
+`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`,
+`svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
+`zeroinfl`, etc.
 ]
 
 --
@@ -1141,7 +1152,6 @@ ggbetweenstats(
 
 ---
 
-
 layout: true
 
 # Expressions for custom plots 🀄️
@@ -1157,7 +1167,7 @@ layout: true
 ```r
 # using `ggstatsplot` for stats
 results &lt;-
-  ggstatsplot::ggpiestats(
+  ggpiestats(
     data = Titanic_full,
     x = Survived,
     y = Sex,
@@ -1177,6 +1187,39 @@ results &lt;-
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/subtitle_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+
+# Only dataframes
+
+---
+
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can be used to get
+**only the dataframes**.
+
+--
+
+.pull-left[
+
+&lt;img src="images/statsExpressions.png" alt="drawing" style="width:350px;"/&gt;
+
+]
+
+.pull-right[
+
+```r
+library(statsExpressions)
+
+# for example
+one_sample_test(
+  data = mtcars,
+  x = wt,
+  test.value = 3
+)
+```
 ]
 
 ---
@@ -1545,7 +1588,11 @@ layout: true
 
 --
 
-- &lt;font color="blue"&gt;Faceting&lt;/font&gt; not implemented.
+- &lt;font color="blue"&gt;Faceting&lt;/font&gt; not implemented (requires writing new `geom_` s).
+
+--
+
+- For the same reason, plots are not `gganimate`-friendly.
 
 ---
 
@@ -1586,6 +1633,33 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Add new functionality 👨‍💻
 ]
+]
+
+---
+
+layout: true
+
+# Future plans 📅
+
+---
+
+.pull-left[
+**New plots**
+- density plot
+- connected scatterplot
+- sankey diagram
+- bar plot
+
+**New statistical tests**
+- survival analysis
+- cluster analysis
+- exploratory factor analysis
+]
+
+.pull-right[
+
+![](images/taytay.gif)
+
 ]
 
 ---
