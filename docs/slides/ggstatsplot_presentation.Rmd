@@ -100,6 +100,8 @@ class: inverse, center, middle
 
 layout: true
 
+class: center
+
 # Raison d'être
 
 ---
@@ -125,15 +127,23 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
+.content-box-green[
 .right-column[.font120[
-Short answer: <br>
-`ggstatsplot` provides a collection of <font color="blue">*information-rich*</font> plots with <font color="blue">*statistical details*</font> and is suitable for scholarly publications and **faster** (exploratory) data analysis.
+
+In short, `ggstatsplot` returns <br>
+<br>
+📊 **information-rich** plots with **statistical details** <br>
+ 
+📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
+]
 ]
 ]
 
 ---
 
 layout: true
+
+class: center
 
 # Simpler/faster data analysis workflow
 
@@ -201,6 +211,8 @@ class: center
 ---
 
 layout: false
+
+class: center
 
 # Ready-made plot = no customization
 
@@ -295,6 +307,8 @@ layout: true
 
 ---
 
+--
+
 .left-code[
 ```{r ggbetweenstats_1, eval = FALSE}
 ggbetweenstats(
@@ -323,6 +337,8 @@ Function internally decides tests
 
 ]
 
+--
+
 .right-plot[
 ```{r ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE}
 ```
@@ -335,6 +351,8 @@ layout: true
 # ggbetweenstats - pairwise comparisons
 
 ---
+
+--
 
 .left-code[
 ```{r ggbetweenstats_2, eval = FALSE}
@@ -364,6 +382,8 @@ Changing pairwise comparisons displayed
 
 ]
 
+--
+
 .right-plot[
 ```{r ggbetweenstats_2, ref.label = 'ggbetweenstats_2', echo = FALSE}
 ```
@@ -376,6 +396,8 @@ layout: true
 # ggbetweenstats - outlier tagging
 
 ---
+
+--
 
 .left-code[
 ```{r ggbetweenstats_3, eval = FALSE}
@@ -404,6 +426,8 @@ Centrality measures
 
 ]
 
+--
+
 .right-plot[
 ```{r ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE}
 ```
@@ -416,6 +440,8 @@ layout: true
 # ggwithinstats - repeated measures equivalent
 
 ---
+
+--
 
 .left-code[
 ```{r ggwithinstats_1, eval = FALSE}
@@ -446,6 +472,8 @@ Changing the `type` of test
 ]
 ]
 
+--
+
 .right-plot[
 ```{r ggwithinstats_1, ref.label = 'ggwithinstats_1', echo = FALSE}
 ```
@@ -458,6 +486,8 @@ layout: true
 # gghistostats - Distribution of a numeric variable
 
 ---
+
+--
 
 .left-code[
 ```{r gghistostats_1, eval = FALSE}
@@ -487,6 +517,8 @@ Centrality measures
 ]
 ]
 
+--
+
 .right-plot[
 ```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
 ```
@@ -499,6 +531,8 @@ layout: true
 # ggdotplotstats - Labeled numeric variable
 
 ---
+
+--
 
 .left-code[
 ```{r ggdotplotstats_1, eval = FALSE}
@@ -528,6 +562,8 @@ Centrality measures
 ]
 ]
 
+--
+
 .right-plot[
 ```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
 ```
@@ -552,6 +588,8 @@ layout: true
 # ggscatterstats - Two numeric variables
 
 ---
+
+--
 
 .left-code[
 ```{r ggscatterstats_1, eval = FALSE}
@@ -581,6 +619,8 @@ Changing the `type` of test
 ]
 ]
 
+--
+
 .right-plot[
 ```{r ggscatterstats_1, ref.label = 'ggscatterstats_1', echo = FALSE}
 ```
@@ -593,6 +633,8 @@ layout: true
 # ggscatterstats - conditional point tagging
 
 ---
+
+--
 
 .left-code[
 ```{r ggscatterstats_2, eval = FALSE}
@@ -619,6 +661,8 @@ Changing the marginal type
 ]
 ]
 
+--
+
 .right-plot[
 ```{r ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE}
 ```
@@ -631,6 +675,8 @@ layout: true
 # ggcorrmat - multiple numeric variables
 
 ---
+
+--
 
 .left-code[
 ```{r ggcorrmat_1, eval = FALSE}
@@ -652,6 +698,8 @@ Changing the `type` of test
 
 ]
 ]
+
+--
 
 .right-plot[
 ```{r ggcorrmat_1, ref.label = 'ggcorrmat_1', echo = FALSE}
@@ -708,6 +756,8 @@ layout: true
 
 ---
 
+--
+
 .left-code[
 ```{r ggpiestats_1, eval = FALSE}
 ggpiestats(
@@ -735,6 +785,8 @@ argument.
 
 ]
 
+--
+
 .right-plot[
 ```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE}
 ```
@@ -747,6 +799,8 @@ layout: true
 # ggpiestats - association between categorical variables
 
 ---
+
+--
 
 .left-code[
 ```{r ggpiestats_2, eval = FALSE}
@@ -771,13 +825,10 @@ ggpiestats(
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
 
-Test by design
-
-- `paired = FALSE` → Pearson's $\chi^2$
-- `paired = TRUE` → McNemar's $\chi^2$
-
 ]
 ]
+
+--
 
 .right-plot[
 ```{r ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE}
@@ -791,6 +842,8 @@ layout: true
 # ggbarstats - association between categorical variables
 
 ---
+
+--
 
 .left-code[
 ```{r ggbarstats_1, eval = FALSE}
@@ -813,13 +866,10 @@ ggbarstats(
 `r emo::ji("check")` Goodness-of-fit tests <br>
 `r emo::ji("check")` Bayesian hypothesis-testing <br>
 `r emo::ji("check")` Bayesian estimation <br>
-
-Test by design
-
-- `paired = FALSE` → Pearson's $\chi^2$
-- `paired = TRUE` → McNemar's $\chi^2$
 ]
 ]
+
+--
 
 .right-plot[
 ```{r ggbarstats_1, ref.label = 'ggbarstats_1', echo = FALSE}
@@ -843,6 +893,8 @@ layout: true
 # ggcoefstats
 
 ---
+
+--
 
 .left-code[
 ```{r ggcoefstats_1, eval = FALSE}
@@ -868,6 +920,8 @@ ggcoefstats(
 ]
 
 ]
+
+--
 
 .right-plot[
 ```{r ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE}
@@ -910,7 +964,7 @@ layout: true
 
 --
 
-Thanks to [`easystats`](https://easystats.github.io/easystats/)!
+Thanks to [`easystats`](https://easystats.github.io/easystats/)! 🙏
 
 
 ![](images/easystats.jpg)
@@ -956,6 +1010,8 @@ Available `grouped_` variants
 - `grouped_ggbarstats`
 ]
 ]
+
+--
 
 .right-plot[
 ```{r grouped_1, ref.label = 'grouped_1', echo = FALSE}
@@ -1038,6 +1094,8 @@ layout: true
 ---
 
 You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
+
+--
 
 .left-code[
 ```{r ggbetweenstats_5, eval = FALSE}
@@ -1230,7 +1288,7 @@ layout: false
 .pull-right[
 
 .font90[
-**Root of headache**
+**Things to worry about** 🤕
 
 🤔 accepts dataframe, vectors, matrix? <br>
 🤔 long/wide format data? <br>
@@ -1324,7 +1382,7 @@ layout: false
 
 .pull-left[
 
-**Without ggstatsplot**
+**Without `ggstatsplot`**
 
 The 20 participants who received the drug intervention $(M = 24.14)$ compared to
 the 20 participants in the control group $(M = 41.78)$ demonstrated
@@ -1337,7 +1395,7 @@ found to exceed Cohen’s (1988) convention for a medium effect $(> .50)$.
 
 .pull-right[
 
-**With ggstatsplot**
+**With `ggstatsplot`**
 
 ![](images/after_ggstats.PNG)
 
@@ -1390,8 +1448,8 @@ layout: false
 --
 
 > "half of all published psychology papers that use NHST contained at least one
-p-value that was inconsistent with its test statistic and degrees of freedom.
-One in eight papers contained a grossly inconsistent p-value that may have
+*p*-value that was inconsistent with its test statistic and degrees of freedom.
+One in eight papers contained a grossly inconsistent *p*-value that may have
 affected the statistical conclusion"
 
 > [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
@@ -1467,7 +1525,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Misconceptions and limitations
+# Misconceptions, limitations, future plans
 
 ---
 
@@ -1492,9 +1550,8 @@ defaults to your liking)
 
 `r emo::ji("x")` meant to be used in talks/presentations <br>
 --
-`r emo::ji("check")` (default plots can be too complicated for effectively
-communicating results in time-constrained presentation settings, e.g. conference
-talks)
+`r emo::ji("check")` (defaults too complicated for effectively communicating
+results in time-constrained presentation settings, e.g. conference talks)
 
 --
 
@@ -1506,7 +1563,7 @@ talks)
 
 `r emo::ji("x")` the only game in town <br>
 --
-`r emo::ji("check")` (GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
+`r emo::ji("check")` (excellent GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 
@@ -1518,7 +1575,7 @@ layout: true
 
 --
 
-- Limited kinds of <font color="blue">plots</font> available. 
+- Limited types of <font color="blue">plots</font> available. 
 
 --
 
@@ -1664,51 +1721,3 @@ class: inverse, center, middle
 For more information, see
 
 https://indrajeetpatil.github.io/ggstatsplot/
-
----
-
-<!-- ############### Removed slides #####################  -->
-
-<!-- layout: false -->
-
-<!-- # Consistent API = No cognitive fatigue -->
-
-<!-- -- -->
-
-<!-- .pull-left[ -->
-
-<!-- ```{r lm, eval = FALSE} -->
-<!-- stats::lm(formula = wt ~ mpg, data = mtcars) -->
-<!-- ``` -->
-
-<!-- ```{r cor, eval = FALSE} -->
-<!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) -->
-<!-- ``` -->
-
-<!-- ```{r cor.test, eval = FALSE} -->
-<!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) -->
-<!-- ``` -->
-
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .img-left-small[ -->
-<!-- ![](images/sideeye.gif) -->
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .pull-right[ -->
-<!-- Functions in `ggstatsplot`- -->
-
-<!-- `r emo::ji("check")` expect **dataframe** <br> -->
-<!-- `r emo::ji("check")` expect **tidy** data <br> -->
-<!-- `r emo::ji("check")` have consistent API (`foo(data, x, ...)`) <br> -->
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .img-right-small[ -->
-<!-- ![](images/thumbsup.gif) -->
-<!-- ] -->

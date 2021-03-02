@@ -74,6 +74,8 @@ class: inverse, center, middle
 
 layout: true
 
+class: center
+
 # Raison d'être
 
 ---
@@ -99,15 +101,23 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 
 --
 
+.content-box-green[
 .right-column[.font120[
-Short answer: &lt;br&gt;
-`ggstatsplot` provides a collection of &lt;font color="blue"&gt;*information-rich*&lt;/font&gt; plots with &lt;font color="blue"&gt;*statistical details*&lt;/font&gt; and is suitable for scholarly publications and **faster** (exploratory) data analysis.
+
+In short, `ggstatsplot` returns &lt;br&gt;
+&lt;br&gt;
+📊 **information-rich** plots with **statistical details** &lt;br&gt;
+ 
+📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
+]
 ]
 ]
 
 ---
 
 layout: true
+
+class: center
 
 # Simpler/faster data analysis workflow
 
@@ -175,6 +185,8 @@ class: center
 ---
 
 layout: false
+
+class: center
 
 # Ready-made plot = no customization
 
@@ -272,6 +284,8 @@ layout: true
 
 ---
 
+--
+
 .left-code[
 
 ```r
@@ -301,6 +315,8 @@ Function internally decides tests
 
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -312,6 +328,8 @@ layout: true
 # ggbetweenstats - pairwise comparisons
 
 ---
+
+--
 
 .left-code[
 
@@ -342,6 +360,8 @@ Changing pairwise comparisons displayed
 
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -353,6 +373,8 @@ layout: true
 # ggbetweenstats - outlier tagging
 
 ---
+
+--
 
 .left-code[
 
@@ -382,6 +404,8 @@ Centrality measures
 
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -393,6 +417,8 @@ layout: true
 # ggwithinstats - repeated measures equivalent
 
 ---
+
+--
 
 .left-code[
 
@@ -424,6 +450,8 @@ Changing the `type` of test
 ]
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggwithinstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -435,6 +463,8 @@ layout: true
 # gghistostats - Distribution of a numeric variable
 
 ---
+
+--
 
 .left-code[
 
@@ -465,6 +495,8 @@ Centrality measures
 ]
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/gghistostats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -476,6 +508,8 @@ layout: true
 # ggdotplotstats - Labeled numeric variable
 
 ---
+
+--
 
 .left-code[
 
@@ -506,6 +540,8 @@ Centrality measures
 ]
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggdotplotstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -529,6 +565,8 @@ layout: true
 # ggscatterstats - Two numeric variables
 
 ---
+
+--
 
 .left-code[
 
@@ -559,6 +597,8 @@ Changing the `type` of test
 ]
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -570,6 +610,8 @@ layout: true
 # ggscatterstats - conditional point tagging
 
 ---
+
+--
 
 .left-code[
 
@@ -597,6 +639,8 @@ Changing the marginal type
 ]
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggscatterstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -608,6 +652,8 @@ layout: true
 # ggcorrmat - multiple numeric variables
 
 ---
+
+--
 
 .left-code[
 
@@ -630,6 +676,8 @@ Changing the `type` of test
 
 ]
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcorrmat_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -761,6 +809,8 @@ layout: true
 
 ---
 
+--
+
 .left-code[
 
 ```r
@@ -789,6 +839,8 @@ argument.
 
 ]
 
+--
+
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
@@ -800,6 +852,8 @@ layout: true
 # ggpiestats - association between categorical variables
 
 ---
+
+--
 
 .left-code[
 
@@ -825,13 +879,10 @@ ggpiestats(
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
 
-Test by design
-
-- `paired = FALSE` → Pearson's `\(\chi^2\)`
-- `paired = TRUE` → McNemar's `\(\chi^2\)`
-
 ]
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -844,6 +895,8 @@ layout: true
 # ggbarstats - association between categorical variables
 
 ---
+
+--
 
 .left-code[
 
@@ -867,13 +920,10 @@ ggbarstats(
 ✅ Goodness-of-fit tests &lt;br&gt;
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
-
-Test by design
-
-- `paired = FALSE` → Pearson's `\(\chi^2\)`
-- `paired = TRUE` → McNemar's `\(\chi^2\)`
 ]
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbarstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -896,6 +946,8 @@ layout: true
 # ggcoefstats
 
 ---
+
+--
 
 .left-code[
 
@@ -922,6 +974,8 @@ ggcoefstats(
 ]
 
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcoefstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -963,7 +1017,7 @@ layout: true
 
 --
 
-Thanks to [`easystats`](https://easystats.github.io/easystats/)!
+Thanks to [`easystats`](https://easystats.github.io/easystats/)! 🙏
 
 
 ![](images/easystats.jpg)
@@ -1010,6 +1064,8 @@ Available `grouped_` variants
 - `grouped_ggbarstats`
 ]
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/grouped_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -1091,6 +1147,8 @@ layout: true
 ---
 
 You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
+
+--
 
 .left-code[
 
@@ -1284,7 +1342,7 @@ layout: false
 .pull-right[
 
 .font90[
-**Root of headache**
+**Things to worry about** 🤕
 
 🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
 🤔 long/wide format data? &lt;br&gt;
@@ -1380,7 +1438,7 @@ layout: false
 
 .pull-left[
 
-**Without ggstatsplot**
+**Without `ggstatsplot`**
 
 The 20 participants who received the drug intervention `\((M = 24.14)\)` compared to
 the 20 participants in the control group `\((M = 41.78)\)` demonstrated
@@ -1393,7 +1451,7 @@ found to exceed Cohen’s (1988) convention for a medium effect `\((&gt; .50)\)`
 
 .pull-right[
 
-**With ggstatsplot**
+**With `ggstatsplot`**
 
 ![](images/after_ggstats.PNG)
 
@@ -1446,8 +1504,8 @@ layout: false
 --
 
 &gt; "half of all published psychology papers that use NHST contained at least one
-p-value that was inconsistent with its test statistic and degrees of freedom.
-One in eight papers contained a grossly inconsistent p-value that may have
+*p*-value that was inconsistent with its test statistic and degrees of freedom.
+One in eight papers contained a grossly inconsistent *p*-value that may have
 affected the statistical conclusion"
 
 &gt; [(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
@@ -1523,7 +1581,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Misconceptions and limitations
+# Misconceptions, limitations, future plans
 
 ---
 
@@ -1548,9 +1606,8 @@ defaults to your liking)
 
 ❌ meant to be used in talks/presentations &lt;br&gt;
 --
-✅ (default plots can be too complicated for effectively
-communicating results in time-constrained presentation settings, e.g. conference
-talks)
+✅ (defaults too complicated for effectively communicating
+results in time-constrained presentation settings, e.g. conference talks)
 
 --
 
@@ -1562,7 +1619,7 @@ talks)
 
 ❌ the only game in town &lt;br&gt;
 --
-✅ (GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
+✅ (excellent GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 
@@ -1574,7 +1631,7 @@ layout: true
 
 --
 
-- Limited kinds of &lt;font color="blue"&gt;plots&lt;/font&gt; available. 
+- Limited types of &lt;font color="blue"&gt;plots&lt;/font&gt; available. 
 
 --
 
@@ -1720,54 +1777,6 @@ class: inverse, center, middle
 For more information, see
 
 https://indrajeetpatil.github.io/ggstatsplot/
-
----
-
-&lt;!-- ############### Removed slides #####################  --&gt;
-
-&lt;!-- layout: false --&gt;
-
-&lt;!-- # Consistent API = No cognitive fatigue --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .pull-left[ --&gt;
-
-&lt;!-- ```{r lm, eval = FALSE} --&gt;
-&lt;!-- stats::lm(formula = wt ~ mpg, data = mtcars) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ```{r cor, eval = FALSE} --&gt;
-&lt;!-- stats::cor(x = mtcars$wt, y = mtcars$mpg) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ```{r cor.test, eval = FALSE} --&gt;
-&lt;!-- stats::cor.test(formula = ~ wt + mpg, data = mtcars) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .img-left-small[ --&gt;
-&lt;!-- ![](images/sideeye.gif) --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- Functions in `ggstatsplot`- --&gt;
-
-&lt;!-- ✅ expect **dataframe** &lt;br&gt; --&gt;
-&lt;!-- ✅ expect **tidy** data &lt;br&gt; --&gt;
-&lt;!-- ✅ have consistent API (`foo(data, x, ...)`) &lt;br&gt; --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .img-right-small[ --&gt;
-&lt;!-- ![](images/thumbsup.gif) --&gt;
-&lt;!-- ] --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
