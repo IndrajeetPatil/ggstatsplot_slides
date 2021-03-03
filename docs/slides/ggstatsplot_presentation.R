@@ -33,16 +33,8 @@ options(
 )
 
 
-## ----lm, eval = FALSE-------------------------------------------------------------------
-## stats::lm(formula = wt ~ mpg, data = mtcars)
-
-
-## ----cor, eval = FALSE------------------------------------------------------------------
-## stats::cor(x = mtcars$wt, y = mtcars$mpg)
-
-
-## ----cor.test, eval = FALSE-------------------------------------------------------------
-## stats::cor.test(formula = ~ wt + mpg, data = mtcars)
+## ----xaringanExtra-search, echo=FALSE---------------------------------------------------
+xaringanExtra::use_search(show_icon = TRUE)
 
 
 ## ----utils, eval = FALSE, tidy = FALSE--------------------------------------------------
@@ -220,6 +212,7 @@ ggcorrmat(dplyr::starwars)
 
 ## ----ggcorrmat_2------------------------------------------------------------------------
 library(ggplot2) # for data
+options(digits = 2)
 
 ggcorrmat(
   data = dplyr::select(msleep, sleep_rem, awake, brainwt),
@@ -230,18 +223,16 @@ ggcorrmat(
 
 ## ----ggpiestats_1, eval = FALSE---------------------------------------------------------
 ## ggpiestats(
-##   data = as.data.frame(Titanic),
-##   x = Class,
-##   counts = Freq, #<<
+##   data = mtcars,
+##   x = cyl,
 ##   label = "both" #<<
 ## )
 
 
 ## ----ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE-----------------------------
 ggpiestats(
-  data = as.data.frame(Titanic),
-  x = Class,
-  counts = Freq, #<<
+  data = mtcars,
+  x = cyl,
   label = "both" #<<
 )
 
@@ -341,7 +332,6 @@ grouped_ggpiestats(
 ##   data = movies_long,
 ##   x = mpaa,
 ##   y = rating,
-##   results.subtitle = FALSE,
 ##   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
 ##   palette = "Darjeeling2", #<<
 ##   package = "wesanderson" #<<
@@ -353,7 +343,6 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  results.subtitle = FALSE,
   ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
   palette = "Darjeeling2", #<<
   package = "wesanderson" #<<
@@ -417,7 +406,7 @@ ggbetweenstats(
 ## ----subtitle_1, eval = FALSE-----------------------------------------------------------
 ## # using `ggstatsplot` for stats
 ## results <-
-##   ggstatsplot::ggpiestats(
+##   ggpiestats(
 ##     data = Titanic_full,
 ##     x = Survived,
 ##     y = Sex,
@@ -437,7 +426,7 @@ ggbetweenstats(
 ## ----subtitle_1, ref.label = 'subtitle_1', echo = FALSE---------------------------------
 # using `ggstatsplot` for stats
 results <-
-  ggstatsplot::ggpiestats(
+  ggpiestats(
     data = Titanic_full,
     x = Survived,
     y = Sex,
@@ -450,8 +439,19 @@ ggiraphExtra::ggSpine( #<<
   aes(x = Sex, fill = Survived),
   addlabel = TRUE,
   interactive = FALSE
-) + 
+) +
   labs(subtitle = results) #<<
+
+
+## ---- eval=FALSE, df.print="tibble"-----------------------------------------------------
+## library(statsExpressions)
+## 
+## # for example
+## one_sample_test(
+##   data = mtcars,
+##   x = wt,
+##   test.value = 3
+## )
 
 
 ## ----type_p, eval = FALSE---------------------------------------------------------------

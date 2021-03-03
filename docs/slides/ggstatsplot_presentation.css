@@ -1,8 +1,8 @@
-/* The CSS template is adapted from [Garrick Aden-Buie](https://github.com/gadenbuie/gentle-ggplot2) */
+/* The CSS template is adapted from Garrick Aden-Buie's template (https://github.com/gadenbuie/gentle-ggplot2) */
 
 body {
   font-size: 1.1em;
-  /* font-family: 'JetBrainsMonoRoman-Medium'; */
+  font-family: 'RobotoCondensed-Light';
 }
 
 img {

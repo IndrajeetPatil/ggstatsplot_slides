@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-03-02" />
+    <meta name="date" content="2021-03-03" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-03-02 <br> <br> <br>
+### 2021-03-03 <br> <br> <br>
 
 ---
 
@@ -86,8 +86,8 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (**CRAN**)
-**&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;**
+Current count of packages on the Comprehensive R Archive Network (`CRAN`)
+&lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;
 ]
 
 ]
@@ -105,9 +105,9 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 .content-box-yellow[
 In short, `ggstatsplot` returns &lt;br&gt;
 &lt;br&gt;
-📊 **information-rich** plots with **statistical details** &lt;br&gt;
+📊 &lt;font color="blue"&gt;information-rich&lt;/font&gt; plots with &lt;font color="blue"&gt;statistical details&lt;/font&gt; &lt;br&gt;
  
-📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
+📝 plots suitable for scholarly publications and &lt;font color="blue"&gt;faster&lt;/font&gt; (exploratory) data analysis
 ]
 
 ]
@@ -141,7 +141,7 @@ class: center
  &lt;br&gt;
  &lt;br&gt;
  &lt;br&gt;
-In a typical **exploratory** data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two
+In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two
 different phases: visualization informs modeling, and modeling can suggest a
 different visualization, and so on and so forth.
 
@@ -178,7 +178,7 @@ class: center
  &lt;br&gt;
  &lt;br&gt;
  
-**Graphical** summaries can reveal problems not visible from **numerical** statistics.
+&lt;font color="blue"&gt;Graphical&lt;/font&gt; summaries can reveal problems not visible from &lt;font color="blue"&gt;numerical&lt;/font&gt; statistics.
  
 “I plotted my data and what I found surprised me!" - BuzzFeed
 
@@ -192,9 +192,7 @@ class: center
 
 --
 
-The **grammar of graphics** is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make
-infinite number of graphics, each tailored for your specific data visualization
-problem! But...
+The &lt;font color="blue"&gt;grammar of graphics&lt;/font&gt; is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make *any* graphics fitting your specific data visualization needs! But...
 
 --
 
@@ -299,10 +297,10 @@ ggbetweenstats(
 .font70[
 Function internally decides tests
 
-- *t*-test if **2** groups
-- ANOVA if **&gt; 2** groups
+- *t*-test if `2` groups
+- ANOVA if `&gt; 2` groups
 
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -431,7 +429,7 @@ ggwithinstats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -477,7 +475,7 @@ gghistostats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ counts + proportion for bins &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -523,7 +521,7 @@ ggdotplotstats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -574,13 +572,12 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating,
-  marginal.type = "histogram"
+  y = rating
 )
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ marginal distributions &lt;br&gt;
@@ -663,7 +660,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ effect size + significance &lt;br&gt;
 ✅ careful handling of `NA`s
@@ -823,7 +820,7 @@ ggpiestats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -870,7 +867,7 @@ ggpiestats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -912,7 +909,7 @@ ggbarstats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -966,7 +963,7 @@ ggcoefstats(
 ```
 
 .font70[
-📝 **Defaults** return &lt;br&gt;
+📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
 
 ✅ estimate + CIs &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -1130,7 +1127,7 @@ ggbetweenstats(
 
 .font70[
 The default palette 
-is **colorblind-friendly**.
+is &lt;font color="blue"&gt;colorblind-friendly&lt;/font&gt;.
 ]
 ]
 
@@ -1180,7 +1177,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get **only plots**.
+`ggstatsplot` can be used to get &lt;font color="blue"&gt;only plots&lt;/font&gt;.
 
 --
 
@@ -1216,7 +1213,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get **only the expressions**.
+`ggstatsplot` can be used to get &lt;font color="blue"&gt;only expressions&lt;/font&gt;.
 
 --
 
@@ -1255,8 +1252,7 @@ layout: true
 
 ---
 
-[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can be used to get
-**only the dataframes**.
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide &lt;font color="blue"&gt;only dataframes&lt;/font&gt;.
 
 --
 
@@ -1319,7 +1315,7 @@ layout: false
 .pull-left[
 
 .font90[
-**Load 'em up!**
+&lt;font color="blue"&gt;Load 'em up!&lt;/font&gt;
 
 📦 to carry out the test (e.g. `stats`) &lt;br&gt;
 📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
@@ -1342,7 +1338,7 @@ layout: false
 .pull-right[
 
 .font90[
-**Things to worry about** 🤕
+&lt;font color="blue"&gt;Things to worry about&lt;/font&gt; 🤕
 
 🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
 🤔 long/wide format data? &lt;br&gt;
@@ -1550,34 +1546,39 @@ properly interpret the null results.
 
 layout: true
 
-# A few additional benefits
+# A few other benefits
 
 ---
 
 --
 
-- Minimal amount of code needed (typically only `data`, `x`,
-  and `y`), which minimizes chances of error and makes for tidy scripts. 💅
+.content-box-green[
+Minimal code needed (`data`, `x`, `y`), which minimizes chances of error and makes for tidy scripts. 💅
+]
 
 --
 
-- Truly makes your figures worth a thousand words. 💬
+.content-box-green[
+No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
+]
 
 --
 
-- No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
+.content-box-green[
+Disembodied figures stand on their own and are easy to evaluate. 🧐
+]
 
 --
 
-- Disembodied figures stand on their own and are easy to evaluate for the reader. 🧐
+.content-box-green[
+More breathing room for theoretical discussion and other text. ✍
+]
 
 --
 
-- More breathing room for theoretical discussion and other text. ✍
-
---
-
-- No need to worry about updating figures and statistical details separately. 🔗
+.content-box-green[
+No need to worry about updating figures and statistical details *separately*. 🔗
+]
 
 ---
 
@@ -1635,27 +1636,25 @@ layout: true
 
 --
 
-❌ Limited types of **plots** available. 
+.content-box-red[
+Limited no. of **plots** and **statistical tests** available
+(no support for multivariate statistics, time series, etc.). This will
+**always** be the case. 🤷
+]
 
 --
 
-❌ Limited number of statistical **tests** available (no support
-for multivariate statistics, time series, etc.). This will **always** be the
-case. 🤷
-
---
-
-❌ Expects a non-trivial level of statistical proficiency (but
+.content-box-red[
+Expects a non-trivial level of statistical proficiency (but
 plots without statistics can still be useful).
+]
 
 --
 
-❌ **Faceting** does not work (since there are no corresponding
-`geom_` s).
-
---
-
-❌ For the same reason, plots are not `gganimate`-friendly.
+.content-box-red[
+**Faceting** does not work (since there are no corresponding
+`geom_` s). For the same reason, plots are not `gganimate`-friendly.
+]
 
 ---
 
@@ -1669,9 +1668,7 @@ layout: true
 
 .pull-left[
 
-.font90[
 Contributions (big or small) welcome!
-]
 
 ![](images/needs_you.jpg)
 
@@ -1680,22 +1677,22 @@ Contributions (big or small) welcome!
 --
 
 .pull-right[
-.font90[
 Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot)
 
-- Read and correct any inconsistencies in the
-[documentation](https://indrajeetpatil.github.io/ggstatsplot/) 📖
+.content-box-purple[
+- Proof-read the documentation 📖
 
 - Raise issues about bugs/features 🐞
 
-- Either mention or cite software if used in a publication 📝
+- Cite if used in a publication 📝
 
-- Star the GitHub repo (increases visibility) ⭐
+- Star on GitHub (increases visibility) ⭐
 
 - Review code 🕵
 
 - Add new functionality 👨‍💻
 ]
+
 ]
 
 ---
@@ -1707,13 +1704,13 @@ layout: true
 ---
 
 .pull-left[
-**New plots**
+&lt;font color="blue"&gt;New plots&lt;/font&gt;
 - density plot
 - connected scatterplot
 - sankey diagram
 - bar plot
 
-**New statistical tests**
+&lt;font color="blue"&gt;New statistical tests&lt;/font&gt;
 - survival analysis
 - cluster analysis
 - exploratory factor analysis

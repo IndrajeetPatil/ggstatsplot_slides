@@ -111,8 +111,8 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (**CRAN**)
-**<font color="red"> > 16,000</font>**
+Current count of packages on the Comprehensive R Archive Network (`CRAN`)
+<font color="red"> > 16,000</font>
 ]
 
 ]
@@ -130,9 +130,9 @@ Current count of packages on the Comprehensive R Archive Network (**CRAN**)
 .content-box-yellow[
 In short, `ggstatsplot` returns <br>
 <br>
-📊 **information-rich** plots with **statistical details** <br>
+📊 <font color="blue">information-rich</font> plots with <font color="blue">statistical details</font> <br>
  
-📝 plots suitable for scholarly publications and **faster** (exploratory) data analysis
+📝 plots suitable for scholarly publications and <font color="blue">faster</font> (exploratory) data analysis
 ]
 
 ]
@@ -166,7 +166,7 @@ class: center
  <br>
  <br>
  <br>
-In a typical **exploratory** data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two
+In a typical *exploratory* data analysis workflow, <font color="blue">data visualization</font> and <font color="blue">statistical modeling</font> are two
 different phases: visualization informs modeling, and modeling can suggest a
 different visualization, and so on and so forth.
 
@@ -203,7 +203,7 @@ class: center
  <br>
  <br>
  
-**Graphical** summaries can reveal problems not visible from **numerical** statistics.
+<font color="blue">Graphical</font> summaries can reveal problems not visible from <font color="blue">numerical</font> statistics.
  
 “I plotted my data and what I found surprised me!" - BuzzFeed
 
@@ -217,9 +217,7 @@ class: center
 
 --
 
-The **grammar of graphics** is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make
-infinite number of graphics, each tailored for your specific data visualization
-problem! But...
+The <font color="blue">grammar of graphics</font> is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make *any* graphics fitting your specific data visualization needs! But...
 
 --
 
@@ -320,10 +318,10 @@ ggbetweenstats(
 .font70[
 Function internally decides tests
 
-- *t*-test if **2** groups
-- ANOVA if **> 2** groups
+- *t*-test if `2` groups
+- ANOVA if `> 2` groups
 
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` descriptive statistics <br>
@@ -452,7 +450,7 @@ ggwithinstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` descriptive statistics <br>
@@ -498,7 +496,7 @@ gghistostats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` counts + proportion for bins <br>
 `r emo::ji("check")` descriptive statistics <br>
@@ -544,7 +542,7 @@ ggdotplotstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
 `r emo::ji("check")` inferential statistics <br>
@@ -595,13 +593,12 @@ layout: true
 ggscatterstats(
   data = movies_long,
   x = budget,
-  y = rating,
-  marginal.type = "histogram"
+  y = rating
 )
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` raw data + distributions <br>
 `r emo::ji("check")` marginal distributions <br>
@@ -684,7 +681,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` effect size + significance <br>
 `r emo::ji("check")` careful handling of `NA`s
@@ -768,7 +765,7 @@ ggpiestats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
 `r emo::ji("check")` inferential statistics <br>
@@ -815,7 +812,7 @@ ggpiestats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
 `r emo::ji("check")` inferential statistics <br>
@@ -857,7 +854,7 @@ ggbarstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` descriptive statistics <br>
 `r emo::ji("check")` inferential statistics <br>
@@ -911,7 +908,7 @@ ggcoefstats(
 ```
 
 .font70[
-`r emo::ji("pencil")` **Defaults** return <br>
+`r emo::ji("pencil")` <font color="blue">Defaults</font> return <br>
 
 `r emo::ji("check")` estimate + CIs <br>
 `r emo::ji("check")` inferential statistics <br>
@@ -1075,7 +1072,7 @@ ggbetweenstats(
 
 .font70[
 The default palette 
-is **colorblind-friendly**.
+is <font color="blue">colorblind-friendly</font>.
 ]
 ]
 
@@ -1126,7 +1123,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get **only plots**.
+`ggstatsplot` can be used to get <font color="blue">only plots</font>.
 
 --
 
@@ -1162,7 +1159,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get **only the expressions**.
+`ggstatsplot` can be used to get <font color="blue">only expressions</font>.
 
 --
 
@@ -1201,8 +1198,7 @@ layout: true
 
 ---
 
-[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can be used to get
-**only the dataframes**.
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide <font color="blue">only dataframes</font>.
 
 --
 
@@ -1264,7 +1260,7 @@ layout: false
 .pull-left[
 
 .font90[
-**Load 'em up!**
+<font color="blue">Load 'em up!</font>
 
 📦 to carry out the test (e.g. `stats`) <br>
 📦 computing effect size + CIs (e.g. `effectsize`) <br>
@@ -1287,7 +1283,7 @@ layout: false
 .pull-right[
 
 .font90[
-**Things to worry about** 🤕
+<font color="blue">Things to worry about</font> 🤕
 
 🤔 accepts dataframe, vectors, matrix? <br>
 🤔 long/wide format data? <br>
@@ -1493,34 +1489,39 @@ properly interpret the null results.
 
 layout: true
 
-# A few additional benefits
+# A few other benefits
 
 ---
 
 --
 
-- Minimal amount of code needed (typically only `data`, `x`,
-  and `y`), which minimizes chances of error and makes for tidy scripts. 💅
+.content-box-green[
+Minimal code needed (`data`, `x`, `y`), which minimizes chances of error and makes for tidy scripts. 💅
+]
 
 --
 
-- Truly makes your figures worth a thousand words. 💬
+.content-box-green[
+No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
+]
 
 --
 
-- No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
+.content-box-green[
+Disembodied figures stand on their own and are easy to evaluate. 🧐
+]
 
 --
 
-- Disembodied figures stand on their own and are easy to evaluate for the reader. 🧐
+.content-box-green[
+More breathing room for theoretical discussion and other text. ✍
+]
 
 --
 
-- More breathing room for theoretical discussion and other text. ✍
-
---
-
-- No need to worry about updating figures and statistical details separately. 🔗
+.content-box-green[
+No need to worry about updating figures and statistical details *separately*. 🔗
+]
 
 ---
 
@@ -1578,27 +1579,25 @@ layout: true
 
 --
 
-`r emo::ji("x")` Limited types of **plots** available. 
+.content-box-red[
+Limited no. of **plots** and **statistical tests** available
+(no support for multivariate statistics, time series, etc.). This will
+**always** be the case. 🤷
+]
 
 --
 
-`r emo::ji("x")` Limited number of statistical **tests** available (no support
-for multivariate statistics, time series, etc.). This will **always** be the
-case. 🤷
-
---
-
-`r emo::ji("x")` Expects a non-trivial level of statistical proficiency (but
+.content-box-red[
+Expects a non-trivial level of statistical proficiency (but
 plots without statistics can still be useful).
+]
 
 --
 
-`r emo::ji("x")` **Faceting** does not work (since there are no corresponding
-`geom_` s).
-
---
-
-`r emo::ji("x")` For the same reason, plots are not `gganimate`-friendly.
+.content-box-red[
+**Faceting** does not work (since there are no corresponding
+`geom_` s). For the same reason, plots are not `gganimate`-friendly.
+]
 
 ---
 
@@ -1612,9 +1611,7 @@ layout: true
 
 .pull-left[
 
-.font90[
 Contributions (big or small) welcome!
-]
 
 ![](images/needs_you.jpg)
 
@@ -1623,22 +1620,22 @@ Contributions (big or small) welcome!
 --
 
 .pull-right[
-.font90[
 Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot)
 
-- Read and correct any inconsistencies in the
-[documentation](https://indrajeetpatil.github.io/ggstatsplot/) 📖
+.content-box-purple[
+- Proof-read the documentation 📖
 
 - Raise issues about bugs/features 🐞
 
-- Either mention or cite software if used in a publication 📝
+- Cite if used in a publication 📝
 
-- Star the GitHub repo (increases visibility) ⭐
+- Star on GitHub (increases visibility) ⭐
 
 - Review code 🕵
 
 - Add new functionality `r emo::ji("developer")`
 ]
+
 ]
 
 ---
@@ -1650,13 +1647,13 @@ layout: true
 ---
 
 .pull-left[
-**New plots**
+<font color="blue">New plots</font>
 - density plot
 - connected scatterplot
 - sankey diagram
 - bar plot
 
-**New statistical tests**
+<font color="blue">New statistical tests</font>
 - survival analysis
 - cluster analysis
 - exploratory factor analysis
