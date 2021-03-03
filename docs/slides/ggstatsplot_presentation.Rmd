@@ -111,8 +111,7 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (`CRAN`)
-<font color="red"> > 16,000</font>
+Current count of packages on the Comprehensive R Archive Network (`CRAN`) <font color="red"> > 16,000</font>
 ]
 
 ]
