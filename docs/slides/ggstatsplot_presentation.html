@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-03-12" />
+    <meta name="date" content="2021-03-18" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-03-12 <br> <br> <br>
+### 2021-03-18 <br> <br> <br>
 
 ---
 
@@ -99,14 +99,14 @@ Current count of packages on the Comprehensive R Archive Network (`CRAN`) &lt;fo
 
 --
 
-.right-column[.font120[
+.right-column[.font110[
 
 .content-box-yellow[
 In short, `ggstatsplot` returns &lt;br&gt;
 &lt;br&gt;
 📊 &lt;font color="blue"&gt;information-rich&lt;/font&gt; plots with &lt;font color="blue"&gt;statistical details&lt;/font&gt; &lt;br&gt;
  
-📝 plots suitable for scholarly publications and &lt;font color="blue"&gt;faster&lt;/font&gt; (exploratory) data analysis
+📝 suitable for scholarly publications and &lt;font color="blue"&gt;faster&lt;/font&gt; (exploratory) data analysis
 ]
 
 ]
@@ -813,8 +813,7 @@ layout: true
 ```r
 ggpiestats(
   data = mtcars,
-  x = cyl,
-* label = "both"
+  x = cyl
 )
 ```
 
@@ -861,7 +860,8 @@ ggpiestats(
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
-  y = genre
+  y = genre,
+* label = "both"
 )
 ```
 
@@ -966,7 +966,7 @@ ggcoefstats(
 
 ✅ estimate + CIs &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
-✅ model summary (AIC + BIC)
+✅ model fit indices (AIC + BIC)
 ]
 
 ]
@@ -987,11 +987,11 @@ layout: true
 
 .font60[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
-`bam`, `bayesx`, `bayesGARCH`, `BBmm`, `BBreg`, `bcplm`, `betamfx`, `betaor`,
-`BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`, `bmlm`,
-`blmerMod`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`, `btergm`,
-`cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`, `clmm2`,
-`coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
+`bam`, `bayesx`, `bayesGARCH`, `bayesQR`, `BBmm`, `BBreg`, `bcplm`, `betamfx`,
+`betaor`, `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`,
+`bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`,
+`btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`,
+`clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
 `coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`,
 `eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`,
 `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
@@ -1001,13 +1001,13 @@ layout: true
 `lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`,
 `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`,
 `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`,
-`merMod`, `merModList`, `metaplus`, `mixor`, `mjoint`, `mle2`, `mlm`,
+`merMod`, `merModList`, `metaplus`, `mhurdle`, `mixor`, `mjoint`, `mle2`, `mlm`,
 `multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`,
 `nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `probitmfx`,
 `ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
 `rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`,
-`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svyolr`,
-`svyglm`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
+`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`,
+`svyolr`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
 `zeroinfl`, etc.
 ]
 
@@ -1552,13 +1552,7 @@ layout: true
 --
 
 .content-box-green[
-Minimal code needed (`data`, `x`, `y`), which minimizes chances of error and makes for tidy scripts. 💅
-]
-
---
-
-.content-box-green[
-No need to copy-paste results to the text editor (MS-Word, e.g.). 🙅
+Minimal code needed (`data`, `x`, `y`): minimizes chances of error + tidy scripts. 💅
 ]
 
 --
@@ -1581,6 +1575,34 @@ No need to worry about updating figures and statistical details *separately*. �
 
 ---
 
+layout: true
+
+class: center
+
+# No more excuses not to explore data! 😉
+
+---
+
+.content-box-yellow[
+
+In summary, the `ggstatsplot` approach- &lt;br&gt;
+&lt;br&gt;
+(*a*) avoids errors in statistical reporting, &lt;br&gt;
+&lt;br&gt;
+(*b*) highlights the importance of the effect by providing effect size measures by default, &lt;br&gt;
+&lt;br&gt;
+(*c*) provides an easy way to evaluate *absence* of an effect using Bayesian framework, &lt;br&gt;
+&lt;br&gt;
+(*d*) demands to evaluate statistical analysis in the context of the underlying
+data, &lt;br&gt;
+&lt;br&gt;
+and is (*e*) easy and (*f*) simple enough that somebody with little coding
+experience can use it without making an error.
+
+]
+
+---
+
 layout: false
 
 class: inverse, center, middle
@@ -1591,13 +1613,9 @@ class: inverse, center, middle
 
 layout: true
 
-# Misconceptions about *ggstatsplot*
+# Misconceptions: This package is... 
 
 ---
-
---
-
-This package is... 
 
 --
 
@@ -1614,6 +1632,10 @@ defaults to your liking)
 results in time-constrained presentation settings, e.g. conference talks)
 
 --
+
+❌ only relevant when used in publications &lt;br&gt;
+--
+✅ not necessary; can also be useful *only* during exploratory phase
 
 ❌ meant for mass communication &lt;br&gt;
 --
@@ -1702,17 +1724,20 @@ layout: true
 
 ---
 
+
 .pull-left[
-&lt;font color="blue"&gt;New plots&lt;/font&gt;
+.content-box-purple[
+**New plots**
 - density plot
 - connected scatterplot
 - sankey diagram
 - bar plot
 
-&lt;font color="blue"&gt;New statistical tests&lt;/font&gt;
+**New statistical tests**
+- complex (multiway) ANOVA
 - survival analysis
 - cluster analysis
-- exploratory factor analysis
+]
 ]
 
 .pull-right[
@@ -1764,7 +1789,7 @@ class: inverse, center, middle
 
 [🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
 
-[📫 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[📩 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 
 ]
 
@@ -1782,7 +1807,7 @@ For more information, see-
 
 To access code for these slides, see-
 
-&lt;https://github.com/IndrajeetPatil/ggstatsplot_slides/tree/master/docs/slides&gt;
+&lt;https://github.com/IndrajeetPatil/ggstatsplot_slides/&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
