@@ -131,7 +131,7 @@ In short, `ggstatsplot` returns <br>
 <br>
 📊 <font color="blue">information-rich</font> plots with <font color="blue">statistical details</font> <br>
  
-📝 suitable for scholarly publications and <font color="blue">faster</font> (exploratory) data analysis
+📝 suitable for <font color="blue">faster</font> (exploratory) data analysis and scholarly publications
 ]
 
 ]
@@ -171,7 +171,7 @@ different visualization, and so on and so forth.
 
 --
 
-The central idea of `ggstatsplot` is simple: combine these two phases into one!
+💡 The central idea of `ggstatsplot` is simple: combine these two phases into one!
 
 ---
 
@@ -251,7 +251,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.0`) of `ggstatsplot` from 
+Install the stable version (latest: `0.7.1`) of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
@@ -1289,6 +1289,8 @@ layout: false
 🤔 works with `NA`s? <br>
 🤔 returns list, dataframe, arrays? <br>
 🤔 works with tibbles? <br>
+🤔 . <br>
+🤔 . <br>
 
 .img-right-small[
 ![](images/monkey.gif)
@@ -1455,6 +1457,10 @@ affected the statistical conclusion"
 Since the plot and the statistical analysis are yoked together, the chances of
 making an error in reporting the results are minimized.
 
+--
+
+No need to worry about updating figures and statistical details **separately**. 🔗
+
 ---
 
 layout: false
@@ -1508,12 +1514,6 @@ Disembodied figures stand on their own and are easy to evaluate. 🧐
 
 .content-box-green[
 More breathing room for theoretical discussion and other text. ✍
-]
-
---
-
-.content-box-green[
-No need to worry about updating figures and statistical details *separately*. 🔗
 ]
 
 ---
