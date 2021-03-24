@@ -30,7 +30,7 @@ ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
 ggpiestats_2	::	c	genre	ggpiestats	movies_long	mpaa
 ggbarstats_1	::	c	genre	ggbarstats	movies_long	mpaa
 ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
-ggcoefstats_1	::	~	ggcoefstats	movies_long
+ggcoefstats_1	~	ggcoefstats	lm	movies_long
 ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
 ggcoefstats_2	~	ggcoefstats	lm	mtcars
 ggcoefstats_3	~	ggcoefstats	lm	mtcars

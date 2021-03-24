@@ -86,7 +86,7 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (`CRAN`) &lt;font color="red"&gt; &gt; 16,000&lt;/font&gt;
+Current count of packages on the Comprehensive R Archive Network (`CRAN`) **&gt; 16,000**
 ]
 
 ]
@@ -104,9 +104,9 @@ Current count of packages on the Comprehensive R Archive Network (`CRAN`) &lt;fo
 .content-box-yellow[
 In short, `ggstatsplot` returns &lt;br&gt;
 &lt;br&gt;
-📊 &lt;font color="blue"&gt;information-rich&lt;/font&gt; plots with &lt;font color="blue"&gt;statistical details&lt;/font&gt; &lt;br&gt;
+📊 .blue[information-rich] plots with .blue[statistical details] &lt;br&gt;
  
-📝 suitable for &lt;font color="blue"&gt;faster&lt;/font&gt; (exploratory) data analysis and scholarly publications
+📝 suitable for .blue[faster] (exploratory) data analysis and scholarly publications
 ]
 
 ]
@@ -140,7 +140,7 @@ class: center
  &lt;br&gt;
  &lt;br&gt;
  &lt;br&gt;
-In a typical *exploratory* data analysis workflow, &lt;font color="blue"&gt;data visualization&lt;/font&gt; and &lt;font color="blue"&gt;statistical modeling&lt;/font&gt; are two
+In a typical *exploratory* data analysis workflow, .blue[data visualization] and .blue[statistical modeling] are two
 different phases: visualization informs modeling, and modeling can suggest a
 different visualization, and so on and so forth.
 
@@ -177,9 +177,9 @@ class: center
  &lt;br&gt;
  &lt;br&gt;
  
-&lt;font color="blue"&gt;Graphical&lt;/font&gt; summaries can reveal problems not visible from &lt;font color="blue"&gt;numerical&lt;/font&gt; statistics.
+.blue[Graphical] summaries can reveal problems not visible from .blue[numerical] statistics.
  
-“I plotted my data and what I found surprised me!" - BuzzFeed
+_I plotted my data and what I found surprised me!_ - BuzzFeed
 
 ---
 
@@ -191,7 +191,7 @@ class: center
 
 --
 
-The &lt;font color="blue"&gt;grammar of graphics&lt;/font&gt; is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make *any* graphics fitting your specific data visualization needs! But...
+The .blue[grammar of graphics] is a powerful framework [(Wilkinson, 2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc) and can help you make *any* graphics fitting your specific data visualization needs! But...
 
 --
 
@@ -269,10 +269,6 @@ class: inverse, center, middle
 
 # Hypothesis about group differences
 
-🔬 *ggbetweenstats*, *ggwithinstats*: multiple groups
-
-🔭 *gghistostats*, *ggdotplotstats*: single group
-
 ---
 
 layout: true
@@ -299,7 +295,7 @@ Function internally decides tests
 - *t*-test if `2` groups
 - ANOVA if `&gt; 2` groups
 
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -428,7 +424,7 @@ ggwithinstats(
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -474,7 +470,7 @@ gghistostats(
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ counts + proportion for bins &lt;br&gt;
 ✅ descriptive statistics &lt;br&gt;
@@ -520,7 +516,7 @@ ggdotplotstats(
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -550,10 +546,6 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis about correlation
- &lt;br&gt;
-🔬 *ggscatterstats*: Two numeric variables
- &lt;br&gt;
-🧪 *ggcorrmat*: Multiple numeric variables
 
 ---
 
@@ -576,7 +568,7 @@ ggscatterstats(
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ raw data + distributions &lt;br&gt;
 ✅ marginal distributions &lt;br&gt;
@@ -659,7 +651,7 @@ ggcorrmat(dplyr::starwars)
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ effect size + significance &lt;br&gt;
 ✅ careful handling of `NA`s
@@ -689,7 +681,7 @@ layout: true
 ---
 
 .font70[
-In addition to `output = "plot"`, this function can also be used to get a &lt;font color="blue"&gt;dataframe&lt;/font&gt;:
+In addition to `output = "plot"`, this function can also be used to get a .blue[dataframe]:
 ]
 
 .font50[
@@ -793,52 +785,48 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
- &lt;br&gt;
-🧪 *ggpiestats*: If you like 🍕
- &lt;br&gt;
-🔬 *ggbarstats*: Otherwise
 
 ---
 
-layout: true
+&lt;!-- layout: true --&gt;
 
-# ggpiestats - goodness-of-fit test
+&lt;!-- # ggpiestats - goodness-of-fit test --&gt;
 
----
+&lt;!-- --- --&gt;
 
---
+&lt;!-- -- --&gt;
 
-.left-code[
+&lt;!-- .left-code[ --&gt;
+&lt;!-- ```{r ggpiestats_1, eval = FALSE} --&gt;
+&lt;!-- ggpiestats( --&gt;
+&lt;!--   data = mtcars, --&gt;
+&lt;!--   x = cyl --&gt;
+&lt;!-- ) --&gt;
+&lt;!-- ``` --&gt;
 
-```r
-ggpiestats(
-  data = mtcars,
-  x = cyl
-)
-```
+&lt;!-- .font70[ --&gt;
+&lt;!-- 📝 .blue[Defaults] return &lt;br&gt; --&gt;
 
-.font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+&lt;!-- ✅ descriptive statistics &lt;br&gt; --&gt;
+&lt;!-- ✅ inferential statistics &lt;br&gt; --&gt;
+&lt;!-- ✅ effect size + CIs &lt;br&gt; --&gt;
+&lt;!-- ✅ Bayesian hypothesis-testing &lt;br&gt; --&gt;
+&lt;!-- 🤞 Bayesian estimation &lt;br&gt; --&gt;
 
-✅ descriptive statistics &lt;br&gt;
-✅ inferential statistics &lt;br&gt;
-✅ effect size + CIs &lt;br&gt;
-✅ Bayesian hypothesis-testing &lt;br&gt;
-🤞 Bayesian estimation &lt;br&gt;
+&lt;!-- **Note** &lt;br&gt; --&gt;
+&lt;!-- If the data is in *tabled*  --&gt;
+&lt;!-- format, you can use the `counts`  --&gt;
+&lt;!-- argument. --&gt;
+&lt;!-- ] --&gt;
 
-**Note** &lt;br&gt;
-If the data is in *tabled* 
-format, you can use the `counts` 
-argument.
-]
+&lt;!-- ] --&gt;
 
-]
+&lt;!-- -- --&gt;
 
---
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggpiestats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
+&lt;!-- .right-plot[ --&gt;
+&lt;!-- ```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE} --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
 
 ---
 
@@ -860,13 +848,12 @@ ggpiestats(
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
-  y = genre,
-* label = "both"
+  y = genre
 )
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -903,12 +890,13 @@ ggbarstats(
     genre %in% c("Drama", "Comedy")
   ),
   x = mpaa,
-  y = genre
+  y = genre,
+* label = "both"
 )
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ descriptive statistics &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -933,8 +921,6 @@ class: inverse, center, middle
 
 # Hypothesis about regression coefficients
 
-🔭 *ggcoefstats*: Regression model object
-
 ---
 
 layout: true
@@ -949,20 +935,17 @@ layout: true
 
 ```r
 # model
-mod &lt;- stats::lm(
+mod &lt;- lm(
   formula = rating ~ mpaa,
   data = movies_long
 )
 
 # plot
-ggcoefstats(
-  x = mod,
-  title = "IMDB rating by MPAA rating"
-)
+ggcoefstats(mod)
 ```
 
 .font70[
-📝 &lt;font color="blue"&gt;Defaults&lt;/font&gt; return &lt;br&gt;
+📝 .blue[Defaults] return &lt;br&gt;
 
 ✅ estimate + CIs &lt;br&gt;
 ✅ inferential statistics &lt;br&gt;
@@ -1090,7 +1073,7 @@ class: inverse, center, middle
 
 &lt;!-- .pull-left[ --&gt;
 &lt;!-- .font100[ --&gt;
-&lt;!-- The default plots in *&lt;font color="blue"&gt;ggstatsplot&lt;/font&gt;* are --&gt;
+&lt;!-- The default plots in *.blue[ggstatsplot]* are --&gt;
 &lt;!-- **opinionated**, yes, but they try to follow best practices outlined in the data visualization research. --&gt;
 &lt;!-- ] --&gt;
 &lt;!-- ] --&gt;
@@ -1126,7 +1109,7 @@ ggbetweenstats(
 
 .font70[
 The default palette 
-is &lt;font color="blue"&gt;colorblind-friendly&lt;/font&gt;.
+is .blue[colorblind-friendly].
 ]
 ]
 
@@ -1176,7 +1159,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get &lt;font color="blue"&gt;only plots&lt;/font&gt;.
+`ggstatsplot` can be used to get .blue[only plots].
 
 --
 
@@ -1212,7 +1195,7 @@ layout: true
 
 ---
 
-`ggstatsplot` can be used to get &lt;font color="blue"&gt;only expressions&lt;/font&gt;.
+`ggstatsplot` can be used to get .blue[only expressions].
 
 --
 
@@ -1251,7 +1234,7 @@ layout: true
 
 ---
 
-[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide &lt;font color="blue"&gt;only dataframes&lt;/font&gt;.
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide .blue[only dataframes].
 
 --
 
@@ -1293,15 +1276,15 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggwithinstats` | Within group comparisons | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggcorrmat` | Correlation matrix | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggscatterstats` | Correlation between two variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggpiestats`, `ggbarstats` | Association between categorical variables | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggcoefstats` | Regression modeling | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
-`ggcoefstats` | Random-effects meta-analysis | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | `NA` | **&lt;font color="green"&gt;Yes&lt;/font&gt;** | **&lt;font color="green"&gt;Yes&lt;/font&gt;**
+`ggbetweenstats` | Between group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`ggwithinstats` | Within group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`ggcorrmat` | Correlation matrix | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`ggscatterstats` | Correlation between two variables | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`ggpiestats`, `ggbarstats` | Association between categorical variables | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
+`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
+`ggcoefstats` | Regression modeling | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
+`ggcoefstats` | Random-effects meta-analysis | **.green[Yes]** | `NA` | **.green[Yes]** | **.green[Yes]**
 
 ---
 
@@ -1314,7 +1297,7 @@ layout: false
 .pull-left[
 
 .font90[
-&lt;font color="blue"&gt;Load 'em up!&lt;/font&gt;
+.blue[Load 'em up!]
 
 📦 to carry out the test (e.g. `stats`) &lt;br&gt;
 📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
@@ -1337,7 +1320,7 @@ layout: false
 .pull-right[
 
 .font90[
-&lt;font color="blue"&gt;Things to worry about&lt;/font&gt; 🤕
+.blue[Things to worry about] 🤕
 
 🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
 🤔 long/wide format data? &lt;br&gt;
@@ -1364,7 +1347,9 @@ layout: false
 --
 
 .pull-left[
-**&lt;font color="blue"&gt;Parametric&lt;font&gt;**
+
+**.blue[Parametric]**
+
 
 ```r
 # anova
@@ -1396,7 +1381,9 @@ gghistostats(
 --
 
 .pull-right[
-**&lt;font color="#ff6600"&gt;Non-parametric&lt;font&gt;** 
+
+**.orange[Non-parametric]** 
+
 
 ```r
 # anova
@@ -1484,8 +1471,8 @@ reporting.
 
 &lt;!-- The default tests follow the best practices. For example, --&gt;
 
-&lt;!-- ✅ `ggbetweenstats` and `ggwithinstats` default to &lt;font color="blue"&gt;Welch's *t*-test&lt;/font&gt; and &lt;font --&gt;
-&lt;!-- color="blue"&gt;Welch's ANOVA&lt;/font&gt; - and not Student's *t*-test and Fisher's --&gt;
+&lt;!-- ✅ `ggbetweenstats` and `ggwithinstats` default to .blue[Welch's *t*-test] and &lt;font --&gt;
+&lt;!-- color="blue"&gt;Welch's ANOVA] - and not Student's *t*-test and Fisher's --&gt;
 &lt;!-- ANOVA - based on recent work (Delacre et al., --&gt;
 &lt;!-- [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/), --&gt;
 &lt;!-- [2018](https://psyarxiv.com/wnezg)). --&gt;
