@@ -591,7 +591,7 @@ ggscatterstats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` raw data + distributions <br>
+`r emo::ji("check")` joint distribution <br>
 `r emo::ji("check")` marginal distributions <br>
 `r emo::ji("check")` inferential statistics <br>
 `r emo::ji("check")` effect size + CIs <br>
