@@ -251,7 +251,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.1`) of `ggstatsplot` from 
+Install the stable version (latest: `0.7.2`) of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 ```{r utils, eval = FALSE, tidy = FALSE}
@@ -893,7 +893,7 @@ ggcoefstats(mod)
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
 `r emo::ji("check")` estimate + CIs <br>
-`r emo::ji("check")` inferential statistics <br>
+`r emo::ji("check")` inferential statistics ($t$, $z$, $F$, $\chi^2$) <br>
 `r emo::ji("check")` model fit indices (AIC + BIC)
 ]
 
@@ -1690,7 +1690,7 @@ class: inverse, center, middle
 
 --
 
-Other developers 🙌
+Developer friends 🙌
 
 [Daniel Lüdecke](https://github.com/strengejacke), [Dominique Makowski](https://github.com/DominiqueMakowski), [Mattan S. Ben-Shachar](https://github.com/mattansb)
 
