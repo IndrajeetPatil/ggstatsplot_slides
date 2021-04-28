@@ -254,7 +254,7 @@ layout: false
 Install the stable version (latest: `0.7.2`) of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
-```{r utils, eval = FALSE, tidy = FALSE}
+```{r utils, eval=FALSE, tidy = FALSE}
 install.packages("ggstatsplot")
 ```
 --
@@ -262,7 +262,7 @@ install.packages("ggstatsplot")
 You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
-```{r github, eval = FALSE, tidy = FALSE}
+```{r github, eval=FALSE, tidy = FALSE}
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -270,7 +270,7 @@ remotes::install_github("IndrajeetPatil/ggstatsplot")
 
 Load the needed packages-
 
-```{r load, eval = TRUE, warning=FALSE}
+```{r load, eval=TRUE, warning=FALSE}
 library(ggstatsplot)
 library(ggplot2)
 ```
@@ -302,7 +302,7 @@ layout: true
 --
 
 .left-code[
-```{r ggbetweenstats_1, eval = FALSE}
+```{r ggbetweenstats_1, eval=FALSE}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -347,7 +347,7 @@ layout: true
 --
 
 .left-code[
-```{r ggbetweenstats_2, eval = FALSE}
+```{r ggbetweenstats_2, eval=FALSE}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -360,15 +360,15 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** <br>
+✅ `"p"`  &nbsp;&nbsp;→ **parametric** <br>
 ✅ `"np"` → **non-parametric** <br>
-✅ `"r"`  → **robust**  <br>
+✅ `"r"`  &nbsp;&nbsp;→ **robust**  <br>
 ✅ `"bf"` → **Bayesian**
 
 Changing pairwise comparisons displayed
 
-ℹ️ `"ns"`  → only **non-significant**  <br>
-ℹ️ `"s"`   → only **significant**  <br>
+ℹ️ `"ns"`  nbsp;&→ only **non-significant**  <br>
+ℹ️ `"s"`   nbsp;&nbsp;→→ only **significant**  <br>
 ℹ️ `"all"` → **all**
 ]
 
@@ -392,7 +392,7 @@ layout: true
 --
 
 .left-code[
-```{r ggbetweenstats_3, eval = FALSE}
+```{r ggbetweenstats_3, eval=FALSE}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -410,9 +410,9 @@ interquartile range flags outliers.
 
 Centrality measures
 
-✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"p"`  &nbsp;&nbsp;→ $\mu_{mean}$  <br>
 ✅ `"np"` → $\mu_{median}$  <br>
-✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"r"`  &nbsp;&nbsp;→ $\mu_{trimmed}$  <br>
 ✅ `"bf"` → $\mu_{MAP}$
 ]
 
@@ -436,7 +436,7 @@ layout: true
 --
 
 .left-code[
-```{r ggwithinstats_1, eval = FALSE}
+```{r ggwithinstats_1, eval=FALSE}
 ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
@@ -457,9 +457,9 @@ ggwithinstats(
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** <br>
+✅ `"p"`  &nbsp;&nbsp;→ **parametric** <br>
 ✅ `"np"` → **non-parametric** <br>
-✅ `"r"`  → **robust**  <br>
+✅ `"r"`  &nbsp;&nbsp;→ **robust**  <br>
 ✅ `"bf"` → **Bayesian**
 ]
 ]
@@ -482,7 +482,7 @@ layout: true
 --
 
 .left-code[
-```{r gghistostats_1, eval = FALSE}
+```{r gghistostats_1, eval=FALSE}
 gghistostats(
   data = movies_long,
   x = budget,
@@ -502,9 +502,9 @@ gghistostats(
 
 Centrality measures
 
-✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"p"`  &nbsp;&nbsp;→ $\mu_{mean}$  <br>
 ✅ `"np"` → $\mu_{median}$  <br>
-✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"r"`  &nbsp;&nbsp;→ $\mu_{trimmed}$  <br>
 ✅ `"bf"` → $\mu_{MAP}$
 ]
 ]
@@ -527,7 +527,7 @@ layout: true
 --
 
 .left-code[
-```{r ggdotplotstats_1, eval = FALSE}
+```{r ggdotplotstats_1, eval=FALSE}
 ggdotplotstats(
   data = movies_long,
   x = budget,
@@ -547,9 +547,9 @@ ggdotplotstats(
 
 Centrality measures
 
-✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"p"`  &nbsp;&nbsp;→ $\mu_{mean}$  <br>
 ✅ `"np"` → $\mu_{median}$  <br>
-✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"r"`  &nbsp;&nbsp;→ $\mu_{trimmed}$  <br>
 ✅ `"bf"` → $\mu_{MAP}$
 ]
 ]
@@ -580,7 +580,7 @@ layout: true
 --
 
 .left-code[
-```{r ggscatterstats_1, eval = FALSE}
+```{r ggscatterstats_1, eval=FALSE}
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -600,9 +600,9 @@ ggscatterstats(
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** <br>
+✅ `"p"`  &nbsp;&nbsp;→ **parametric** <br>
 ✅ `"np"` → **non-parametric** <br>
-✅ `"r"`  → **robust**  <br>
+✅ `"r"`  &nbsp;&nbsp;→ **robust**  <br>
 ✅ `"bf"` → **Bayesian**
 ]
 ]
@@ -625,7 +625,7 @@ layout: true
 --
 
 .left-code[
-```{r ggscatterstats_2, eval = FALSE}
+```{r ggscatterstats_2, eval=FALSE}
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -667,7 +667,7 @@ layout: true
 --
 
 .left-code[
-```{r ggcorrmat_1, eval = FALSE}
+```{r ggcorrmat_1, eval=FALSE}
 ggcorrmat(dplyr::starwars)
 ```
 
@@ -679,9 +679,9 @@ ggcorrmat(dplyr::starwars)
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** <br>
+✅ `"p"`  &nbsp;&nbsp;→ **parametric** <br>
 ✅ `"np"` → **non-parametric** <br>
-✅ `"r"`  → **robust**  <br>
+✅ `"r"`  &nbsp;&nbsp;→ **robust**  <br>
 ✅ `"bf"` → **Bayesian**
 
 ]
@@ -743,7 +743,7 @@ class: inverse, center, middle
 <!-- -- -->
 
 <!-- .left-code[ -->
-<!-- ```{r ggpiestats_1, eval = FALSE} -->
+<!-- ```{r ggpiestats_1, eval=FALSE} -->
 <!-- ggpiestats( -->
 <!--   data = mtcars, -->
 <!--   x = cyl -->
@@ -785,7 +785,7 @@ layout: true
 --
 
 .left-code[
-```{r ggpiestats_2, eval = FALSE}
+```{r ggpiestats_2, eval=FALSE}
 # let's use subset of data
 ggpiestats(
   data = dplyr::filter(
@@ -828,7 +828,7 @@ layout: true
 --
 
 .left-code[
-```{r ggbarstats_1, eval = FALSE}
+```{r ggbarstats_1, eval=FALSE}
 ggbarstats(
   data = dplyr::filter(
     movies_long,
@@ -878,7 +878,7 @@ layout: true
 --
 
 .left-code[
-```{r ggcoefstats_1, eval = FALSE}
+```{r ggcoefstats_1, eval=FALSE}
 # model
 mod <- lm(
   formula = rating ~ mpaa,
@@ -968,7 +968,7 @@ layout: true
 --
 
 .left-code[
-```{r grouped_1, eval = FALSE}
+```{r grouped_1, eval=FALSE}
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
@@ -1041,7 +1041,7 @@ Aesthetic preferences are not an excuse to not use `ggstatsplot`! `r emo::ji("he
 --
 
 .left-code[
-```{r ggbetweenstats_4, eval = FALSE}
+```{r ggbetweenstats_4, eval=FALSE}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -1076,7 +1076,7 @@ You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
 --
 
 .left-code[
-```{r ggbetweenstats_5, eval = FALSE}
+```{r ggbetweenstats_5, eval=FALSE}
 ggbetweenstats(
   data = mtcars,
   x = am,
@@ -1110,7 +1110,7 @@ layout: true
 --
 
 .left-code[
-```{r only_plot, eval = FALSE}
+```{r only_plot, eval=FALSE}
 # using `ggstatsplot` only for plot
 ggbetweenstats(
   data = iris,
@@ -1146,7 +1146,7 @@ layout: true
 --
 
 .left-code[
-```{r subtitle_1, eval = FALSE}
+```{r subtitle_1, eval=FALSE}
 # using `ggstatsplot` for stats
 results <-
   ggpiestats(
@@ -1295,7 +1295,7 @@ layout: false
 
 **.blue[Parametric]**
 
-```{r type_p, eval = FALSE}
+```{r type_p, eval=FALSE}
 # anova
 ggbetweenstats(
   data = mtcars,
@@ -1328,7 +1328,7 @@ gghistostats(
 
 **.orange[Non-parametric]** 
 
-```{r type_np, eval = FALSE}
+```{r type_np, eval=FALSE}
 # anova
 ggbetweenstats(
   data = mtcars,
