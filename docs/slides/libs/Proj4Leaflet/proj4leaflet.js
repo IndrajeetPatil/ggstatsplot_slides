@@ -15,7 +15,7 @@
 		factory(window.L, window.proj4);
 	}
 }(function (L, proj4) {
-	if (proj4.__esModule && proj4.default) {
+	if (proj4.__esModule && proj4.{
 		// If proj4 was bundled as an ES6 module, unwrap it to get
 		// to the actual main proj4 object.
 		// See discussion in https://github.com/kartena/Proj4Leaflet/pull/147

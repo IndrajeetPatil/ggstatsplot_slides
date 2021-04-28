@@ -318,13 +318,13 @@ Function internally decides tests
 
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` raw data + distributions <br>
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` pairwise comparisons <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation
+✅ raw data + distributions <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ pairwise comparisons <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation
 ]
 
 ]
@@ -360,10 +360,10 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
-`r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"`  → **robust**  <br>
-`r emo::ji("check")` `"bf"` → **Bayesian**
+✅ `"p"`  → **parametric** <br>
+✅ `"np"` → **non-parametric** <br>
+✅ `"r"`  → **robust**  <br>
+✅ `"bf"` → **Bayesian**
 
 Changing pairwise comparisons displayed
 
@@ -410,10 +410,10 @@ interquartile range flags outliers.
 
 Centrality measures
 
-`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
-`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
-`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
+✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"np"` → $\mu_{median}$  <br>
+✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"bf"` → $\mu_{MAP}$
 ]
 
 ]
@@ -447,20 +447,20 @@ ggwithinstats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` raw data + distributions <br>
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` pairwise comparisons <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ raw data + distributions <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ pairwise comparisons <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
-`r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"`  → **robust**  <br>
-`r emo::ji("check")` `"bf"` → **Bayesian**
+✅ `"p"`  → **parametric** <br>
+✅ `"np"` → **non-parametric** <br>
+✅ `"r"`  → **robust**  <br>
+✅ `"bf"` → **Bayesian**
 ]
 ]
 
@@ -493,19 +493,19 @@ gghistostats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` counts + proportion for bins <br>
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ counts + proportion for bins <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 
 Centrality measures
 
-`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
-`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
-`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
+✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"np"` → $\mu_{median}$  <br>
+✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"bf"` → $\mu_{MAP}$
 ]
 ]
 
@@ -539,18 +539,18 @@ ggdotplotstats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 
 Centrality measures
 
-`r emo::ji("check")` `"p"`  → $\mu_{mean}$  <br>
-`r emo::ji("check")` `"np"` → $\mu_{median}$  <br>
-`r emo::ji("check")` `"r"`  → $\mu_{trimmed}$  <br>
-`r emo::ji("check")` `"bf"` → $\mu_{MAP}$
+✅ `"p"`  → $\mu_{mean}$  <br>
+✅ `"np"` → $\mu_{median}$  <br>
+✅ `"r"`  → $\mu_{trimmed}$  <br>
+✅ `"bf"` → $\mu_{MAP}$
 ]
 ]
 
@@ -591,19 +591,19 @@ ggscatterstats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` joint distribution <br>
-`r emo::ji("check")` marginal distributions <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ joint distribution <br>
+✅ marginal distributions <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
-`r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"`  → **robust**  <br>
-`r emo::ji("check")` `"bf"` → **Bayesian**
+✅ `"p"`  → **parametric** <br>
+✅ `"np"` → **non-parametric** <br>
+✅ `"r"`  → **robust**  <br>
+✅ `"bf"` → **Bayesian**
 ]
 ]
 
@@ -674,15 +674,15 @@ ggcorrmat(dplyr::starwars)
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` effect size + significance <br>
-`r emo::ji("check")` careful handling of `NA`s
+✅ effect size + significance <br>
+✅ careful handling of `NA`s
 
 Changing the `type` of test
 
-`r emo::ji("check")` `"p"`  → **parametric** (default) <br>
-`r emo::ji("check")` `"np"` → **non-parametric** <br>
-`r emo::ji("check")` `"r"`  → **robust**  <br>
-`r emo::ji("check")` `"bf"` → **Bayesian**
+✅ `"p"`  → **parametric** <br>
+✅ `"np"` → **non-parametric** <br>
+✅ `"r"`  → **robust**  <br>
+✅ `"bf"` → **Bayesian**
 
 ]
 ]
@@ -753,10 +753,10 @@ class: inverse, center, middle
 <!-- .font70[ -->
 <!-- `r emo::ji("pencil")` .blue[Defaults] return <br> -->
 
-<!-- `r emo::ji("check")` descriptive statistics <br> -->
-<!-- `r emo::ji("check")` inferential statistics <br> -->
-<!-- `r emo::ji("check")` effect size + CIs <br> -->
-<!-- `r emo::ji("check")` Bayesian hypothesis-testing <br> -->
+<!-- ✅ descriptive statistics <br> -->
+<!-- ✅ inferential statistics <br> -->
+<!-- ✅ effect size + CIs <br> -->
+<!-- ✅ Bayesian hypothesis-testing <br> -->
 <!-- 🤞 Bayesian estimation <br> -->
 
 <!-- **Note** <br> -->
@@ -800,12 +800,12 @@ ggpiestats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` Goodness-of-fit tests <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ Goodness-of-fit tests <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 
 ]
 ]
@@ -843,12 +843,12 @@ ggbarstats(
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` descriptive statistics <br>
-`r emo::ji("check")` inferential statistics <br>
-`r emo::ji("check")` effect size + CIs <br>
-`r emo::ji("check")` Goodness-of-fit tests <br>
-`r emo::ji("check")` Bayesian hypothesis-testing <br>
-`r emo::ji("check")` Bayesian estimation <br>
+✅ descriptive statistics <br>
+✅ inferential statistics <br>
+✅ effect size + CIs <br>
+✅ Goodness-of-fit tests <br>
+✅ Bayesian hypothesis-testing <br>
+✅ Bayesian estimation <br>
 ]
 ]
 
@@ -892,9 +892,9 @@ ggcoefstats(mod)
 .font70[
 `r emo::ji("pencil")` .blue[Defaults] return <br>
 
-`r emo::ji("check")` estimate + CIs <br>
-`r emo::ji("check")` inferential statistics ($t$, $z$, $F$, $\chi^2$) <br>
-`r emo::ji("check")` model fit indices (AIC + BIC)
+✅ estimate + CIs <br>
+✅ inferential statistics ($t$, $z$, $F$, $\chi^2$) <br>
+✅ model fit indices (AIC + BIC)
 ]
 
 ]
@@ -917,27 +917,27 @@ layout: true
 .font60[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
 `bam`, `bayesx`, `bayesGARCH`, `bayesQR`, `BBmm`, `BBreg`, `bcplm`, `betamfx`,
-`betaor`, `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`,
-`bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`,
-`btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`,
-`clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
-`coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`,
-`eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`,
-`fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
-`glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`,
-`glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`,
-`ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`,
-`lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`,
-`LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`,
-`mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`,
-`merMod`, `merModList`, `metaplus`, `mhurdle`, `mixor`, `mjoint`, `mle2`, `mlm`,
-`multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`,
-`nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `probitmfx`,
-`ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
-`rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`,
-`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`,
-`svyolr`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
-`zeroinfl`, etc.
+`betaor`, `BFBayesFactor`, `BGGM`, `bglmerMod`, `bife`, `bigglm`, `biglm`,
+`blavaan`, `bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`,
+`brmultinom`, `btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`,
+`clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`,
+`coxph`, `coxr`, `coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`,
+`DirichReg`, `drc`, `eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`,
+`felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`,
+`geeglm`, `gjrm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`,
+`glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`,
+`ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`,
+`lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`, `lm_robust`,
+`logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`,
+`maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
+`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mhurdle`,
+`mixor`, `mjoint`, `mle2`, `mlm`, `multinom`, `mvord`, `negbin`, `negbinmfx`,
+`negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`,
+`poissonmfx`, `poissonirr`, `polr`, `probitmfx`, `ridgelm`, `riskRegression`,
+`rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`,
+`selection`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
+`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`, `svyolr`, `tobit`,
+`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 --
@@ -1221,15 +1221,15 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggwithinstats` | Within group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggcorrmat` | Correlation matrix | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggscatterstats` | Correlation between two variables | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggpiestats`, `ggbarstats` | Association between categorical variables | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
-`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
-`ggcoefstats` | Regression modeling | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggcoefstats` | Random-effects meta-analysis | **.green[Yes]** | `NA` | **.green[Yes]** | **.green[Yes]**
+`ggbetweenstats` | Between group comparisons | ✅ | ✅ | ✅ | ✅
+`ggwithinstats` | Within group comparisons | ✅ | ✅ | ✅ | ✅
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | ✅ | ✅ | ✅ | ✅
+`ggcorrmat` | Correlation matrix | ✅ | ✅ | ✅ | ✅
+`ggscatterstats` | Correlation between two variables | ✅ | ✅ | ✅ | ✅
+`ggpiestats`, `ggbarstats` | Association between categorical variables | ✅ | `NA` | `NA` | ✅
+`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | ✅ | `NA` | `NA` | ✅
+`ggcoefstats` | Regression modeling | ✅ | ✅ | ✅ | ✅
+`ggcoefstats` | Random-effects meta-analysis | ✅ | `NA` | ✅ | ✅
 
 ---
 
@@ -1414,15 +1414,15 @@ reporting.
 
 <!-- The default tests follow the best practices. For example, -->
 
-<!-- `r emo::ji("check")` `ggbetweenstats` and `ggwithinstats` default to .blue[Welch's *t*-test] and <font -->
+<!-- ✅ `ggbetweenstats` and `ggwithinstats` default to .blue[Welch's *t*-test] and <font -->
 <!-- color="blue">Welch's ANOVA] - and not Student's *t*-test and Fisher's -->
 <!-- ANOVA - based on recent work (Delacre et al., -->
 <!-- [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/), -->
 <!-- [2018](https://psyarxiv.com/wnezg)). -->
 
-<!-- `r emo::ji("check")` Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)). -->
+<!-- ✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)). -->
 
-<!-- `r emo::ji("check")` Whenever multiple tests are carried out, *p*-values are adjusted for them by default. -->
+<!-- ✅ Whenever multiple tests are carried out, *p*-values are adjusted for them by default. -->
 
 <!-- etc. -->
 
@@ -1555,31 +1555,31 @@ layout: true
 
 `r emo::ji("x")` an alternative to learning `ggplot2` <br>
 --
-`r emo::ji("check")` (the more you know `ggplot2`, the better you can modify the
+✅ (the more you know `ggplot2`, the better you can modify the
 defaults to your liking)
 
 --
 
 `r emo::ji("x")` meant to be used in talks/presentations <br>
 --
-`r emo::ji("check")` (defaults too complicated for effectively communicating
+✅ (defaults too complicated for effectively communicating
 results in time-constrained presentation settings, e.g. conference talks)
 
 --
 
 `r emo::ji("x")` only relevant when used in publications <br>
 --
-`r emo::ji("check")` not necessary; can also be useful *only* during exploratory phase
+✅ not necessary; can also be useful *only* during exploratory phase
 
 `r emo::ji("x")` meant for mass communication <br>
 --
-`r emo::ji("check")` LOL 😆
+✅ LOL 😆
 
 --
 
 `r emo::ji("x")` the only game in town <br>
 --
-`r emo::ji("check")` (excellent GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
+✅ (excellent GUI open-source softwares: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/))
 
 ---
 

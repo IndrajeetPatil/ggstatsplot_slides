@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-04-14" />
+    <meta name="date" content="2021-04-28" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-04-14 <br> <br> <br>
+### 2021-04-28 <br> <br> <br>
 
 ---
 
@@ -339,7 +339,7 @@ ggbetweenstats(
 .font70[
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
@@ -436,7 +436,7 @@ ggwithinstats(
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
@@ -579,7 +579,7 @@ ggscatterstats(
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
@@ -658,7 +658,7 @@ ggcorrmat(dplyr::starwars)
 
 Changing the `type` of test
 
-✅ `"p"`  → **parametric** (default) &lt;br&gt;
+✅ `"p"`  → **parametric** &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"`  → **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
@@ -971,27 +971,27 @@ layout: true
 .font60[
 `aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
 `bam`, `bayesx`, `bayesGARCH`, `bayesQR`, `BBmm`, `BBreg`, `bcplm`, `betamfx`,
-`betaor`, `BFBayesFactor`, `bglmerMod`, `bife`, `bigglm`, `biglm`, `blavaan`,
-`bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`, `brmultinom`,
-`btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`, `clm2`, `clmm`,
-`clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`, `coxph`, `coxr`,
-`coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`, `DirichReg`, `drc`,
-`eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`, `felm`, `fitdistr`,
-`fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`, `geeglm`, `glmc`,
-`glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`, `glmmadmb`, `glmmPQL`,
-`glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`, `ivFixed`, `ivprobit`,
-`ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`, `lmerMod`, `lmerModLmerTest`,
-`lmodel2`, `lmRob`, `lmrob`, `lm_robust`, `logitmfx`, `logitor`, `logitsf`,
-`LORgee`, `lqm`, `lqmm`, `lrm`, `manova`, `maov`, `margins`, `mcmc`,
-`mcmc.list`, `MCMCglmm`, `mclogit`, `mice`, `mmclogit`, `mediate`, `metafor`,
-`merMod`, `merModList`, `metaplus`, `mhurdle`, `mixor`, `mjoint`, `mle2`, `mlm`,
-`multinom`, `negbin`, `negbinmfx`, `negbinirr`, `nlmerMod`, `nlrq`, `nlreg`,
-`nls`, `orcutt`, `orm`, `plm`, `poissonmfx`, `poissonirr`, `polr`, `probitmfx`,
-`ridgelm`, `riskRegression`, `rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`,
-`rqs`, `rqss`, `rrvglm`, `scam`, `semLm`, `semLme`, `slm`, `speedglm`,
-`speedlm`, `stanfit`, `stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`,
-`svyolr`, `tobit`, `truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`,
-`zeroinfl`, etc.
+`betaor`, `BFBayesFactor`, `BGGM`, `bglmerMod`, `bife`, `bigglm`, `biglm`,
+`blavaan`, `bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`,
+`brmultinom`, `btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`,
+`clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`,
+`coxph`, `coxr`, `coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`,
+`DirichReg`, `drc`, `eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`,
+`felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`,
+`geeglm`, `gjrm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`,
+`glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`,
+`ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`,
+`lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`, `lm_robust`,
+`logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`,
+`maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
+`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mhurdle`,
+`mixor`, `mjoint`, `mle2`, `mlm`, `multinom`, `mvord`, `negbin`, `negbinmfx`,
+`negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`,
+`poissonmfx`, `poissonirr`, `polr`, `probitmfx`, `ridgelm`, `riskRegression`,
+`rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`,
+`selection`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
+`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`, `svyolr`, `tobit`,
+`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
 ]
 
 --
@@ -1276,15 +1276,15 @@ layout: false
 
 Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 ------- | ------------------ | ---- | ----- | ----| ----- 
-`ggbetweenstats` | Between group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggwithinstats` | Within group comparisons | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggcorrmat` | Correlation matrix | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggscatterstats` | Correlation between two variables | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggpiestats`, `ggbarstats` | Association between categorical variables | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
-`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | **.green[Yes]** | `NA` | `NA` | **.green[Yes]**
-`ggcoefstats` | Regression modeling | **.green[Yes]** | **.green[Yes]** | **.green[Yes]** | **.green[Yes]**
-`ggcoefstats` | Random-effects meta-analysis | **.green[Yes]** | `NA` | **.green[Yes]** | **.green[Yes]**
+`ggbetweenstats` | Between group comparisons | ✅ | ✅ | ✅ | ✅
+`ggwithinstats` | Within group comparisons | ✅ | ✅ | ✅ | ✅
+`gghistostats`, `ggdotplotstats` | Distribution of a numeric variable | ✅ | ✅ | ✅ | ✅
+`ggcorrmat` | Correlation matrix | ✅ | ✅ | ✅ | ✅
+`ggscatterstats` | Correlation between two variables | ✅ | ✅ | ✅ | ✅
+`ggpiestats`, `ggbarstats` | Association between categorical variables | ✅ | `NA` | `NA` | ✅
+`ggpiestats`, `ggbarstats` | Equal proportions for categorical variable levels | ✅ | `NA` | `NA` | ✅
+`ggcoefstats` | Regression modeling | ✅ | ✅ | ✅ | ✅
+`ggcoefstats` | Random-effects meta-analysis | ✅ | `NA` | ✅ | ✅
 
 ---
 
@@ -1780,7 +1780,7 @@ class: inverse, center, middle
 
 [🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
 
-[📩 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[📥 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 
 ]
 
