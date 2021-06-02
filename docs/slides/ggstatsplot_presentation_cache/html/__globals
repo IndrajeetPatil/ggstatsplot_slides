@@ -1,44 +1,25 @@
-lm	::	~	mtcars
-cor	::	$	mtcars
-cor.test	::	~	mtcars
+xaringanExtra-search	::
 utils	install.packages
 github	::
 load	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
-ggbetweenstats_1_copy	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_3	ggbetweenstats	movies_long	mpaa	rating	title
-ggbetweenstats_4	::	ggbetweenstats	movies_long	mpaa	rating
-ggbetweenstats_5	am	dup_axis	ggbetweenstats	mtcars	scale_y_continuous	wt
 ggwithinstats_1	::	ggwithinstats	Taste	Wine
-ggwithinstats_1_copy	::	ggwithinstats	Taste	Wine
-ggwithinstats_2	attribute	ggwithinstats	iris_long	value
-ggscatterstats_1	budget	ggscatterstats	movies_long	rating
-ggscatterstats_1_copy	budget	ggscatterstats	movies_long	rating
-ggscatterstats_2	&	>	budget	ggscatterstats	movies_long	rating	title
-ggscatterstats_3	~	budget	ggscatterstats	movies_long	rating
-ggcorrmat_1	::	ggcorrmat
-ggcorrmat_1_copy	::	ggcorrmat
-ggcorrmat_2	::	awake	brainwt	ggcorrmat	library	msleep	options	sleep_rem
 gghistostats_1	budget	gghistostats	movies_long
-gghistostats_2	::	budget	gghistostats	movies_long
-gghistostats_2_copy	budget	gghistostats	movies_long
 ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
-ggdotplotstats_1_copy	budget	genre	ggdotplotstats	movies_long
-ggpiestats_1	cyl	ggpiestats	mtcars
-ggpiestats_1_copy	::	c	genre	ggpiestats	movies_long	mpaa
+ggscatterstats_1	budget	ggscatterstats	movies_long	rating
+ggscatterstats_2	&	>	budget	ggscatterstats	movies_long	rating	title
+ggcorrmat_1	::	ggcorrmat
+ggcorrmat_2	::	awake	brainwt	ggcorrmat	library	msleep	options	sleep_rem
 ggpiestats_2	::	c	genre	ggpiestats	movies_long	mpaa
 ggbarstats_1	::	c	genre	ggbarstats	movies_long	mpaa
-ggbarstats_1_copy	genre	ggbarstats	movies_long	mpaa
 ggcoefstats_1	~	ggcoefstats	lm	movies_long
-ggcoefstats_1_copy	::	~	ggcoefstats	movies_long
-ggcoefstats_2	~	ggcoefstats	lm	mtcars
-ggcoefstats_3	~	ggcoefstats	lm	mtcars
 grouped_1	am	cyl	grouped_ggpiestats	mtcars
+ggbetweenstats_4	::	ggbetweenstats	movies_long	mpaa	rating
+ggbetweenstats_5	am	dup_axis	ggbetweenstats	mtcars	scale_y_continuous	wt
+only_plot	ggbetweenstats	iris	Sepal.Length	Species
 subtitle_1	::	aes	ggpiestats	labs	Sex	Survived	Titanic_full
+unnamed-chunk-1	library	mtcars	one_sample_test	wt
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
-only_plot	ggbetweenstats	iris	Sepal.Length	Species
-xaringanExtra-search	::
-unnamed-chunk-1	library	mtcars	one_sample_test	wt
-xaringanExtra	::	c

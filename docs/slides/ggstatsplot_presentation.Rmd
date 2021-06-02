@@ -27,7 +27,7 @@ code.r{
 }
 </style>
 
-```{r setup, include = FALSE}
+```{r setup, include=FALSE}
 future::plan("multicore")
 knitr::opts_chunk$set(
   fig.width = 7,
@@ -212,7 +212,7 @@ layout: false
 
 class: center
 
-# Ready-made plot = no customization
+# Ready-made plot=no customization
 
 --
 
@@ -230,7 +230,7 @@ The .blue[grammar of graphics] is a powerful framework [(Wilkinson, 2011)](https
 
 --
 
-$\sum_{time}$ (Needed time ↑ + Likelihood to graphical explore data ↓) = Avoidance habit
+$\sum_{time}$ (Needed time ↑ + Likelihood to graphical explore data ↓)=Avoidance habit
 
 ---
 
@@ -251,10 +251,10 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.2`) of `ggstatsplot` from 
+Install the stable version of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
-```{r utils, eval=FALSE, tidy = FALSE}
+```{r utils, eval=FALSE}
 install.packages("ggstatsplot")
 ```
 --
@@ -262,7 +262,7 @@ install.packages("ggstatsplot")
 You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
-```{r github, eval=FALSE, tidy = FALSE}
+```{r github, eval=FALSE}
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -332,7 +332,7 @@ Function internally decides tests
 --
 
 .right-plot[
-```{r ggbetweenstats_1, ref.label = 'ggbetweenstats_1', echo = FALSE}
+```{r ggbetweenstats_1, ref.label='ggbetweenstats_1', echo=FALSE}
 ```
 ]
 
@@ -377,7 +377,7 @@ Changing pairwise comparisons displayed
 --
 
 .right-plot[
-```{r ggbetweenstats_2, ref.label = 'ggbetweenstats_2', echo = FALSE}
+```{r ggbetweenstats_2, ref.label='ggbetweenstats_2', echo=FALSE}
 ```
 ]
 
@@ -421,7 +421,7 @@ Centrality measures
 --
 
 .right-plot[
-```{r ggbetweenstats_3, ref.label = 'ggbetweenstats_3', echo = FALSE}
+```{r ggbetweenstats_3, ref.label='ggbetweenstats_3', echo=FALSE}
 ```
 ]
 
@@ -467,7 +467,7 @@ Changing the `type` of test
 --
 
 .right-plot[
-```{r ggwithinstats_1, ref.label = 'ggwithinstats_1', echo = FALSE}
+```{r ggwithinstats_1, ref.label='ggwithinstats_1', echo=FALSE}
 ```
 ]
 
@@ -512,7 +512,7 @@ Centrality measures
 --
 
 .right-plot[
-```{r gghistostats_1, ref.label = 'gghistostats_1', echo = FALSE}
+```{r gghistostats_1, ref.label='gghistostats_1', echo=FALSE}
 ```
 ]
 
@@ -557,7 +557,7 @@ Centrality measures
 --
 
 .right-plot[
-```{r ggdotplotstats_1, ref.label = 'ggdotplotstats_1', echo = FALSE}
+```{r ggdotplotstats_1, ref.label='ggdotplotstats_1', echo=FALSE}
 ```
 ]
 
@@ -610,7 +610,7 @@ Changing the `type` of test
 --
 
 .right-plot[
-```{r ggscatterstats_1, ref.label = 'ggscatterstats_1', echo = FALSE}
+```{r ggscatterstats_1, ref.label='ggscatterstats_1', echo=FALSE}
 ```
 ]
 
@@ -652,7 +652,7 @@ Changing the marginal type
 --
 
 .right-plot[
-```{r ggscatterstats_2, ref.label = 'ggscatterstats_2', echo = FALSE}
+```{r ggscatterstats_2, ref.label='ggscatterstats_2', echo=FALSE}
 ```
 ]
 
@@ -690,7 +690,7 @@ Changing the `type` of test
 --
 
 .right-plot[
-```{r ggcorrmat_1, ref.label = 'ggcorrmat_1', echo = FALSE}
+```{r ggcorrmat_1, ref.label='ggcorrmat_1', echo=FALSE}
 ```
 ]
 
@@ -703,7 +703,7 @@ layout: true
 ---
 
 .font70[
-In addition to `output = "plot"`, this function can also be used to get a .blue[dataframe]:
+In addition to `output="plot"`, this function can also be used to get a .blue[dataframe]:
 ]
 
 .font50[
@@ -721,7 +721,7 @@ ggcorrmat(
 
 .font70[
 Partial correlations are also supported! 
-Just set `partial = TRUE`.
+Just set `partial=TRUE`.
 ]
 
 ---
@@ -745,8 +745,8 @@ class: inverse, center, middle
 <!-- .left-code[ -->
 <!-- ```{r ggpiestats_1, eval=FALSE} -->
 <!-- ggpiestats( -->
-<!--   data = mtcars, -->
-<!--   x = cyl -->
+<!--   data=mtcars, -->
+<!--   x=cyl -->
 <!-- ) -->
 <!-- ``` -->
 
@@ -770,7 +770,7 @@ class: inverse, center, middle
 <!-- -- -->
 
 <!-- .right-plot[ -->
-<!-- ```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE} -->
+<!-- ```{r ggpiestats_1, ref.label='ggpiestats_1', echo=FALSE} -->
 <!-- ``` -->
 <!-- ] -->
 
@@ -813,7 +813,7 @@ ggpiestats(
 --
 
 .right-plot[
-```{r ggpiestats_2, ref.label = 'ggpiestats_2', echo = FALSE}
+```{r ggpiestats_2, ref.label='ggpiestats_2', echo=FALSE}
 ```
 ]
 
@@ -855,7 +855,7 @@ ggbarstats(
 --
 
 .right-plot[
-```{r ggbarstats_1, ref.label = 'ggbarstats_1', echo = FALSE}
+```{r ggbarstats_1, ref.label='ggbarstats_1', echo=FALSE}
 ```
 ]
 
@@ -902,7 +902,7 @@ ggcoefstats(mod)
 --
 
 .right-plot[
-```{r ggcoefstats_1, ref.label = 'ggcoefstats_1', echo = FALSE}
+```{r ggcoefstats_1, ref.label='ggcoefstats_1', echo=FALSE}
 ```
 ]
 
@@ -992,7 +992,7 @@ Available `grouped_` variants
 --
 
 .right-plot[
-```{r grouped_1, ref.label = 'grouped_1', echo = FALSE}
+```{r grouped_1, ref.label='grouped_1', echo=FALSE}
 ```
 ]
 
@@ -1059,7 +1059,7 @@ is .blue[colorblind-friendly].
 ]
 
 .right-plot[
-```{r ggbetweenstats_4, ref.label = 'ggbetweenstats_4', echo = FALSE}
+```{r ggbetweenstats_4, ref.label='ggbetweenstats_4', echo=FALSE}
 ```
 ]
 
@@ -1093,7 +1093,7 @@ ggbetweenstats(
 ]
 
 .right-plot[
-```{r ggbetweenstats_5, ref.label = 'ggbetweenstats_5', echo = FALSE}
+```{r ggbetweenstats_5, ref.label='ggbetweenstats_5', echo=FALSE}
 ```
 ]
 
@@ -1129,7 +1129,7 @@ ggbetweenstats(
 ]
 
 .right-plot[
-```{r only_plot, ref.label = 'only_plot', echo = FALSE}
+```{r only_plot, ref.label='only_plot', echo=FALSE}
 ```
 ]
 
@@ -1168,7 +1168,7 @@ ggiraphExtra::ggSpine( #<<
 ]
 
 .right-plot[
-```{r subtitle_1, ref.label = 'subtitle_1', echo = FALSE}
+```{r subtitle_1, ref.label='subtitle_1', echo=FALSE}
 ```
 ]
 
@@ -1368,8 +1368,8 @@ layout: false
 **Standard approach**
 
 Pearson's correlation test revealed that, across 142 participants, variable `x`
-was negatively correlated with variable `y`: $t(140) = -0.76, p = .446$. The
-effect size $(r = -0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
+was negatively correlated with variable `y`: $t(140)=-0.76, p=.446$. The
+effect size $(r=-0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
 conventions. The Bayes Factor for the same analysis revealed that the data were
 `r round(exp(1.76), 2)` times more probable under the null hypothesis as
 compared to the alternative hypothesis. This can be considered moderate evidence

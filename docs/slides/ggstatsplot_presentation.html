@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-04-28" />
+    <meta name="date" content="2021-06-02" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-04-28 <br> <br> <br>
+### 2021-06-02 <br> <br> <br>
 
 ---
 
@@ -187,7 +187,7 @@ layout: false
 
 class: center
 
-# Ready-made plot = no customization
+# Ready-made plot=no customization
 
 --
 
@@ -205,7 +205,7 @@ The .blue[grammar of graphics] is a powerful framework [(Wilkinson, 2011)](https
 
 --
 
-`\(\sum_{time}\)` (Needed time ↑ + Likelihood to graphical explore data ↓) = Avoidance habit
+`\(\sum_{time}\)` (Needed time ↑ + Likelihood to graphical explore data ↓)=Avoidance habit
 
 ---
 
@@ -226,7 +226,7 @@ layout: false
 
 --
 
-Install the stable version (latest: `0.7.2`) of `ggstatsplot` from 
+Install the stable version of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
@@ -681,7 +681,7 @@ layout: true
 ---
 
 .font70[
-In addition to `output = "plot"`, this function can also be used to get a .blue[dataframe]:
+In addition to `output="plot"`, this function can also be used to get a .blue[dataframe]:
 ]
 
 .font50[
@@ -775,7 +775,7 @@ ggcorrmat(
 
 .font70[
 Partial correlations are also supported! 
-Just set `partial = TRUE`.
+Just set `partial=TRUE`.
 ]
 
 ---
@@ -799,8 +799,8 @@ class: inverse, center, middle
 &lt;!-- .left-code[ --&gt;
 &lt;!-- ```{r ggpiestats_1, eval=FALSE} --&gt;
 &lt;!-- ggpiestats( --&gt;
-&lt;!--   data = mtcars, --&gt;
-&lt;!--   x = cyl --&gt;
+&lt;!--   data=mtcars, --&gt;
+&lt;!--   x=cyl --&gt;
 &lt;!-- ) --&gt;
 &lt;!-- ``` --&gt;
 
@@ -824,7 +824,7 @@ class: inverse, center, middle
 &lt;!-- -- --&gt;
 
 &lt;!-- .right-plot[ --&gt;
-&lt;!-- ```{r ggpiestats_1, ref.label = 'ggpiestats_1', echo = FALSE} --&gt;
+&lt;!-- ```{r ggpiestats_1, ref.label='ggpiestats_1', echo=FALSE} --&gt;
 &lt;!-- ``` --&gt;
 &lt;!-- ] --&gt;
 
@@ -1425,8 +1425,8 @@ layout: false
 **Standard approach**
 
 Pearson's correlation test revealed that, across 142 participants, variable `x`
-was negatively correlated with variable `y`: `\(t(140) = -0.76, p = .446\)`. The
-effect size `\((r = -0.06, 95\% CI [-.23,.10])\)` was small, as per Cohen’s (1988)
+was negatively correlated with variable `y`: `\(t(140)=-0.76, p=.446\)`. The
+effect size `\((r=-0.06, 95\% CI [-.23,.10])\)` was small, as per Cohen’s (1988)
 conventions. The Bayes Factor for the same analysis revealed that the data were
 5.81 times more probable under the null hypothesis as
 compared to the alternative hypothesis. This can be considered moderate evidence
