@@ -12,8 +12,8 @@ output:
       ratio: 16:9
       highlightStyle: "foundation"
       highlightLines: true
-      countIncrementalSlides: true
-      slideNumberFormat: "%current%"
+      countIncrementalSlides: false
+      #slideNumberFormat: "%current%"
 editor_options: 
   chunk_output_type: console
 ---
@@ -648,20 +648,9 @@ ggscatterstats(
   type = "r",
   label.var = title, #<<
   label.expression = budget > 150 #<<
-  & rating > 7.5, #<<
-  marginal.type = "boxplot" #<<
+  & rating > 7.5
 )
 ```
-
-.font70[
-Changing the marginal type
-
-ℹ️ **histogram** <br>
-ℹ️ **boxplot** <br>
-ℹ️ **density** <br>
-ℹ️ **violin** <br>
-ℹ️ **densigram**
-]
 ]
 
 --
@@ -746,48 +735,6 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
-
----
-
-<!-- layout: true -->
-
-<!-- # ggpiestats - goodness-of-fit test -->
-
-<!-- --- -->
-
-<!-- -- -->
-
-<!-- .left-code[ -->
-<!-- ```{r ggpiestats_1, eval=FALSE} -->
-<!-- ggpiestats( -->
-<!--   data=mtcars, -->
-<!--   x=cyl -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- .font70[ -->
-<!-- `r emo::ji("pencil")` .blue[Defaults] return <br> -->
-
-<!-- ✅ descriptive statistics <br> -->
-<!-- ✅ inferential statistics <br> -->
-<!-- ✅ effect size + CIs <br> -->
-<!-- ✅ Bayesian hypothesis-testing <br> -->
-<!-- 🤞 Bayesian estimation <br> -->
-
-<!-- **Note** <br> -->
-<!-- If the data is in *tabled*  -->
-<!-- format, you can use the `counts`  -->
-<!-- argument. -->
-<!-- ] -->
-
-<!-- ] -->
-
-<!-- -- -->
-
-<!-- .right-plot[ -->
-<!-- ```{r ggpiestats_1, ref.label='ggpiestats_1', echo=FALSE} -->
-<!-- ``` -->
-<!-- ] -->
 
 ---
 
@@ -1019,29 +966,6 @@ class: inverse, center, middle
 
 # Customizability of *ggstatsplot*
 "What if I don't like the default plots?" 🤔
-
----
-
-<!-- exclude: false -->
-
-<!-- layout: true -->
-
-<!-- # Defaults -->
-
-<!-- --- -->
-
-<!-- exclude: false -->
-
-<!-- .pull-left[ -->
-<!-- .font100[ -->
-<!-- The default plots in *.blue[ggstatsplot]* are -->
-<!-- **opinionated**, yes, but they try to follow best practices outlined in the data visualization research. -->
-<!-- ] -->
-<!-- ] -->
-
-<!-- .pull-right[ -->
-<!-- ![](images/books.JPG) -->
-<!-- ] -->
 
 ---
 

@@ -628,20 +628,9 @@ ggscatterstats(
   type = "r",
 * label.var = title,
 * label.expression = budget &gt; 150
-* &amp; rating &gt; 7.5,
-* marginal.type = "boxplot"
+  &amp; rating &gt; 7.5
 )
 ```
-
-.font70[
-Changing the marginal type
-
-ℹ️ **histogram** &lt;br&gt;
-ℹ️ **boxplot** &lt;br&gt;
-ℹ️ **density** &lt;br&gt;
-ℹ️ **violin** &lt;br&gt;
-ℹ️ **densigram**
-]
 ]
 
 --
@@ -740,8 +729,8 @@ ggcorrmat(
    &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; -0.73 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.82 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.63 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.83 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.64 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
@@ -756,10 +745,10 @@ ggcorrmat(
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; -0.21 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.41 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.43 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.93 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.21 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
@@ -772,10 +761,10 @@ ggcorrmat(
    &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.34 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.16 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
@@ -801,48 +790,6 @@ layout: false
 class: inverse, center, middle
 
 # Hypothesis of composition of categorical variables
-
----
-
-&lt;!-- layout: true --&gt;
-
-&lt;!-- # ggpiestats - goodness-of-fit test --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .left-code[ --&gt;
-&lt;!-- ```{r ggpiestats_1, eval=FALSE} --&gt;
-&lt;!-- ggpiestats( --&gt;
-&lt;!--   data=mtcars, --&gt;
-&lt;!--   x=cyl --&gt;
-&lt;!-- ) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- .font70[ --&gt;
-&lt;!-- 📝 .blue[Defaults] return &lt;br&gt; --&gt;
-
-&lt;!-- ✅ descriptive statistics &lt;br&gt; --&gt;
-&lt;!-- ✅ inferential statistics &lt;br&gt; --&gt;
-&lt;!-- ✅ effect size + CIs &lt;br&gt; --&gt;
-&lt;!-- ✅ Bayesian hypothesis-testing &lt;br&gt; --&gt;
-&lt;!-- 🤞 Bayesian estimation &lt;br&gt; --&gt;
-
-&lt;!-- **Note** &lt;br&gt; --&gt;
-&lt;!-- If the data is in *tabled*  --&gt;
-&lt;!-- format, you can use the `counts`  --&gt;
-&lt;!-- argument. --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- ] --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- .right-plot[ --&gt;
-&lt;!-- ```{r ggpiestats_1, ref.label='ggpiestats_1', echo=FALSE} --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ] --&gt;
 
 ---
 
@@ -1074,29 +1021,6 @@ class: inverse, center, middle
 
 # Customizability of *ggstatsplot*
 "What if I don't like the default plots?" 🤔
-
----
-
-&lt;!-- exclude: false --&gt;
-
-&lt;!-- layout: true --&gt;
-
-&lt;!-- # Defaults --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- exclude: false --&gt;
-
-&lt;!-- .pull-left[ --&gt;
-&lt;!-- .font100[ --&gt;
-&lt;!-- The default plots in *.blue[ggstatsplot]* are --&gt;
-&lt;!-- **opinionated**, yes, but they try to follow best practices outlined in the data visualization research. --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- ![](images/books.JPG) --&gt;
-&lt;!-- ] --&gt;
 
 ---
 
@@ -1691,7 +1615,7 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 
 - Review code 🕵
 
-- Add new functionality 👨‍💻
+- Add new functionality 👩‍💻
 ]
 
 ]
@@ -1769,7 +1693,7 @@ class: inverse, center, middle
 
 [🔗 https://sites.google.com/site/indrajeetspatilmorality/](https://sites.google.com/site/indrajeetspatilmorality/)  
 
-[📥 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
+[📮 patilindrajeet.science@gmail.com](mailto:patilindrajeet.science@gmail.com)
 
 ]
 
@@ -1795,8 +1719,7 @@ To access code for these slides, see-
 "ratio": "16:9",
 "highlightStyle": "foundation",
 "highlightLines": true,
-"countIncrementalSlides": true,
-"slideNumberFormat": "%current%"
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
