@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)" />
-    <meta name="date" content="2021-06-29" />
+    <meta name="date" content="2021-08-02" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with Statistical Details
 ## An Introductory Tutorial
 ### Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)
-### 2021-06-29 <br> <br> <br>
+### 2021-08-02 <br> <br> <br>
 
 ---
 
@@ -1475,29 +1475,6 @@ The expression template tries to follow the gold standard for statistical
 reporting.
 
 ![](images/stats_reporting_format.png)
-
-
-&lt;!-- --- --&gt;
-
-&lt;!-- layout: false --&gt;
-
-&lt;!-- # Statistically informed tests defaults --&gt;
-
-&lt;!-- -- --&gt;
-
-&lt;!-- The default tests follow the best practices. For example, --&gt;
-
-&lt;!-- ✅ `ggbetweenstats` and `ggwithinstats` default to .blue[Welch's *t*-test] and &lt;font --&gt;
-&lt;!-- color="blue"&gt;Welch's ANOVA] - and not Student's *t*-test and Fisher's --&gt;
-&lt;!-- ANOVA - based on recent work (Delacre et al., --&gt;
-&lt;!-- [2017](https://www.rips-irsp.com/article/10.5334/irsp.82/), --&gt;
-&lt;!-- [2018](https://psyarxiv.com/wnezg)). --&gt;
-
-&lt;!-- ✅ Functions default to reporting unbiased effect size measures (Lakens, [2013](https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full)). --&gt;
-
-&lt;!-- ✅ Whenever multiple tests are carried out, *p*-values are adjusted for them by default. --&gt;
-
-&lt;!-- etc. --&gt;
 
 ---
 
