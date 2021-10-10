@@ -1,7 +1,7 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial"
-author: "Indrajeet Patil (Center for Humans and Machines, Max Planck Institute, Berlin)"
+subtitle: "An Introductory Tutorial (0.9.0)"
+author: "Indrajeet Patil (Software Engineer, esqLABS)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
   xaringan::moon_reader:
