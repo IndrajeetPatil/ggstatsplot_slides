@@ -1,8 +1,14 @@
 /* The CSS template is adapted from Garrick Aden-Buie's template (https://github.com/gadenbuie/gentle-ggplot2) */
 
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=JetBrains+Mono&family=Roboto+Condensed:wght@300&display=swap');
+
 body {
+  /* font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 1.1em;
-  /* font-family: 'RobotoCondensed-Light'; */
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 img {
@@ -37,6 +43,9 @@ strong {
 
 .remark-code, .remark-inline-code {
   /* font-family: 'JetBrainsMono-Regular'; */
+ /*  font-family: 'JetBrains Mono', monospace;  */
+  font-family: "Fira Code", monospace;
+  font-size: 0.7em;
 }
 
 .left-column h3 {
