@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (0.9.0)"
+subtitle: "An Introductory Tutorial (0.10.0)"
 author: "Indrajeet Patil (Software Engineer, esqLABS)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -382,8 +382,8 @@ Changing the `type` of test
 
 Changing pairwise comparisons displayed
 
-ℹ️ `"ns"`  nbsp;&→ only **non-significant**  <br>
-ℹ️ `"s"`   nbsp;&nbsp;→→ only **significant**  <br>
+ℹ️ `"ns"` &nbsp;→ only **non-significant**  <br>
+ℹ️ `"s"` &nbsp;&nbsp;→ only **significant**  <br>
 ℹ️ `"all"` → **all**
 ]
 
@@ -1115,11 +1115,11 @@ ggiraphExtra::ggSpine( #<<
 
 layout: true
 
-# Only dataframes
+# Dataframes
 
 ---
 
-[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide .blue[only dataframes].
+[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for `ggstatsplot`, can provide .blue[dataframes].
 
 --
 
