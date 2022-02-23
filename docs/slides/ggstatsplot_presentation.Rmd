@@ -1330,9 +1330,6 @@ layout: false
 
 --
 
-The expression template tries to follow the gold standard for statistical
-reporting.
-
 ![](images/stats_reporting_format.png)
 
 ---

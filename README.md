@@ -1,4 +1,4 @@
-# `ggstatsplot`: R Package for `ggplot2` Based Plots with Statistical Details
+# `{ggstatsplot}`: R Package for `{ggplot2}` Based Plots with Statistical Details
 
 This is a repository for presentation about the
 [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/) package (prepared
@@ -28,15 +28,15 @@ install.packages("ggstatsplot")
 
 ## Versions
 
-These slides are from presentations given at various gatherings:
+These slides are from presentations given at various events:
+
+  - **Abuja R User Group**, online talk, February, 26, 2022.
 
   - **Social Psychology online colloquium series**, Tilburg University,
     Netherlands, March, 19, 2021.
 
   - **Department of Decision Neuroscience and Nutrition**, German Institute of
     Human Nutrition Potsdam-Rehbruecke, online talk, March, 2, 2021.
-
-  - **Oslo useR! Group**, online talk, February, 18, 2021.
 
   - **Oslo useR! Group**, online talk, February, 18, 2021.
 
@@ -49,4 +49,3 @@ These slides are from presentations given at various gatherings:
 
   - **Harvard Psych Method Dinners**, William James Hall, Harvard University,
     Cambridge, MA, USA, February 5, 2019.
-
