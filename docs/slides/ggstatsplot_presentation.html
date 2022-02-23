@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>ggstatsplot: ggplot2 Based Plots with Statistical Details</title>
+    <title>ggstatsplot: ggplot2 Plots with Statistics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Software Engineer, esqLABS)" />
-    <meta name="date" content="2022-01-14" />
+    <meta name="date" content="2022-02-23" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -20,11 +20,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# <code>ggstatsplot</code>: <code>ggplot2</code> Based Plots with
-Statistical Details
-## An Introductory Tutorial (0.10.0)
+# <code>ggstatsplot</code>: <code>ggplot2</code> Plots with Statistics
+## An Introductory Tutorial (0.9.1)
 ### Indrajeet Patil (Software Engineer, esqLABS)
-### 2022-01-14 <br> <br> <br>
+### 2022-02-23 <br> <br> <br>
 
 ---
 
@@ -122,10 +121,6 @@ class: center
 # Quickest overview: Publication (~ 10 min read)
 
 ---
-
---
-
-Can be read [here](https://joss.theoj.org/papers/10.21105/joss.03167).
 
 ![](images/citation.png)
 
@@ -1027,13 +1022,11 @@ class: inverse, center, middle
 
 layout: true
 
-# Changing aesthetics (themes + palettes) 🖼🎨
+# Changing aesthetics (themes + palettes) 🎨
 
 ---
 
-Aesthetic preferences are not an excuse to not use `ggstatsplot`! 😻
-
---
+Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
 
 .left-code[
 
@@ -1049,10 +1042,11 @@ ggbetweenstats(
 ```
 
 .font70[
-The default palette 
-is .blue[[colorblind-friendly](https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html).
+The default palette is .blue[colorblind-friendly].
 ]
 ]
+
+--
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -1144,8 +1138,7 @@ layout: true
 
 ```r
 # using `ggstatsplot` for stats
-results &lt;-
-  ggpiestats(
+results &lt;- ggpiestats(
     data = Titanic_full,
     x = Survived,
     y = Sex,
@@ -1240,13 +1233,12 @@ layout: false
 .font90[
 .blue[Load 'em up!]
 
-📦 to carry out the test (e.g. `stats`) &lt;br&gt;
+📦 for inferential statistics (e.g. `stats`) &lt;br&gt;
 📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
 📦 for descriptives (e.g. `skimr`) &lt;br&gt;
 📦 pairwise comparisons (e.g. `multcomp`) &lt;br&gt;
 📦 Bayesian hypothesis testing (e.g. `BayesFactor`) &lt;br&gt;
 📦 Bayesian estimation (e.g. `bayestestR`) &lt;br&gt;
-📦 . &lt;br&gt;
 📦 . &lt;br&gt;
 ]
 
@@ -1268,7 +1260,7 @@ layout: false
 🤔 works with `NA`s? &lt;br&gt;
 🤔 returns list, dataframe, arrays? &lt;br&gt;
 🤔 works with tibbles? &lt;br&gt;
-🤔 . &lt;br&gt;
+🤔 has all necessary details? &lt;br&gt;
 🤔 . &lt;br&gt;
 
 .img-right-small[

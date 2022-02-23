@@ -1,6 +1,6 @@
 ---
-title: "`ggstatsplot`: `ggplot2` Based Plots with Statistical Details"
-subtitle: "An Introductory Tutorial (0.10.0)"
+title: "`ggstatsplot`: `ggplot2` Plots with Statistics"
+subtitle: "An Introductory Tutorial (0.9.1)"
 author: "Indrajeet Patil (Software Engineer, esqLABS)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -145,10 +145,6 @@ class: center
 # Quickest overview: Publication (~ 10 min read)
 
 ---
-
---
-
-Can be read [here](https://joss.theoj.org/papers/10.21105/joss.03167).
 
 ![](images/citation.png)
 
@@ -971,13 +967,11 @@ class: inverse, center, middle
 
 layout: true
 
-# Changing aesthetics (themes + palettes) 🖼🎨
+# Changing aesthetics (themes + palettes) 🎨
 
 ---
 
-Aesthetic preferences are not an excuse to not use `ggstatsplot`! `r emo::ji("heart_eyes_cat")`
-
---
+Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
 
 .left-code[
 ```{r ggbetweenstats_4, eval=FALSE}
@@ -992,10 +986,11 @@ ggbetweenstats(
 ```
 
 .font70[
-The default palette 
-is .blue[[colorblind-friendly](https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html).
+The default palette is .blue[colorblind-friendly].
 ]
 ]
+
+--
 
 .right-plot[
 ```{r ggbetweenstats_4, ref.label='ggbetweenstats_4', echo=FALSE}
@@ -1087,8 +1082,7 @@ layout: true
 .left-code[
 ```{r subtitle_1, eval=FALSE}
 # using `ggstatsplot` for stats
-results <-
-  ggpiestats(
+results <- ggpiestats(
     data = Titanic_full,
     x = Survived,
     y = Sex,
@@ -1183,13 +1177,12 @@ layout: false
 .font90[
 .blue[Load 'em up!]
 
-📦 to carry out the test (e.g. `stats`) <br>
+📦 for inferential statistics (e.g. `stats`) <br>
 📦 computing effect size + CIs (e.g. `effectsize`) <br>
 📦 for descriptives (e.g. `skimr`) <br>
 📦 pairwise comparisons (e.g. `multcomp`) <br>
 📦 Bayesian hypothesis testing (e.g. `BayesFactor`) <br>
 📦 Bayesian estimation (e.g. `bayestestR`) <br>
-📦 . <br>
 📦 . <br>
 ]
 
@@ -1211,7 +1204,7 @@ layout: false
 🤔 works with `NA`s? <br>
 🤔 returns list, dataframe, arrays? <br>
 🤔 works with tibbles? <br>
-🤔 . <br>
+🤔 has all necessary details? <br>
 🤔 . <br>
 
 .img-right-small[
