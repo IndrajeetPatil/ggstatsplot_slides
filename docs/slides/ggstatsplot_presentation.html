@@ -61,8 +61,6 @@ layout: true
 
 - Limitations
 
-- Future plans
-
 ---
 
 layout: false
@@ -104,25 +102,13 @@ Current count of packages on the Comprehensive R Archive Network (`CRAN`) **&gt;
 .content-box-yellow[
 In short, `ggstatsplot` returns &lt;br&gt;
 &lt;br&gt;
-📊 .blue[information-rich] plots with .blue[statistical details] &lt;br&gt;
+📊 .blue[information-rich] plots with .blue[statistical details], which are &lt;br&gt;
  
-📝 suitable for .blue[faster] (exploratory) data analysis and scholarly publications
+📝 suitable for .blue[faster] (exploratory) data analysis and scholarly reports
 ]
 
 ]
 ]
-
----
-
-layout: true
-
-class: center
-
-# Quickest overview: Publication (~ 10 min read)
-
----
-
-![](images/citation.png)
 
 ---
 
@@ -177,8 +163,6 @@ class: center
 
 .footnote[[(Matejka &amp; Fitzmaurice, *Autodesk Research*, 2017)](https://www.autodeskresearch.com/publications/samestats)]
 
---
-
  &lt;br&gt;
  &lt;br&gt;
  &lt;br&gt;
@@ -190,8 +174,6 @@ class: center
  &lt;br&gt;
  
 .blue[Graphical] summaries can reveal problems not visible from .blue[numerical] statistics.
- 
-_I plotted my data and what I found surprised me!_ - BuzzFeed
 
 ---
 
@@ -330,7 +312,7 @@ Function internally decides tests
 
 layout: true
 
-# ggbetweenstats - pairwise comparisons
+# ggbetweenstats - outlier tagging
 
 ---
 
@@ -343,24 +325,22 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-* type = "np",
-* pairwise.display = "ns"
+* type = "r",
+* outlier.tagging = TRUE,
+* outlier.label = title
 )
 ```
 
 .font70[
+[Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
+interquartile range flags outliers.
+
 Changing the `type` of test
 
 ✅ `"p"`  &amp;nbsp;&amp;nbsp;→ **parametric** &lt;br&gt;
 ✅ `"np"` → **non-parametric** &lt;br&gt;
 ✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
-
-Changing pairwise comparisons displayed
-
-ℹ️ `"ns"` &amp;nbsp;→ only **non-significant**  &lt;br&gt;
-ℹ️ `"s"` &amp;nbsp;&amp;nbsp;→ only **significant**  &lt;br&gt;
-ℹ️ `"all"` → **all**
 ]
 
 ]
@@ -375,50 +355,6 @@ Changing pairwise comparisons displayed
 
 layout: true
 
-# ggbetweenstats - outlier tagging
-
----
-
---
-
-.left-code[
-
-```r
-ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
-  type = "r",
-  pairwise.comparisons = FALSE,
-* outlier.tagging = TRUE,
-* outlier.label = title
-)
-```
-
-.font70[
-[Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
-interquartile range flags outliers.
-
-Centrality measures
-
-✅ `"p"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{mean}\)`  &lt;br&gt;
-✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{trimmed}\)`  &lt;br&gt;
-✅ `"bf"` → `\(\mu_{MAP}\)`
-]
-
-]
-
---
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-
 # ggwithinstats - repeated measures equivalent
 
 ---
@@ -426,6 +362,7 @@ layout: true
 --
 
 .left-code[
+
 
 ```r
 ggwithinstats(
@@ -453,6 +390,7 @@ Changing the `type` of test
 ✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 ]
+
 ]
 
 --
@@ -491,13 +429,14 @@ gghistostats(
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
 
-Centrality measures
+Changing the `type` of test
 
-✅ `"p"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{mean}\)`  &lt;br&gt;
-✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{trimmed}\)`  &lt;br&gt;
-✅ `"bf"` → `\(\mu_{MAP}\)`
+✅ `"p"`  &amp;nbsp;&amp;nbsp;→ **parametric** &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
+✅ `"bf"` → **Bayesian**
 ]
+
 ]
 
 --
@@ -536,12 +475,12 @@ ggdotplotstats(
 ✅ Bayesian hypothesis-testing &lt;br&gt;
 ✅ Bayesian estimation &lt;br&gt;
 
-Centrality measures
+Changing the `type` of test
 
-✅ `"p"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{mean}\)`  &lt;br&gt;
-✅ `"np"` → `\(\mu_{median}\)`  &lt;br&gt;
-✅ `"r"`  &amp;nbsp;&amp;nbsp;→ `\(\mu_{trimmed}\)`  &lt;br&gt;
-✅ `"bf"` → `\(\mu_{MAP}\)`
+✅ `"p"`  &amp;nbsp;&amp;nbsp;→ **parametric** &lt;br&gt;
+✅ `"np"` → **non-parametric** &lt;br&gt;
+✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
+✅ `"bf"` → **Bayesian**
 ]
 ]
 
@@ -624,7 +563,7 @@ ggscatterstats(
   type = "r",
 * label.var = title,
 * label.expression = budget &gt; 150
-  &amp; rating &gt; 7.5
+* &amp; rating &gt; 7.5
 )
 ```
 ]
@@ -664,6 +603,9 @@ Changing the `type` of test
 ✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
 ✅ `"bf"` → **Bayesian**
 
+Partial correlations are also supported! 
+Just set `partial=TRUE`.
+
 ]
 ]
 
@@ -671,112 +613,6 @@ Changing the `type` of test
 
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcorrmat_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-
-# ggcorrmat - getting a dataframe
-
----
-
-.font70[
-In addition to `output="plot"`, this function can also be used to get a .blue[dataframe]:
-]
-
-.font50[
-
-```r
-library(ggplot2) # for data
-options(digits = 2)
-
-ggcorrmat(
-  data = dplyr::select(msleep, sleep_rem, awake, brainwt),
-  type = "bayes",
-* output = "dataframe"
-)
-```
-
-&lt;div class="kable-table"&gt;
-
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; parameter1 &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; parameter2 &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; estimate &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; conf.level &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; conf.low &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; conf.high &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; pd &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; rope.percentage &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; prior.distribution &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; prior.location &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; prior.scale &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; bayes.factor &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; method &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; n.obs &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.73 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.84 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.60 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.0e+09 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sleep_rem &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.21 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.45 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.06 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.93 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.21 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.5e-01 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; awake &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; brainwt &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.34 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.09 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.55 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.99 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; beta &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.3e+00 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Bayesian Pearson correlation &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;/div&gt;
-]
-
-.font70[
-Partial correlations are also supported! 
-Just set `partial=TRUE`.
 ]
 
 ---
@@ -800,7 +636,6 @@ layout: true
 .left-code[
 
 ```r
-# let's use subset of data
 ggpiestats(
   data = dplyr::filter(
     movies_long,
@@ -909,6 +744,9 @@ ggcoefstats(mod)
 ✅ estimate + CIs &lt;br&gt;
 ✅ inferential statistics ($t$, `\(z\)`, `\(F\)`, `\(\chi^2\)`) &lt;br&gt;
 ✅ model fit indices (AIC + BIC)
+
+Supports all regression models supported in [`{easystats}`](https://easystats.github.io/insight/reference/is_model_supported.html) ecosystem.
+
 ]
 
 ]
@@ -918,47 +756,6 @@ ggcoefstats(mod)
 .right-plot[
 &lt;img src="ggstatsplot_presentation_files/figure-html/ggcoefstats_1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
-
----
-
-layout: true
-
-# ggcoefstats: Supported models
-
----
-
-.font60[
-`aareg`, `afex_aov`, `anova`, `anova.mlm`, `anova`, `aov`, `aovlist`, `Arima`,
-`bam`, `bayesx`, `bayesGARCH`, `bayesQR`, `BBmm`, `BBreg`, `bcplm`, `betamfx`,
-`betaor`, `BFBayesFactor`, `BGGM`, `bglmerMod`, `bife`, `bigglm`, `biglm`,
-`blavaan`, `bmlm`, `blmerMod`, `blrm`, `bracl`, `brglm`, `brglm2`, `brmsfit`,
-`brmultinom`, `btergm`, `cch`, `censReg`, `cgam`, `cgamm`, `cglm`, `clm`,
-`clm2`, `clmm`, `clmm2`, `coeftest`, `complmrob`, `confusionMatrix`, `coxme`,
-`coxph`, `coxr`, `coxph.penal`, `cpglm`, `cpglmm`, `crch`, `crq`, `crr`,
-`DirichReg`, `drc`, `eglm`, `elm`, `emmGrid`, `epi.2by2`, `ergm`, `feis`,
-`felm`, `fitdistr`, `fixest`, `flexsurvreg`, `gam`, `Gam`, `gamlss`, `garch`,
-`geeglm`, `gjrm`, `glmc`, `glmerMod`, `glmmTMB`, `gls`, `glht`, `glm`, `glmm`,
-`glmmadmb`, `glmmPQL`, `glmRob`, `glmrob`, `glmx`, `gmm`, `HLfit`, `hurdle`,
-`ivFixed`, `ivprobit`, `ivreg`, `iv_robust`, `lavaan`, `lm`, `lm.beta`,
-`lmerMod`, `lmerModLmerTest`, `lmodel2`, `lmRob`, `lmrob`, `lm_robust`,
-`logitmfx`, `logitor`, `logitsf`, `LORgee`, `lqm`, `lqmm`, `lrm`, `manova`,
-`maov`, `margins`, `mcmc`, `mcmc.list`, `MCMCglmm`, `mclogit`, `mice`,
-`mmclogit`, `mediate`, `metafor`, `merMod`, `merModList`, `metaplus`, `mhurdle`,
-`mixor`, `mjoint`, `mle2`, `mlm`, `multinom`, `mvord`, `negbin`, `negbinmfx`,
-`negbinirr`, `nlmerMod`, `nlrq`, `nlreg`, `nls`, `orcutt`, `orm`, `plm`,
-`poissonmfx`, `poissonirr`, `polr`, `probitmfx`, `ridgelm`, `riskRegression`,
-`rjags`, `rlm`, `rlmerMod`, `robmixglm`, `rq`, `rqs`, `rqss`, `rrvglm`, `scam`,
-`selection`, `semLm`, `semLme`, `slm`, `speedglm`, `speedlm`, `stanfit`,
-`stanreg`, `summary.lm`, `survreg`, `svyglm`, `svy_vglm`, `svyolr`, `tobit`,
-`truncreg`, `varest`, `vgam`, `vglm`, `wbgee`, `wblm`, `zeroinfl`, etc.
-]
-
---
-
-Thanks to [`easystats`](https://easystats.github.io/easystats/)! 🙏
-
-
-![](images/easystats.jpg)
 
 ---
 
@@ -1101,7 +898,6 @@ layout: true
 .left-code[
 
 ```r
-# using `ggstatsplot` only for plot
 ggbetweenstats(
   data = iris,
   x = Species,
@@ -1137,7 +933,6 @@ layout: true
 .left-code[
 
 ```r
-# using `ggstatsplot` for stats
 results &lt;- ggpiestats(
     data = Titanic_full,
     x = Survived,
@@ -1145,7 +940,6 @@ results &lt;- ggpiestats(
 *   output = "subtitle"
   )
 
-# using `ggiraphExtra` for plot
 *ggiraphExtra::ggSpine(
   data = Titanic_full,
   aes(x = Sex, fill = Survived),
@@ -1224,57 +1018,6 @@ Functions | Description | Parametric | Non-parametric | Robust | Bayesian
 
 layout: false
 
-# Alternative workflow to the following
-
---
-
-.pull-left[
-
-.font90[
-.blue[Load 'em up!]
-
-📦 for inferential statistics (e.g. `stats`) &lt;br&gt;
-📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
-📦 for descriptives (e.g. `skimr`) &lt;br&gt;
-📦 pairwise comparisons (e.g. `multcomp`) &lt;br&gt;
-📦 Bayesian hypothesis testing (e.g. `BayesFactor`) &lt;br&gt;
-📦 Bayesian estimation (e.g. `bayestestR`) &lt;br&gt;
-📦 . &lt;br&gt;
-]
-
-.img-left-small[
-![](images/packages.gif)
-]
-
-]
-
---
-
-.pull-right[
-
-.font90[
-.blue[Things to worry about] 🤕
-
-🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
-🤔 long/wide format data? &lt;br&gt;
-🤔 works with `NA`s? &lt;br&gt;
-🤔 returns list, dataframe, arrays? &lt;br&gt;
-🤔 works with tibbles? &lt;br&gt;
-🤔 has all necessary details? &lt;br&gt;
-🤔 . &lt;br&gt;
-
-.img-right-small[
-![](images/monkey.gif)
-]
-
-]
-
-]
-
----
-
-layout: false
-
 # Toggling between statistical approaches 🔀
 
 --
@@ -1343,6 +1086,57 @@ gghistostats(
 * type = "np"
 )
 ```
+]
+
+---
+
+layout: false
+
+# Alternative workflow to the following
+
+--
+
+.pull-left[
+
+.font90[
+.blue[Load 'em up!]
+
+📦 for inferential statistics (e.g. `stats`) &lt;br&gt;
+📦 computing effect size + CIs (e.g. `effectsize`) &lt;br&gt;
+📦 for descriptives (e.g. `skimr`) &lt;br&gt;
+📦 pairwise comparisons (e.g. `multcomp`) &lt;br&gt;
+📦 Bayesian hypothesis testing (e.g. `BayesFactor`) &lt;br&gt;
+📦 Bayesian estimation (e.g. `bayestestR`) &lt;br&gt;
+📦 . &lt;br&gt;
+]
+
+.img-left-small[
+![](images/packages.gif)
+]
+
+]
+
+--
+
+.pull-right[
+
+.font90[
+.blue[Things to worry about] 🤕
+
+🤔 accepts dataframe, vectors, matrix? &lt;br&gt;
+🤔 long/wide format data? &lt;br&gt;
+🤔 works with `NA`s? &lt;br&gt;
+🤔 returns list, dataframe, arrays? &lt;br&gt;
+🤔 works with tibbles? &lt;br&gt;
+🤔 has all necessary details? &lt;br&gt;
+🤔 . &lt;br&gt;
+
+.img-right-small[
+![](images/monkey.gif)
+]
+
+]
+
 ]
 
 ---
@@ -1505,7 +1299,7 @@ layout: false
 
 class: inverse, center, middle
 
-# Misconceptions, limitations, future plans
+# Misconceptions and limitations
 
 ---
 
@@ -1552,9 +1346,8 @@ layout: true
 --
 
 .content-box-red[
-Limited no. of **plots** and **statistical tests** available
-(no support for multivariate statistics, time series, etc.). This will
-**always** be the case. 🤷
+Limited no. of **plots** and **statistical tests** available. 
+This will **always** be the case. 🤷
 ]
 
 --
@@ -1568,7 +1361,7 @@ plots without statistics can still be useful).
 
 .content-box-red[
 **Faceting** does not work (since there are no corresponding
-`geom_` s). For the same reason, plots are not `gganimate`-friendly.
+`geom_` s). For the same reason, plots are not `{gganimate}`-friendly.
 ]
 
 ---
@@ -1643,6 +1436,24 @@ layout: false
 
 class: inverse, center, middle
 
+# For more information
+
+.font100[
+
+📄 [Publication](https://joss.theoj.org/papers/10.21105/joss.03167)
+
+🗃️ [Website](https://indrajeetpatil.github.io/ggstatsplot/)
+
+🎥 [Yury Zablotski's YouTube playlist on *ggstatsplot*](https://www.youtube.com/playlist?list=PLPWcjtBkAf6kI13vCpRm08zRarRwIiZ9U) 
+
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
 # Find me at...
 
 .font100[
@@ -1664,10 +1475,6 @@ layout: false
 class: inverse, center, middle
 
 # The End 👋
-
-For more information, see-
-
-&lt;https://indrajeetpatil.github.io/ggstatsplot/&gt;
 
 To access code for these slides, see-
 
