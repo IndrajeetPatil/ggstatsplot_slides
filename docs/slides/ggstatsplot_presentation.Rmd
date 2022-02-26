@@ -1537,13 +1537,13 @@ Contributions (big or small) welcome!
 Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot)
 
 .content-box-purple[
-- Proof-read the documentation 📖
-
-- Raise issues about bugs/features 🐞
+- Star on GitHub (increases visibility) ⭐
 
 - Cite if used in a publication 📝
 
-- Star on GitHub (increases visibility) ⭐
+- Proof-read the documentation 📖
+
+- Raise issues about bugs/features 🐞
 
 - Review code 🕵
 
@@ -1553,36 +1553,6 @@ Ways in which you can [contribute](https://github.com/IndrajeetPatil/ggstatsplot
 ]
 
 ---
-
-<!-- layout: true -->
-
-<!-- # Future plans 📅 -->
-
-<!-- --- -->
-
-
-<!-- .pull-left[ -->
-<!-- .content-box-purple[ -->
-<!-- **New plots** -->
-<!-- - density plot -->
-<!-- - connected scatterplot -->
-<!-- - sankey diagram -->
-<!-- - bar plot -->
-
-<!-- **New statistical tests** -->
-<!-- - complex (multiway) ANOVA -->
-<!-- - survival analysis -->
-<!-- - cluster analysis -->
-<!-- ] -->
-<!-- ] -->
-
-<!-- .pull-right[ -->
-
-<!-- ![](images/taytay.gif) -->
-
-<!-- ] -->
-
-<!-- --- -->
 
 layout: false
 
