@@ -1,7 +1,7 @@
 xaringanExtra-search	::
-utils	install.packages
-github	::
-load	library
+unnamed-chunk-1	install.packages
+unnamed-chunk-2	::
+unnamed-chunk-3	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating	title
 ggwithinstats_1	::	ggwithinstats	Taste	Wine
@@ -18,6 +18,6 @@ ggbetweenstats_4	::	ggbetweenstats	movies_long	mpaa	rating
 ggbetweenstats_5	am	dup_axis	ggbetweenstats	mtcars	scale_y_continuous	wt
 only_plot	ggbetweenstats	iris	Sepal.Length	Species
 subtitle_1	::	aes	ggpiestats	labs	Sex	Survived	Titanic_full
-unnamed-chunk-1	library	mtcars	one_sample_test	wt
+unnamed-chunk-4	library	mtcars	one_sample_test	wt
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt

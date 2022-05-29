@@ -1,6 +1,6 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Plots with Statistics"
-subtitle: "An Introductory Tutorial (0.9.1)"
+subtitle: "An Introductory Tutorial (0.9.3)"
 author: "Indrajeet Patil (Software Engineer, esqLABS)"
 date: "`r Sys.Date()` <br> <br> <br>"
 output:
@@ -247,7 +247,7 @@ layout: false
 Install the stable version of `ggstatsplot` from 
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
-```{r utils, eval=FALSE}
+```{r, eval=FALSE}
 install.packages("ggstatsplot")
 ```
 --
@@ -255,7 +255,7 @@ install.packages("ggstatsplot")
 You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
-```{r github, eval=FALSE}
+```{r, eval=FALSE}
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -263,7 +263,7 @@ remotes::install_github("IndrajeetPatil/ggstatsplot")
 
 Load the needed packages-
 
-```{r load, eval=TRUE, warning=FALSE}
+```{r, warning=FALSE}
 library(ggstatsplot)
 library(ggplot2)
 ```
@@ -852,7 +852,7 @@ ggbetweenstats(
   data = movies_long,
   x = mpaa,
   y = rating,
-  ggtheme = hrbrthemes::theme_ipsum_tw(), #<<
+  ggtheme = ggthemes::theme_economist(), #<<
   palette = "Darjeeling2", #<<
   package = "wesanderson" #<<
 )

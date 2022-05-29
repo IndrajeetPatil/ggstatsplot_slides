@@ -16,8 +16,6 @@ abind
 survival
 bdsmatrix
 coxme
-gplots
-mlma
 usethis
 devtools
 extrafont
