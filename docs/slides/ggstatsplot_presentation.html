@@ -4,7 +4,7 @@
     <title>ggstatsplot: ggplot2 Plots with Statistics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Indrajeet Patil (Software Engineer, esqLABS)" />
-    <meta name="date" content="2022-05-29" />
+    <meta name="date" content="2022-06-23" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -14,6 +14,7 @@
     <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search/search.js"></script>
     <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":true,"autoSearch":true}) })</script>
+    <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
     <link rel="stylesheet" href="ggstatsplot_presentation.css" type="text/css" />
   </head>
   <body>
@@ -30,7 +31,7 @@ class: center, middle, inverse, title-slide
 ### Indrajeet Patil (Software Engineer, esqLABS)
 ]
 .date[
-### 2022-05-29 <br> <br> <br>
+### 2022-06-23 <br> <br> <br>
 ]
 
 ---
@@ -48,6 +49,27 @@ code.r{
 
 
 
+
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.2em;
+  background-color: darkred;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
 
 ---
 
@@ -942,11 +964,11 @@ layout: true
 
 ```r
 results &lt;- ggpiestats(
-    data = Titanic_full,
-    x = Survived,
-    y = Sex,
-*   output = "subtitle"
-  )
+  data = Titanic_full,
+  x = Survived,
+  y = Sex,
+* output = "subtitle"
+)
 
 *ggiraphExtra::ggSpine(
   data = Titanic_full,

@@ -21,3 +21,4 @@ subtitle_1	::	aes	ggpiestats	labs	Sex	Survived	Titanic_full
 unnamed-chunk-4	library	mtcars	one_sample_test	wt
 type_p	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
 type_np	cyl	ggbetweenstats	gghistostats	ggscatterstats	mpg	mtcars	wt
+xaringanExtra-progress	::

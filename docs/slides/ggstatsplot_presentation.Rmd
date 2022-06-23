@@ -65,6 +65,14 @@ options(
 xaringanExtra::use_search(show_icon = TRUE)
 ```
 
+```{r xaringanExtra-progress, echo=FALSE}
+xaringanExtra::use_progress_bar(
+  color = "darkred",
+  location = "top",
+  height = "0.2em"
+)
+```
+
 ---
 
 layout: true
@@ -954,11 +962,11 @@ layout: true
 .left-code[
 ```{r subtitle_1, eval=FALSE}
 results <- ggpiestats(
-    data = Titanic_full,
-    x = Survived,
-    y = Sex,
-    output = "subtitle" #<<
-  )
+  data = Titanic_full,
+  x = Survived,
+  y = Sex,
+  output = "subtitle" #<<
+)
 
 ggiraphExtra::ggSpine( #<<
   data = Titanic_full,
