@@ -1,4 +1,4 @@
-# `{ggstatsplot}`: R Package for `{ggplot2}` Based Plots with Statistical Details
+# `{ggstatsplot}`: `{ggplot2}` Based Plots with Statistical Details 
 
 This is a repository for presentation about the
 [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/) package (prepared
@@ -15,7 +15,7 @@ https://indrajeetpatil.github.io/ggstatsplot/
 ## Follow Along
 
 You can use the script
-[`ggstatsplot_presentation.R`](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/master/docs/slides/ggstatsplot_presentation.R)
+[`ggstatsplot_presentation.R`](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/main/docs/slides/ggstatsplot_presentation.R)
 to follow along during the talk or to review the plots later.
 
 ## Setup

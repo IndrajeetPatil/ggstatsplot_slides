@@ -1,8 +1,8 @@
 ---
 title: "`ggstatsplot`: `ggplot2` Plots with Statistics"
-subtitle: "An Introductory Tutorial (0.9.3)"
-author: "Indrajeet Patil (Software Engineer, esqLABS)"
-date: "`r Sys.Date()` <br> <br> <br>"
+subtitle: "An Introductory Tutorial"
+author: "Indrajeet Patil (Software Engineer, cynkra)"
+#date: "`r Sys.Date()` <br> <br> <br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -116,7 +116,7 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (`CRAN`) **> 17,000**
+Current count of packages on the Comprehensive R Archive Network (`CRAN`) **> 19,000**
 ]
 
 ]

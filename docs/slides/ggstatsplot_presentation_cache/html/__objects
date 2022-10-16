@@ -1,8 +1,9 @@
 xaringanExtra-search	.ggstatsplot_presentation_cache/html/xaringanExtra-search_e4bc69f9757cd96c73623793d9da6acc_meta
+xaringanExtra-progress	.ggstatsplot_presentation_cache/html/xaringanExtra-progress_3174229fb2860f232109dbfe9dc1a1bf_meta
 unnamed-chunk-1	
 unnamed-chunk-2	
 unnamed-chunk-3	
-ggbetweenstats_1	
+ggbetweenstats_1	.Random.seed
 ggbetweenstats_2	
 ggwithinstats_1	
 gghistostats_1	
@@ -21,4 +22,3 @@ subtitle_1	results
 unnamed-chunk-4	
 type_p	
 type_np	
-xaringanExtra-progress	.ggstatsplot_presentation_cache/html/xaringanExtra-progress_3174229fb2860f232109dbfe9dc1a1bf_meta
