@@ -1,4 +1,4 @@
-# An Introductory Tutorial on `{ggstatsplot}`: `{ggplot2}` Plots with Statistics
+# Introduction to `{ggstatsplot}`: `{ggplot2}` Plots with Statistics
 
 This is a repository for presentation about the
 [`{ggstatsplot}`](https://indrajeetpatil.github.io/ggstatsplot/) package (prepared
@@ -11,12 +11,6 @@ The slides are available here:<br>
 
 There is also a dedicated website for this package:<br>
 <https://indrajeetpatil.github.io/ggstatsplot/>
-
-## Follow Along
-
-You can use the script
-[`ggstatsplot_presentation.R`](https://github.com/IndrajeetPatil/ggstatsplot_slides/blob/main/docs/slides/ggstatsplot_presentation.R)
-to follow along during the talk or to review the plots later.
 
 ## Setup
 
