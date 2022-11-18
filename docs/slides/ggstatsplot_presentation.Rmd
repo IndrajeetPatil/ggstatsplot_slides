@@ -1,7 +1,6 @@
 ---
-title: "`ggstatsplot`: `ggplot2` Plots with Statistics"
-subtitle: "An Introductory Tutorial"
-author: "Indrajeet Patil (Software Engineer, cynkra)"
+title: "An Introductory Tutorial on `{ggstatsplot}`: `{ggplot2}` Plots with Statistics"
+author: "Indrajeet Patil"
 #date: "`r Sys.Date()` <br> <br> <br>"
 output:
   xaringan::moon_reader:

@@ -1,16 +1,16 @@
-# `{ggstatsplot}`: `{ggplot2}` Based Plots with Statistical Details 
+# An Introductory Tutorial on `{ggstatsplot}`: `{ggplot2}` Plots with Statistics
 
 This is a repository for presentation about the
-[`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/) package (prepared
-using R package [xaringan](https://github.com/yihui/xaringan)).
+[`{ggstatsplot}`](https://indrajeetpatil.github.io/ggstatsplot/) package (prepared
+using R package [{xaringan}](https://github.com/yihui/xaringan)).
 
-[![](thumbnail.png)](https://indrajeetpatil.github.io/ggstatsplot_slides/slides/ggstatsplot_presentation.html#1)
+[![](docs/slides/images/hex-ggstatsplot.png)](https://indrajeetpatil.github.io/ggstatsplot_slides/slides/ggstatsplot_presentation.html#1)
 
 The slides are available here:<br>
-https://indrajeetpatil.github.io/ggstatsplot_slides/slides/ggstatsplot_presentation.html#1
+<https://indrajeetpatil.github.io/ggstatsplot_slides/slides/ggstatsplot_presentation.html#1>
 
 There is also a dedicated website for this package:<br>
-https://indrajeetpatil.github.io/ggstatsplot/
+<https://indrajeetpatil.github.io/ggstatsplot/>
 
 ## Follow Along
 
