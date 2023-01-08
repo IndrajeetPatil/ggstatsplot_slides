@@ -1461,7 +1461,7 @@ layout: false
 
 class: inverse, center, middle
 
-# For more information
+# More documentation
 
 .font100[
 
@@ -1470,6 +1470,20 @@ class: inverse, center, middle
 🗃️ [Website](https://indrajeetpatil.github.io/ggstatsplot/)
 
 🎥 [Yury Zablotski's YouTube playlist on *ggstatsplot*](https://www.youtube.com/playlist?list=PLPWcjtBkAf6kI13vCpRm08zRarRwIiZ9U) 
+
+]
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# For more
+
+.font100[
+
+If you are interested in good programming and software development practices, check out my other [slide decks](https://sites.google.com/site/indrajeetspatilmorality/presentations).
 
 ]
 
