@@ -335,49 +335,6 @@ Function internally decides tests
 
 layout: true
 
-# ggbetweenstats - outlier tagging
-
----
-
---
-
-.left-code[
-
-```r
-ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
-* type = "r",
-* outlier.tagging = TRUE,
-* outlier.label = title
-)
-```
-
-.font70[
-[Tukey's fences](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) method using 
-interquartile range flags outliers.
-
-Changing the `type` of test
-
-✅ `"p"`  &amp;nbsp;&amp;nbsp;→ **parametric** &lt;br&gt;
-✅ `"np"` → **non-parametric** &lt;br&gt;
-✅ `"r"`  &amp;nbsp;&amp;nbsp;→ **robust**  &lt;br&gt;
-✅ `"bf"` → **Bayesian**
-]
-
-]
-
---
-
-.right-plot[
-&lt;img src="ggstatsplot_presentation_files/figure-html/ggbetweenstats_2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-
 # ggwithinstats - repeated measures equivalent
 
 ---
