@@ -4,7 +4,6 @@ unnamed-chunk-1	install.packages
 unnamed-chunk-2	::
 unnamed-chunk-3	library
 ggbetweenstats_1	ggbetweenstats	movies_long	mpaa	rating
-ggbetweenstats_2	ggbetweenstats	movies_long	mpaa	rating	title
 ggwithinstats_1	::	ggwithinstats	Taste	Wine
 gghistostats_1	budget	gghistostats	movies_long
 ggdotplotstats_1	budget	genre	ggdotplotstats	movies_long
