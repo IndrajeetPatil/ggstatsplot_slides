@@ -893,7 +893,7 @@ ggbetweenstats(
   # turn off Bayesian message
   bf.message = FALSE, #<<
   # turn off pairwise comparisons
-  pairwise.comparisons = FALSE #<<
+  pairwise.display = "none" #<<
 )
 ```
 ]
