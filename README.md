@@ -20,6 +20,8 @@ You will need to install the following package-
 install.packages("ggstatsplot")
 ```
 
+<div class="versions" style="visibility:hidden">
+
 ## Versions
 
 These slides are from presentations given at various events:
@@ -43,3 +45,5 @@ These slides are from presentations given at various events:
 
   - **Harvard Psych Method Dinners**, William James Hall, Harvard University,
     Cambridge, MA, USA, February 5, 2019.
+
+</div>

@@ -107,7 +107,7 @@ class: center
 .right-column[
 
 .font120[
-Current count of packages on the Comprehensive R Archive Network (`CRAN`) **&gt; 19,000**
+Current count of packages on the Comprehensive R Archive Network (`CRAN`) **&gt; 21,000**
 ]
 
 ]
@@ -220,10 +220,6 @@ The .blue[grammar of graphics] is a powerful framework [(Wilkinson, 2011)](https
 ![](images/cat_trademill.gif)
 ]
 
---
-
-`\(\sum_{time}\)` (Needed time ↑ + Likelihood to graphical explore data ↓) = Avoidance habit
-
 ---
 
 layout: false
@@ -247,7 +243,7 @@ Install the stable version of `ggstatsplot` from
 [CRAN](https://cran.r-project.org/web/packages/ggstatsplot/index.html):
 
 
-```r
+``` r
 install.packages("ggstatsplot")
 ```
 --
@@ -256,7 +252,7 @@ You can get the development version of the package from
 [Github](https://github.com/IndrajeetPatil/ggstatsplot):
 
 
-```r
+``` r
 remotes::install_github("IndrajeetPatil/ggstatsplot")
 ```
 
@@ -265,7 +261,7 @@ remotes::install_github("IndrajeetPatil/ggstatsplot")
 Load the needed packages-
 
 
-```r
+``` r
 library(ggstatsplot)
 library(ggplot2)
 ```
@@ -298,7 +294,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -344,7 +340,7 @@ layout: true
 .left-code[
 
 
-```r
+``` r
 ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
@@ -391,7 +387,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 gghistostats(
   data = movies_long,
   x = budget,
@@ -437,7 +433,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggdotplotstats(
   data = movies_long,
   x = budget,
@@ -490,7 +486,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -535,7 +531,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggscatterstats(
   data = movies_long,
   x = budget,
@@ -566,7 +562,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggcorrmat(dplyr::starwars)
 ```
 
@@ -615,7 +611,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggpiestats(
   data = dplyr::filter(
     movies_long,
@@ -657,7 +653,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggbarstats(
   data = dplyr::filter(
     movies_long,
@@ -707,7 +703,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 # model
 mod &lt;- lm(
   formula = rating ~ mpaa,
@@ -759,7 +755,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 grouped_ggpiestats(
   data = mtcars,
   x = cyl,
@@ -807,7 +803,7 @@ Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
 
 .left-code[
 
-```r
+``` r
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -843,7 +839,7 @@ You can modify `ggstatsplot` plots further using `ggplot2` functions. 🎉
 
 .left-code[
 
-```r
+``` r
 ggbetweenstats(
   data = mtcars,
   x = am,
@@ -877,7 +873,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 ggbetweenstats(
   data = iris,
   x = Species,
@@ -912,7 +908,7 @@ layout: true
 
 .left-code[
 
-```r
+``` r
 results &lt;- ggpiestats(
   data = Titanic_full,
   x = Survived,
@@ -954,7 +950,7 @@ layout: true
 
 .pull-right[
 
-```r
+``` r
 library(statsExpressions)
 
 # for example
@@ -1007,7 +1003,7 @@ layout: false
 **.blue[Parametric]**
 
 
-```r
+``` r
 # anova
 ggbetweenstats(
   data = mtcars,
@@ -1041,7 +1037,7 @@ gghistostats(
 **.orange[Non-parametric]** 
 
 
-```r
+``` r
 # anova
 ggbetweenstats(
   data = mtcars,
