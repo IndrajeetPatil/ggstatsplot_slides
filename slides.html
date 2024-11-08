@@ -224,7 +224,9 @@
 </div></div>
 </section><section id="simplerfaster-data-analysis-workflow" class="slide level2 smaller"><h2>Simpler/faster data analysis workflow</h2>
 
-<img data-src="media/ds_workflow.png" class="r-stretch"><p><a href="https://r4ds.had.co.nz/">(Grolemund &amp; Wickham, <em>R for Data Science</em>, 2017)</a></p>
+<img data-src="media/ds_workflow.png" class="r-stretch"><div class="footer">
+<p><a href="https://r4ds.had.co.nz/">(Grolemund &amp; Wickham, <em>R for Data Science</em>, 2017)</a></p>
+</div>
 <div class="fragment">
 <p>In a typical <em>exploratory</em> data analysis workflow, <strong>data visualization</strong> and <strong>statistical modeling</strong> are two different phases: visualization informs modeling, and modeling can suggest a different visualization, and so on and so forth. <br></p>
 </div>
@@ -233,7 +235,9 @@
 </div>
 </section><section id="information-rich-graphic-is-worth-a-thousand-words" class="slide level2 smaller"><h2>Information-rich graphic is worth a thousand words</h2>
 
-<img data-src="media/datasaurus.gif" class="r-stretch"><p><a href="https://www.autodeskresearch.com/publications/samestats">(Matejka &amp; Fitzmaurice, <em>Autodesk Research</em>,2017)</a></p>
+<img data-src="media/datasaurus.gif" class="r-stretch"><div class="footer">
+<p><a href="https://www.autodeskresearch.com/publications/samestats">(Matejka &amp; Fitzmaurice, <em>Autodesk Research</em>,2017)</a></p>
+</div>
 <p><strong>Graphical</strong> summaries can reveal problems not visible from <strong>numerical</strong> statistics.</p>
 </section><section id="ready-made-plot-no-customization" class="slide level2 smaller"><h2>Ready-made plot = no customization</h2>
 <p>The <strong>grammar of graphics</strong> is a powerful framework <a href="https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc">(Wilkinson, 2011)</a> and can help you make <em>any</em> graphics fitting your specific data visualization needs! But…</p>
@@ -245,20 +249,16 @@
 <p><img data-src="media/cat_trademill.gif"></p>
 </div></div>
 </div>
-</section><section class="slide level2"></section><section><section id="and-a-lot-more" class="title-slide slide level1 center"><h1>And a LOT more!</h1>
+</section><section><section id="and-a-lot-more" class="title-slide slide level1 center"><h1>And a LOT more!</h1>
 <p>…but we will come back to that later 📌</p>
 <p>Let’s get started first!</p>
-</section><section id="installation" class="slide level2"><h2>Installation</h2>
+</section><section id="installation" class="slide level2 smaller"><h2>Installation</h2>
 <p>–</p>
 <p>Install the stable version of <a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> from <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">CRAN</a>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggstatsplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggstatsplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>–</p>
 <p>You can get the development version of the package from <a href="https://github.com/IndrajeetPatil/ggstatsplot">Github</a>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"IndrajeetPatil/ggstatsplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"IndrajeetPatil/ggstatsplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>–</p>
 <p>Load the needed packages-</p>
 <div class="cell">
@@ -269,16 +269,9 @@
 
 </section><section class="slide level2"></section></section><section><section id="hypothesis-about-group-differences" class="title-slide slide level1 center"><h1>Hypothesis about group differences</h1>
 
-</section><section class="slide level2"></section></section><section><section id="ggbetweenstats---for-between-group-comparisons" class="title-slide slide level1 center"><h1>ggbetweenstats - For between group comparisons</h1>
-
-</section><section class="slide level2"><p>Function internally decides tests</p>
-<ul>
-<li>
-<em>t</em>-test if <code>2</code> groups</li>
-<li>ANOVA if <code>&gt; 2</code> groups</li>
-</ul>
-<p>✏️ Defaults return <br></p>
-<p>✅ raw data + distributions <br> ✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ pairwise comparisons <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation ]</p>
+</section><section id="ggbetweenstats---for-between-group-comparisons" class="slide level2 smaller"><h2>ggbetweenstats - For between-group comparisons</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
 <span id="cb4-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -286,9 +279,30 @@
 <span id="cb4-4"><a href=""></a>  <span class="at">y =</span> rating</span>
 <span id="cb4-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section class="slide level2"></section></section><section><section id="ggwithinstats---repeated-measures-equivalent" class="title-slide slide level1 center"><h1>ggwithinstats - repeated measures equivalent</h1>
-
-</section><section class="slide level2"><p>✏️ Defaults return <br></p>
+</div><div class="column" style="width:35%;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Function internally decides tests</p>
+<ul>
+<li>
+<em>t</em>-test if <code>2</code> groups</li>
+<li>ANOVA if <code>&gt; 2</code> groups</li>
+</ul>
+<p>✏️ Defaults return <br></p>
+<p>✅ raw data + distributions <br> ✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ pairwise comparisons <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation</p>
+</div>
+</div>
+</div>
+</div></div>
+</section><section id="ggwithinstats---repeated-measures-equivalent" class="slide level2 smaller"><h2>ggwithinstats - repeated measures equivalent</h2>
+<p>✏️ Defaults return <br></p>
 <p>✅ raw data + distributions <br> ✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ pairwise comparisons <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
 <p>Changing the <code>type</code> of test</p>
 <p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong></p>
@@ -299,9 +313,7 @@
 <span id="cb5-4"><a href=""></a>  <span class="at">y =</span> Taste</span>
 <span id="cb5-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section class="slide level2"></section></section><section><section id="gghistostats---distribution-of-a-numeric-variable" class="title-slide slide level1 center"><h1>gghistostats - Distribution of a numeric variable</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="gghistostats---distribution-of-a-numeric-variable" class="slide level2 smaller"><h2>gghistostats - Distribution of a numeric variable</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">gghistostats</span>(</span>
 <span id="cb6-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -312,13 +324,9 @@
 <p>✏️ Defaults return <br></p>
 <p>✅ counts + proportion for bins <br> ✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
 <p>Changing the <code>type</code> of test</p>
-<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong> ]</p>
-<p>]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="ggdotplotstats---labeled-numeric-variable" class="title-slide slide level1 center"><h1>ggdotplotstats - Labeled numeric variable</h1>
-
-</section><section class="slide level2"><p>–</p>
+<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong></p>
+</section><section id="ggdotplotstats---labeled-numeric-variable" class="slide level2 smaller"><h2>ggdotplotstats - Labeled numeric variable</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggdotplotstats</span>(</span>
 <span id="cb7-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -330,14 +338,11 @@
 <p>✏️ Defaults return <br></p>
 <p>✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
 <p>Changing the <code>type</code> of test</p>
-<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong> ] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="hypothesis-about-correlation" class="title-slide slide level1 center"><h1>Hypothesis about correlation</h1>
+<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong></p>
+</div>
+</section></section><section id="hypothesis-about-correlation" class="title-slide slide level1 center"><h1>Hypothesis about correlation</h1>
 
-</section><section class="slide level2"></section></section><section><section id="ggscatterstats---two-numeric-variables" class="title-slide slide level1 center"><h1>ggscatterstats - Two numeric variables</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section><section id="ggscatterstats---two-numeric-variables" class="title-slide slide level1 smaller center"><h1>ggscatterstats - Two numeric variables</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
 <span id="cb8-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -348,12 +353,8 @@
 <p>✏️ Defaults return <br></p>
 <p>✅ joint distribution <br> ✅ marginal distributions <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
 <p>Changing the <code>type</code> of test</p>
-<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong> ] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="ggscatterstats---conditional-point-tagging" class="title-slide slide level1 center"><h1>ggscatterstats - conditional point tagging</h1>
-
-</section><section class="slide level2"><p>–</p>
+<p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong></p>
+</section><section id="ggscatterstats---conditional-point-tagging" class="slide level2 smaller"><h2>ggscatterstats - conditional point tagging</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
 <span id="cb9-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -365,12 +366,8 @@
 <span id="cb9-8"><a href=""></a>  <span class="sc">&amp;</span> rating <span class="sc">&gt;</span> <span class="fl">7.5</span> </span>
 <span id="cb9-9"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="ggcorrmat---multiple-numeric-variables" class="title-slide slide level1 center"><h1>ggcorrmat - multiple numeric variables</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="ggcorrmat---multiple-numeric-variables" class="slide level2 smaller"><h2>ggcorrmat - multiple numeric variables</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggcorrmat</span>(dplyr<span class="sc">::</span>starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -379,14 +376,10 @@
 <p>Changing the <code>type</code> of test</p>
 <p>✅ <code>"p"</code> &nbsp;&nbsp;→ <strong>parametric</strong> <br> ✅ <code>"np"</code> → <strong>non-parametric</strong> <br> ✅ <code>"r"</code> &nbsp;&nbsp;→ <strong>robust</strong> <br> ✅ <code>"bf"</code> → <strong>Bayesian</strong></p>
 <p>Partial correlations are also supported! Just set <code>partial=TRUE</code>.</p>
-<p>] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="hypothesis-of-composition-of-categorical-variables" class="title-slide slide level1 center"><h1>Hypothesis of composition of categorical variables</h1>
+</div>
+</section></section><section><section id="hypothesis-of-composition-of-categorical-variables" class="title-slide slide level1 center"><h1>Hypothesis of composition of categorical variables</h1>
 
-</section><section class="slide level2"></section></section><section><section id="ggpiestats---association-between-categorical-variables" class="title-slide slide level1 center"><h1>ggpiestats - association between categorical variables</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="ggpiestats---association-between-categorical-variables" class="slide level2 smaller"><h2>ggpiestats - association between categorical variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggpiestats</span>(</span>
 <span id="cb11-2"><a href=""></a>  <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
@@ -399,12 +392,7 @@
 </div>
 <p>✏️ Defaults return <br></p>
 <p>✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Goodness-of-fit tests <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
-<p>] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="ggbarstats---association-between-categorical-variables" class="title-slide slide level1 center"><h1>ggbarstats - association between categorical variables</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="ggbarstats---association-between-categorical-variables" class="slide level2 smaller"><h2>ggbarstats - association between categorical variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggbarstats</span>(</span>
 <span id="cb12-2"><a href=""></a>  <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
@@ -417,14 +405,10 @@
 <span id="cb12-9"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>✏️ Defaults return <br></p>
-<p>✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Goodness-of-fit tests <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br> ] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="hypothesis-about-regression-coefficients" class="title-slide slide level1 center"><h1>Hypothesis about regression coefficients</h1>
+<p>✅ descriptive statistics <br> ✅ inferential statistics <br> ✅ effect size + CIs <br> ✅ Goodness-of-fit tests <br> ✅ Bayesian hypothesis-testing <br> ✅ Bayesian estimation <br></p>
+</section></section><section><section id="hypothesis-about-regression-coefficients" class="title-slide slide level1 center"><h1>Hypothesis about regression coefficients</h1>
 
-</section><section class="slide level2"></section></section><section><section id="ggcoefstats" class="title-slide slide level1 center"><h1>ggcoefstats</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="ggcoefstats---regression-modeling" class="slide level2 smaller"><h2>ggcoefstats - regression modeling</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># model</span></span>
 <span id="cb13-2"><a href=""></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -438,17 +422,11 @@
 <p>✏️ Defaults return <br></p>
 <p>✅ estimate + CIs <br> ✅ inferential statistics (<span class="math inline">\(t\)</span>, <span class="math inline">\(z\)</span>, <span class="math inline">\(F\)</span>, <span class="math inline">\(\chi^2\)</span>) <br> ✅ model fit indices (AIC + BIC)</p>
 <p>Supports all regression models supported in <a href="https://easystats.github.io/insight/reference/is_model_supported.html"><code>{easystats}</code></a> ecosystem.</p>
-<p>]</p>
-<p>]</p>
-<p>–</p>
-<p>]</p>
 </section><section class="slide level2"></section></section><section><section id="grouped_-variants-of-all-functions" class="title-slide slide level1 center"><h1>
 <em>grouped_</em> variants of all functions</h1>
 <p>Running the same function for all levels of a single grouping variable</p>
-</section><section class="slide level2"></section></section><section><section id="grouped_-functions" class="title-slide slide level1 center"><h1>
-<em>grouped_</em> functions</h1>
-
-</section><section class="slide level2"><p>–</p>
+</section><section id="grouped_-functions" class="slide level2 smaller"><h2>
+<em>grouped_</em> functions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">grouped_ggpiestats</span>(</span>
 <span id="cb14-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
@@ -456,15 +434,12 @@
 <span id="cb14-4"><a href=""></a>  <span class="at">grouping.var =</span> am </span>
 <span id="cb14-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Available <code>grouped_</code> variants - <code>grouped_ggbetweenstats</code> - <code>grouped_ggwithinstats</code> - <code>grouped_gghistostats</code> - <code>grouped_ggdotplotstats</code> - <code>grouped_ggscatterstats</code> - <code>grouped_ggcorrmat</code> - <code>grouped_ggpiestats</code> - <code>grouped_ggbarstats</code>] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="customizability-of-ggstatsplot" class="title-slide slide level1 center"><h1>Customizability of <em>ggstatsplot</em>
+<p>Available <code>grouped_</code> variants - <code>grouped_ggbetweenstats()</code> - <code>grouped_ggwithinstats()</code> - <code>grouped_gghistostats()</code> - <code>grouped_ggdotplotstats()</code> - <code>grouped_ggscatterstats()</code> - <code>grouped_ggcorrmat()</code> - <code>grouped_ggpiestats()</code> - <code>grouped_ggbarstats()</code></p>
+</section></section><section><section id="customizability-of-ggstatsplot" class="title-slide slide level1 center"><h1>Customizability of <em>ggstatsplot</em>
 </h1>
 <p>“What if I don’t like the default plots?” 🤔</p>
-</section><section class="slide level2"></section></section><section><section id="changing-aesthetics-themes-palettes" class="title-slide slide level1 center"><h1>Changing aesthetics (themes + palettes) 🎨</h1>
-
-</section><section class="slide level2"><p>Aesthetic preferences not an excuse to avoid <code>ggstatsplot</code>! 😻</p>
+</section><section id="changing-aesthetics-themes-palettes" class="slide level2 smaller"><h2>Changing aesthetics (themes + palettes) 🎨</h2>
+<p>Aesthetic preferences not an excuse to avoid <code>ggstatsplot</code>! 😻</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
 <span id="cb15-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -475,13 +450,10 @@
 <span id="cb15-7"><a href=""></a>  <span class="at">package =</span> <span class="st">"wesanderson"</span> </span>
 <span id="cb15-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The default palette is **colorblind-friendly].] ]</p>
-<p>–</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="further-modification-with-ggplot2" class="title-slide slide level1 center"><h1>Further modification with <em>ggplot2</em> 🛠</h1>
-
-</section><section class="slide level2"><p>You can modify <code>ggstatsplot</code> plots further using <code>ggplot2</code> functions. 🎉</p>
-<p>–</p>
+<p>The default palette is <strong>colorblind-friendly</strong>.</p>
+</section><section id="further-modification-with-ggplot2" class="slide level2 smaller"><h2>Further modification with <code>{ggplot2}</code> 🛠</h2>
+<p>You can modify <a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> plots further using <a href="https://ggplot2.tidyverse.org">ggplot2</a> functions. 🎉</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
 <span id="cb16-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
@@ -491,13 +463,10 @@
 <span id="cb16-6"><a href=""></a>) <span class="sc">+</span></span>
 <span id="cb16-7"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">sec.axis =</span> <span class="fu">dup_axis</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>.img-left-small[ <img data-src="media/happy_cat.gif">]</p>
-<p>]</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="too-much-information" class="title-slide slide level1 center"><h1>Too much information 🙈</h1>
-
-</section><section class="slide level2"><p><code>ggstatsplot</code> can be used to get **only plots].</p>
-<p>–</p>
+<p><img data-src="media/happy_cat.gif"></p>
+</div>
+</section><section id="too-much-information" class="slide level2 smaller"><h2>Too much information 🙈</h2>
+<p><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> can be used to get <strong>only plots</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
 <span id="cb17-2"><a href=""></a>  <span class="at">data =</span> iris,</span>
@@ -513,12 +482,9 @@
 <span id="cb17-12"><a href=""></a>  <span class="at">pairwise.display =</span> <span class="st">"none"</span> </span>
 <span id="cb17-13"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>]</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="expressions-for-custom-plots" class="title-slide slide level1 center"><h1>Expressions for custom plots 🀄️</h1>
-
-</section><section class="slide level2"><p><code>ggstatsplot</code> can be used to get <strong>only expressions</strong>.</p>
-<p>–</p>
+</section><section id="expressions-for-custom-plots" class="slide level2 smaller"><h2>Expressions for custom plots 🀄️</h2>
+<p><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> can be used to get <strong>only expressions</strong>.</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>results <span class="ot">&lt;-</span> <span class="fu">ggpiestats</span>(</span>
 <span id="cb18-2"><a href=""></a>  <span class="at">data =</span> Titanic_full,</span>
@@ -535,33 +501,32 @@
 <span id="cb18-13"><a href=""></a>) <span class="sc">+</span></span>
 <span id="cb18-14"><a href=""></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> results) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section class="slide level2"></section></section><section><section id="dataframes" class="title-slide slide level1 center"><h1>Dataframes</h1>
-
-</section><section class="slide level2"><p><a href="https://indrajeetpatil.github.io/statsExpressions/"><code>statsExpressions</code></a>, statistical processing backend for <a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a>, can provide <strong>data frames</strong>.</p>
-<p>–</p>
-
-<img src="media/statsExpressions.png" alt="drawing" style="width:350px;" class="r-stretch"><div class="cell" data-df.print="tibble">
+</div>
+</section><section id="data-frames" class="slide level2 smaller"><h2>Data frames</h2>
+<p><a href="https://indrajeetpatil.github.io/statsExpressions/"><code>statsExpressions</code></a>, statistical processing backend for <a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a>, can provide <strong>data frames</strong>.</p>
+<div class="fragment">
+<p><img src="media/statsExpressions.png" alt="drawing" style="width:350px;"></p>
+<div class="cell" data-df.print="tibble">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(statsExpressions)</span>
 <span id="cb19-2"><a href=""></a></span>
-<span id="cb19-3"><a href=""></a><span class="co"># for example</span></span>
-<span id="cb19-4"><a href=""></a><span class="fu">one_sample_test</span>(</span>
-<span id="cb19-5"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb19-6"><a href=""></a>  <span class="at">x =</span> wt,</span>
-<span id="cb19-7"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">3</span></span>
-<span id="cb19-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href=""></a><span class="fu">one_sample_test</span>(</span>
+<span id="cb19-4"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb19-5"><a href=""></a>  <span class="at">x =</span> wt,</span>
+<span id="cb19-6"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">3</span></span>
+<span id="cb19-7"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section class="slide level2"></section></section><section><section id="why-use-ggstatsplot" class="title-slide slide level1 center"><h1>Why use <em>ggstatsplot</em>? 👍️</h1>
+</div>
+</section></section><section><section id="why-use-ggstatsplot" class="title-slide slide level1 center"><h1>Why use <code>{ggstatsplot}</code>? 👍️</h1>
 
-</section><section class="slide level2"></section></section><section><section id="supports-different-statistical-approaches" class="title-slide slide level1 center"><h1>Supports different statistical approaches</h1>
-<p>–</p>
+</section><section id="supports-different-statistical-approaches" class="slide level2 smaller"><h2>Supports different statistical approaches</h2>
 <table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 41%">
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 5%">
-<col style="width: 6%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">Functions</th>
@@ -651,210 +616,155 @@
 <td style="text-align: left;">✅</td>
 </tr>
 </tbody>
-</table></section><section class="slide level2"></section></section><section><section id="toggling-between-statistical-approaches" class="title-slide slide level1 center"><h1>Toggling between statistical approaches 🔀</h1>
-<p>–</p>
-<p>.pull-left[</p>
-<p>****Parametric]**</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># anova</span></span>
-<span id="cb20-2"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
-<span id="cb20-3"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb20-4"><a href=""></a>  <span class="at">x =</span> cyl,</span>
-<span id="cb20-5"><a href=""></a>  <span class="at">y =</span> wt,</span>
-<span id="cb20-6"><a href=""></a>  <span class="at">type =</span> <span class="st">"p"</span> </span>
-<span id="cb20-7"><a href=""></a>)</span>
-<span id="cb20-8"><a href=""></a></span>
-<span id="cb20-9"><a href=""></a><span class="co"># correlation analysis</span></span>
-<span id="cb20-10"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
-<span id="cb20-11"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb20-12"><a href=""></a>  <span class="at">x =</span> wt,</span>
-<span id="cb20-13"><a href=""></a>  <span class="at">y =</span> mpg,</span>
-<span id="cb20-14"><a href=""></a>  <span class="at">type =</span> <span class="st">"p"</span> </span>
-<span id="cb20-15"><a href=""></a>)</span>
-<span id="cb20-16"><a href=""></a></span>
-<span id="cb20-17"><a href=""></a><span class="co"># t-test</span></span>
-<span id="cb20-18"><a href=""></a><span class="fu">gghistostats</span>(</span>
-<span id="cb20-19"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb20-20"><a href=""></a>  <span class="at">x =</span> wt,</span>
-<span id="cb20-21"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">2</span>,</span>
-<span id="cb20-22"><a href=""></a>  <span class="at">type =</span> <span class="st">"p"</span> </span>
-<span id="cb20-23"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>]</p>
-<p>–</p>
-<p>.pull-right[</p>
-<p><strong>.orange[Non-parametric]</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># anova</span></span>
-<span id="cb21-2"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
-<span id="cb21-3"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb21-4"><a href=""></a>  <span class="at">x =</span> cyl,</span>
-<span id="cb21-5"><a href=""></a>  <span class="at">y =</span> wt,</span>
-<span id="cb21-6"><a href=""></a>  <span class="at">type =</span> <span class="st">"np"</span> </span>
-<span id="cb21-7"><a href=""></a>)</span>
-<span id="cb21-8"><a href=""></a></span>
-<span id="cb21-9"><a href=""></a><span class="co"># correlation analysis</span></span>
-<span id="cb21-10"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
-<span id="cb21-11"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb21-12"><a href=""></a>  <span class="at">x =</span> wt,</span>
-<span id="cb21-13"><a href=""></a>  <span class="at">y =</span> mpg,</span>
-<span id="cb21-14"><a href=""></a>  <span class="at">type =</span> <span class="st">"np"</span> </span>
-<span id="cb21-15"><a href=""></a>)</span>
-<span id="cb21-16"><a href=""></a></span>
-<span id="cb21-17"><a href=""></a><span class="co"># t-test</span></span>
-<span id="cb21-18"><a href=""></a><span class="fu">gghistostats</span>(</span>
-<span id="cb21-19"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb21-20"><a href=""></a>  <span class="at">x =</span> wt,</span>
-<span id="cb21-21"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">2</span>,</span>
-<span id="cb21-22"><a href=""></a>  <span class="at">type =</span> <span class="st">"np"</span> </span>
-<span id="cb21-23"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="alternative-workflow-to-the-following" class="title-slide slide level1 center"><h1>Alternative workflow to the following</h1>
-<p>–</p>
-<p>.pull-left[</p>
-<p>.font90[ **Load ’em up!]</p>
+</table></section><section id="toggling-between-statistical-approaches" class="slide level2 smaller"><h2>Toggling between statistical approaches 🔀</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Parametric</strong></p>
+<p>```{.r type_p} # anova ggbetweenstats( data = mtcars, x = cyl, y = wt, type = “p” )</p>
+<section id="correlation-analysis" class="title-slide slide level1 center"><h1>correlation analysis</h1>
+<p>ggscatterstats( data = mtcars, x = wt, y = mpg, type = “p” )</p>
+</section><section id="t-test" class="title-slide slide level1 center"><h1>t-test</h1>
+<p>gghistostats( data = mtcars, x = wt, test.value = 2, type = “p” )</p>
+<p>…</p>
+<pre><code>:::
+
+::: {.column width='50%'}
+**Non-parametric**
+
+```{.r type_np}
+# anova
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  type = "np" 
+)
+
+# correlation analysis
+ggscatterstats(
+  data = mtcars,
+  x = wt,
+  y = mpg,
+  type = "np" 
+)
+
+# t-test
+gghistostats(
+  data = mtcars,
+  x = wt,
+  test.value = 2,
+  type = "np" 
+)
+
+...</code></pre>
+</section>
+</div></div>
+</section><section id="alternative-workflow-to-the-following" class="slide level2 smaller"><h2>Alternative workflow to the following</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Load ’em up!</strong></p>
 <p>📦 for inferential statistics (e.g.&nbsp;<code>stats</code>) <br> 📦 computing effect size + CIs (e.g.&nbsp;<code>effectsize</code>) <br> 📦 for descriptives (e.g.&nbsp;<code>skimr</code>) <br> 📦 pairwise comparisons (e.g.&nbsp;<code>multcomp</code>) <br> 📦 Bayesian hypothesis testing (e.g. <code>BayesFactor</code>) <br> 📦 Bayesian estimation (e.g.&nbsp;<code>bayestestR</code>) <br> 📦 . <br> ]</p>
-<p>.img-left-small[ <img data-src="media/packages.gif">]</p>
-<p>]</p>
-<p>–</p>
-<p>.pull-right[</p>
-<p>.font90[ **Things to worry about] 🤕</p>
+<p><img data-src="media/packages.gif"></p>
+</div><div class="column" style="width:60%;">
+<p><strong>Things to worry about</strong> 🤕</p>
 <p>🤔 accepts dataframe, vectors, matrix? <br> 🤔 long/wide format data? <br> 🤔 works with <code>NA</code>s? <br> 🤔 returns list, dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary details? <br> 🤔 . <br></p>
-<p>.img-right-small[ <img data-src="media/monkey.gif">]</p>
-<p>]</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="results-in-context-of-the-underlying-data" class="title-slide slide level1 center"><h1>Results <em>in context</em> of the underlying data 🕵️</h1>
-<p>–</p>
-<p>.pull-left[</p>
+<p><img data-src="media/monkey.gif"></p>
+</div></div>
+</section><section id="results-in-context-of-the-data" class="slide level2 smaller"><h2>Results <em>in context</em> of the data 🕵️</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><strong>Standard approach</strong></p>
 <p>Pearson’s correlation test revealed that, across 142 participants, variable <code>x</code> was negatively correlated with variable <code>y</code>: <span class="math inline">\(t(140)=-0.76, p=.446\)</span>. The effect size <span class="math inline">\((r=-0.06, 95\% CI [-.23,.10])\)</span> was small, as per Cohen’s (1988) conventions. The Bayes Factor for the same analysis revealed that the data were 5.81 times more probable under the null hypothesis as compared to the alternative hypothesis. This can be considered moderate evidence (Jeffreys, 1961) in favor of the null hypothesis (absence of any correlation between <code>x</code> and <code>y</code>).</p>
-<p>]</p>
-<p>–</p>
-<p>.pull-right[</p>
+</div><div class="column" style="width:50%;">
 <p><strong><code>ggstatsplot</code> approach</strong></p>
-
-<img data-src="media/after_ggstats.PNG" class="r-stretch"><p>]</p>
-</section><section class="slide level2"></section><section class="slide level2"></section></section><section><section id="best-practices-in-statistical-reporting" class="title-slide slide level1 center"><h1>Best practices in statistical reporting 🏆</h1>
-<p>–</p>
-
-<img data-src="media/stats_reporting_format.png" class="r-stretch"></section><section class="slide level2"></section></section><section><section id="avoiding-reporting-errors" class="title-slide slide level1 center"><h1>Avoiding reporting errors</h1>
-<p>–</p>
-<p>.content-box-green[ “half of all published psychology papers that use NHST contained at least one <em>p</em>-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent <em>p</em>-value that may have affected the statistical conclusion”</p>
-<p><a href="https://link.springer.com/article/10.3758/s13428-015-0664-2">(Nuijten et al., <em>Behavior Research Methods</em>, 2016)</a> ]</p>
-<p>–</p>
-<p>Since the plot and the statistical analysis are yoked together, the chances of making an error in reporting the results are minimized.</p>
-<p>–</p>
-<p>No need to worry about updating figures and statistical details <strong>separately</strong>. 🔗</p>
-</section><section class="slide level2"></section></section><section><section id="making-sense-of-null-results" class="title-slide slide level1 center"><h1>Making sense of null results</h1>
-<p>–</p>
-<p><span class="math inline">\(p &gt; 0.05\)</span>: The null hypothesis (<code>H0</code>) can’t be rejected</p>
-<p>But can it be <strong>accepted</strong>?! Null Hypothesis Significance Testing 🤫</p>
-<p>–</p>
-<p>.content-box-green[ “In 72% of cases, nonsignificant results were misinterpreted, in that the authors inferred that the effect was absent. A Bayesian reanalysis revealed that fewer than 5% of the nonsignificant findings provided strong evidence (i.e., <span class="math inline">\(BF_{01} &gt; 10\)</span>) in favor of the null hypothesis over the alternative hypothesis.”</p>
-<p><a href="https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742">(Aczel et al., <em>AMPPS</em>, 2018)</a> ]</p>
-<p>–</p>
-<p>Juxtaposing frequentist and Bayesian statistics for the same analysis helps to properly interpret the null results.</p>
-</section><section class="slide level2"></section></section><section><section id="a-few-other-benefits" class="title-slide slide level1 center"><h1>A few other benefits</h1>
-
-</section><section class="slide level2"><p>–</p>
-<p>.content-box-green[ Minimal code needed (<code>data</code>, <code>x</code>, <code>y</code>): minimizes chances of error + tidy scripts. 💅]</p>
-<p>–</p>
-<p>.content-box-green[ Disembodied figures stand on their own and are easy to evaluate. 🧐]</p>
-<p>–</p>
-<p>.content-box-green[ More breathing room for theoretical discussion and other text. ✍]</p>
-</section><section class="slide level2"></section></section><section><section id="no-more-excuses-not-to-explore-data" class="title-slide slide level1 center"><h1>No more excuses not to explore data! 😉</h1>
-
-</section><section class="slide level2"><p>.content-box-yellow[</p>
+<p><img data-src="media/after_ggstats.PNG"></p>
+</div></div>
+</section><section id="no-more-excuses-not-to-explore-data" class="slide level2 smaller"><h2>No more excuses not to explore data! 😉</h2>
 <p>In summary, the <code>ggstatsplot</code> approach- <br><br> (<em>a</em>) avoids errors in statistical reporting, <br><br> (<em>b</em>) highlights the importance of the effect by providing effect size measures by default, <br><br> (<em>c</em>) provides an easy way to evaluate <em>absence</em> of an effect using Bayesian framework, <br><br> (<em>d</em>) demands to evaluate statistical analysis in the context of the underlying data, <br><br> and is (<em>e</em>) easy and (<em>f</em>) simple enough that somebody with little coding experience can use it without making an error.</p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="misconceptions-and-limitations" class="title-slide slide level1 center"><h1>Misconceptions and limitations</h1>
-
-</section><section class="slide level2"></section></section><section><section id="misconceptions-this-package-is" class="title-slide slide level1 center"><h1>Misconceptions: This package is…</h1>
-
-</section><section class="slide level2"><p>–</p>
-</section><section id="an-alternative-to-learning-ggplot2" class="slide level2"><h2>❌ an alternative to learning <code>ggplot2</code> <br>
-</h2>
-<p>✅ (the more you know <code>ggplot2</code>, the better you can modify the defaults to your liking)</p>
-<p>–</p>
-</section><section id="meant-to-be-used-in-talkspresentations" class="slide level2"><h2>❌ meant to be used in talks/presentations <br>
-</h2>
-<p>✅ (defaults too complicated for effectively communicating results in time-constrained presentation settings, e.g.&nbsp;conference talks)</p>
-<p>–</p>
-</section><section id="only-relevant-when-used-in-publications" class="slide level2"><h2>❌ only relevant when used in publications <br>
-</h2>
-<p>✅ not necessary; can also be useful <em>only</em> during exploratory phase</p>
-<p>–</p>
-</section><section id="the-only-game-in-town" class="slide level2"><h2>❌ the only game in town <br>
-</h2>
-<p>✅ (excellent GUI open-source softwares: <a href="https://jasp-stats.org/">JASP</a> and <a href="https://www.jamovi.org/">jamovi</a>)</p>
-</section><section class="slide level2"></section></section><section><section id="limitations-of-ggstatsplot" class="title-slide slide level1 center"><h1>Limitations of <em>ggstatsplot</em> 👎️</h1>
-
-</section><section class="slide level2"><p>–</p>
-<p>.content-box-red[ Limited no. of <strong>plots</strong> and <strong>statistical tests</strong> available. This will <strong>always</strong> be the case. 🤷]</p>
-<p>–</p>
-<p>.content-box-red[ Expects a non-trivial level of statistical proficiency (but plots without statistics can still be useful).]</p>
-<p>–</p>
-<p>.content-box-red[ <strong>Faceting</strong> does not work (since there are no corresponding <code>geom_</code> s). For the same reason, plots are not <a href="https://gganimate.com">gganimate</a>-friendly.]</p>
-</section><section class="slide level2"></section></section><section><section id="overcoming-these-limitations" class="title-slide slide level1 center"><h1>Overcoming these limitations 👥</h1>
-
-</section><section class="slide level2"><p>–</p>
-<p>.pull-left[</p>
-<p>Contributions (big or small) welcome!</p>
-
-<img data-src="media/needs_you.jpg" class="r-stretch"><p>]</p>
-<p>–</p>
-<p>.pull-right[ Ways in which you can <a href="https://github.com/IndrajeetPatil/ggstatsplot">contribute</a></p>
-<p>.content-box-purple[ - Star on GitHub (increases visibility) ⭐</p>
-<ul>
-<li><p>Cite if used in a publication 📝</p></li>
-<li><p>Proof-read the documentation 📖</p></li>
-<li><p>Raise issues about bugs/features 🐞</p></li>
-<li><p>Review code 🕵</p></li>
-<li><p>Add new functionality 👨‍💻 ]</p></li>
-</ul>
-<p>]</p>
-</section><section class="slide level2"></section></section><section><section id="acknowledgments" class="title-slide slide level1 center"><h1>Acknowledgments</h1>
-<p>–</p>
-<p>Developer friends 🙌</p>
-<p><a href="https://github.com/strengejacke">Daniel Lüdecke</a>, <a href="https://github.com/DominiqueMakowski">Dominique Makowski</a>, <a href="https://github.com/mattansb">Mattan S. Ben-Shachar</a>, <a href="https://github.com/bwiernik">Brenton M. Wiernik</a></p>
-<p>–</p>
-<p>Support 💰</p>
-<p><a href="http://www.intergroupneurosciencelaboratory.com/">Mina Cikara</a>, <a href="http://cushmanlab.fas.harvard.edu/index.php">Fiery Cushman</a>, <a href="https://rahwan.me/">Iyad Rahwan</a></p>
-<p>–</p>
-<p>Community 🙏</p>
-<p>Contributors to <em>ggstatsplot</em> &amp; <em>rstats</em> users and developers</p>
-</section><section class="slide level2"></section></section><section><section id="more-documentation" class="title-slide slide level1 center"><h1>More documentation</h1>
-<p>.font100[</p>
-<p>📄 <a href="https://joss.theoj.org/papers/10.21105/joss.03167">Publication</a></p>
-<p>🗃️ <a href="https://indrajeetpatil.github.io/ggstatsplot/">Website</a></p>
-<p>🎥 <a href="https://www.youtube.com/playlist?list=PLPWcjtBkAf6kI13vCpRm08zRarRwIiZ9U">Yury Zablotski’s YouTube playlist on <em>ggstatsplot</em></a></p>
-<p>]</p>
-</section><section class="slide level2"></section></section><section id="section" class="title-slide slide level1 center"><h1></h1>
-
-</section><section id="for-more" class="title-slide slide level1 center"><h1>For more</h1>
+</section></section><section id="for-more" class="title-slide slide level1 center"><h1>For more</h1>
 <p>If you are interested in good programming and software development practices, check out my other <a href="https://sites.google.com/site/indrajeetspatilmorality/presentations" target="_blank">slide decks</a>.</p>
 </section><section id="find-me-at" class="title-slide slide level1 center"><h1>Find me at…</h1>
-<p><i class="fa-brands fa-twitter" aria-label="twitter"></i></p>
-<p><a href="http://twitter.com/patilindrajeets" target="_blank">Twitter</a></p>
-<p><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></p>
-<p><a href="https://www.linkedin.com/in/indrajeet-patil-397865174/" target="_blank">LikedIn</a></p>
-<p><i class="fa-brands fa-github" aria-label="github"></i></p>
-<p><a href="http://github.com/IndrajeetPatil" target="_blank">GitHub</a></p>
-<p><i class="fa-solid fa-link" aria-label="link"></i></p>
-<p><a href="https://sites.google.com/site/indrajeetspatilmorality/" target="_blank">Website</a></p>
-<p><i class="fa-solid fa-envelope" aria-label="envelope"></i></p>
-<p><a href="mailto:patilindrajeet.science@gmail.com" target="_blank">E-mail</a></p>
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="http://twitter.com/patilindrajeets" target="_blank">Twitter</a></p>
+<p><i class="fa-brands fa-linkedin" aria-label="linkedin"></i> <a href="https://www.linkedin.com/in/indrajeet-patil-397865174/" target="_blank">LikedIn</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="http://github.com/IndrajeetPatil" target="_blank">GitHub</a></p>
+<p><i class="fa-solid fa-link" aria-label="link"></i> <a href="https://sites.google.com/site/indrajeetspatilmorality/" target="_blank">Website</a></p>
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> <a href="mailto:patilindrajeet.science@gmail.com" target="_blank">E-mail</a></p>
 </section><section><section id="thank-you" class="title-slide slide level1 center"><h1>Thank You 😊</h1>
 
 </section><section id="session-information" class="slide level2 smaller"><h2>Session information</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
-<span id="cb22-2"><a href=""></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>(<span class="at">include_base =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>quarto<span class="sc">::</span><span class="fu">quarto_version</span>()</span>
+<span id="cb21-2"><a href=""></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>(<span class="at">include_base =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="appendix" class="title-slide slide level1 center"><h1>Appendix</h1>
 
-</section>
+</section><section><section id="benefits-of-using-ggstatsplot" class="title-slide slide level1 center"><h1>Benefits of using <code>{ggstatsplot}</code>
+</h1>
+
+</section><section id="best-practices-in-statistical-reporting" class="slide level2 smaller"><h2>Best practices in statistical reporting 🏆</h2>
+
+<img data-src="media/stats_reporting_format.png" class="r-stretch"></section><section id="avoiding-reporting-errors" class="slide level2 smaller"><h2>Avoiding reporting errors</h2>
+<div class="fragment">
+<p>“half of all published psychology papers that use NHST contained at least one <em>p</em>-value that was inconsistent with its test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent <em>p</em>-value that may have affected the statistical conclusion”</p>
+<p><a href="https://link.springer.com/article/10.3758/s13428-015-0664-2">(Nuijten et al., <em>Behavior Research Methods</em>, 2016)</a></p>
+</div>
+<div class="fragment">
+<p>Since the plot and the statistical analysis are yoked together, the chances of making an error in reporting the results are minimized.</p>
+</div>
+<div class="fragment">
+<p>No need to worry about updating figures and statistical details <strong>separately</strong>. 🔗</p>
+</div>
+</section><section id="making-sense-of-null-results" class="slide level2 smaller"><h2>Making sense of null results</h2>
+<div class="fragment">
+<p><span class="math inline">\(p &gt; 0.05\)</span>: The null hypothesis (<code>H0</code>) can’t be rejected</p>
+<p>But can it be <strong>accepted</strong>?! Null Hypothesis Significance Testing 🤫</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>“In 72% of cases, nonsignificant results were misinterpreted, in that the authors inferred that the effect was absent. A Bayesian reanalysis revealed that fewer than 5% of the nonsignificant findings provided strong evidence (i.e., <span class="math inline">\(BF_{01} &gt; 10\)</span>) in favor of the null hypothesis over the alternative hypothesis.”</p>
+</blockquote>
+<p><a href="https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742">(Aczel et al., <em>AMPPS</em>, 2018)</a></p>
+</div>
+<div class="fragment">
+<p>Juxtaposing frequentist and Bayesian statistics for the same analysis helps to properly interpret the null results.</p>
+</div>
+</section><section id="a-few-other-benefits" class="slide level2 smaller"><h2>A few other benefits</h2>
+<div class="fragment">
+<p>Minimal code needed (<code>data</code>, <code>x</code>, <code>y</code>): minimizes chances of error + tidy scripts. 💅</p>
+</div>
+<div class="fragment">
+<p>Disembodied figures stand on their own and are easy to evaluate. 🧐</p>
+</div>
+<div class="fragment">
+<p>More breathing room for theoretical discussion and other text. ✍</p>
+</div>
+</section></section><section><section id="misconceptions-and-limitations" class="title-slide slide level1 center"><h1>Misconceptions and limitations</h1>
+
+</section><section id="misconceptions-this-package-is" class="slide level2 smaller"><h2>Misconceptions: This package is…</h2>
+<div class="fragment">
+<p>❌ an alternative to learning <code>ggplot2</code> <br><br> ✅ (the more you know <code>ggplot2</code>, the better you can modify the defaults to your liking) <br></p>
+</div>
+<div class="fragment">
+<p>❌ meant to be used in talks/presentations <br><br> ✅ (defaults too complicated for effectively communicating results in time-constrained presentation settings, e.g.&nbsp;conference talks) <br></p>
+</div>
+<div class="fragment">
+<p>❌ only relevant when used in publications <br><br> ✅ not necessary; can also be useful <em>only</em> during exploratory phase <br><br></p>
+</div>
+<div class="fragment">
+<p>❌ the only game in town <br><br> ✅ (excellent GUI open-source softwares: <a href="https://jasp-stats.org/">JASP</a> and <a href="https://www.jamovi.org/">jamovi</a>) <br></p>
+</div>
+</section><section id="limitations-of-ggstatsplot" class="slide level2 smaller"><h2>Limitations of <em>ggstatsplot</em> 👎️</h2>
+<div class="fragment">
+<p>Limited no. of <strong>plots</strong> and <strong>statistical tests</strong> available. This will <strong>always</strong> be the case. 🤷]</p>
+</div>
+<div class="fragment">
+<p>Expects a non-trivial level of statistical proficiency (but plots without statistics can still be useful).</p>
+</div>
+<div class="fragment">
+<p><strong>Faceting</strong> does not work (since there are no corresponding <code>geom_</code> s). For the same reason, plots are not <a href="https://gganimate.com">gganimate</a>-friendly.</p>
+
+</div>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
