@@ -8,7 +8,7 @@ format:
     slide-number: true
     preview-links: auto
     code-link: true
-    footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}."
+    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}."
     fig-dpi: 300
 execute:
   echo: true
@@ -447,31 +447,75 @@ ggiraphExtra::ggSpine(
 ::::
 
 
-# Reception
+# Positives
 
-## Usage {.smaller}
+## Quality Assurance {.smaller}
 
-Total downloads > **500K**
+:::: {.columns}
+
+::: {.column width='60%'}
+![](media/pr-qa.png)
+:::
+
+::: {.column width='40%'}
+Right column
+:::
+
+::::
+
+## Reception {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+
+## Total downloads > **500K** (97 percentile)
 
 ```{r}
 library(packageRank)
 plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
-  smooth = TRUE
+  graphics = "ggplot2", smooth = TRUE
 )
 ```
+
+:::
+
+![](media/ggstats-stars.png)
+
+:::
+
+::: {.column width='50%'}
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+
+## Total citations > **1000**
+
+![](media/ggstats-paper.png)
+:::
+
+![](media/ggstats-citations.png)
+
+:::
+
+::::
 
 # Conclusion 
 
 ## Exploring data made easy! 😉 {.smaller}
 
-In summary, the `ggstatsplot` approach- <br> <br> (*a*) avoids errors in statistical reporting, <br> <br> (*b*)
-highlights the importance of the effect by providing effect size measures by default, <br> <br> (*c*) provides an easy
-way to evaluate *absence* of an effect using Bayesian framework, <br> <br> (*d*) demands to evaluate statistical
-analysis in the context of the underlying data, <br> <br> and is (*e*) easy and (*f*) simple enough that somebody with
-little coding experience can use it without making an error.
+In summary, the `ggstatsplot` approach- <br> <br> 
+(*a*) avoids errors in statistical reporting, <br> <br> 
+(*b*) highlights the importance of the effect by providing effect size measures by default, <br> <br> 
+(*c*) provides an easy way to evaluate *absence* of an effect using Bayesian framework, <br> <br> 
+(*d*) demands to evaluate statistical analysis in the context of the underlying data, <br> <br> 
+and is (*e*) easy and (*f*) simple enough that somebody with little coding experience can use it without making an error.
 
 # For more
+
+Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}.
 
 If you are interested in good programming and software development practices, check out my other [slide
 decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){target="_blank"}.
