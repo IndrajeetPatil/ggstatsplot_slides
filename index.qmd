@@ -8,17 +8,14 @@ format:
     slide-number: true
     preview-links: auto
     code-link: true
-    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}."
+    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}."
     fig-dpi: 300
 execute:
   echo: true
   eval: true
   warning: false
   message: false
-  cache: true
-editor: 
-  markdown: 
-    wrap: 120
+  cache: false
 ---
 
 ## {ggstatsplot}: Informative Statistical Visualizations {style="margin-top: 1em;"}
@@ -575,7 +572,7 @@ and is (*e*) easy and (*f*) simple enough that somebody with little coding exper
 
 # For more
 
-Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}.
+Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}.
 
 If you are interested in good programming and software development practices, check out my other [slide
 decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){target="_blank"}.
