@@ -123,6 +123,8 @@ Let's get started first!
 
 <br>
 
+. . .
+
 Package available for installation on CRAN and GitHub:
 
 | Type        | Command                                  |
@@ -178,8 +180,135 @@ ggbetweenstats(
 -  parametric 
 -  robust 
 -  Bayesian
+
 :::
 
+:::
+
+::::
+
+## Various other functions {.smaller}
+
+![](media/collage.jpeg)
+
+
+# Why use `{ggstatsplot}`? 👍️
+
+## Results *in context* of the data 🕵️ {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+**Standard approach**
+
+Pearson's correlation test revealed that, across 142 participants, variable `x` was negatively correlated with variable
+`y`: $t(140)=-0.76, p=.446$. The effect size $(r=-0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
+conventions. The Bayes Factor for the same analysis revealed that the data were `r round(exp(1.76), 2)` times more
+probable under the null hypothesis as compared to the alternative hypothesis. This can be considered moderate evidence
+(Jeffreys, 1961) in favor of the null hypothesis (absence of any correlation between `x` and `y`).
+:::
+
+::: {.column width='50%'}
+**`{ggstatsplot}` approach**
+
+![](media/after_ggstats.PNG)
+
+:::
+
+::::
+
+
+## Toggling statistical approaches 🔀 {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+**Parametric**
+
+```{.r code-line-numbers="6,14,22"}
+# anova
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  type = "p" 
+)
+
+# correlation analysis
+ggscatterstats(
+  data = mtcars,
+  x = wt,
+  y = mpg,
+  type = "p" 
+)
+
+# t-test
+gghistostats(
+  data = mtcars,
+  x = wt,
+  test.value = 2,
+  type = "p" 
+)
+```
+:::
+
+::: {.column width='50%'}
+
+**Non-parametric**
+
+```{.r code-line-numbers="6,14,22"}
+# anova
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  type = "np" 
+)
+
+# correlation analysis
+ggscatterstats(
+  data = mtcars,
+  x = wt,
+  y = mpg,
+  type = "np" 
+)
+
+# t-test
+gghistostats(
+  data = mtcars,
+  x = wt,
+  test.value = 2,
+  type = "np" 
+)
+```
+
+:::
+
+::::
+
+
+## Alternative to painful workflow {.smaller}
+
+:::: {.columns}
+
+::: {.column width='60%'}
+**Load 'em up!**
+
+📦 for inferential statistics (e.g. `stats`) <br> 📦 computing effect size + CIs (e.g. `effectsize`) <br> 📦 for
+descriptives (e.g. `skimr`) <br> 📦 pairwise comparisons (e.g. `multcomp`) <br> 📦 Bayesian hypothesis testing (e.g.
+`BayesFactor`) <br> 📦 Bayesian estimation (e.g. `bayestestR`) <br> 📦 . <br> 
+
+![](media/packages.gif)
+:::
+
+::: {.column width='40%'}
+**Things to worry about** 🤕
+
+🤔 accepts dataframe, vector, matrix? <br> 🤔 long/wide format data? <br> 🤔 works with `NA`s? <br> 🤔 returns list,
+dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary details? <br> 🤔 . <br>
+
+![](media/monkey.gif)
 :::
 
 ::::
@@ -189,7 +318,7 @@ ggbetweenstats(
 
 "What if I don't like the default plots?" 🤔
 
-## Changing aesthetics (themes + palettes) 🎨 {.smaller}
+## Changing aesthetics 🎨 {.smaller}
 
 :::: {.columns}
 
@@ -207,7 +336,8 @@ ggbetweenstats(
 :::
 
 ::: {.column width='40%'}
-Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
+Aesthetic preferences not an excuse to avoid `{ggstatsplot}`! 😻
+Any ggplot theme +or palette can be used. 
 
 N.B. The default palette is **colorblind-friendly**.
 :::
@@ -315,169 +445,9 @@ ggiraphExtra::ggSpine(
 
 ::::
 
+# Conclusion 
 
-
-## Data frames {.smaller}
-
-[`statsExpressions`](https://indrajeetpatil.github.io/statsExpressions/), statistical processing backend for
-`{ggstatsplot}`, can provide **data frames**.
-
-. . . 
-
-<img src="media/statsExpressions.png" alt="drawing" style="width:350px;"/>
-
-```{r, df.print="tibble"}
-library(statsExpressions)
-
-one_sample_test(
-  data = mtcars,
-  x = wt,
-  test.value = 3
-)
-```
-
-# Why use `{ggstatsplot}`? 👍️
-
-## Supports different statistical approaches {.smaller}
-
-| Functions                        | Description                                       | Parametric | Non-parametric | Robust | Bayesian |
-| :------------------------------- | :------------------------------------------------ | :--------- | :------------- | :----- | :------- |
-| `ggbetweenstats`                 | Between group comparisons                         | ✅         | ✅             | ✅     | ✅       |
-| `ggwithinstats`                  | Within group comparisons                          | ✅         | ✅             | ✅     | ✅       |
-| `gghistostats`, `ggdotplotstats` | Distribution of a numeric variable                | ✅         | ✅             | ✅     | ✅       |
-| `ggcorrmat`                      | Correlation matrix                                | ✅         | ✅             | ✅     | ✅       |
-| `ggscatterstats`                 | Correlation between two variables                 | ✅         | ✅             | ✅     | ✅       |
-| `ggpiestats`, `ggbarstats`       | Association between categorical variables         | ✅         | `NA`           | `NA`   | ✅       |
-| `ggpiestats`, `ggbarstats`       | Equal proportions for categorical variable levels | ✅         | `NA`           | `NA`   | ✅       |
-| `ggcoefstats`                    | Regression modeling                               | ✅         | ✅             | ✅     | ✅       |
-| `ggcoefstats`                    | Random-effects meta-analysis                      | ✅         | `NA`           | ✅     | ✅       |
-
-
-## Toggling between statistical approaches 🔀 {.smaller}
-
-:::: {.columns}
-
-::: {.column width='50%'}
-
-**Parametric**
-
-```{.r}
-# anova
-ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
-  type = "p" 
-)
-
-# correlation analysis
-ggscatterstats(
-  data = mtcars,
-  x = wt,
-  y = mpg,
-  type = "p" 
-)
-
-# t-test
-gghistostats(
-  data = mtcars,
-  x = wt,
-  test.value = 2,
-  type = "p" 
-)
-
-...
-```
-:::
-
-::: {.column width='50%'}
-
-**Non-parametric**
-
-```{.r}
-# anova
-ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
-  type = "np" 
-)
-
-# correlation analysis
-ggscatterstats(
-  data = mtcars,
-  x = wt,
-  y = mpg,
-  type = "np" 
-)
-
-# t-test
-gghistostats(
-  data = mtcars,
-  x = wt,
-  test.value = 2,
-  type = "np" 
-)
-
-...
-```
-
-:::
-
-::::
-
-
-## Alternative workflow to the following {.smaller}
-
-:::: {.columns}
-
-::: {.column width='50%'}
-**Load 'em up!**
-
-📦 for inferential statistics (e.g. `stats`) <br> 📦 computing effect size + CIs (e.g. `effectsize`) <br> 📦 for
-descriptives (e.g. `skimr`) <br> 📦 pairwise comparisons (e.g. `multcomp`) <br> 📦 Bayesian hypothesis testing (e.g.
-`BayesFactor`) <br> 📦 Bayesian estimation (e.g. `bayestestR`) <br> 📦 . <br> 
-
-![](media/packages.gif)
-:::
-
-::: {.column width='50%'}
-**Things to worry about** 🤕
-
-🤔 accepts dataframe, vectors, matrix? <br> 🤔 long/wide format data? <br> 🤔 works with `NA`s? <br> 🤔 returns list,
-dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary details? <br> 🤔 . <br>
-
-![](media/monkey.gif)
-:::
-
-::::
-
-
-## Results *in context* of the data 🕵️ {.smaller}
-
-:::: {.columns}
-
-::: {.column width='50%'}
-**Standard approach**
-
-Pearson's correlation test revealed that, across 142 participants, variable `x` was negatively correlated with variable
-`y`: $t(140)=-0.76, p=.446$. The effect size $(r=-0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
-conventions. The Bayes Factor for the same analysis revealed that the data were `r round(exp(1.76), 2)` times more
-probable under the null hypothesis as compared to the alternative hypothesis. This can be considered moderate evidence
-(Jeffreys, 1961) in favor of the null hypothesis (absence of any correlation between `x` and `y`).
-:::
-
-::: {.column width='50%'}
-**`ggstatsplot` approach**
-
-![](media/after_ggstats.PNG)
-
-:::
-
-::::
-
-
-## No more excuses not to explore data! 😉 {.smaller}
+## Exploring data made easy! 😉 {.smaller}
 
 In summary, the `ggstatsplot` approach- <br> <br> (*a*) avoids errors in statistical reporting, <br> <br> (*b*)
 highlights the importance of the effect by providing effect size measures by default, <br> <br> (*c*) provides an easy
@@ -507,7 +477,6 @@ decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){targ
 ## Session information {.smaller}
 
 ```{r}
-quarto::quarto_version()
 sessioninfo::session_info(include_base = TRUE)
 ```
 
@@ -695,8 +664,6 @@ ggcoefstats(mod)
 
 Supports all regression models supported in [`{easystats}`](https://easystats.github.io/insight/reference/is_model_supported.html) ecosystem.
 
-------------------------------------------------------------------------------------------------------------------------
-
 # *grouped\_* variants of all functions
 
 Running the same function for all levels of a single grouping variable
@@ -733,11 +700,21 @@ Available `grouped_` variants:
 ::::
 
 
+# More `{ggstatsplot}` benefits 
 
+## Supports different statistical approaches {.smaller}
 
-
-
-# Benefits of using `{ggstatsplot}`
+| Functions                            | Description                                       | Parametric | Non-parametric | Robust | Bayesian |
+| :----------------------------------- | :------------------------------------------------ | :--------- | :------------- | :----- | :------- |
+| `ggbetweenstats()`                   | Between group comparisons                         | ✅         | ✅             | ✅     | ✅       |
+| `ggwithinstats()`                    | Within group comparisons                          | ✅         | ✅             | ✅     | ✅       |
+| `gghistostats()`, `ggdotplotstats()` | Distribution of a numeric variable                | ✅         | ✅             | ✅     | ✅       |
+| `ggcorrmat()`                        | Correlation matrix                                | ✅         | ✅             | ✅     | ✅       |
+| `ggscatterstats()`                   | Correlation between two variables                 | ✅         | ✅             | ✅     | ✅       |
+| `ggpiestats()`, `ggbarstats()`       | Association between categorical variables         | ✅         | `NA`           | `NA`   | ✅       |
+| `ggpiestats()`, `ggbarstats()`       | Equal proportions for categorical variable levels | ✅         | `NA`           | `NA`   | ✅       |
+| `ggcoefstats()`                      | Regression modeling                               | ✅         | ✅             | ✅     | ✅       |
+| `ggcoefstats()`                      | Random-effects meta-analysis                      | ✅         | `NA`           | ✅     | ✅       |
 
 ## Best practices in statistical reporting 🏆 {.smaller}
 
