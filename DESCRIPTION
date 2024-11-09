@@ -22,6 +22,7 @@ Depends:
     knitr,
     ggiraphExtra,
     ggstatsplot,
+    packageRank,
     quarto,
     reticulate
 Remotes:

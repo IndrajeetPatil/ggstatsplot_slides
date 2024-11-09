@@ -9,7 +9,6 @@ format:
     preview-links: auto
     code-link: true
     footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}."
-    #preload-iframes: true
     fig-dpi: 300
 execute:
   echo: true
@@ -446,6 +445,20 @@ ggiraphExtra::ggSpine(
 :::
 
 ::::
+
+
+# Reception
+
+## Usage {.smaller}
+
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggstatsplot?color=blue)](https://CRAN.R-project.org/package=ggstatsplot)
+
+```{r}
+library(packageRank)
+plot(
+  cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date())
+)
+```
 
 # Conclusion 
 

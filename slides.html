@@ -499,6 +499,25 @@
 </div>
 </div></div>
 </div>
+</section></section><section><section id="reception" class="title-slide slide level1 center"><h1>Reception</h1>
+
+</section><section id="usage" class="slide level2 smaller"><h2>Usage</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://CRAN.R-project.org/package=ggstatsplot"><img data-src="https://cranlogs.r-pkg.org/badges/grand-total/ggstatsplot?color=blue.png" alt="Total downloads"></a></p>
+<figcaption>Total downloads</figcaption></figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(packageRank)</span>
+<span id="cb8-2"><a href=""></a><span class="fu">plot</span>(</span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">cranDownloads</span>(<span class="st">"ggstatsplot"</span>, <span class="at">from =</span> <span class="st">"2018-04-03"</span>, <span class="at">to =</span> <span class="fu">Sys.Date</span>())</span>
+<span id="cb8-4"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="3000"></p>
+</figure>
+</div>
+</div>
+</div>
 </section></section><section><section id="conclusion" class="title-slide slide level1 center"><h1>Conclusion</h1>
 
 </section><section id="exploring-data-made-easy" class="slide level2 smaller"><h2>Exploring data made easy! 😉</h2>
@@ -515,7 +534,7 @@
 
 </section><section id="session-information" class="slide level2 smaller"><h2>Session information</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>(<span class="at">include_base =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>(<span class="at">include_base =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
@@ -624,11 +643,11 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggwithinstats</span>(</span>
-<span id="cb10-2"><a href=""></a>  <span class="at">data =</span> WRS2<span class="sc">::</span>WineTasting,</span>
-<span id="cb10-3"><a href=""></a>  <span class="at">x =</span> Wine,</span>
-<span id="cb10-4"><a href=""></a>  <span class="at">y =</span> Taste</span>
-<span id="cb10-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggwithinstats</span>(</span>
+<span id="cb11-2"><a href=""></a>  <span class="at">data =</span> WRS2<span class="sc">::</span>WineTasting,</span>
+<span id="cb11-3"><a href=""></a>  <span class="at">x =</span> Wine,</span>
+<span id="cb11-4"><a href=""></a>  <span class="at">y =</span> Taste</span>
+<span id="cb11-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggwithinstats_1-1.png" width="3000"></p>
@@ -672,11 +691,11 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">gghistostats</span>(</span>
-<span id="cb11-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
-<span id="cb11-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
-<span id="cb11-4"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">30</span> </span>
-<span id="cb11-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">gghistostats</span>(</span>
+<span id="cb12-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
+<span id="cb12-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
+<span id="cb12-4"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">30</span> </span>
+<span id="cb12-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/gghistostats_1-1.png" width="3000"></p>
@@ -720,12 +739,12 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggdotplotstats</span>(</span>
-<span id="cb12-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
-<span id="cb12-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
-<span id="cb12-4"><a href=""></a>  <span class="at">y =</span> genre,</span>
-<span id="cb12-5"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">30</span> </span>
-<span id="cb12-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggdotplotstats</span>(</span>
+<span id="cb13-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
+<span id="cb13-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
+<span id="cb13-4"><a href=""></a>  <span class="at">y =</span> genre,</span>
+<span id="cb13-5"><a href=""></a>  <span class="at">test.value =</span> <span class="dv">30</span> </span>
+<span id="cb13-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggdotplotstats_1-1.png" width="3000"></p>
@@ -768,11 +787,11 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
-<span id="cb13-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
-<span id="cb13-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
-<span id="cb13-4"><a href=""></a>  <span class="at">y =</span> rating</span>
-<span id="cb13-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggscatterstats</span>(</span>
+<span id="cb14-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
+<span id="cb14-3"><a href=""></a>  <span class="at">x =</span> budget,</span>
+<span id="cb14-4"><a href=""></a>  <span class="at">y =</span> rating</span>
+<span id="cb14-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggscatterstats_1-1.png" width="3000"></p>
@@ -815,7 +834,7 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggcorrmat</span>(dplyr<span class="sc">::</span>starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggcorrmat</span>(dplyr<span class="sc">::</span>starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggcorrmat_1-1.png" width="3000"></p>
@@ -856,11 +875,11 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggpiestats</span>(</span>
-<span id="cb15-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb15-3"><a href=""></a>  <span class="at">x =</span> am,</span>
-<span id="cb15-4"><a href=""></a>  <span class="at">y =</span> cyl</span>
-<span id="cb15-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggpiestats</span>(</span>
+<span id="cb16-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb16-3"><a href=""></a>  <span class="at">x =</span> am,</span>
+<span id="cb16-4"><a href=""></a>  <span class="at">y =</span> cyl</span>
+<span id="cb16-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggpiestats_1-1.png" width="3000"></p>
@@ -896,11 +915,11 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggbarstats</span>(</span>
-<span id="cb16-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb16-3"><a href=""></a>  <span class="at">x =</span> am,</span>
-<span id="cb16-4"><a href=""></a>  <span class="at">y =</span> cyl</span>
-<span id="cb16-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggbarstats</span>(</span>
+<span id="cb17-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb17-3"><a href=""></a>  <span class="at">x =</span> am,</span>
+<span id="cb17-4"><a href=""></a>  <span class="at">y =</span> cyl</span>
+<span id="cb17-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggbarstats_1-1.png" width="3000"></p>
@@ -936,12 +955,12 @@
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb17-2"><a href=""></a>  <span class="at">formula =</span> rating <span class="sc">~</span> mpaa,</span>
-<span id="cb17-3"><a href=""></a>  <span class="at">data =</span> movies_long</span>
-<span id="cb17-4"><a href=""></a>)</span>
-<span id="cb17-5"><a href=""></a></span>
-<span id="cb17-6"><a href=""></a><span class="fu">ggcoefstats</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb18-2"><a href=""></a>  <span class="at">formula =</span> rating <span class="sc">~</span> mpaa,</span>
+<span id="cb18-3"><a href=""></a>  <span class="at">data =</span> movies_long</span>
+<span id="cb18-4"><a href=""></a>)</span>
+<span id="cb18-5"><a href=""></a></span>
+<span id="cb18-6"><a href=""></a><span class="fu">ggcoefstats</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/ggcoefstats_1-1.png" width="3000"></p>
@@ -979,11 +998,11 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">grouped_ggpiestats</span>(</span>
-<span id="cb18-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
-<span id="cb18-3"><a href=""></a>  <span class="at">x =</span> cyl,</span>
-<span id="cb18-4"><a href=""></a>  <span class="at">grouping.var =</span> am </span>
-<span id="cb18-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">grouped_ggpiestats</span>(</span>
+<span id="cb19-2"><a href=""></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb19-3"><a href=""></a>  <span class="at">x =</span> cyl,</span>
+<span id="cb19-4"><a href=""></a>  <span class="at">grouping.var =</span> am </span>
+<span id="cb19-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="slides_files/figure-revealjs/grouped_1-1.png" width="3000"></p>
