@@ -469,6 +469,7 @@ Each commit must pass QA checks.
 - Formatting (0 issues)
 - Documentation (website, link rot, examples)
 - CRAN checks (0 E, 0 W, 0 N)
+- Pre-commit hooks (0 issues)
 - Portability (Linux, macOS, Windows)
 - Robustness (dependencies, R versions)
 
@@ -477,7 +478,11 @@ Each commit must pass QA checks.
 :::
 
 ::: {.column width='50%'}
-Right column
+
+Healthy code base:
+
+[![](media/refactoring.png)](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
+
 :::
 
 ::::
