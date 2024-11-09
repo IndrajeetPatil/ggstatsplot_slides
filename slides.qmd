@@ -191,8 +191,9 @@ ggbetweenstats(
 
 ## Changing aesthetics (themes + palettes) 🎨 {.smaller}
 
-Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
+:::: {.columns}
 
+::: {.column width='60%'}
 ```{r ggbetweenstats_4}
 ggbetweenstats(
   data = movies_long,
@@ -203,14 +204,20 @@ ggbetweenstats(
   package = "wesanderson" 
 )
 ```
+:::
 
-The default palette is **colorblind-friendly**.
+::: {.column width='40%'}
+Aesthetic preferences not an excuse to avoid `ggstatsplot`! 😻
 
-## Further modification with `{ggplot2}` 🛠 {.smaller}
+N.B. The default palette is **colorblind-friendly**.
+:::
+
+::::
+
+
+## Modification with `{ggplot2}` 🛠 {.smaller}
 
 You can modify `{ggstatsplot}` plots further using `{ggplot2}` functions. 🎉
-
-. . .
 
 ```{r ggbetweenstats_5}
 ggbetweenstats(
@@ -222,51 +229,93 @@ ggbetweenstats(
   scale_y_continuous(sec.axis = dup_axis()) 
 ```
 
-![](media/happy_cat.gif)
-
 ## Too much information 🙈 {.smaller}
 
-`{ggstatsplot}` can be used to get **only plots**.
+. . . 
 
-```{r only_plot}
+:::: {.columns}
+
+::: {.column width='40%'}
+
+Get **only plots**:
+
+```{.r}
 ggbetweenstats(
   data = iris,
   x = Species,
   y = Sepal.Length,
-  # turn off centrality measure
-  centrality.plotting = FALSE, 
   # turn off statistical analysis
+  centrality.plotting = FALSE, 
   results.subtitle = FALSE, 
-  # turn off Bayesian message
+  bf.message = FALSE, 
+  # turn off pairwise comparisons
+  pairwise.display = "none" 
+)
+```
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| label: "ggbetweenstats_only_plot"
+#| echo: false
+ggbetweenstats(
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
+  # turn off statistical analysis
+  centrality.plotting = FALSE, 
+  results.subtitle = FALSE, 
   bf.message = FALSE, 
   # turn off pairwise comparisons
   pairwise.display = "none" 
 )
 ```
 
-## Expressions for custom plots 🀄️ {.smaller}
+:::
 
-
-`{ggstatsplot}` can be used to get **only expressions**.
+::::
 
 . . . 
 
-```{r subtitle_1}
-results <- ggpiestats(
-  data = Titanic_full,
-  x = Survived,
-  y = Sex,
-  output = "subtitle" 
-)
+:::: {.columns}
+
+::: {.column width='40%'}
+
+Get **only expressions**:
+
+```{.r}
+stats_expr <- ggpiestats(
+  Titanic_full, Survived, Sex,
+) %>% extract_subtitle()
 
 ggiraphExtra::ggSpine( 
   data = Titanic_full,
-  aes(x = Sex, fill = Survived),
-  addlabel = TRUE,
-  interactive = FALSE
+  aes(x = Sex, fill = Survived)
 ) +
-  labs(subtitle = results) 
+  labs(subtitle = stats_expr)  
 ```
+:::
+
+::: {.column width='60%'}
+```{r subtitle_1}
+#| label: "ggpiestats_only_plot"
+#| echo: false
+stats_expr <- ggpiestats(
+  Titanic_full, Survived, Sex,
+) %>% extract_subtitle()
+
+ggiraphExtra::ggSpine( 
+  data = Titanic_full,
+  aes(x = Sex, fill = Survived)
+) +
+  labs(subtitle = stats_expr) 
+```
+:::
+
+::::
+
+
 
 ## Data frames {.smaller}
 
@@ -309,9 +358,10 @@ one_sample_test(
 :::: {.columns}
 
 ::: {.column width='50%'}
+
 **Parametric**
 
-```{.r type_p}
+```{.r}
 # anova
 ggbetweenstats(
   data = mtcars,
@@ -341,9 +391,10 @@ gghistostats(
 :::
 
 ::: {.column width='50%'}
+
 **Non-parametric**
 
-```{.r type_np}
+```{.r}
 # anova
 ggbetweenstats(
   data = mtcars,
@@ -370,6 +421,7 @@ gghistostats(
 
 ...
 ```
+
 :::
 
 ::::
@@ -379,17 +431,17 @@ gghistostats(
 
 :::: {.columns}
 
-::: {.column width='40%'}
+::: {.column width='50%'}
 **Load 'em up!**
 
 📦 for inferential statistics (e.g. `stats`) <br> 📦 computing effect size + CIs (e.g. `effectsize`) <br> 📦 for
 descriptives (e.g. `skimr`) <br> 📦 pairwise comparisons (e.g. `multcomp`) <br> 📦 Bayesian hypothesis testing (e.g.
-`BayesFactor`) <br> 📦 Bayesian estimation (e.g. `bayestestR`) <br> 📦 . <br> \]
+`BayesFactor`) <br> 📦 Bayesian estimation (e.g. `bayestestR`) <br> 📦 . <br> 
 
 ![](media/packages.gif)
 :::
 
-::: {.column width='60%'}
+::: {.column width='50%'}
 **Things to worry about** 🤕
 
 🤔 accepts dataframe, vectors, matrix? <br> 🤔 long/wide format data? <br> 🤔 works with `NA`s? <br> 🤔 returns list,
@@ -651,6 +703,9 @@ Running the same function for all levels of a single grouping variable
 
 ## *grouped\_* functions {.smaller}
 
+:::: {.columns}
+
+::: {.column width='60%'}
 ```{r grouped_1}
 grouped_ggpiestats(
   data = mtcars,
@@ -658,8 +713,12 @@ grouped_ggpiestats(
   grouping.var = am 
 )
 ```
+:::
 
-Available `grouped_` variants 
+::: {.column width='40%'}
+
+Available `grouped_` variants:
+
 - `grouped_ggbetweenstats()` 
 - `grouped_ggwithinstats()` 
 - `grouped_gghistostats()` 
@@ -668,6 +727,14 @@ Available `grouped_` variants
 - `grouped_ggcorrmat()` 
 - `grouped_ggpiestats()` 
 - `grouped_ggbarstats()`
+
+:::
+
+::::
+
+
+
+
 
 
 # Benefits of using `{ggstatsplot}`
@@ -729,41 +796,29 @@ Disembodied figures stand on their own and are easy to evaluate. 🧐
 
 More breathing room for theoretical discussion and other text. ✍
 
-# Misconceptions and limitations
-
 ## Misconceptions: This package is... {.smaller}
 
 . . .
 
-❌ an alternative to learning `ggplot2` <br> <br> ✅   (the more you know `ggplot2`, the better you can modify the
-defaults to your liking) <br>
+ <br>
+❌ an alternative to learning `ggplot2` <br> 
+✅ the more you know `ggplot2`, the better you can modify the defaults to your liking) <br>
+<br>
 
 . . .
 
-❌ meant to be used in talks/presentations <br> <br> ✅   (defaults too complicated for effectively communicating results
-in time-constrained presentation settings, e.g. conference talks) <br>
+❌ meant to be used in talks/presentations <br> 
+✅ defaults too complicated for effectively communicating results in time-constrained presentation settings, e.g. conference talks) <br>
+<br>
 
 . . .
 
-❌ only relevant when used in publications <br> <br> ✅   not necessary; can also be useful *only* during exploratory
-phase <br> <br>
+❌ only relevant when used in publications <br> 
+✅ not necessary; can also be useful *only* during exploratory phase <br> 
+<br>
 
 . . .
 
-❌ the only game in town <br> <br> ✅   (excellent GUI open-source softwares: [JASP](https://jasp-stats.org/) and
-[jamovi](https://www.jamovi.org/)) <br>
+❌ the only game in town <br> 
+✅ excellent GUI open-source software: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)) 
 
-## Limitations of *ggstatsplot* 👎️ {.smaller}
-
-. . .
-
-Limited no. of **plots** and **statistical tests** available. This will **always** be the case. 🤷\]
-
-. . .
-
-Expects a non-trivial level of statistical proficiency (but plots without statistics can still be useful).
-
-. . .
-
-**Faceting** does not work (since there are no corresponding `geom_` s). For the same reason, plots are not
-`{gganimate}`-friendly.
