@@ -447,6 +447,42 @@ ggiraphExtra::ggSpine(
 ::::
 
 
+# Problems
+
+## "Golem of Prague" issue {.smaller}
+
+:::: {.columns}
+
+::: {.column width='40%'}
+Promotes mindless application of statistical tests.
+
+Easy-to-use software can lead to misuse.
+:::
+
+::: {.column width='60%'}
+![](media/golem-problem.jpeg)
+:::
+
+::::
+
+. . .
+
+### Clunky API {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+- Too many arguments to remember.
+- Not a "real" ggplot2 extension.
+:::
+
+::: {.column width='50%'}
+- Limited number of functions.
+- Expects non-trivial statistical proficiency.
+:::
+
+::::
+
 # Positives
 
 ## Quality Assurance {.smaller}
@@ -455,7 +491,7 @@ ggiraphExtra::ggSpine(
 
 ::: {.column width='50%'}
 
-Each commit must pass QA checks.
+Each commit must pass many QA checks:
 
 ![](media/pr-qa.png)
 
