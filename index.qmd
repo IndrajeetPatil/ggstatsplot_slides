@@ -321,7 +321,7 @@ dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary det
 
 :::: {.columns}
 
-::: {.column width='60%'}
+::: {.column width='50%'}
 
 ```{r ggbetweenstats_4}
 ggbetweenstats(
@@ -336,7 +336,7 @@ ggbetweenstats(
 
 :::
 
-::: {.column width='40%'}
+::: {.column width='50%'}
 Aesthetic preferences not an excuse to avoid `{ggstatsplot}`! 😻
 Any ggplot theme or palette can be used. 
 <br> <br>
@@ -453,11 +453,30 @@ ggiraphExtra::ggSpine(
 
 :::: {.columns}
 
-::: {.column width='60%'}
+::: {.column width='50%'}
+
+Each commit must pass QA checks.
+
 ![](media/pr-qa.png)
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+
+## CI Checks (GitHub Actions)
+
+- Unit tests (random-order)
+- Code coverage (100%)
+- Linting (0 lints)
+- Formatting (0 issues)
+- Documentation (website, link rot, examples)
+- CRAN checks (0 E, 0 W, 0 N)
+- Portability (Linux, macOS, Windows)
+- Robustness (dependencies, R versions)
+
 :::
 
-::: {.column width='40%'}
+:::
+
+::: {.column width='50%'}
 Right column
 :::
 

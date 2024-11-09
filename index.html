@@ -416,7 +416,7 @@
 <p>“What if I don’t like the default plots?” 🤔</p>
 </section><section id="changing-aesthetics" class="slide level2 smaller"><h2>Changing aesthetics 🎨</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggbetweenstats</span>(</span>
 <span id="cb4-2"><a href=""></a>  <span class="at">data =</span> movies_long,</span>
@@ -433,7 +433,7 @@
 </div>
 </div>
 </div>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:50%;">
 <p>Aesthetic preferences not an excuse to avoid <a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a>! 😻 Any ggplot theme or palette can be used. <br><br> N.B. The default palette is <strong>colorblind-friendly</strong>.</p>
 </div></div>
 </section><section id="modification-with-ggplot2" class="slide level2 smaller"><h2>Modification with <code>{ggplot2}</code> 🛠</h2>
@@ -503,9 +503,32 @@
 
 </section><section id="quality-assurance" class="slide level2 smaller"><h2>Quality Assurance</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:50%;">
+<p>Each commit must pass QA checks.</p>
 <p><img data-src="media/pr-qa.png"></p>
-</div><div class="column" style="width:40%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>CI Checks (GitHub Actions)</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Unit tests (random-order)</li>
+<li>Code coverage (100%)</li>
+<li>Linting (0 lints)</li>
+<li>Formatting (0 issues)</li>
+<li>Documentation (website, link rot, examples)</li>
+<li>CRAN checks (0 E, 0 W, 0 N)</li>
+<li>Portability (Linux, macOS, Windows)</li>
+<li>Robustness (dependencies, R versions)</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
 <p>Right column</p>
 </div></div>
 </section><section id="reception" class="slide level2 smaller"><h2>Reception</h2>
