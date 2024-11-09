@@ -187,7 +187,7 @@ ggbetweenstats(
 
 ::::
 
-## Various other functions {.smaller}
+## Other functions {.smaller}
 
 ![](media/collage.jpeg)
 
@@ -323,6 +323,7 @@ dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary det
 :::: {.columns}
 
 ::: {.column width='60%'}
+
 ```{r ggbetweenstats_4}
 ggbetweenstats(
   data = movies_long,
@@ -333,12 +334,13 @@ ggbetweenstats(
   package = "wesanderson" 
 )
 ```
+
 :::
 
 ::: {.column width='40%'}
 Aesthetic preferences not an excuse to avoid `{ggstatsplot}`! 😻
-Any ggplot theme +or palette can be used. 
-
+Any ggplot theme or palette can be used. 
+<br> <br>
 N.B. The default palette is **colorblind-friendly**.
 :::
 
@@ -482,55 +484,107 @@ sessioninfo::session_info(include_base = TRUE)
 
 # Appendix
 
-# Hypothesis about group differences
+# Examples of other functions
+
 ## `ggwithinstats()` {.smaller}
 
-Repeated measures equivalent
+Hypothesis about group differences: repeated measures design
 
-✏️ Defaults return <br>
+:::: {.columns}
 
-✅   raw data + distributions <br> ✅   descriptive statistics <br> ✅   inferential statistics <br> ✅   effect size + CIs <br>
-✅   pairwise comparisons <br> ✅   Bayesian hypothesis-testing <br> ✅   Bayesian estimation <br>
-
-Changing the `type` of test
-
-✅   `"p"`   → **parametric** <br> ✅   `"np"` → **non-parametric** <br> ✅   `"r"`   → **robust** <br> ✅   `"bf"` →
-**Bayesian**
-
-```{r ggwithinstats_1}
+::: {.column width='65%'}
+```{r}
+#| label: "ggwithinstats_1"
 ggwithinstats(
   data = WRS2::WineTasting,
   x = Wine,
   y = Taste
 )
 ```
+:::
 
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-## gghistostats - Distribution of a numeric variable {.smaller}
+✏️ **Defaults**
 
-```{r gghistostats_1}
+-  raw data + distributions 
+-  descriptive statistics
+-  inferential statistics
+-  effect size + uncertainty
+-  pairwise comparisons
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
+
+**Statistical approaches available**
+
+-  parametric 
+-  parametric 
+-  robust 
+-  Bayesian
+
+:::
+
+:::
+
+::::
+
+## `gghistostats()` {.smaller}
+
+Distribution of a numeric variable
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "gghistostats_1"
 gghistostats(
   data = movies_long,
   x = budget,
   test.value = 30 
 )
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   counts + proportion for bins <br> ✅   descriptive statistics <br> ✅   inferential statistics <br> ✅   effect size + CIs
-<br> ✅   Bayesian hypothesis-testing <br> ✅   Bayesian estimation <br>
+✏️ **Defaults**
 
-Changing the `type` of test
+-  counts + proportion for bins
+-  descriptive statistics
+-  inferential statistics
+-  effect size + uncertainty
+-  pairwise comparisons
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
 
-✅   `"p"`   → **parametric** <br> ✅   `"np"` → **non-parametric** <br> ✅   `"r"`   → **robust** <br> ✅   `"bf"` →
-**Bayesian**
+**Statistical approaches available**
 
-## ggdotplotstats - Labeled numeric variable {.smaller}
+-  parametric 
+-  parametric 
+-  robust 
+-  Bayesian
 
-. . . 
+:::
 
-```{r ggdotplotstats_1}
+:::
+
+::::
+
+## `ggdotplotstats()` {.smaller}
+
+Labeled numeric variable
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggdotplotstats_1"
 ggdotplotstats(
   data = movies_long,
   x = budget,
@@ -538,135 +592,234 @@ ggdotplotstats(
   test.value = 30 
 )
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   descriptive statistics <br> ✅   inferential statistics <br> ✅   effect size + CIs <br> ✅   Bayesian hypothesis-testing
-<br> ✅   Bayesian estimation <br>
+✏️ **Defaults**
 
-Changing the `type` of test
+-  descriptive statistics
+-  inferential statistics
+-  effect size + uncertainty
+-  pairwise comparisons
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
 
-✅   `"p"`   → **parametric** <br> ✅   `"np"` → **non-parametric** <br> ✅   `"r"`   → **robust** <br> ✅   `"bf"` →
-**Bayesian** 
+**Statistical approaches available**
 
-# Hypothesis about correlation
+-  parametric 
+-  parametric 
+-  robust 
+-  Bayesian
 
-# ggscatterstats - Two numeric variables {.smaller}
+:::
 
-```{r ggscatterstats_1}
+:::
+
+::::
+
+## `ggscatterstats()` {.smaller}
+
+Hypothesis about correlation: Two numeric variables
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggscatterstats_1"
 ggscatterstats(
   data = movies_long,
   x = budget,
   y = rating
 )
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   joint distribution <br> ✅   marginal distributions <br> ✅   inferential statistics <br> ✅   effect size + CIs <br> ✅
-Bayesian hypothesis-testing <br> ✅   Bayesian estimation <br>
+✏️ **Defaults**
 
-Changing the `type` of test
+-  joint distribution
+-  marginal distribution
+-  effect size + uncertainty
+-  pairwise comparisons
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
 
-✅   `"p"`   → **parametric** <br> ✅   `"np"` → **non-parametric** <br> ✅   `"r"`   → **robust** <br> ✅   `"bf"` →
-**Bayesian**
+**Statistical approaches available**
 
-## ggscatterstats - conditional point tagging {.smaller}
+-  parametric 
+-  parametric 
+-  robust 
+-  Bayesian
 
-```{r ggscatterstats_2}
-ggscatterstats(
-  data = movies_long,
-  x = budget,
-  y = rating,
-  type = "r",
-  label.var = title, 
-  label.expression = budget > 150 
-  & rating > 7.5 
-)
-```
+:::
 
-## ggcorrmat - multiple numeric variables {.smaller}
+:::
 
-. . . 
+::::
 
-```{r ggcorrmat_1}
+## `ggcorrmat()` {.smaller}
+
+Hypothesis about correlation: Multiple numeric variables
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggcorrmat_1"
 ggcorrmat(dplyr::starwars)
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   effect size + significance <br> ✅   careful handling of `NA`s
+✏️ **Defaults**
 
-Changing the `type` of test
+-  inferential statistics
+-  effect size + uncertainty
+-  careful handling of `NA`s
+-  partial correlations
 
-✅   `"p"`   → **parametric** <br> ✅   `"np"` → **non-parametric** <br> ✅   `"r"`   → **robust** <br> ✅   `"bf"` →
-**Bayesian**
+**Statistical approaches available**
 
-Partial correlations are also supported! Just set `partial=TRUE`.
+-  parametric 
+-  parametric 
+-  robust 
+-  Bayesian
 
-# Hypothesis of composition of categorical variables
+:::
 
-## ggpiestats - association between categorical variables {.smaller}
+:::
 
-```{r ggpiestats_2}
+::::
+
+
+## `ggpiestats()` {.smaller}
+
+Hypothesis about composition of categorical variables
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggpiestats_1"
 ggpiestats(
-  data = dplyr::filter(
-    movies_long,
-    genre %in% c("Drama", "Comedy")
-  ),
-  x = mpaa,
-  y = genre
+  data = mtcars,
+  x = am,
+  y = cyl
 )
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   descriptive statistics <br> ✅   inferential statistics <br> ✅   effect size + CIs <br> ✅   Goodness-of-fit tests <br> ✅
-Bayesian hypothesis-testing <br> ✅   Bayesian estimation <br>
+✏️ **Defaults**
 
-## ggbarstats - association between categorical variables {.smaller}
+-  descriptive statistics
+-  inferential statistics
+-  effect size + uncertainty
+-  goodness-of-fit tests
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
 
-```{r ggbarstats_1}
+:::
+
+:::
+
+::::
+
+## `ggbarstats()` {.smaller}
+
+Hypothesis about composition of categorical variables
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggbarstats_1"
 ggbarstats(
-  data = dplyr::filter(
-    movies_long,
-    genre %in% c("Drama", "Comedy")
-  ),
-  x = mpaa,
-  y = genre,
-  label = "both" 
+  data = mtcars,
+  x = am,
+  y = cyl
 )
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   descriptive statistics <br> ✅   inferential statistics <br> ✅   effect size + CIs <br> ✅   Goodness-of-fit tests <br> ✅
-Bayesian hypothesis-testing <br> ✅   Bayesian estimation <br>
+✏️ **Defaults**
 
-# Hypothesis about regression coefficients
+-  descriptive statistics
+-  inferential statistics
+-  effect size + uncertainty
+-  goodness-of-fit tests
+-  Bayesian hypothesis-testing 
+-  Bayesian estimation
 
-## ggcoefstats - regression modeling {.smaller}
+:::
 
-```{r ggcoefstats_1}
-# model
+:::
+
+::::
+
+## `ggcoefstats()` {.smaller}
+
+Hypothesis about regression coefficients
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+```{r}
+#| label: "ggcoefstats_1"
 mod <- lm(
   formula = rating ~ mpaa,
   data = movies_long
 )
 
-# plot
 ggcoefstats(mod)
 ```
+:::
 
-✏️ Defaults return <br>
+::: {.column width='35%'}
+:::{.callout-important collapse=false appearance='default' icon=true}
+## 
 
-✅   estimate + CIs <br> ✅   inferential statistics ($t$, $z$, $F$, $\chi^2$) <br> ✅   model fit indices (AIC + BIC)
+✏️ **Defaults**
+
+-  estimate + uncertainty
+-  inferential statistics ($t$, $z$, $F$, $\chi^2$)
+-  model fit indices (AIC + BIC)
 
 Supports all regression models supported in [`{easystats}`](https://easystats.github.io/insight/reference/is_model_supported.html) ecosystem.
 
+Meta-analysis is also supported!
+
+:::
+
+:::
+
+::::
+
+
 # *grouped\_* variants of all functions
 
-Running the same function for all levels of a single grouping variable
+Iterating over a grouping variable
 
 ## *grouped\_* functions {.smaller}
 
@@ -704,6 +857,9 @@ Available `grouped_` variants:
 
 ## Supports different statistical approaches {.smaller}
 
+:::{.callout-note collapse=false appearance='default' icon=true}
+## 
+
 | Functions                            | Description                                       | Parametric | Non-parametric | Robust | Bayesian |
 | :----------------------------------- | :------------------------------------------------ | :--------- | :------------- | :----- | :------- |
 | `ggbetweenstats()`                   | Between group comparisons                         | ✅         | ✅             | ✅     | ✅       |
@@ -715,6 +871,8 @@ Available `grouped_` variants:
 | `ggpiestats()`, `ggbarstats()`       | Equal proportions for categorical variable levels | ✅         | `NA`           | `NA`   | ✅       |
 | `ggcoefstats()`                      | Regression modeling                               | ✅         | ✅             | ✅     | ✅       |
 | `ggcoefstats()`                      | Random-effects meta-analysis                      | ✅         | `NA`           | ✅     | ✅       |
+
+:::
 
 ## Best practices in statistical reporting 🏆 {.smaller}
 
