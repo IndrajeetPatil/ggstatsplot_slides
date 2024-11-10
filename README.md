@@ -3,7 +3,7 @@
 This is a repository for presentation about the [`{ggstatsplot}`](https://indrajeetpatil.github.io/ggstatsplot/) (prepared using [Quarto](https://quarto.org/)).
 
 The slides are available here:<br>
-<https://indrajeetpatil.github.io/intro-to-ggstatsplot/slides/ggstatsplot_presentation.html#1>
+<https://indrajeetpatil.github.io/intro-to-ggstatsplot/#/ggstatsplot-informative-statistical-visualizations>
 
 There is also a dedicated website for this package:<br>
 <https://indrajeetpatil.github.io/ggstatsplot/>
