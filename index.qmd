@@ -8,17 +8,14 @@ format:
     slide-number: true
     preview-links: auto
     code-link: true
-    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}."
+    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}."
     fig-dpi: 300
 execute:
   echo: true
   eval: true
   warning: false
   message: false
-  cache: true
-editor: 
-  markdown: 
-    wrap: 120
+  cache: false
 ---
 
 ## {ggstatsplot}: Informative Statistical Visualizations {style="margin-top: 1em;"}
@@ -138,6 +135,12 @@ library(ggstatsplot)
 library(ggplot2)
 ```
 
+```{r}
+#| include: false
+#| echo: false
+#| label: "seed"
+set.seed(123)
+```
 
 # Example function
 
@@ -383,6 +386,7 @@ ggbetweenstats(
   pairwise.display = "none" 
 )
 ```
+
 :::
 
 ::: {.column width='60%'}
@@ -426,9 +430,11 @@ ggiraphExtra::ggSpine(
 ) +
   labs(subtitle = stats_expr)  
 ```
+
 :::
 
 ::: {.column width='60%'}
+
 ```{r subtitle_1}
 #| label: "ggpiestats_only_plot"
 #| echo: false
@@ -442,12 +448,12 @@ ggiraphExtra::ggSpine(
 ) +
   labs(subtitle = stats_expr) 
 ```
+
 :::
 
 ::::
 
-
-# Problems
+# Negatives
 
 ## "Golem of Prague" issue {.smaller}
 
@@ -472,13 +478,17 @@ Easy-to-use software can lead to misuse.
 :::: {.columns}
 
 ::: {.column width='50%'}
+
 - Too many arguments to remember.
 - Not a "real" ggplot2 extension.
+
 :::
 
 ::: {.column width='50%'}
+
 - Limited number of functions.
 - Expects non-trivial statistical proficiency.
+
 :::
 
 ::::
@@ -519,6 +529,8 @@ Healthy code base:
 
 [![](media/refactoring.png)](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
 
+![](media/ggstats-contributions.png)
+
 :::
 
 ::::
@@ -534,6 +546,7 @@ Healthy code base:
 ## Total downloads > **500K** (97 percentile)
 
 ```{r}
+#| label: "cran_downloads"
 library(packageRank)
 plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
@@ -575,7 +588,7 @@ and is (*e*) easy and (*f*) simple enough that somebody with little coding exper
 
 # For more
 
-Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/ggstatsplot_slides){target='_blank'}.
+Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}.
 
 If you are interested in good programming and software development practices, check out my other [slide
 decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){target="_blank"}.
