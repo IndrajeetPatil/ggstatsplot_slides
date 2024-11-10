@@ -6,10 +6,12 @@ format:
   revealjs: 
     theme: simple
     slide-number: true
+    embed-resources: true
     preview-links: auto
     code-link: true
     #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}."
     fig-dpi: 300
+    fig-align: center
 execute:
   echo: true
   eval: true
@@ -41,7 +43,7 @@ Indrajeet Patil
 ::: {.column width="50%"}
 Current CRAN package count **\>23,000**
 
-![](media/y_tho.jpg){width="400"}
+![](media/y_tho.jpg){.relative fig-align="center" width="400"}
 :::
 
 ::: {.column width="50%"}
@@ -53,6 +55,7 @@ suitable for faster (exploratory) data analysis and reporting <br>
 ## Informative graphic = a thousand words {.smaller}
 
 ![](media/datasaurus.gif)
+
 
 ::: footer
 [(Matejka & Fitzmaurice, *Autodesk Research*,2017)](https://www.autodeskresearch.com/publications/samestats)
@@ -70,11 +73,12 @@ and can help you make *any* graphics fitting your specific data visualization ne
 
 ::::: columns
 ::: {.column width="50%"}
-![](media/power.jpg)
+![](media/power.jpg){.relative fig-align="center" width="400" height="350"}
+
 :::
 
 ::: {.column width="50%"}
-![](media/cat_trademill.gif)
+![](media/cat_trademill.gif){.relative fig-align="center" width="400" height="350"}
 :::
 :::::
 
@@ -284,33 +288,54 @@ gghistostats(
 ::::
 
 
-## Alternative to painful workflow {.smaller}
+## Alternative: Pure Pain {.smaller}
 
 :::: {.columns}
 
-::: {.column width='60%'}
-**Load 'em up!**
+::: {.column width='50%'}
 
-📦 for inferential statistics (e.g. `stats`) <br> 📦 computing effect size + CIs (e.g. `effectsize`) <br> 📦 for
-descriptives (e.g. `skimr`) <br> 📦 pairwise comparisons (e.g. `multcomp`) <br> 📦 Bayesian hypothesis testing (e.g.
-`BayesFactor`) <br> 📦 Bayesian estimation (e.g. `bayestestR`) <br> 📦 . <br> 
+:::{.callout-caution collapse=false appearance='default' icon=true}
 
-![](media/packages.gif)
+## Hunting for packages
+
+📦 for inferential statistics (`{stats}`) <br>
+📦 computing effect size + CIs (`{effectsize}`) <br> 
+📦 for descriptive statistics (`{skimr}`) <br> 
+📦 pairwise comparisons (`{multcomp}`) <br>
+📦 Bayesian hypothesis testing (`{BayesFactor}`) <br> 
+📦 Bayesian estimation (`{bayestestR}`) <br> 
+📦 ... <br> 
+
+![](media/packages.gif){.relative fig-align="center" width="350" height="250"}
+
 :::
 
-::: {.column width='40%'}
-**Things to worry about** 🤕
+:::
 
-🤔 accepts dataframe, vector, matrix? <br> 🤔 long/wide format data? <br> 🤔 works with `NA`s? <br> 🤔 returns list,
-dataframe, arrays? <br> 🤔 works with tibbles? <br> 🤔 has all necessary details? <br> 🤔 . <br>
+::: {.column width='50%'}
 
-![](media/monkey.gif)
+:::{.callout-caution collapse=false appearance='default' icon=true}
+
+## Inconsistent APIs
+
+🤔 accepts data frame, vector, matrix? <br>
+🤔 long/wide format data? <br> 
+🤔 works with `NA`s? <br>
+🤔 returns data frame, vector, matrix? <br>
+🤔 works with tibbles? <br> 
+🤔 has all necessary details? <br> 
+🤔 ... <br>
+
+![](media/monkey.gif){.relative fig-align="center" width="350" height="250"}
+
+:::
+
 :::
 
 ::::
 
 
-# Plot Customizability
+# Customizability
 
 "What if I don't like the default plots?" 🤔
 
@@ -447,7 +472,9 @@ ggiraphExtra::ggSpine(
 
 ::::
 
-# Negatives
+# Critical Evaluation
+
+Things to be wary of
 
 ## "Golem of Prague" issue {.smaller}
 
@@ -460,7 +487,7 @@ Easy-to-use software can lead to misuse.
 :::
 
 ::: {.column width='60%'}
-![](media/golem-problem.jpeg)
+![](media/golem-problem.jpeg){.relative fig-align="center"}
 :::
 
 ::::
@@ -481,13 +508,15 @@ Easy-to-use software can lead to misuse.
 ::: {.column width='50%'}
 
 - Limited number of functions.
-- Non-trivial statistical proficiency needed.
+- Statistical proficiency needed.
 
 :::
 
 ::::
 
-# Positives
+# Attractive Qualities
+
+Things that will pull you in
 
 ## Quality Assurance {.smaller}
 
@@ -513,7 +542,7 @@ Each commit must pass many QA checks:
 
 :::
 
-![](media/pr-qa.png)
+![](media/pr-qa.png){.relative fig-align="center"}
 
 :::
 
@@ -523,9 +552,9 @@ Each commit must pass many QA checks:
 
 ## Healthy and active code base
 
-![](media/ggstats-contributions.png)
+![](media/ggstats-contributions.png){.relative fig-align="center"}
 
-[![](media/refactoring.png)](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
+[![](media/refactoring.png){.relative fig-align="center" height="350"}](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
 
 :::
 
@@ -533,7 +562,7 @@ Each commit must pass many QA checks:
 
 ::::
 
-## Reception {.smaller}
+## User Love {.smaller}
 
 :::: {.columns}
 
@@ -545,6 +574,7 @@ Each commit must pass many QA checks:
 
 ```{r}
 #| label: "cran_downloads"
+#| fig-align: center
 library(packageRank)
 plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
@@ -554,7 +584,7 @@ plot(
 
 :::
 
-![](media/ggstats-stars.png)
+![](media/ggstats-stars.png){.relative fig-align="center"}
 
 :::
 
@@ -564,10 +594,10 @@ plot(
 
 ## Total citations > **1000**
 
-![](media/ggstats-paper.png)
+![](media/ggstats-paper.png){.relative fig-align="center"}
 :::
 
-![](media/ggstats-citations.png)
+![](media/ggstats-citations.png){.relative fig-align="center"}
 
 :::
 
@@ -575,15 +605,39 @@ plot(
 
 # Conclusion 
 
-## Exploring data made easy! 😉 {.smaller}
+Benefits of the `{ggstatsplot}` approach
 
- <br> <br> 
-In summary, the `ggstatsplot` approach- <br> <br> 
-(*a*) avoids errors in statistical reporting, <br> <br> 
-(*b*) highlights the importance of the effect by providing effect size measures by default, <br> <br> 
-(*c*) provides an easy way to evaluate *absence* of an effect using Bayesian framework, <br> <br> 
-(*d*) demands to evaluate statistical analysis in the context of the underlying data,  and is <br> <br> 
-(*e*) easy and (*f*) simple enough that somebody with little coding experience can use it without making an error.
+## {.smaller}
+
+`{ggstatsplot}`, a package that combines data visualization and statistical analysis in a single step, is a powerful tool that:
+
+::: {.fragment .highlight-current-blue}
+- provides ready-made plots with defaults that are information-rich
+:::
+
+::: {.fragment .highlight-current-blue}
+- minimizes the chances of making errors in statistical reporting
+:::
+
+::: {.fragment .highlight-current-blue}
+- follows best practices in data visualization and statistical reporting
+:::
+
+::: {.fragment .highlight-current-blue}
+- highlights the importance of the effect by providing effect size measures by default
+:::
+
+::: {.fragment .highlight-current-blue}
+- provides an easy way to evaluate *absence* of an effect using Bayesian framework 
+:::
+
+::: {.fragment .highlight-current-blue}
+- helps evaluate statistical analysis in the context of the underlying data 
+:::
+
+::: {.fragment .highlight-current-blue}
+- easy and simple enough that somebody with little coding experience can use it without making an error
+:::
 
 # For more
 
