@@ -135,6 +135,12 @@ library(ggstatsplot)
 library(ggplot2)
 ```
 
+```{r}
+#| include: false
+#| echo: false
+#| label: "seed"
+set.seed(123)
+```
 
 # Example function
 
@@ -380,6 +386,7 @@ ggbetweenstats(
   pairwise.display = "none" 
 )
 ```
+
 :::
 
 ::: {.column width='60%'}
@@ -423,9 +430,11 @@ ggiraphExtra::ggSpine(
 ) +
   labs(subtitle = stats_expr)  
 ```
+
 :::
 
 ::: {.column width='60%'}
+
 ```{r subtitle_1}
 #| label: "ggpiestats_only_plot"
 #| echo: false
@@ -439,12 +448,12 @@ ggiraphExtra::ggSpine(
 ) +
   labs(subtitle = stats_expr) 
 ```
+
 :::
 
 ::::
 
-
-# Problems
+# Negatives
 
 ## "Golem of Prague" issue {.smaller}
 
@@ -469,13 +478,17 @@ Easy-to-use software can lead to misuse.
 :::: {.columns}
 
 ::: {.column width='50%'}
+
 - Too many arguments to remember.
 - Not a "real" ggplot2 extension.
+
 :::
 
 ::: {.column width='50%'}
+
 - Limited number of functions.
 - Expects non-trivial statistical proficiency.
+
 :::
 
 ::::
@@ -516,6 +529,8 @@ Healthy code base:
 
 [![](media/refactoring.png)](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
 
+![](media/ggstats-contributions.png)
+
 :::
 
 ::::
@@ -531,6 +546,7 @@ Healthy code base:
 ## Total downloads > **500K** (97 percentile)
 
 ```{r}
+#| label: "cran_downloads"
 library(packageRank)
 plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
