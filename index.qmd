@@ -1105,20 +1105,6 @@ But can it be **accepted**?! Null Hypothesis Significance Testing 🤫
 
 Juxtaposing frequentist and Bayesian statistics for the same analysis helps to properly interpret the null results.
 
-## A few other benefits {.smaller}
-
-. . .
-
-Minimal code needed (`data`, `x`, `y`): minimizes chances of error + tidy scripts. 💅
-
-. . .
-
-Disembodied figures stand on their own and are easy to evaluate. 🧐
-
-. . .
-
-More breathing room for theoretical discussion and other text. ✍
-
 ## Misconceptions: This package is... {.smaller}
 
 . . .
