@@ -34,21 +34,8 @@ Indrajeet Patil
 ![](media/logo.png){.relative fig-align="center" width="350" height="350"}
 :::
 
-## Plan {.smaller}
 
--   Why `ggstatsplot`?
-
--   Primary functions
-
--   Customizability
-
--   Benefits
-
--   Misconceptions
-
--   Limitations
-
-## Raison d'être {.smaller}
+## Why `{ggstatsplot}`? {.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -59,7 +46,7 @@ Current CRAN package count **\>23,000**
 
 ::: {.column width="50%"}
 <br> <br> <br> `{ggstatsplot}` provides <br> <br> 📊 information-rich plots with statistical details <br> <br> 📝
-suitable for faster (exploratory) data analysis and scholarly reports <br>
+suitable for faster (exploratory) data analysis and reporting <br>
 :::
 :::::
 
@@ -90,6 +77,13 @@ and can help you make *any* graphics fitting your specific data visualization ne
 ![](media/cat_trademill.gif)
 :::
 :::::
+
+. . .
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Quality of Life (QoL) improvements with `{ggstatsplot}`
+Provide ready-made plots with defaults following the best practices in statistical reporting and data visualization. 
+:::
 
 ## Simpler/faster data analysis workflow {.smaller}
 
@@ -194,7 +188,7 @@ ggbetweenstats(
 ![](media/collage.jpeg)
 
 
-# Why use `{ggstatsplot}`? 👍️
+# Benefits for Statistical Reporting
 
 ## Results *in context* of the data 🕵️ {.smaller}
 
@@ -480,14 +474,14 @@ Easy-to-use software can lead to misuse.
 ::: {.column width='50%'}
 
 - Too many arguments to remember.
-- Not a "real" ggplot2 extension.
+- Not a "real" `{ggplot2}` extension.
 
 :::
 
 ::: {.column width='50%'}
 
 - Limited number of functions.
-- Expects non-trivial statistical proficiency.
+- Non-trivial statistical proficiency needed.
 
 :::
 
@@ -502,8 +496,6 @@ Easy-to-use software can lead to misuse.
 ::: {.column width='50%'}
 
 Each commit must pass many QA checks:
-
-![](media/pr-qa.png)
 
 :::{.callout-note collapse=false appearance='default' icon=true}
 
@@ -521,15 +513,21 @@ Each commit must pass many QA checks:
 
 :::
 
+![](media/pr-qa.png)
+
 :::
 
 ::: {.column width='50%'}
 
-Healthy code base:
+:::{.callout-tip collapse=false appearance='default' icon=true}
+
+## Healthy and active code base
+
+![](media/ggstats-contributions.png)
 
 [![](media/refactoring.png)](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
 
-![](media/ggstats-contributions.png)
+:::
 
 :::
 
@@ -579,12 +577,13 @@ plot(
 
 ## Exploring data made easy! 😉 {.smaller}
 
+ <br> <br> 
 In summary, the `ggstatsplot` approach- <br> <br> 
 (*a*) avoids errors in statistical reporting, <br> <br> 
 (*b*) highlights the importance of the effect by providing effect size measures by default, <br> <br> 
 (*c*) provides an easy way to evaluate *absence* of an effect using Bayesian framework, <br> <br> 
-(*d*) demands to evaluate statistical analysis in the context of the underlying data, <br> <br> 
-and is (*e*) easy and (*f*) simple enough that somebody with little coding experience can use it without making an error.
+(*d*) demands to evaluate statistical analysis in the context of the underlying data,  and is <br> <br> 
+(*e*) easy and (*f*) simple enough that somebody with little coding experience can use it without making an error.
 
 # For more
 
@@ -948,7 +947,7 @@ Meta-analysis is also supported!
 ::::
 
 
-# *grouped\_* variants of all functions
+# *grouped\_* variants
 
 Iterating over a grouping variable
 
@@ -968,7 +967,9 @@ grouped_ggpiestats(
 
 ::: {.column width='40%'}
 
-Available `grouped_` variants:
+:::{.callout-tip collapse=false appearance='default' icon=true}
+
+## Available `grouped_` variants:
 
 - `grouped_ggbetweenstats()` 
 - `grouped_ggwithinstats()` 
@@ -978,6 +979,8 @@ Available `grouped_` variants:
 - `grouped_ggcorrmat()` 
 - `grouped_ggpiestats()` 
 - `grouped_ggbarstats()`
+
+:::
 
 :::
 
