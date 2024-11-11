@@ -32,25 +32,35 @@ execute:
 Indrajeet Patil
 :::
 
-::: {style="margin-top: 1em; font-size:0.75em"}
 ![](media/logo.png){.relative fig-align="center" width="350" height="350"}
-:::
 
+## Why another package? {.smaller}
 
-## Why `{ggstatsplot}`? {.smaller}
+:::: columns
 
-::::: columns
 ::: {.column width="50%"}
+
 Current CRAN package count **\>23,000**
 
 ![](media/y_tho.jpg){.relative fig-align="center" width="400"}
+
 :::
 
 ::: {.column width="50%"}
-<br> <br> <br> `{ggstatsplot}` provides <br> <br> 📊 information-rich plots with statistical details <br> <br> 📝
-suitable for faster (exploratory) data analysis and reporting <br>
+
+ <br> <br> 
+
+:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px; text-align: center;"}
+
+`{ggstatsplot}` provides- <br> <br>
+📊 information-rich plots with statistical details <br> <br> 
+📝 suitable for faster (exploratory) data analysis and reporting
+
 :::
-:::::
+
+:::
+
+::::
 
 ## Informative graphic = a thousand words {.smaller}
 
@@ -61,7 +71,11 @@ suitable for faster (exploratory) data analysis and reporting <br>
 [(Matejka & Fitzmaurice, *Autodesk Research*,2017)](https://www.autodeskresearch.com/publications/samestats)
 :::
 
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+
 **Graphical** summaries can reveal problems not visible from **numerical** statistics.
+
+:::
 
 ## Ready-made plot = no customization {.smaller}
 
@@ -85,8 +99,10 @@ and can help you make *any* graphics fitting your specific data visualization ne
 . . .
 
 :::{.callout-tip collapse=false appearance='default' icon=true}
+
 ## Quality of Life (QoL) improvements with `{ggstatsplot}`
 Provide ready-made plots with defaults following the best practices in statistical reporting and data visualization. 
+
 :::
 
 ## Simpler/faster data analysis workflow {.smaller}
@@ -339,13 +355,17 @@ gghistostats(
 
 "What if I don't like the default plots?" 🤔
 
-## Changing aesthetics 🎨 {.smaller}
+## Modify the look 🎨 {.smaller}
+
+. . . 
 
 :::: {.columns}
 
 ::: {.column width='50%'}
 
-```{r ggbetweenstats_4}
+By changing **theme** and **palette**
+
+```{.r code-line-numbers="5-7"}
 ggbetweenstats(
   data = movies_long,
   x = mpaa,
@@ -359,20 +379,33 @@ ggbetweenstats(
 :::
 
 ::: {.column width='50%'}
-Aesthetic preferences not an excuse to avoid `{ggstatsplot}`! 😻
-Any ggplot theme or palette can be used. 
-<br> <br>
-N.B. The default palette is **colorblind-friendly**.
+
+```{r}
+#| label: "ggbetweenstats_4"
+#| echo: false
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  ggtheme = ggthemes::theme_economist(), 
+  palette = "Darjeeling2", 
+  package = "wesanderson" 
+)
+```
+
 :::
 
 ::::
 
+. . . 
 
-## Modification with `{ggplot2}` 🛠 {.smaller}
+:::: {.columns}
 
-You can modify `{ggstatsplot}` plots further using `{ggplot2}` functions. 🎉
+::: {.column width='50%'}
 
-```{r ggbetweenstats_5}
+By using `{ggplot2}` functions
+
+```{.r code-line-numbers="7"}
 ggbetweenstats(
   data = mtcars,
   x = am,
@@ -381,6 +414,28 @@ ggbetweenstats(
 ) +
   scale_y_continuous(sec.axis = dup_axis()) 
 ```
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| label: "ggbetweenstats_5"
+#| echo: false
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  type = "bayes"
+) +
+  scale_y_continuous(sec.axis = dup_axis())
+```
+
+:::
+
+::::
+
+
 
 ## Too much information 🙈 {.smaller}
 
@@ -392,7 +447,7 @@ ggbetweenstats(
 
 Get **only plots**:
 
-```{.r}
+```{.r code-line-numbers="5-10"}
 ggbetweenstats(
   data = iris,
   x = Species,
@@ -438,10 +493,11 @@ ggbetweenstats(
 
 Get **only expressions**:
 
-```{.r}
+```{.r code-line-numbers="4,6,10"}
 stats_expr <- ggpiestats(
   Titanic_full, Survived, Sex,
-) %>% extract_subtitle()
+) %>% 
+  extract_subtitle()
 
 ggiraphExtra::ggSpine( 
   data = Titanic_full,
@@ -459,7 +515,8 @@ ggiraphExtra::ggSpine(
 #| echo: false
 stats_expr <- ggpiestats(
   Titanic_full, Survived, Sex,
-) %>% extract_subtitle()
+) %>% 
+  extract_subtitle()
 
 ggiraphExtra::ggSpine( 
   data = Titanic_full,
@@ -476,7 +533,7 @@ ggiraphExtra::ggSpine(
 
 Things to be wary of
 
-## "Golem of Prague" issue {.smaller}
+## The "Golem of Prague" problem {.smaller}
 
 :::: {.columns}
 
@@ -609,10 +666,14 @@ Benefits of the `{ggstatsplot}` approach
 
 ## {.smaller}
 
-`{ggstatsplot}`, a package that combines data visualization and statistical analysis in a single step, is a powerful tool that:
+`{ggstatsplot}` combines data visualization and statistical analysis in a single step.
+
+It...
+
+:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px;"}
 
 ::: {.fragment .highlight-current-blue}
-- provides ready-made plots with defaults that are information-rich
+- provides ready-made plots with information-rich defaults
 :::
 
 ::: {.fragment .highlight-current-blue}
@@ -624,7 +685,11 @@ Benefits of the `{ggstatsplot}` approach
 :::
 
 ::: {.fragment .highlight-current-blue}
-- highlights the importance of the effect by providing effect size measures by default
+- helps evaluate statistical analysis in the context of the underlying data 
+:::
+
+::: {.fragment .highlight-current-blue}
+- highlights the importance of the effect by providing effect size measures
 :::
 
 ::: {.fragment .highlight-current-blue}
@@ -632,11 +697,9 @@ Benefits of the `{ggstatsplot}` approach
 :::
 
 ::: {.fragment .highlight-current-blue}
-- helps evaluate statistical analysis in the context of the underlying data 
+- extremely beginner-friendly
 :::
 
-::: {.fragment .highlight-current-blue}
-- easy and simple enough that somebody with little coding experience can use it without making an error
 :::
 
 # For more
