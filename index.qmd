@@ -135,12 +135,16 @@ Let's get started first!
 
 . . .
 
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+
 Package available for installation on CRAN and GitHub:
 
 | Type        | Command                                  |
 | :---------- | :--------------------------------------- |
 | Release     | `install.packages("ggstatsplot")`        |
 | Development | `pak::pak("IndrajeetPatil/ggstatsplot")` |
+
+:::
 
 ```{r}
 #| include: false
@@ -160,7 +164,7 @@ set.seed(123)
 
 ## `ggbetweenstats()` {.smaller}
 
-For between-group comparisons
+Hypothesis about group differences: independent measures design
 
 :::: {.columns}
 
