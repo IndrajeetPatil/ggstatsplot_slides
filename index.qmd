@@ -12,6 +12,7 @@ format:
     #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}."
     fig-dpi: 300
     fig-align: center
+    reference-location: document
 execute:
   echo: true
   eval: true
@@ -47,7 +48,60 @@ Indrajeet Patil
 
 Why a new package?
 
-## Life in the trenches {.smaller}
+## Life in the trenches (c. 2017) {.smaller}
+
+:::{style="font-size: 20px;"}
+(as an academic researcher)
+:::
+
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+:::{.callout-caution collapse=false appearance='default' icon=true}
+
+## Large-scale problems
+
+- **Replication crisis**: 
+
+> "39% of effects were subjectively rated to have replicated the original result"^[[Open Science Collaboration, *Science*, 2015](https://www.science.org/doi/10.1126/science.aac4716)]
+
+- **Reporting errors**: 
+
+> "half of all published psychology papers contained at least one *p*-value that was inconsistent"^[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
+
+- **Interpretation errors**: 
+
+> "in 72% of cases, nonsignificant results were misinterpreted [to mean] that the effect was absent"^[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
+
+<br>
+
+:::
+
+:::
+
+::: {.column width='50%'}
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+
+## Personal challenges
+
+![](media/this-is-fine.jpg){.relative fig-align="center"}
+
+- How to increase reproducibility?
+- How to avoid reporting errors?
+- How to make visualizing data effortless?
+- How to make statistical reporting more informative?
+- How to emphasize the importance of the effect?
+- How to interpret null results?
+- How to easily assess validity of model assumptions?
+
+:::
+
+:::
+
+::::
 
 # Proposal
 
@@ -64,7 +118,7 @@ Information-rich, ready-made statistical visualizations
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-💡 **Graphical** summaries can reveal problems not visible from **numerical** statistics.
+💡 **Graphical** summaries reveal problems not discernible from **numerical** statistics.
 
 :::
 
@@ -116,7 +170,7 @@ The **grammar of graphics** is a powerful framework and can help you make **any*
 
 # Action Plan
 
-`{ggstatsplot}` is born!
+`{ggstatsplot}` was born!
 
 ## Example function {.smaller}
 
@@ -142,7 +196,7 @@ ggbetweenstats(
 :::{.callout-important collapse=false appearance='default' icon=true}
 ## 
 
-✏️ **Defaults**
+**Information-rich defaults**
 
 -  raw data + distributions 
 -  descriptive statistics
