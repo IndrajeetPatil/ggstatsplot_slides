@@ -17,8 +17,17 @@ execute:
   eval: true
   warning: false
   message: false
-  cache: false
+  cache: true
 ---
+
+```{r}
+#| include: false
+#| echo: false
+#| label: "setup"
+library(ggstatsplot)
+library(ggplot2)
+set.seed(123)
+```
 
 ## {ggstatsplot}: Informative Statistical Visualizations {style="margin-top: 1em;"}
 
@@ -34,35 +43,17 @@ Indrajeet Patil
 
 ![](media/logo.png){.relative fig-align="center" width="350" height="350"}
 
-## Why another package? {.smaller}
+# Genesis
 
-:::: columns
+Why a new package?
 
-::: {.column width="50%"}
+## Life in the trenches {.smaller}
 
-Current CRAN package count **\>23,000**
+# Proposal
 
-![](media/y_tho.jpg){.relative fig-align="center" width="400"}
+Information-rich, ready-made statistical visualizations
 
-:::
-
-::: {.column width="50%"}
-
- <br> <br> 
-
-:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px; text-align: center;"}
-
-`{ggstatsplot}` provides- <br> <br>
-📊 information-rich plots with statistical details <br> <br> 
-📝 suitable for faster (exploratory) data analysis and reporting
-
-:::
-
-:::
-
-::::
-
-## Informative graphic = a thousand words {.smaller}
+## A rich graphic is worth a thousand words {.smaller}
 
 ![](media/datasaurus.gif)
 
@@ -73,102 +64,68 @@ Current CRAN package count **\>23,000**
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-**Graphical** summaries can reveal problems not visible from **numerical** statistics.
+💡 **Graphical** summaries can reveal problems not visible from **numerical** statistics.
 
 :::
 
-## Ready-made plot = no customization {.smaller}
-
-The **grammar of graphics** is a powerful framework [(Wilkinson,
-2011)](https://www.google.com/books/edition/_/iI1kcgAACAAJ?hl=en&sa=X&ved=2ahUKEwiGl8rJ2KztAhWyElkFHa8NAvkQre8FMBR6BAgMEAc)
-and can help you make *any* graphics fitting your specific data visualization needs! But...
-
-. . .
+## Lowering the activation energy {.smaller}
 
 ::::: columns
-::: {.column width="50%"}
-![](media/power.jpg){.relative fig-align="center" width="400" height="350"}
+
+::: {.column width="40%"}
+
+<br>
+
+:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px; text-align: center;"}
+
+The **grammar of graphics** is a powerful framework and can help you make **any** data visualization! 
 
 :::
 
-::: {.column width="50%"}
-![](media/cat_trademill.gif){.relative fig-align="center" width="400" height="350"}
+:::
+
+::: {.column width="60%"}
+
+![](media/ggbooks.jpeg){.relative fig-align="center" width="500" height="300"}
 :::
 :::::
 
 . . .
 
-:::{.callout-tip collapse=false appearance='default' icon=true}
+::::: columns
 
-## Quality of Life (QoL) improvements with `{ggstatsplot}`
-Provide ready-made plots with defaults following the best practices in statistical reporting and data visualization. 
+::: {.column width="40%"}
+
+![](media/cat_trademill.gif){.relative fig-align="center"}
 
 :::
 
-## Simpler/faster data analysis workflow {.smaller}
-
-![](media/ds_workflow.png)
-
-::: footer
-[(Grolemund & Wickham, *R for Data Science*, 2017)](https://r4ds.had.co.nz/)
-:::
-
-. . .
-
-In a typical *exploratory* data analysis workflow, **data visualization** and **statistical modeling** are two different
-phases: visualization informs modeling, and modeling can suggest a different visualization, and so on and so forth. <br>
-
-. . .
-
-:::{.callout-tip collapse=false appearance='default' icon=true}
-## Central idea of `{ggstatsplot}`
-Simple: combine these two phases into one!
-:::
-
-## And a LOT more! {.smaller}
-
-...but we will come back to that later 📌
-
-Let's get started first!
+::: {.column width="60%"}
 
 <br>
 
-. . .
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px; text-align: center;"}
-
-Package available for installation on CRAN and GitHub:
-
-| Type        | Command                                  |
-| :---------- | :--------------------------------------- |
-| Release     | `install.packages("ggstatsplot")`        |
-| Development | `pak::pak("IndrajeetPatil/ggstatsplot")` |
+💡 Using **ready-made plots** lowers the activation energy for visualizing data.
 
 :::
 
-```{r}
-#| include: false
-#| echo: false
-library(ggstatsplot)
-library(ggplot2)
-```
+:::
 
-```{r}
-#| include: false
-#| echo: false
-#| label: "seed"
-set.seed(123)
-```
+:::::
 
-# Example function
+# Action Plan
 
-## `ggbetweenstats()` {.smaller}
+`{ggstatsplot}` is born!
 
-Hypothesis about group differences: independent measures design
+## Example function {.smaller}
+
+E.g., for hypothesis about group differences (`ggbetweenstats()`)
 
 :::: {.columns}
 
 ::: {.column width='65%'}
+
 ```{r}
 #| label: "ggbetweenstats_1"
 ggbetweenstats(
@@ -178,6 +135,7 @@ ggbetweenstats(
   title = "Distribution of sepal length across Iris species"
 )
 ```
+
 :::
 
 ::: {.column width='35%'}
@@ -207,29 +165,36 @@ ggbetweenstats(
 
 ::::
 
-## Other functions {.smaller}
+## And there is more! {.smaller}
 
 ![](media/collage.jpeg)
 
+:::footer
+[Appendix](https://indrajeetpatil.github.io/intro-to-ggstatsplot/#/examples-of-other-functions) provides exhaustive details for all functions.
+:::
 
-# Benefits for Statistical Reporting
 
-## Results *in context* of the data 🕵️ {.smaller}
+# Benefits
+
+## Contextual evaluation of models {.smaller}
 
 :::: {.columns}
 
 ::: {.column width='50%'}
-**Standard approach**
+
+**Without `{ggstatsplot}`**
 
 Pearson's correlation test revealed that, across 142 participants, variable `x` was negatively correlated with variable
 `y`: $t(140)=-0.76, p=.446$. The effect size $(r=-0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
 conventions. The Bayes Factor for the same analysis revealed that the data were `r round(exp(1.76), 2)` times more
 probable under the null hypothesis as compared to the alternative hypothesis. This can be considered moderate evidence
 (Jeffreys, 1961) in favor of the null hypothesis (absence of any correlation between `x` and `y`).
+
 :::
 
 ::: {.column width='50%'}
-**`{ggstatsplot}` approach**
+
+**With `{ggstatsplot}`**
 
 ![](media/after_ggstats.PNG)
 
@@ -237,305 +202,27 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 ::::
 
+## Simplified data analysis workflow {.smaller}
 
-## Toggling statistical approaches 🔀 {.smaller}
+![](media/ds_workflow.png)
 
-:::: {.columns}
-
-::: {.column width='50%'}
-
-**Parametric**
-
-```{.r code-line-numbers="6,14,22"}
-# anova
-ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
-  type = "p" 
-)
-
-# correlation analysis
-ggscatterstats(
-  data = mtcars,
-  x = wt,
-  y = mpg,
-  type = "p" 
-)
-
-# t-test
-gghistostats(
-  data = mtcars,
-  x = wt,
-  test.value = 2,
-  type = "p" 
-)
-```
+::: footer
+[(Grolemund & Wickham, *R for Data Science*, 2017)](https://r4ds.had.co.nz/)
 :::
 
-::: {.column width='50%'}
+. . .
 
-**Non-parametric**
+:::{style="background-color: #FFDCA9;  padding: 20px; border-radius: 25px; text-align: center;"}
 
-```{.r code-line-numbers="6,14,22"}
-# anova
-ggbetweenstats(
-  data = mtcars,
-  x = cyl,
-  y = wt,
-  type = "np" 
-)
+Typical *exploratory* data analysis workflow: visualization informs modeling, and modeling can suggest a different visualization, and so on and so forth. 
 
-# correlation analysis
-ggscatterstats(
-  data = mtcars,
-  x = wt,
-  y = mpg,
-  type = "np" 
-)
-
-# t-test
-gghistostats(
-  data = mtcars,
-  x = wt,
-  test.value = 2,
-  type = "np" 
-)
-```
+`{ggstatsplot}` solidifies these two phases into one!
 
 :::
-
-::::
-
-
-## Alternative: Pure Pain {.smaller}
-
-:::: {.columns}
-
-::: {.column width='50%'}
-
-:::{.callout-caution collapse=false appearance='default' icon=true}
-
-## Hunting for packages
-
-📦 for inferential statistics (`{stats}`) <br>
-📦 computing effect size + CIs (`{effectsize}`) <br> 
-📦 for descriptive statistics (`{skimr}`) <br> 
-📦 pairwise comparisons (`{multcomp}`) <br>
-📦 Bayesian hypothesis testing (`{BayesFactor}`) <br> 
-📦 Bayesian estimation (`{bayestestR}`) <br> 
-📦 ... <br> 
-
-![](media/packages.gif){.relative fig-align="center" width="350" height="250"}
-
-:::
-
-:::
-
-::: {.column width='50%'}
-
-:::{.callout-caution collapse=false appearance='default' icon=true}
-
-## Inconsistent APIs
-
-🤔 accepts data frame, vector, matrix? <br>
-🤔 long/wide format data? <br> 
-🤔 works with `NA`s? <br>
-🤔 returns data frame, vector, matrix? <br>
-🤔 works with tibbles? <br> 
-🤔 has all necessary details? <br> 
-🤔 ... <br>
-
-![](media/monkey.gif){.relative fig-align="center" width="350" height="250"}
-
-:::
-
-:::
-
-::::
-
-
-# Customizability
-
-"What if I don't like the default plots?" 🤔
-
-## Modify the look 🎨 {.smaller}
-
-. . . 
-
-:::: {.columns}
-
-::: {.column width='50%'}
-
-By changing **theme** and **palette**
-
-```{.r code-line-numbers="5-7"}
-ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
-  ggtheme = ggthemes::theme_economist(), 
-  palette = "Darjeeling2", 
-  package = "wesanderson" 
-)
-```
-
-:::
-
-::: {.column width='50%'}
-
-```{r}
-#| label: "ggbetweenstats_4"
-#| echo: false
-ggbetweenstats(
-  data = movies_long,
-  x = mpaa,
-  y = rating,
-  ggtheme = ggthemes::theme_economist(), 
-  palette = "Darjeeling2", 
-  package = "wesanderson" 
-)
-```
-
-:::
-
-::::
-
-. . . 
-
-:::: {.columns}
-
-::: {.column width='50%'}
-
-By using `{ggplot2}` functions
-
-```{.r code-line-numbers="7"}
-ggbetweenstats(
-  data = mtcars,
-  x = am,
-  y = wt,
-  type = "bayes"
-) +
-  scale_y_continuous(sec.axis = dup_axis()) 
-```
-
-:::
-
-::: {.column width='50%'}
-
-```{r}
-#| label: "ggbetweenstats_5"
-#| echo: false
-ggbetweenstats(
-  data = mtcars,
-  x = am,
-  y = wt,
-  type = "bayes"
-) +
-  scale_y_continuous(sec.axis = dup_axis())
-```
-
-:::
-
-::::
-
-
-
-## Too much information 🙈 {.smaller}
-
-. . . 
-
-:::: {.columns}
-
-::: {.column width='40%'}
-
-Get **only plots**:
-
-```{.r code-line-numbers="5-10"}
-ggbetweenstats(
-  data = iris,
-  x = Species,
-  y = Sepal.Length,
-  # turn off statistical analysis
-  centrality.plotting = FALSE, 
-  results.subtitle = FALSE, 
-  bf.message = FALSE, 
-  # turn off pairwise comparisons
-  pairwise.display = "none" 
-)
-```
-
-:::
-
-::: {.column width='60%'}
-
-```{r}
-#| label: "ggbetweenstats_only_plot"
-#| echo: false
-ggbetweenstats(
-  data = iris,
-  x = Species,
-  y = Sepal.Length,
-  # turn off statistical analysis
-  centrality.plotting = FALSE, 
-  results.subtitle = FALSE, 
-  bf.message = FALSE, 
-  # turn off pairwise comparisons
-  pairwise.display = "none" 
-)
-```
-
-:::
-
-::::
-
-. . . 
-
-:::: {.columns}
-
-::: {.column width='40%'}
-
-Get **only expressions**:
-
-```{.r code-line-numbers="4,6,10"}
-stats_expr <- ggpiestats(
-  Titanic_full, Survived, Sex,
-) %>% 
-  extract_subtitle()
-
-ggiraphExtra::ggSpine( 
-  data = Titanic_full,
-  aes(x = Sex, fill = Survived)
-) +
-  labs(subtitle = stats_expr)  
-```
-
-:::
-
-::: {.column width='60%'}
-
-```{r subtitle_1}
-#| label: "ggpiestats_only_plot"
-#| echo: false
-stats_expr <- ggpiestats(
-  Titanic_full, Survived, Sex,
-) %>% 
-  extract_subtitle()
-
-ggiraphExtra::ggSpine( 
-  data = Titanic_full,
-  aes(x = Sex, fill = Survived)
-) +
-  labs(subtitle = stats_expr) 
-```
-
-:::
-
-::::
 
 # Critical Evaluation
 
-Things to be wary of
+Unintended consequences
 
 ## The "Golem of Prague" problem {.smaller}
 
@@ -575,9 +262,9 @@ Easy-to-use software can lead to misuse.
 
 ::::
 
-# Attractive Qualities
+# Skills
 
-Things that will pull you in
+Pleasant side effects
 
 ## Quality Assurance {.smaller}
 
@@ -1108,7 +795,186 @@ grouped_ggpiestats(
 ::::
 
 
-# More `{ggstatsplot}` benefits 
+# Customizability
+
+"What if I don't like the default plots?" 🤔
+
+## Modify the look 🎨 {.smaller}
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+By changing **theme** and **palette**
+
+```{.r code-line-numbers="5-7"}
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  ggtheme = ggthemes::theme_economist(), 
+  palette = "Darjeeling2", 
+  package = "wesanderson" 
+)
+```
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| label: "ggbetweenstats_4"
+#| echo: false
+ggbetweenstats(
+  data = movies_long,
+  x = mpaa,
+  y = rating,
+  ggtheme = ggthemes::theme_economist(), 
+  palette = "Darjeeling2", 
+  package = "wesanderson" 
+)
+```
+
+:::
+
+::::
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+By using `{ggplot2}` functions
+
+```{.r code-line-numbers="7"}
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  type = "bayes"
+) +
+  scale_y_continuous(sec.axis = dup_axis()) 
+```
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| label: "ggbetweenstats_5"
+#| echo: false
+ggbetweenstats(
+  data = mtcars,
+  x = am,
+  y = wt,
+  type = "bayes"
+) +
+  scale_y_continuous(sec.axis = dup_axis())
+```
+
+:::
+
+::::
+
+
+
+## Too much information 🙈 {.smaller}
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+Get **only plots**:
+
+```{.r code-line-numbers="5-10"}
+ggbetweenstats(
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
+  # turn off statistical analysis
+  centrality.plotting = FALSE, 
+  results.subtitle = FALSE, 
+  bf.message = FALSE, 
+  # turn off pairwise comparisons
+  pairwise.display = "none" 
+)
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| label: "ggbetweenstats_only_plot"
+#| echo: false
+ggbetweenstats(
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
+  # turn off statistical analysis
+  centrality.plotting = FALSE, 
+  results.subtitle = FALSE, 
+  bf.message = FALSE, 
+  # turn off pairwise comparisons
+  pairwise.display = "none" 
+)
+```
+
+:::
+
+::::
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+Get **only expressions**:
+
+```{.r code-line-numbers="4,6,10"}
+stats_expr <- ggpiestats(
+  Titanic_full, Survived, Sex,
+) %>% 
+  extract_subtitle()
+
+ggiraphExtra::ggSpine( 
+  data = Titanic_full,
+  aes(x = Sex, fill = Survived)
+) +
+  labs(subtitle = stats_expr)  
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r subtitle_1}
+#| label: "ggpiestats_only_plot"
+#| echo: false
+stats_expr <- ggpiestats(
+  Titanic_full, Survived, Sex,
+) %>% 
+  extract_subtitle()
+
+ggiraphExtra::ggSpine( 
+  data = Titanic_full,
+  aes(x = Sex, fill = Survived)
+) +
+  labs(subtitle = stats_expr) 
+```
+
+:::
+
+::::
+
+
+# `{ggstatsplot}`: Details about statistical reporting 
 
 ## Supports different statistical approaches {.smaller}
 
@@ -1128,6 +994,122 @@ grouped_ggpiestats(
 | `ggcoefstats()`                      | Random-effects meta-analysis                      | ✅         | `NA`           | ✅     | ✅       |
 
 :::
+
+## Toggling statistical approaches 🔀 {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+**Parametric**
+
+```{.r code-line-numbers="6,14,22"}
+# anova
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  type = "p" 
+)
+
+# correlation analysis
+ggscatterstats(
+  data = mtcars,
+  x = wt,
+  y = mpg,
+  type = "p" 
+)
+
+# t-test
+gghistostats(
+  data = mtcars,
+  x = wt,
+  test.value = 2,
+  type = "p" 
+)
+```
+:::
+
+::: {.column width='50%'}
+
+**Non-parametric**
+
+```{.r code-line-numbers="6,14,22"}
+# anova
+ggbetweenstats(
+  data = mtcars,
+  x = cyl,
+  y = wt,
+  type = "np" 
+)
+
+# correlation analysis
+ggscatterstats(
+  data = mtcars,
+  x = wt,
+  y = mpg,
+  type = "np" 
+)
+
+# t-test
+gghistostats(
+  data = mtcars,
+  x = wt,
+  test.value = 2,
+  type = "np" 
+)
+```
+
+:::
+
+::::
+
+
+## Alternative: Pure Pain {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+:::{.callout-caution collapse=false appearance='default' icon=true}
+
+## Hunting for packages
+
+📦 for inferential statistics (`{stats}`) <br>
+📦 computing effect size + CIs (`{effectsize}`) <br> 
+📦 for descriptive statistics (`{skimr}`) <br> 
+📦 pairwise comparisons (`{multcomp}`) <br>
+📦 Bayesian hypothesis testing (`{BayesFactor}`) <br> 
+📦 Bayesian estimation (`{bayestestR}`) <br> 
+📦 ... <br> 
+
+![](media/packages.gif){.relative fig-align="center" width="350" height="250"}
+
+:::
+
+:::
+
+::: {.column width='50%'}
+
+:::{.callout-caution collapse=false appearance='default' icon=true}
+
+## Inconsistent APIs
+
+🤔 accepts data frame, vector, matrix? <br>
+🤔 long/wide format data? <br> 
+🤔 works with `NA`s? <br>
+🤔 returns data frame, vector, matrix? <br>
+🤔 works with tibbles? <br> 
+🤔 has all necessary details? <br> 
+🤔 ... <br>
+
+![](media/monkey.gif){.relative fig-align="center" width="350" height="250"}
+
+:::
+
+:::
+
+::::
 
 ## Best practices in statistical reporting 🏆 {.smaller}
 
