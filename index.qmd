@@ -329,17 +329,82 @@ Promotes mindless application of statistical tests.
 
 ::::
 
-# Skills
+# Pleasant Side Effects
 
-Pleasant side effects
+*Maybe the real treasure was the technical skills we picked up along the way!*
+
+## Evolving Architecture {.smaller}
+
+Breaking down initial monolith (initially: $>$ 20K LOC) into smaller, more manageable pieces (now: $<$ 800 LOC).
+
+```{mermaid}
+%%| echo: false
+flowchart TD
+    ggstatsplot[ggstatsplot]
+    statsExpressions[statsExpressions]
+    note["statistical computation engine"]
+    
+    subgraph easystats[easystats ecosystem]
+        effectsize[effectsize]
+        insight[insight]
+        parameters[parameters]
+        performance[performance]
+        bayestestR[bayestestR]
+    end
+    
+    %% subgraph other[Graphics Dependencies]
+    %%     ggplot2[ggplot2]
+    %%     ggrepel[ggrepel]
+    %%     ggsignif[ggsignif]
+    %% end
+    
+    %% Main dependencies
+    ggstatsplot --> statsExpressions
+    ggstatsplot --> dots[Other dependencies]
+    
+    %% Add note connecting to the main relationship
+    note -.-> statsExpressions
+    
+    %% statsExpressions dependencies on easystats packages
+    statsExpressions --> effectsize
+    statsExpressions --> insight
+    statsExpressions --> parameters
+    statsExpressions --> performance
+    statsExpressions --> bayestestR
+    
+    %% Styling using colorblind-friendly colors
+    classDef main fill:#EE7733,stroke:#333,stroke-width:2px
+    classDef stats fill:#009988,stroke:#333,stroke-width:2px
+    classDef easy fill:#CCBB44,stroke:#333,stroke-width:1px
+    classDef other fill:#88CCEE,stroke:#333,stroke-width:1px
+    classDef note fill:#ffffff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
+    
+    class ggstatsplot main
+    class statsExpressions stats
+    class effectsize,insight,parameters,performance,bayestestR easy
+    class dots other
+    class note note
+```
+
+<br>
+
+#### Team sport
+
+:::{style="font-size: 20px;"}
+
+While re-architecting `{ggstatsplot}`, in the spirit of open-source, I decided to contribute to upstream dependencies: <br>
+
+- joined the core `{easystats}` team and contributing to its ten component packages
+- became a co-maintainer of `{ggsignif}`
+- contributed to `{WRS2}` and `{ggcorrplot}`
+
+:::
 
 ## Quality Assurance {.smaller}
 
 :::: {.columns}
 
 ::: {.column width='50%'}
-
-Each commit must pass many QA checks:
 
 :::{.callout-note collapse=false appearance='default' icon=true}
 
@@ -357,8 +422,6 @@ Each commit must pass many QA checks:
 
 :::
 
-![](media/pr-qa.png){.relative fig-align="center"}
-
 :::
 
 ::: {.column width='50%'}
@@ -367,15 +430,26 @@ Each commit must pass many QA checks:
 
 ## Healthy and active code base
 
-![](media/ggstats-contributions.png){.relative fig-align="center"}
+![](media/pr-qa.png){.relative fig-align="center"}
 
-[![](media/refactoring.png){.relative fig-align="center" height="350"}](https://indrajeetpatil.github.io/refactoring-ggstatsplot/refactoring-ggstatsplot#1)
+![](media/ggstats-contributions.png){.relative fig-align="center"}
 
 :::
 
 :::
 
 ::::
+
+#### Team sport
+
+:::{style="font-size: 20px;"}
+
+While improving QA tools for `{ggstatsplot}`, in the spirit of open-source, I decided to contribute to upstream dependencies: <br>
+
+- became co-author of `{lintr}` (linter) 
+- became co-author of `{styler}` (formatter)
+
+:::
 
 ## User Love {.smaller}
 
