@@ -18,7 +18,7 @@ execute:
   eval: true
   warning: false
   message: false
-  cache: true
+  cache: false
 ---
 
 ```{r}
