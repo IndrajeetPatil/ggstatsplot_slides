@@ -73,7 +73,7 @@ Why a new package?
 
 - **Interpretation errors**: 
 
-> "in 72% of cases, nonsignificant results were misinterpreted [to mean] that the effect was absent"^[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
+> "in 72% of cases, nonsignificant results were misinterpreted [to mean] that effect was absent"^[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 
 <br>
 
@@ -107,10 +107,9 @@ Why a new package?
 
 Information-rich, ready-made statistical visualizations
 
-## A rich graphic is worth a thousand words {.smaller}
+## Defaulting to a rich graphic {.smaller}
 
 ![](media/datasaurus.gif)
-
 
 ::: footer
 [(Matejka & Fitzmaurice, *Autodesk Research*,2017)](https://www.autodeskresearch.com/publications/samestats)
@@ -118,11 +117,11 @@ Information-rich, ready-made statistical visualizations
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-💡 **Graphical** summaries reveal problems not discernible from **numerical** statistics.
+💡 **Graphical** summaries reveal problems not discernible from **numerical** statistics!
 
 :::
 
-## Lowering the activation energy {.smaller}
+## Avoiding cooking a new plot {.smaller}
 
 ::::: columns
 
@@ -160,7 +159,7 @@ The **grammar of graphics** is a powerful framework and can help you make **any*
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-💡 Using **ready-made plots** lowers the activation energy for visualizing data.
+💡 Using **ready-made plots** lowers the activation energy for visualizing data!
 
 :::
 
@@ -171,6 +170,10 @@ The **grammar of graphics** is a powerful framework and can help you make **any*
 # Action Plan
 
 `{ggstatsplot}` was born!
+
+:::{style="font-size: 20px;"}
+(started out as loose scripts, which were later consolidated into a package)
+:::
 
 ## Example function {.smaller}
 
@@ -193,6 +196,7 @@ ggbetweenstats(
 :::
 
 ::: {.column width='35%'}
+
 :::{.callout-important collapse=false appearance='default' icon=true}
 ## 
 
@@ -227,10 +231,11 @@ ggbetweenstats(
 [Appendix](https://indrajeetpatil.github.io/intro-to-ggstatsplot/#/examples-of-other-functions) provides exhaustive details for all functions.
 :::
 
+# Promised Land
 
-# Benefits
+Does it deliver?
 
-## Contextual evaluation of models {.smaller}
+## Show, don't tell {.smaller}
 
 :::: {.columns}
 
@@ -238,11 +243,15 @@ ggbetweenstats(
 
 **Without `{ggstatsplot}`**
 
+:::{style="font-size: 25px;"}
+
 Pearson's correlation test revealed that, across 142 participants, variable `x` was negatively correlated with variable
-`y`: $t(140)=-0.76, p=.446$. The effect size $(r=-0.06, 95\% CI [-.23,.10])$ was small, as per Cohen’s (1988)
+`y`: $t(140)=-0.76, p=0.446$. The effect size $(r=-0.06, 95\% CI [-0.23,0.10])$ was small, as per Cohen’s (1988)
 conventions. The Bayes Factor for the same analysis revealed that the data were `r round(exp(1.76), 2)` times more
 probable under the null hypothesis as compared to the alternative hypothesis. This can be considered moderate evidence
 (Jeffreys, 1961) in favor of the null hypothesis (absence of any correlation between `x` and `y`).
+
+:::
 
 :::
 
@@ -256,6 +265,12 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 ::::
 
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+
+✅ No need to worry about reporting or interpretation errors!
+
+:::
+
 ## Simplified data analysis workflow {.smaller}
 
 ![](media/ds_workflow.png)
@@ -264,28 +279,28 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 [(Grolemund & Wickham, *R for Data Science*, 2017)](https://r4ds.had.co.nz/)
 :::
 
-. . .
+<br>
 
-:::{style="background-color: #FFDCA9;  padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-Typical *exploratory* data analysis workflow: visualization informs modeling, and modeling can suggest a different visualization, and so on and so forth. 
-
-`{ggstatsplot}` solidifies these two phases into one!
+✅  Shortens the time from data to insight by combining data visualization and statistical analysis in a single step!
 
 :::
 
-# Critical Evaluation
+## A grain of salt {.smaller}
 
-Unintended consequences
-
-## The "Golem of Prague" problem {.smaller}
+#### The "Golem of Prague" problem 
 
 :::: {.columns}
 
 ::: {.column width='40%'}
-Promotes mindless application of statistical tests.
 
-Easy-to-use software can lead to misuse.
+<br><br>
+
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+Promotes mindless application of statistical tests.
+:::
+
 :::
 
 ::: {.column width='60%'}
@@ -294,23 +309,21 @@ Easy-to-use software can lead to misuse.
 
 ::::
 
-. . .
-
-### Clunky API {.smaller}
+#### Clunky API {.smaller}
 
 :::: {.columns}
 
 ::: {.column width='50%'}
 
-- Too many arguments to remember.
 - Not a "real" `{ggplot2}` extension.
+- Not interactive.
 
 :::
 
 ::: {.column width='50%'}
 
-- Limited number of functions.
 - Statistical proficiency needed.
+- No stable (`1.0`) release yet.
 
 :::
 
@@ -1168,69 +1181,3 @@ gghistostats(
 ## Best practices in statistical reporting 🏆 {.smaller}
 
 ![](media/stats_reporting_format.png)
-
-## Avoiding reporting errors {.smaller}
-
-. . .
-
-"half of all published psychology papers that use NHST contained at least one *p*-value that was inconsistent with its
-test statistic and degrees of freedom. One in eight papers contained a grossly inconsistent *p*-value that may have
-affected the statistical conclusion"
-
-[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)
-
-. . .
-
-Since the plot and the statistical analysis are yoked together, the chances of making an error in reporting the results
-are minimized.
-
-. . .
-
-No need to worry about updating figures and statistical details **separately**. 🔗
-
-## Making sense of null results {.smaller}
-
-. . .
-
-$p > 0.05$: The null hypothesis (`H0`) can't be rejected
-
-But can it be **accepted**?! Null Hypothesis Significance Testing 🤫
-
-. . .
-
-> "In 72% of cases, nonsignificant results were misinterpreted, in that the authors inferred that the effect was absent.
-> A Bayesian reanalysis revealed that fewer than 5% of the nonsignificant findings provided strong evidence (i.e.,
-> $BF_{01} > 10$) in favor of the null hypothesis over the alternative hypothesis."
-
-[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)
-
-. . .
-
-Juxtaposing frequentist and Bayesian statistics for the same analysis helps to properly interpret the null results.
-
-## Misconceptions: This package is... {.smaller}
-
-. . .
-
- <br>
-❌ an alternative to learning `ggplot2` <br> 
-✅ the more you know `ggplot2`, the better you can modify the defaults to your liking) <br>
-<br>
-
-. . .
-
-❌ meant to be used in talks/presentations <br> 
-✅ defaults too complicated for effectively communicating results in time-constrained presentation settings, e.g. conference talks) <br>
-<br>
-
-. . .
-
-❌ only relevant when used in publications <br> 
-✅ not necessary; can also be useful *only* during exploratory phase <br> 
-<br>
-
-. . .
-
-❌ the only game in town <br> 
-✅ excellent GUI open-source software: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/)) 
-
