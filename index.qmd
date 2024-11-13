@@ -381,28 +381,22 @@ Promotes mindless application of statistical tests.
 
 ## Software Architecture {.smaller}
 
-Breaking down initial monolith (initially: $>$ 20K LOC) into smaller, more manageable pieces (now: $<$ 800 LOC).
+Breaking down the monolith: $20K \rightarrow 1K$ lines of code
 
 ```{mermaid}
 %%| echo: false
 flowchart TD
     ggstatsplot[ggstatsplot]
     statsExpressions[statsExpressions]
-    note["statistical computation engine"]
+    note["backend engine"]
     
-    subgraph easystats[easystats ecosystem]
+    subgraph easystats[easystats]
         effectsize[effectsize]
         insight[insight]
         parameters[parameters]
         performance[performance]
         bayestestR[bayestestR]
     end
-    
-    %% subgraph other[Graphics Dependencies]
-    %%     ggplot2[ggplot2]
-    %%     ggrepel[ggrepel]
-    %%     ggsignif[ggsignif]
-    %% end
     
     %% Main dependencies
     ggstatsplot --> statsExpressions
@@ -418,27 +412,21 @@ flowchart TD
     statsExpressions --> performance
     statsExpressions --> bayestestR
     
-    %% Styling using colorblind-friendly colors
-    classDef main fill:#EE7733,stroke:#333,stroke-width:2px
-    classDef stats fill:#009988,stroke:#333,stroke-width:2px
-    classDef easy fill:#CCBB44,stroke:#333,stroke-width:1px
-    classDef other fill:#88CCEE,stroke:#333,stroke-width:1px
+    %% Styling using custom colors
+    classDef main fill:#fff88,stroke:#333,stroke-width:2px
     classDef note fill:#ffffff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
     
     class ggstatsplot main
-    class statsExpressions stats
-    class effectsize,insight,parameters,performance,bayestestR easy
-    class dots other
     class note note
 ```
 
-<br>
+#### 
 
-#### Team sport
+:::{.callout-tip collapse=false appearance='default' icon=true}
 
-:::{style="font-size: 20px;"}
+## Team sport
 
-While re-architecting `{ggstatsplot}`, in the spirit of open-source, I decided to contribute to upstream dependencies: <br>
+While re-architecting `{ggstatsplot}`, I decided to contribute to upstream open-source dependencies: <br>
 
 - joined the core `{easystats}` team and contributing to its ten component packages
 - became a co-maintainer of `{ggsignif}`
@@ -472,7 +460,7 @@ While re-architecting `{ggstatsplot}`, in the spirit of open-source, I decided t
 
 ::: {.column width='50%'}
 
-:::{.callout-tip collapse=false appearance='default' icon=true}
+:::{.callout-important collapse=false appearance='default' icon=true}
 
 ## Healthy and active code base
 
@@ -486,20 +474,19 @@ While re-architecting `{ggstatsplot}`, in the spirit of open-source, I decided t
 
 ::::
 
-#### Team sport
+:::{.callout-tip collapse=false appearance='default' icon=true}
 
-:::{style="font-size: 20px;"}
+## Team sport
 
 While improving QA tools for `{ggstatsplot}`, in the spirit of open-source, I decided to contribute to upstream dependencies: <br>
 
-- became co-author of `{lintr}` (linter) 
-- became co-author of `{styler}` (formatter)
+- became co-author of `{lintr}` (linter) and `{styler}` (formatter)
 
 :::
 
 # Impact
 
-*I can haz users?*
+*I can haz users?!*
 
 ## User Love {.smaller}
 
@@ -541,8 +528,6 @@ plot(
 :::
 
 ::::
-
-## Breadth of Usage {.smaller}
 
 # Conclusion 
 
