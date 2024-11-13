@@ -32,21 +32,25 @@ set.seed(123)
 
 ## {ggstatsplot}: Informative Statistical Visualizations {style="margin-top: 1em;"}
 
-<!-- Don't render this file manually. Run `renderer.R` script instead. -->
-
 <!-- Need to install extension from https://github.com/quarto-ext/fontawesome -->
 
 <!-- Run `quarto install extension quarto-ext/fontawesome` in terminal -->
+
+:::: {.columns}
+
+::: {.column width='40%'}
 
 ::: {style="margin-top: 0.5em; margin-bottom: 0.5em; font-size: 1em"}
 Indrajeet Patil<br>
 :::
 
-:::{style="font-size: 25px;"}
-(18 Nov. 2024)
 :::
 
-![](media/logo.png){.relative fig-align="center" width="400" height="400"}
+::: {.column width='60%'}
+![](media/logo.png){.relative fig-align="center" width="350" height="350"}
+:::
+
+::::
 
 # Genesis
 
@@ -67,10 +71,6 @@ Why a new package?
 
 ## Large-scale problems
 
-- **Replication crisis**: 
-
-> "39% of effects were subjectively rated to have replicated the original result"^[[Open Science Collaboration, *Science*, 2015](https://www.science.org/doi/10.1126/science.aac4716)]
-
 - **Reporting errors**: 
 
 > "half of all published psychology papers contained at least one *p*-value that was inconsistent"^[[(Nuijten et al., *Behavior Research Methods*, 2016)](https://link.springer.com/article/10.3758/s13428-015-0664-2)]
@@ -79,7 +79,11 @@ Why a new package?
 
 > "in 72% of cases, nonsignificant results were misinterpreted [to mean] that effect was absent"^[[(Aczel et al., *AMPPS*, 2018)](https://journals.sagepub.com/doi/pdf/10.1177/2515245918773742)]
 
-<br>
+- **Replication crisis**: 
+
+> "39% of effects were subjectively rated to have replicated the original result"^[[Open Science Collaboration, *Science*, 2015](https://www.science.org/doi/10.1126/science.aac4716)]
+
+and more...
 
 :::
 
@@ -93,13 +97,12 @@ Why a new package?
 
 ![](media/this-is-fine.jpg){.relative fig-align="center"}
 
-- How to increase reproducibility?
 - How to avoid reporting errors?
 - How to make visualizing data effortless?
-- How to make statistical reporting more informative?
 - How to emphasize the importance of the effect?
 - How to interpret null results?
 - How to easily assess validity of model assumptions?
+- How to increase reproducibility?
 
 :::
 
@@ -115,14 +118,14 @@ Information-rich, ready-made statistical visualizations
 
 ![](media/datasaurus.gif)
 
-::: footer
-[(Matejka & Fitzmaurice, *Autodesk Research*,2017)](https://www.autodeskresearch.com/publications/samestats)
-:::
-
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-💡 **Graphical** summaries reveal problems not discernible from **numerical** statistics!
+💡 **Visualizations** reveal problems not discernible from **descriptive** statistics!
 
+:::
+
+:::footer
+[(Matejka & Fitzmaurice, *Autodesk Research*,2017)](https://www.autodeskresearch.com/publications/samestats)
 :::
 
 ## Avoiding cooking a new plot {.smaller}
@@ -145,15 +148,14 @@ The **grammar of graphics** is a powerful framework and can help you make **any*
 
 ![](media/ggbooks.jpeg){.relative fig-align="center" width="500" height="300"}
 :::
-:::::
 
-. . .
+:::::
 
 ::::: columns
 
 ::: {.column width="40%"}
 
-![](media/cat_trademill.gif){.relative fig-align="center"}
+![](media/cat_trademill.gif){.relative fig-align="center" width="350" height="350}
 
 :::
 
@@ -232,7 +234,7 @@ ggbetweenstats(
 ![](media/collage.jpeg)
 
 :::footer
-[Appendix](https://indrajeetpatil.github.io/intro-to-ggstatsplot/#/examples-of-other-functions) provides exhaustive details for all functions.
+[Appendix](https://indrajeetpatil.github.io/intro-to-ggstatsplot/#/examples-of-other-functions) provides more details.
 :::
 
 # Promised Land
@@ -295,7 +297,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 :::: {.columns}
 
-::: {.column width='50%'}
+::: {.column width='40%'}
 
 :::{.callout-note collapse=false appearance='default' icon=true}
 
@@ -307,7 +309,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 :::
 
-::: {.column width='50%'}
+::: {.column width='60%'}
 
 :::{.callout-note collapse=false appearance='default' icon=true}
 
@@ -316,9 +318,8 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 ![](media/stats_reporting_format.png){.relative fig-align="center"}
 
 :::{style="font-size: 15px; text-align: center;"}
-`{statsExpressions}` ([Patil, 2021](https://joss.theoj.org/papers/10.21105/joss.03236){target="_blank"}): statistics engine for `{ggstatsplot}`
-
-([Doorn et al., 2020]([https://link.springer.com/article/10.3758/s13423-020-01798-5]){target="_blank"}; [APA Manual](https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf){target="_blank"})
+([Doorn et al., 2020]([https://link.springer.com/article/10.3758/s13423-020-01798-5]){target="_blank"}; 
+[APA Manual](https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf){target="_blank"})
 :::
 
 :::
@@ -327,7 +328,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 ::::
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #F3CCFF; padding: 15px; border-radius: 25px; text-align: center;"}
 
 ✅  Encourages best practices in data visualization and statistical reporting!
 
@@ -501,6 +502,7 @@ While improving QA tools for `{ggstatsplot}`, in the spirit of open-source, I de
 ```{r}
 #| label: "cran_downloads"
 #| fig-align: center
+#| echo: false
 library(packageRank)
 plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
@@ -508,6 +510,10 @@ plot(
 )
 ```
 
+:::
+
+:::{style="background-color: #FFDCA9; padding: 10px; border-radius: 25px; text-align: center; font-size:20px;"}
+Second most starred `{ggplot2}`-extension!
 :::
 
 ![](media/ggstats-stars.png){.relative fig-align="center"}
@@ -521,9 +527,10 @@ plot(
 ## Total citations > **1000**
 
 ![](media/ggstats-paper.png){.relative fig-align="center"}
-:::
 
 ![](media/ggstats-citations.png){.relative fig-align="center"}
+
+:::
 
 :::
 
@@ -531,45 +538,7 @@ plot(
 
 # Conclusion 
 
-Benefits of the `{ggstatsplot}` approach
-
-## {.smaller}
-
-`{ggstatsplot}` combines data visualization and statistical analysis in a single step.
-
-It...
-
-:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px;"}
-
-::: {.fragment .highlight-current-blue}
-- provides ready-made plots with information-rich defaults
-:::
-
-::: {.fragment .highlight-current-blue}
-- minimizes the chances of making errors in statistical reporting
-:::
-
-::: {.fragment .highlight-current-blue}
-- follows best practices in data visualization and statistical reporting
-:::
-
-::: {.fragment .highlight-current-blue}
-- helps evaluate statistical analysis in the context of the underlying data 
-:::
-
-::: {.fragment .highlight-current-blue}
-- highlights the importance of the effect by providing effect size measures
-:::
-
-::: {.fragment .highlight-current-blue}
-- provides an easy way to evaluate *absence* of an effect using Bayesian framework 
-:::
-
-::: {.fragment .highlight-current-blue}
-- extremely beginner-friendly
-:::
-
-:::
+The `{ggstatsplot}` package provides accessible interface to create rich statistical visualizations, and helps users adopt a rigorous, reliable, and robust data exploratory and reporting workflow.
 
 # For more
 
@@ -1290,4 +1259,42 @@ gghistostats(
 :::
 
 ::::
+
+## Benefits in details {.smaller}
+
+`{ggstatsplot}` combines data visualization and statistical analysis in a single step.
+
+It...
+
+:::{style="background-color: #FFDCA9; padding: 20px; border-radius: 25px;"}
+
+::: {.fragment .highlight-current-blue}
+- provides ready-made plots with information-rich defaults
+:::
+
+::: {.fragment .highlight-current-blue}
+- minimizes the chances of making errors in statistical reporting
+:::
+
+::: {.fragment .highlight-current-blue}
+- follows best practices in data visualization and statistical reporting
+:::
+
+::: {.fragment .highlight-current-blue}
+- helps evaluate statistical analysis in the context of the underlying data 
+:::
+
+::: {.fragment .highlight-current-blue}
+- highlights the importance of the effect by providing effect size measures
+:::
+
+::: {.fragment .highlight-current-blue}
+- provides an easy way to evaluate *absence* of an effect using Bayesian framework 
+:::
+
+::: {.fragment .highlight-current-blue}
+- extremely beginner-friendly
+:::
+
+:::
 
