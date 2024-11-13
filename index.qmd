@@ -39,10 +39,14 @@ set.seed(123)
 <!-- Run `quarto install extension quarto-ext/fontawesome` in terminal -->
 
 ::: {style="margin-top: 0.5em; margin-bottom: 0.5em; font-size: 1em"}
-Indrajeet Patil
+Indrajeet Patil<br>
 :::
 
-![](media/logo.png){.relative fig-align="center" width="350" height="350"}
+:::{style="font-size: 25px;"}
+(18 Nov. 2024)
+:::
+
+![](media/logo.png){.relative fig-align="center" width="400" height="400"}
 
 # Genesis
 
@@ -283,7 +287,49 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
 
-✅  Shortens the time from data to insight by combining data visualization and statistical analysis in a single step!
+✅ Quick insight into data by combining visualization and modeling!
+
+:::
+
+## Thoughtful Defaults {.smaller}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+
+## Data Visualization
+
+![](media/dataviz.jpeg){.relative fig-align="center" height="400"}
+
+:::
+
+:::
+
+::: {.column width='50%'}
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+
+## Statistical Reporting
+
+![](media/stats_reporting_format.png){.relative fig-align="center"}
+
+:::{style="font-size: 15px; text-align: center;"}
+`{statsExpressions}` ([Patil, 2021](https://joss.theoj.org/papers/10.21105/joss.03236){target="_blank"}): statistics engine for `{ggstatsplot}`
+
+([Doorn et al., 2020]([https://link.springer.com/article/10.3758/s13423-020-01798-5]){target="_blank"}; [APA Manual](https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf){target="_blank"})
+:::
+
+:::
+
+:::
+
+::::
+
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+
+✅  Encourages best practices in data visualization and statistical reporting!
 
 :::
 
@@ -333,7 +379,7 @@ Promotes mindless application of statistical tests.
 
 *Maybe the real treasure was the technical skills we picked up along the way!*
 
-## Evolving Architecture {.smaller}
+## Software Architecture {.smaller}
 
 Breaking down initial monolith (initially: $>$ 20K LOC) into smaller, more manageable pieces (now: $<$ 800 LOC).
 
@@ -414,7 +460,7 @@ While re-architecting `{ggstatsplot}`, in the spirit of open-source, I decided t
 - Code coverage (100%)
 - Linting (0 lints)
 - Formatting (0 issues)
-- Documentation (website, link rot, examples)
+- Documentation (website, no link rot, many examples)
 - CRAN checks (0 E, 0 W, 0 N)
 - Pre-commit hooks (0 issues)
 - Portability (Linux, macOS, Windows)
@@ -450,6 +496,10 @@ While improving QA tools for `{ggstatsplot}`, in the spirit of open-source, I de
 - became co-author of `{styler}` (formatter)
 
 :::
+
+# Impact
+
+*I can haz users?*
 
 ## User Love {.smaller}
 
@@ -491,6 +541,8 @@ plot(
 :::
 
 ::::
+
+## Breadth of Usage {.smaller}
 
 # Conclusion 
 
@@ -537,6 +589,8 @@ It...
 # For more
 
 Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/intro-to-ggstatsplot){target='_blank'}.
+
+<br>
 
 If you are interested in good programming and software development practices, check out my other [slide
 decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){target="_blank"}.
@@ -1252,6 +1306,3 @@ gghistostats(
 
 ::::
 
-## Best practices in statistical reporting 🏆 {.smaller}
-
-![](media/stats_reporting_format.png)
