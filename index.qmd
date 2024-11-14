@@ -345,7 +345,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 <br><br>
 
 :::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
-Promotes mindless application of statistical tests.
+❌  Promotes mindless application of statistical tests.
 :::
 
 :::
@@ -382,7 +382,7 @@ Promotes mindless application of statistical tests.
 
 ## Software Architecture {.smaller}
 
-Breaking down the monolith: $20K \rightarrow 1K$ lines of code
+Breaking down the monolith: $20K_{(2017)} \rightarrow 1K_{(2024)}$ lines of code
 
 ```{mermaid}
 %%| echo: false
@@ -536,9 +536,57 @@ Second most starred `{ggplot2}`-extension!
 
 ::::
 
+## Community Involvement {.smaller}
+
+:::: {.columns}
+
+::: {.column width='65%'}
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+
+## Communication
+
+Multiple [talks](https://sites.google.com/site/indrajeetspatilmorality/presentations){target='_blank'} on best practices in software development to help community contribute to `{ggstatsplot}` (or its dependency).
+
+![](media/presentations.jpeg){.relative fig-align="center"}
+ 
+:::
+
+:::
+
+::: {.column width='35%'}
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+
+## Reception
+
+- **[Improving Psychological Science Award](https://improvingpsych.org/mission/awards/){target='_blank'}** (2020)
+
+- 11 contributors
+
+- 3 reverse dependencies
+
+- Widely covered in [YouTube videos](https://www.youtube.com/results?search_query=ggstatsplot){target='_blank'} and [social media posts](https://x.com/search?q=ggstatsplot&src=typed_query){target='_blank'}
+
+- Almost 100% resolution rate on [StackOverflow](https://stackoverflow.com/questions/tagged/ggstatsplot){target='_blank'}
+
+- Over 100 daily visitors on [GitHub repo](https://github.com/IndrajeetPatil/ggstatsplot/)
+
+- Usage in a wide [range of fields](https://scholar.google.com/scholar?hl=en&scisbd=1&as_sdt=0%2C22&q=ggstatsplot&btnG=){target='_blank'}: psychology, biology, medicine, economics, etc.
+
+- Usage in data science training programs
+
+:::
+
+:::
+
+::::
+
 # Conclusion 
 
 The `{ggstatsplot}` package provides accessible interface to create rich statistical visualizations, and helps users adopt a rigorous, reliable, and robust data exploratory and reporting workflow.
+
+# Thank You 😊
 
 # For more
 
@@ -560,8 +608,6 @@ decks](https://sites.google.com/site/indrajeetspatilmorality/presentations){targ
 {{< fa solid link >}} [Website](https://sites.google.com/site/indrajeetspatilmorality/){target="_blank"}
 
 {{< fa solid envelope >}} [E-mail](mailto:patilindrajeet.science@gmail.com){target="_blank"}
-
-# Thank You 😊
 
 ## Session information {.smaller}
 
