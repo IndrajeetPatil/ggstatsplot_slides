@@ -1,4 +1,4 @@
-# Introduction to `{ggstatsplot}`: Informative Statistical Visualizations
+# Statistical Visualizations with {ggstatsplot}: A Biography
 
 This is a repository for presentation about the [`{ggstatsplot}`](https://indrajeetpatil.github.io/ggstatsplot/) (prepared using [Quarto](https://quarto.org/)).
 

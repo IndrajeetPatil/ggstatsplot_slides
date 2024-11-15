@@ -1,6 +1,6 @@
 Package: intro-to-ggstatsplot
 Type: Presentation
-Title: {ggstatsplot}: Informative Statistical Visualizations
+Title: Statistical Visualizations with {ggstatsplot}: A Biography
 Version: 2.0
 Authors@R: 
     person(given = "Indrajeet",
@@ -8,7 +8,7 @@ Authors@R:
            role = c("cre", "aut", "cph"),
            email = "patilindrajeet.science@gmail.com",
            comment = c(ORCID = "0000-0003-1995-6531", Twitter = "@patilindrajeets"))
-Description: This presentation provides an introduction to the ggstatsplot package. 
+Description: This presentation provides an introduction to the `{ggstatsplot}` package. 
     This is not a package, and the DESCRIPTION file is included to make it easier 
     to install required packages in GitHub Actions workflows.
 License: CC0 1.0 Universal

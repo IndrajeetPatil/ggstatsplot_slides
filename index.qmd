@@ -1,11 +1,11 @@
 ---
-#title: "`{ggstatsplot}`: Informative Statistical Visualizations"
+#title: "Statistical Visualizations with {ggstatsplot}: A Biography"
 #author: "Indrajeet Patil"
 #affiliation: 
 format:
   revealjs: 
     theme: simple
-    slide-number: true
+    slide-number: c
     embed-resources: true
     preview-links: auto
     code-link: true
@@ -30,7 +30,7 @@ library(ggplot2)
 set.seed(123)
 ```
 
-## {ggstatsplot}: Informative Statistical Visualizations {style="margin-top: 1em;"}
+## Statistical Visualizations with {ggstatsplot}: A Biography {style="margin-top: 1em;"}
 
 <!-- Need to install extension from https://github.com/quarto-ext/fontawesome -->
 
@@ -334,48 +334,6 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 :::
 
-## A grain of salt {.smaller}
-
-#### The "Golem of Prague" problem 
-
-:::: {.columns}
-
-::: {.column width='40%'}
-
-<br><br>
-
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
-❌  Promotes mindless application of statistical tests.
-:::
-
-:::
-
-::: {.column width='60%'}
-![](media/golem-problem.jpeg){.relative fig-align="center"}
-:::
-
-::::
-
-#### Clunky API {.smaller}
-
-:::: {.columns}
-
-::: {.column width='50%'}
-
-- Not a "real" `{ggplot2}` extension.
-- Not interactive.
-
-:::
-
-::: {.column width='50%'}
-
-- Statistical proficiency needed.
-- No stable (`1.0`) release yet.
-
-:::
-
-::::
-
 # Pleasant Side Effects
 
 *Maybe the real treasure was the technical skills we picked up along the way!*
@@ -503,12 +461,23 @@ While improving QA tools for `{ggstatsplot}`, in the spirit of open-source, I de
 #| label: "cran_downloads"
 #| fig-align: center
 #| echo: false
+#| include: false
 library(packageRank)
-plot(
+p_downloads <- plot(
   cranDownloads("ggstatsplot", from = "2018-04-03", to = Sys.Date()),
   graphics = "ggplot2", smooth = TRUE
-)
+) 
 ```
+
+```{r}
+#| label: "cran_downloads_print"
+#| fig-align: center
+#| echo: false
+p_downloads + 
+  ggplot2::labs(subtitle = NULL) + 
+  ggplot2::theme_minimal(base_size = 24)
+```
+
 
 :::
 
@@ -1344,3 +1313,26 @@ It...
 
 :::
 
+## A grain of salt {.smaller}
+
+#### The "Golem of Prague" problem 
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+<br><br>
+
+:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+❌  Promotes mindless application of statistical tests.
+:::
+
+:::
+
+::: {.column width='60%'}
+![](media/golem-problem.jpeg){.relative fig-align="center"}
+:::
+
+::::
+
+#### No stable release yet.
