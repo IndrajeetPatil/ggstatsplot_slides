@@ -69,7 +69,7 @@ Why a new package?
 
 :::{.callout-caution collapse=false appearance='default' icon=true}
 
-## Stimulus
+## External Stimulus
 
 - **Reporting errors**: 
 
@@ -93,7 +93,7 @@ and more...
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
 
-## Response
+## Internal Response
 
 ![](media/this-is-fine.jpg){.relative fig-align="center"}
 
@@ -415,11 +415,12 @@ While re-architecting `{ggstatsplot}`, I started contributing upstream: <br>
 - Code coverage (100%)
 - Linting (0 lints)
 - Formatting (0 issues)
-- Documentation (website, no link rot, many examples)
-- CRAN checks (0 E, 0 W, 0 N)
+- Documentation (website, no link rot, plenty examples)
 - Pre-commit hooks (0 issues)
+- Zero user-facing warnings
 - Portability (Linux, macOS, Windows)
 - Robustness (dependencies, R versions)
+- CRAN checks (0 notes, 0 warnings, 0 errors)
 
 :::
 
@@ -431,9 +432,9 @@ While re-architecting `{ggstatsplot}`, I started contributing upstream: <br>
 
 ## Healthy and active code base
 
-![](media/pr-qa.png){.relative fig-align="center"}
-
 ![](media/ggstats-contributions.png){.relative fig-align="center"}
+
+![](media/pr-qa.png){.relative fig-align="center"}
 
 :::
 
