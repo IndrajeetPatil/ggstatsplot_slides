@@ -69,7 +69,7 @@ Why a new package?
 
 :::{.callout-caution collapse=false appearance='default' icon=true}
 
-## Large-scale problems
+## Stimulus
 
 - **Reporting errors**: 
 
@@ -93,7 +93,7 @@ and more...
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
 
-## Personal challenges
+## Response
 
 ![](media/this-is-fine.jpg){.relative fig-align="center"}
 
@@ -118,7 +118,7 @@ Information-rich, ready-made statistical visualizations
 
 ![](media/datasaurus.gif)
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 20px; border-radius: 25px; text-align: center;"}
 
 💡 **Visualizations** reveal problems not discernible from **descriptive** statistics!
 
@@ -163,7 +163,7 @@ The **grammar of graphics** framework can prepare **any** visualization! But bui
 
 <br>
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 20px; border-radius: 25px; text-align: center;"}
 
 💡 Using **ready-made plots** lowers the effort needed for visualizing data!
 
@@ -178,7 +178,7 @@ The **grammar of graphics** framework can prepare **any** visualization! But bui
 `{ggstatsplot}` was born!
 
 :::{style="font-size: 20px;"}
-(started out as loose scripts, which were later consolidated into a package)
+(published on GitHub in 2017 and on CRAN in 2018)
 :::
 
 ## Example function {.smaller}
@@ -277,7 +277,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 ::::
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 20px; border-radius: 25px; text-align: center;"}
 
 ✅ No need to worry about reporting or interpretation errors!
 
@@ -293,7 +293,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 <br>
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 20px; border-radius: 25px; text-align: center;"}
 
 ✅ Quick insight into data by combining visualization and modeling!
 
@@ -334,7 +334,7 @@ probable under the null hypothesis as compared to the alternative hypothesis. Th
 
 ::::
 
-:::{style="background-color: #F3CCFF; padding: 15px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 15px; border-radius: 25px; text-align: center;"}
 
 ✅  Encourages best practices in data visualization and statistical reporting!
 
@@ -544,7 +544,7 @@ Multiple [talks](https://sites.google.com/site/indrajeetspatilmorality/presentat
 
 - Widely covered in [YouTube videos](https://www.youtube.com/results?search_query=ggstatsplot){target='_blank'} and [social media posts](https://x.com/search?q=ggstatsplot&src=typed_query){target='_blank'}
 
-- Almost 100% resolution rate on [StackOverflow](https://stackoverflow.com/questions/tagged/ggstatsplot){target='_blank'}
+- Almost 100% resolution rate on [StackOverflow](https://stackoverflow.com/questions/tagged/ggstatsplot){target='_blank'} (> 150 questions)
 
 - Over 100 daily visitors on [GitHub repo](https://github.com/IndrajeetPatil/ggstatsplot/)
 
@@ -560,7 +560,7 @@ Multiple [talks](https://sites.google.com/site/indrajeetspatilmorality/presentat
 
 # Conclusion 
 
-The `{ggstatsplot}` package provides accessible interface to create rich statistical visualizations, and helps users adopt a rigorous, reliable, and robust data exploratory and reporting workflow.
+The `{ggstatsplot}` package provides an <span style="background-color:#D0E8C5;">accessible interface</span> to create rich statistical visualizations and helps users adopt a <span style="background-color:#FFE31A;">rigorous, reliable, and robust data exploratory and reporting workflows</span> across diverse disciplines and domains in academia and industry alike. It's an actively developed tool with <span style="background-color:#F0C1E1;">quality infrastructure</span> and <span style="background-color:#D4F6FF;">wide adoption</span>.
 
 # Thank You 😊
 
@@ -1330,7 +1330,7 @@ It...
 
 <br><br>
 
-:::{style="background-color: #F3CCFF; padding: 20px; border-radius: 25px; text-align: center;"}
+:::{style="background-color: #FDE7BB; padding: 20px; border-radius: 25px; text-align: center;"}
 ❌  Promotes mindless application of statistical tests.
 :::
 
